@@ -1,5 +1,5 @@
 /**
- * CA State Template v5.5 -  @version v5.5.22 -  6/25/2021 
+ * CA State Template v5.5 -  @version v5.5.23 -  8/2/2021 
   STYLES COMPILED FROM SOURCE (SCSS) DO NOT MODIFY */
 /* -----------------------------------------
    BOOTSTRAP v4.6.0 - /source/scss/bootstrap/ 
@@ -24057,7 +24057,7 @@ a.label-dark:focus, a.label-dark.focus {
 }
 
 /**
- * CA State Template v5.5 -  @version v5.5.22 -  6/25/2021 
+ * CA State Template v5.5 -  @version v5.5.23 -  8/2/2021 
   STYLES COMPILED FROM SOURCE (SCSS) DO NOT MODIFY */
 /* -----------------------------------------
    PASOROBLES
@@ -29570,6 +29570,7 @@ li[class^="et_fb_profile_banner"]::before {
   color: #9B3022 !important;
 }
 
+div[id^="wpforms-confirmation-"] p:focus,
 div.wpforms-container-full input:focus,
 div.wpforms-container-full textarea:focus,
 div.wpforms-container-full button[type="submit"]:focus,
@@ -29744,6 +29745,10 @@ body:not(.sticky_nav) #main-content.main-content {
   background-image: none !important;
 }
 
+.et_pb_module.et_pb_tabs .et_pb_tabs_controls li {
+  margin-right: 2px;
+}
+
 .et_pb_text ol, .et_pb_text ul {
   padding-bottom: 0;
 }
@@ -29780,6 +29785,10 @@ body.page-template-searchpage .search-container {
 body.page-template-searchpage .mobile-controls .toggle-search,
 body.page-template-searchpage form#Search .close-search {
   display: none !important;
+}
+
+body.page-template-searchpage .gsc-cursor-page:focus {
+  outline: solid 2px #2ea3f2;
 }
 
 /* Print Formatting */
@@ -30046,11 +30055,6 @@ body.page-template-searchpage form#Search .close-search {
 
 .single.divi_builder #non_divi_sidebar {
   display: none;
-}
-
-#non_divi_sidebar {
-  float: left;
-  width: 25%;
 }
 
 #non_divi_sidebar #sidebar {

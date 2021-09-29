@@ -61,7 +61,7 @@ if ( ! class_exists( 'CAWeb_Nav_Menu' ) ) {
 		public function caweb_widget_nav_menu_args( $nav_menu_args, $nav_menu, $args, $instance ) {
 			if ( isset( $nav_menu_args['menu'] ) ) {
 				$args['echo'] = false;
-				print wp_kses( $this->create_widget_nav_menu( $nav_menu_args['menu'] ), caweb_allowed_html() );
+				print wp_kses( $this->create_widget_nav_menu( $nav_menu_args['menu'] ), 'post' );
 			}
 
 			return $args;
@@ -168,7 +168,7 @@ if ( ! class_exists( 'CAWeb_Nav_Menu' ) ) {
 			}
 
 			if ( isset( $args['echo'] ) && $args['echo'] ) {
-				print wp_kses( $nav_menu, caweb_allowed_html() );
+				print wp_kses( $nav_menu, 'post' );
 			} else {
 				return $nav_menu;
 			}
@@ -379,7 +379,7 @@ if ( ! class_exists( 'CAWeb_Nav_Menu' ) ) {
 			foreach ( $child_links as $i => $item ) {
 				$item_meta = get_post_meta( $item->ID );
 				$unit_size = isset( $item_meta['_caweb_menu_unit_size'][0] ) ? $item_meta['_caweb_menu_unit_size'][0] : 'unit1';
-				$unit_size = 'unit3' === $unit_size ? 'unit1' : 'unit2';
+				$unit_size = 'unit1' === $unit_size ? 'unit1' : 'unit2';
 
 				/* Get icon if present */
 				$icon = '';
@@ -726,6 +726,9 @@ if ( ! class_exists( 'CAWeb_Nav_Menu' ) ) {
 			$flex_row                  = isset( $tmp['_caweb_menu_flexmega_row'][0] ) ? $tmp['_caweb_menu_flexmega_row'][0] : '';
 
 			$nav_menu_style = get_option( 'ca_default_navigation_menu', 'megadropdown' );
+
+			$unit_size = 'unit3' === $unit_size && ! in_array( $nav_menu_style, array( 'flexmega', 'megadropdown' ), true ) ? 'unit2' : $unit_size;
+
 			?>
 			<div class="icon-selector <?php print 'unit3' === $unit_size ? 'hidden' : ''; ?> description description-wide">
 				<?php
@@ -737,7 +740,7 @@ if ( ! class_exists( 'CAWeb_Nav_Menu' ) ) {
 							'header' => 'Select an Icon',
 						)
 					),
-					caweb_allowed_html( array(), true )
+					'post'
 				);
 				?>
 			</div>
