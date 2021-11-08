@@ -5,7 +5,12 @@
  * @package CAWeb
  */
 
+// if using new design system, dont render settings bar
+if( $caweb_enable_design_system ){
+	exit;
+}
 ?>
+
 
 <div class="site-settings section section-standout collapse collapsed" aria-atomic="true" role="alert" id="siteSettings">
 	<div class="container  p-y">

@@ -895,14 +895,23 @@ function caweb_display_additional_features_settings( $is_active = false ) {
 	$cap                      = is_multisite() ? 'manage_network_options' : 'manage_options';
 	$live_drafts_enabled      = get_option( 'caweb_live_drafts', false ) ? ' checked' : '';
 	$caweb_debug_mode_enabled = get_option( 'caweb_debug_mode', false ) ? ' checked' : '';
-
+	$caweb_enable_design_system = get_option( 'caweb_enable_design_system', false );
 	?>
 	<div class="p-2 collapse<?php print $is_active ? ' show' : ''; ?>" id="additional-features" data-parent="#caweb-settings">
 	<div class="form-row">
+			<!-- Document Map -->
 			<div class="form-group col-sm-12">
 				<strong>Document Map</strong>
 				<button class="doc-sitemap btn btn-primary btn-sm">Generate</button>
 				<small class="doc-sitemap-update text-muted"><?php print esc_url( $file_url ); ?></small>
+			</div>
+		</div>
+		<div class="form-row">
+			<!-- Enable Design System -->
+			<div class="form-group col-sm-12">
+				<label for="caweb_enable_design_system"><strong>Enable Design System</strong></label>
+				<input type="checkbox" name="caweb_enable_design_system" id="caweb_enable_design_system" data-toggle="toggle" data-onstyle="success" <?php print esc_attr( $caweb_enable_design_system ); ?>>
+				<small class="text-muted d-block">This will enable the new design system.</small>
 			</div>
 		</div>
 		<?php if ( current_user_can( $cap ) ) : ?>
