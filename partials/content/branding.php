@@ -17,30 +17,30 @@ $caweb_search = get_option( 'ca_google_search_id', '' );
 ?>
 <!-- Branding -->
 <div class="branding">
-	<?php if( ! $caweb_enable_design_system ) : ?>
+	<?php if ( ! $caweb_enable_design_system ) : ?>
 	<div class="header-organization-banner">
 		<a href="/">
 
-	<?php else: ?>
+	<?php else : ?>
 	<div class="container with-logo">
 		<a href="/" class="grid-logo">
 	<?php endif; ?>
-  
+
 			<img alt="<?php print esc_attr( get_bloginfo( 'name' ) ); ?> Logo" src="<?php print esc_url( $caweb_logo ); ?>" alt="<?php print esc_attr( $caweb_logo_alt_text ); ?>" />
 		</a>
 
-	<?php if( ! $caweb_enable_design_system ) : ?>
+	<?php if ( ! $caweb_enable_design_system ) : ?>
 	</div>
 </div>
-<?php else: ?>
+<?php else : ?>
 	<a class="grid-org-name" href="/">
 		<span class="org-name-state">State of California</span>
 		<span class="org-name-dept"><?php print esc_attr( get_bloginfo( 'name' ) ); ?></span>
 	</a>
 
-	<?php 
-		/* Include Mobile Controls */
-		require_once 'design-system/mobile-controls.php';
+	<?php
+		// Include Mobile Controls.
+		require_once dirname( __DIR__ ) . '/design-system/mobile-controls.php';
 	?>
 	</div>
 </div>

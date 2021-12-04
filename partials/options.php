@@ -98,7 +98,7 @@ function caweb_display_general_settings( $is_active = false ) {
  */
 function caweb_display_general_options() {
 	// State Template Version variables.
-	$ver = caweb_template_version();
+	$ver = caweb_template_version( true );
 
 	// Fav Icon.
 	$fav_icon      = get_option( 'ca_fav_ico', caweb_default_favicon_url() );
@@ -107,9 +107,12 @@ function caweb_display_general_options() {
 	// Header Menu.
 	$navigation_menu = get_option( 'ca_default_navigation_menu', 'megadropdown' );
 
+	// Design System enabled.
+	$caweb_enable_design_system = get_option( 'caweb_enable_design_system', false );
+
 	// Color Scheme.
 	$color_scheme      = get_option( 'ca_site_color_scheme', 'oceanside' );
-	$available_schemes = caweb_color_schemes( $ver, 'displayname' );
+	$available_schemes = caweb_color_schemes( caweb_template_version(), 'displayname' );
 
 	// Show Search on FrontPage.
 	$frontpage_search_enabled = get_option( 'ca_frontpage_search_enabled', false ) ? ' checked' : '';
@@ -223,8 +226,8 @@ function caweb_display_general_options() {
 					$selected = $key === $color_scheme ? ' selected="selected"' : '';
 					?>
 					<option value="<?php print esc_attr( $key ); ?>"
-						<?php print esc_attr( $selected ); ?>>
-						<?php print esc_attr( $data ); ?>
+					<?php print esc_attr( $selected ); ?>>
+					<?php print esc_attr( $data ); ?>
 					</option>
 					<?php
 				}
@@ -472,7 +475,6 @@ function caweb_display_google_options() {
 	$google_translate_mode       = get_option( 'ca_google_trans_enabled', 'none' );
 	$google_translate_enabled    = 'custom' !== $google_translate_mode ? ' class="hidden"' : '';
 	$google_translate_page       = get_option( 'ca_google_trans_page', '' );
-	$google_translate_text       = get_option( 'ca_google_trans_text', '' );
 	$google_translate_new_window = get_option( 'ca_google_trans_page_new_window', true ) ? ' checked' : '';
 	$google_translate_icon       = get_option( 'ca_google_trans_icon', 'globe' );
 
@@ -556,14 +558,6 @@ function caweb_display_google_options() {
 				<small class="mb-2 text-muted d-block">Select a Page/Post where the Google Translate Service is located.</small>
 				<!-- Translate Page Field -->
 				<input type="text" name="ca_google_trans_page" id="ca_google_trans_page" class="form-control" value="<?php print esc_attr( $google_translate_page ); ?>" >
-			</div>
-
-			<!-- Google Translate Text -->
-			<div class="form-group col-sm-5">
-				<label for="ca_google_trans_text" class="d-block mb-0"><strong>Translate Link Text</strong></label>
-				<small class="mb-2 text-muted d-block">Add text to the Google Translate Service link.</small>
-				<!-- Translate Text Field -->
-				<input type="text" name="ca_google_trans_text" id="ca_google_trans_text" class="form-control" value="<?php print esc_attr( $google_translate_text ); ?>" >
 			</div>
 
 			<div class="form-group col-sm-2">
@@ -898,13 +892,13 @@ function caweb_display_alert_banner_settings( $is_active = false ) {
  * @return void
  */
 function caweb_display_additional_features_settings( $is_active = false ) {
-	$directory                = wp_upload_dir();
-	$file                     = $directory['basedir'] . '/pdf-word-sitemap.xml';
-	$file_url                 = file_exists( $file ) ? sprintf( 'File location: <a href="%1$s%2$s" target="_blank">Document Map</a>', $directory['baseurl'], '/pdf-word-sitemap.xml' ) : '';
-	$cap                      = is_multisite() ? 'manage_network_options' : 'manage_options';
-	$live_drafts_enabled      = get_option( 'caweb_live_drafts', false ) ? ' checked' : '';
-	$caweb_debug_mode_enabled = get_option( 'caweb_debug_mode', false ) ? ' checked' : '';
-	$caweb_enable_design_system = get_option( 'caweb_enable_design_system', false );
+	$directory                  = wp_upload_dir();
+	$file                       = $directory['basedir'] . '/pdf-word-sitemap.xml';
+	$file_url                   = file_exists( $file ) ? sprintf( 'File location: <a href="%1$s%2$s" target="_blank">Document Map</a>', $directory['baseurl'], '/pdf-word-sitemap.xml' ) : '';
+	$cap                        = is_multisite() ? 'manage_network_options' : 'manage_options';
+	$live_drafts_enabled        = get_option( 'caweb_live_drafts', false ) ? ' checked' : '';
+	$caweb_debug_mode_enabled   = get_option( 'caweb_debug_mode', false ) ? ' checked' : '';
+	$caweb_enable_design_system = get_option( 'caweb_enable_design_system', false ) ? ' checked' : '';
 	?>
 	<div class="p-2 collapse<?php print $is_active ? ' show' : ''; ?>" id="additional-features" data-parent="#caweb-settings">
 	<div class="form-row">

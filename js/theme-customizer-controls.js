@@ -33,12 +33,19 @@ jQuery(document).ready(function($) {
 
 // Toggle CSS Colorscheme Options
 jQuery( document ).ready( function($) {
-	$('select[id$="ca_site_version"]').on("change", correct_colorscheme_visibility );
+	$('select[id$="ca_site_version"]').on("change", function(){
+		correct_colorscheme_visibility($(this).val());
+	} );
 
-	function correct_colorscheme_visibility(){
+	$('#caweb_enable_design_system').on("change", function(){
+		var version = document.getElementById('caweb_enable_design_system').checked ? 'design-system' : $('select[id$="ca_site_version"]').val(); 
+		correct_colorscheme_visibility(version);
+	} );
+
+	function correct_colorscheme_visibility(version){
 		var color_scheme_picker = $('select[id$="ca_site_color_scheme"]');
 		var current_color = color_scheme_picker.val();
-		var new_colors = caweb_admin_args.caweb_colorschemes[$(this).val()];
+		var new_colors = caweb_admin_args.caweb_colorschemes[version];
 
 		color_scheme_picker.empty();
 

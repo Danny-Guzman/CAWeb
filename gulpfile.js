@@ -81,7 +81,7 @@ gulp.task('admin-css', async function () {
 gulp.task('frontend-css', async function (_) {
 	var version = undefined !== argv.ver ? [argv.ver] : config.availableVers;
 
-	del(['css/cagov-*.css']);
+	del(['css/caweb-*.css']);
 
 	version.forEach(function (v) {
 		if (argv.prod) {
@@ -303,13 +303,12 @@ async function buildFrontEndStyles(min = false, ver = config.templateVer) {
 		var color = config.availableColors[e];
 		var t = minified ? ' Minified ] ' : ' ] ';
 	
-		var prefix = isNaN( parseFloat( ver ) ) ? ver : 'v' + ver;
-		t = '[ ✅ CAWeb ' + prefix + ' ' + color + ' Colorscheme' + t;
+		t = '[ ✅ CAWeb ' + ver + ' ' + color + ' Colorscheme' + t;
 
 		if (!f.length)
 			return;
 
-		var fileName = 'cagov-' + prefix + '-' +
+		var fileName = 'caweb-' + ver + '-' +
 			(minified ? e.replace('.css', '.min.css') : e);
 
 		return gulp.src(f)
@@ -368,7 +367,6 @@ async function buildCAWebJS(min = false, ver = config.templateVer) {
 	);
 	var t = minified ? ' Minified ] ' : ' ] ';
 
-	ver = isNaN( parseFloat( ver ) ) ? ver : 'v' + ver;
 	t = '[ ✅ CAWeb ' + ver + ' JavaScript' + t;
 
 	if (!f.length)

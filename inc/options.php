@@ -553,7 +553,6 @@ function caweb_get_site_options( $group = '', $special = false, $with_values = f
 		'ca_google_meta_id',
 		'ca_google_trans_enabled',
 		'ca_google_trans_page',
-		'ca_google_trans_text',
 		'ca_google_trans_icon',
 		'ca_google_trans_page_new_window',
 	);
@@ -589,7 +588,7 @@ function caweb_get_site_options( $group = '', $special = false, $with_values = f
 
 	$caweb_alert_options = array( 'caweb_alerts' );
 
-	$caweb_addtl_options = array( 'caweb_live_drafts', 'caweb_debug_mode' );
+	$caweb_addtl_options = array( 'caweb_live_drafts', 'caweb_debug_mode', 'caweb_enable_design_system' );
 
 	switch ( $group ) {
 		case 'general':

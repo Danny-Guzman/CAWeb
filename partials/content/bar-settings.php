@@ -6,7 +6,7 @@
  */
 
 // if using new design system, dont render settings bar
-if( $caweb_enable_design_system ){
+if ( $caweb_enable_design_system ) {
 	exit;
 }
 ?>

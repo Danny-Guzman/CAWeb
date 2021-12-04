@@ -108,18 +108,18 @@ if ( ! class_exists( 'CAWeb_Nav_Menu' ) ) {
 				$home_link = ( isset( $args->home_link ) && $args->home_link ? '<li class="nav-item nav-item-home"><a href="/" class="first-level-link"><span class="ca-gov-icon-home"></span> Home</a></li>' : '' );
 
 				$search_link = '';
-				
-				if( 'page-templates/searchpage.php' !== get_page_template_slug( $post_id ) && '' !== get_option( 'ca_google_search_id', '' ) ){
-					if( $caweb_enable_design_system ){
+
+				if ( 'page-templates/searchpage.php' !== get_page_template_slug( $post_id ) && '' !== get_option( 'ca_google_search_id', '' ) ) {
+					if ( $caweb_enable_design_system ) {
 						$search_link = '<li class="nav-item" id="nav-item-search" ><button class="first-level-link h-auto"><span class="ca-gov-icon-search" aria-hidden="true"></span> Search</button></li>';
-					}else{
+					} else {
 						$search_link = '<div class="expanded-menu-section mobile-only"><strong class="expanded-menu-section-header"><a class="expanded-menu-section-header-link js-event-hm-menu" href="/">Home</a></strong></div>';
 					}
 				}
 
 				$nav_style = isset( $args->style ) ? ( 'flexmega' === $args->style ? 'megadropdown' : $args->style ) : 'singlelevel';
 
-				if( $caweb_enable_design_system ){
+				if ( $caweb_enable_design_system ) {
 					$nav_menu = sprintf(
 						'<nav class="expanded-menu" role="navigation" aria-label="Site Navigation" aria-hidden="false" id="main-menu">
 						<div class="expanded-menu-grid">%2$s%3$s%4$s</div></nav>',
@@ -128,7 +128,7 @@ if ( ! class_exists( 'CAWeb_Nav_Menu' ) ) {
 						$nav_menu,
 						$search_link
 					);
-				}else{
+				} else {
 					$nav_menu = sprintf(
 						'<nav id="navigation" class="main-navigation %1$s hidden-print nav">
 									<ul id="nav_list" class="top-level-nav">%2$s%3$s%4$s</ul></nav>',
@@ -138,7 +138,6 @@ if ( ! class_exists( 'CAWeb_Nav_Menu' ) ) {
 						$search_link
 					);
 				}
-				
 
 				/* Footer Menu Construction */
 			} elseif ( 'footer-menu' === $theme_location && ! empty( $args->menu ) ) {
@@ -153,14 +152,14 @@ if ( ! class_exists( 'CAWeb_Nav_Menu' ) ) {
 					$powered_by
 				);
 
-				if( $caweb_enable_design_system ){
+				if ( $caweb_enable_design_system ) {
 					$nav_menu = sprintf(
 						'<footer id="footer" class="global-footer hidden-print"><div class="bg-light-grey"><div class="container">%1$s</div></div>%2$s</div></footer>',
 						$nav_menu,
 						$copyright
 					);
-	
-				}else{
+
+				} else {
 					$nav_menu = sprintf(
 						'<footer id="footer" class="global-footer hidden-print"><div class="container"><div class="row">%1$s</div></div>%2$s</footer>',
 						$nav_menu,
@@ -192,8 +191,8 @@ if ( ! class_exists( 'CAWeb_Nav_Menu' ) ) {
 				$nav_menu     = '<ul class="footer-links"><li><a>There Is No Navigation Menu Set</a></li></ul>';
 				$social_links = '';
 
-				if( $caweb_enable_design_system ){
-					$nav_menu     = sprintf(
+				if ( $caweb_enable_design_system ) {
+					$nav_menu = sprintf(
 						'<footer id="footer" class="global-footer hidden-print"><div class="bg-light-grey">
 						<div class="container">%1$s%2$s</div>
 						<div class="container pt-0"><p class="copyright">&copy; <script>document.write(new Date().getFullYear())</script> State of California </p></div>
@@ -201,8 +200,8 @@ if ( ! class_exists( 'CAWeb_Nav_Menu' ) ) {
 						$nav_menu,
 						$social_links
 					);
-				}else{
-					$nav_menu     = sprintf(
+				} else {
+					$nav_menu = sprintf(
 						'<footer id="footer" class="global-footer hidden-print"><div class="container"><div class="group">%1$s%2$s</div></div>
 								<!-- Copyright Statement -->
 						  <div class="copyright">
@@ -212,7 +211,6 @@ if ( ! class_exists( 'CAWeb_Nav_Menu' ) ) {
 						$social_links
 					);
 				}
-				
 			}
 
 			if ( isset( $args['echo'] ) && $args['echo'] ) {
@@ -234,7 +232,7 @@ if ( ! class_exists( 'CAWeb_Nav_Menu' ) ) {
 
 			$menuitems = wp_get_nav_menu_items( $nav_menu->term_id, array( 'order' => 'DESC' ) );
 			_wp_menu_item_classes_by_context( $menuitems );
-			
+
 			/* CAGov Design System */
 			$caweb_enable_design_system = get_option( 'caweb_enable_design_system', false );
 
@@ -260,8 +258,8 @@ if ( ! class_exists( 'CAWeb_Nav_Menu' ) ) {
 
 						/* Iterate thru $child_links create Sub Level (second-level-links) */
 						foreach ( $child_links as $i => $subitem ) {
-							$sub_item_meta  = get_post_meta( $subitem->ID );
-							if( $caweb_enable_design_system ){
+							$sub_item_meta = get_post_meta( $subitem->ID );
+							if ( $caweb_enable_design_system ) {
 								$sub_nav_items .= sprintf(
 									'<a class="expanded-menu-dropdown-link js-event-hm-menu" href="%5$s"%6$s>%7$s</a>',
 									implode( ' ', $subitem->classes ),
@@ -272,7 +270,7 @@ if ( ! class_exists( 'CAWeb_Nav_Menu' ) ) {
 									( ! empty( $subitem->target ) ? sprintf( ' target="%1$s" ', $subitem->target ) : '' ),
 									$subitem->title
 								);
-							}else{
+							} else {
 								$sub_nav_items .= sprintf(
 									'<li class="%1$s%2$s"%3$s%4$s><a href="%5$s"%6$s>%7$s</a></li>',
 									implode( ' ', $subitem->classes ),
@@ -286,23 +284,23 @@ if ( ! class_exists( 'CAWeb_Nav_Menu' ) ) {
 							}
 						}
 
-						if( $caweb_enable_design_system ){
+						if ( $caweb_enable_design_system ) {
 							$sub_nav = sprintf( ' <div class="expanded-menu-dropdown">%1$s</div>', $sub_nav_items );
-						}else{
+						} else {
 							$sub_nav = sprintf( '<ul class="description">%1$s</ul>', $sub_nav_items );
 						}
 					} /* End of sub-nav */
 
 					$item_nav_image = '';
 
-					if( $caweb_enable_design_system ){
+					if ( $caweb_enable_design_system ) {
 						if ( ! empty( $item_meta['_caweb_menu_icon'][0] ) ) {
 							$item_nav_image_class = 'widget_nav_menu_icon ca-gov-icon-' . $item_meta['_caweb_menu_icon'][0];
-							$item_nav_image       = "";
+							$item_nav_image       = '';
 						} elseif ( ! empty( $item_meta['_caweb_menu_image'][0] ) ) {
 							$item_nav_image = sprintf( '<img class="widget_nav_menu_img" src="%1$s"/>', $item_meta['_caweb_menu_image'][0] );
 						}
-	
+
 						$widget_nav_menu .= sprintf(
 							'<div class="expanded-menu-section">
 							<strong class="expanded-menu-section-header"><strong %5$s href="%6$s"%7$s%8$s>%9$s%10$s</strong></div>',
@@ -317,14 +315,14 @@ if ( ! class_exists( 'CAWeb_Nav_Menu' ) ) {
 							$item_nav_image,
 							sprintf( '<p class="widget_nav_menu_title">%1$s</p>', $item->title )
 						);
-					}else{
+					} else {
 						if ( ! empty( $item_meta['_caweb_menu_icon'][0] ) ) {
 							$item_nav_image_class = 'widget_nav_menu_icon ca-gov-icon-' . $item_meta['_caweb_menu_icon'][0];
 							$item_nav_image       = "<span class=\"$item_nav_image_class\"></span>";
 						} elseif ( ! empty( $item_meta['_caweb_menu_image'][0] ) ) {
 							$item_nav_image = sprintf( '<img class="widget_nav_menu_img" src="%1$s"/>', $item_meta['_caweb_menu_image'][0] );
 						}
-	
+
 						$widget_nav_menu .= sprintf(
 							'<li class="nav-item %1$s%2$s"%3$s%4$s><a %5$s href="%6$s"%7$s%8$s>%9$s%10$s</a></li>',
 							implode( ' ', $item->classes ),
@@ -339,7 +337,6 @@ if ( ! class_exists( 'CAWeb_Nav_Menu' ) ) {
 							sprintf( '<p class="widget_nav_menu_title">%1$s</p>', $item->title )
 						);
 					}
-					
 				}
 			}
 
@@ -378,9 +375,9 @@ if ( ! class_exists( 'CAWeb_Nav_Menu' ) ) {
 
 					/* Get icon if present */
 					$icon = isset( $item_meta['_caweb_menu_icon'] ) && ! empty( $item_meta['_caweb_menu_icon'][0] ) ? $item_meta['_caweb_menu_icon'][0] : 'logo invisible';
-					if( $caweb_enable_design_system ){
+					if ( $caweb_enable_design_system ) {
 						$icon = '<span class=""></span>';
-					}else{
+					} else {
 						$icon = '<span class="ca-gov-icon-' . $icon . '"></span>';
 					}
 
@@ -392,7 +389,7 @@ if ( ! class_exists( 'CAWeb_Nav_Menu' ) ) {
 					'megadropdown' === $args->style ? $item_meta['_caweb_menu_column_count'][0] : '';
 
 					/* Create Link */
-					if( $caweb_enable_design_system ){
+					if ( $caweb_enable_design_system ) {
 						$nav_item .= sprintf(
 							'<div class="expanded-menu-col js-cagov-navoverlay-expandable">
 							<div class="expanded-menu-section">
@@ -405,7 +402,7 @@ if ( ! class_exists( 'CAWeb_Nav_Menu' ) ) {
 							$icon,
 							$item->title
 						);
-					}else{
+					} else {
 						$nav_item .= sprintf(
 							'<li class="nav-item %1$s"%2$s title="%3$s"><a href="%4$s" class="first-level-link"%5$s>%6$s<span class="link-title">%7$s</span></a>',
 							implode( ' ', array_filter( $item->classes ) ),
@@ -470,9 +467,9 @@ if ( ! class_exists( 'CAWeb_Nav_Menu' ) ) {
 								break;
 						}
 					} else {
-						if( $caweb_enable_design_system ){
+						if ( $caweb_enable_design_system ) {
 							$nav_item .= '</strong></div></div>';
-						}else{
+						} else {
 							$nav_item .= '</li>';
 						}
 					}

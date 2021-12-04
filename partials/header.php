@@ -7,11 +7,12 @@
 
 global $post;
 
-$caweb_loaded       = isset( $args['loaded'] ) && $args['loaded'];
-$caweb_fixed_header = ! $caweb_loaded && get_option( 'ca_sticky_navigation', false ) ? ' fixed' : '';
-$caweb_color        = get_option( 'ca_site_color_scheme', 'oceanside' );
-$caweb_schemes      = caweb_color_schemes( caweb_template_version(), 'filename' );
-$caweb_colorscheme  = isset( $caweb_schemes[ $caweb_color ] ) ? $caweb_color : 'oceanside';
+$caweb_enable_design_system = get_option( 'caweb_enable_design_system', false );
+$caweb_loaded               = isset( $args['loaded'] ) && $args['loaded'];
+$caweb_fixed_header         = ! $caweb_loaded && get_option( 'ca_sticky_navigation', false ) ? ' fixed' : '';
+$caweb_color                = get_option( 'ca_site_color_scheme', 'oceanside' );
+$caweb_schemes              = caweb_color_schemes( caweb_template_version(), 'filename' );
+$caweb_colorscheme          = isset( $caweb_schemes[ $caweb_color ] ) ? $caweb_color : 'oceanside';
 
 /* Search */
 $caweb_frontpage_search_enabled = get_option( 'ca_frontpage_search_enabled' );
@@ -31,7 +32,7 @@ if ( ! empty( $caweb_google_tag_manager_id ) ) :
 	?>
 <!-- Google Tag Manager (noscript) -->
 <noscript>
-	<iframe src="<?php print esc_url( $caweb_google_tag_srcrc ); ?>" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+	<iframe src="<?php print esc_url( $caweb_google_tag_src ); ?>" height="0" width="0" style="display:none;visibility:hidden"></iframe>
 </noscript>
 
 <?php endif; ?>
@@ -46,15 +47,18 @@ if ( ! empty( $caweb_google_tag_manager_id ) ) :
 	/* Include Utility Header */
 	if ( ! $caweb_enable_design_system ) {
 		require_once 'content/utility-header.php';
-	}else{
+	} else {
 		require_once 'design-system/utility-header.php';
 	}
 
 	/* Include Location Bar */
 	require_once 'content/bar-location.php';
 
-	/* Include Settings Bar */
-	require_once 'content/bar-settings.php';
+	// if not using new design system.
+	if ( ! $caweb_enable_design_system ) {
+		/* Include Settings Bar */
+		require_once 'content/bar-settings.php';
+	}
 
 	/* Include Branding */
 	require_once 'content/branding.php';
@@ -75,7 +79,7 @@ if ( ! empty( $caweb_google_tag_manager_id ) ) :
 
 		<?php
 		if ( 'page-templates/searchpage.php' !== get_page_template_slug( get_the_ID() ) ) {
-			require_once 'content/search-form.php';
+			require_once 'design-system/search-form.php';
 		}
 	}
 
