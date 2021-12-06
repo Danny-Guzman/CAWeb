@@ -38,7 +38,7 @@ if ( ! empty( $caweb_google_tag_manager_id ) ) :
 <?php endif; ?>
 
 <header id="header" class="global-header<?php print esc_attr( $caweb_fixed_header ); ?>">
-<div id="skip-to-content"><a href="#main-content">Skip to Main Content</a></div>
+	<div id="skip-to-content"><a href="#main-content">Skip to Main Content</a></div>
 	<?php
 
 	/* Alerts */
@@ -63,27 +63,14 @@ if ( ! empty( $caweb_google_tag_manager_id ) ) :
 	/* Include Branding */
 	require_once 'content/branding.php';
 
-	// Navigation.
-	// if not using the new design system, add mobile controls.
 	if ( ! $caweb_enable_design_system ) {
 		/* Include Mobile Controls */
 		require_once 'content/mobile-controls.php';
 		?>
-		<div class="navigation-search">
+	<div class="navigation-search">
 
+	<!-- Include Navigation -->
 		<?php
-	} else {
-		?>
-		<cagov-navoverlay>
-		<div class="container">
-
-		<?php
-		if ( 'page-templates/searchpage.php' !== get_page_template_slug( get_the_ID() ) ) {
-			require_once 'design-system/search-form.php';
-		}
-	}
-
-	/* Include Navigation */
 		wp_nav_menu(
 			array(
 				'theme_location'               => 'header-menu',
@@ -91,12 +78,11 @@ if ( ! empty( $caweb_google_tag_manager_id ) ) :
 				'home_link'                    => ( ! is_front_page() && get_option( 'ca_home_nav_link', true ) ? true : false ),
 			)
 		);
-			$caweb_search  = is_front_page() && $caweb_frontpage_search_enabled ? ' featured-search fade ' : '';
-			$caweb_search .= empty( $caweb_google_search_id ) ? ' hidden ' : '';
 
-		// if not using the new design system, add search.
-		if ( ! $caweb_enable_design_system ) {
-			?>
+		$caweb_search  = is_front_page() && $caweb_frontpage_search_enabled ? ' featured-search fade ' : '';
+		$caweb_search .= empty( $caweb_google_search_id ) ? ' hidden ' : '';
+
+		?>
 		<div id="head-search" class="search-container<?php print esc_attr( $caweb_search ); ?> hidden-print" role="region" aria-label="Search Expanded">
 			<?php
 			if ( 'page-templates/searchpage.php' !== get_page_template_slug( get_the_ID() ) ) {
@@ -104,16 +90,31 @@ if ( ! empty( $caweb_google_tag_manager_id ) ) :
 			}
 			?>
 		</div>
-			<?php
-		}
-		?>
 	</div>
-	<?php
-	if ( $caweb_enable_design_system ) {
+		<?php
+	} else {
 		?>
+	<cagov-navoverlay>
+		<div class="container">
+
+		<?php
+		if ( 'page-templates/searchpage.php' !== get_page_template_slug( get_the_ID() ) ) {
+			require_once 'design-system/search-form.php';
+		}
+
+		/* Include Navigation */
+		wp_nav_menu(
+			array(
+				'theme_location'               => 'header-menu',
+				'style'                        => get_option( 'ca_default_navigation_menu' ),
+				'home_link'                    => ( ! is_front_page() && get_option( 'ca_home_nav_link', true ) ? true : false ),
+			)
+		);
+
+		?>
+		</div>
 	</cagov-navoverlay>
 		<?php
 	}
 	?>
-
 </header>
