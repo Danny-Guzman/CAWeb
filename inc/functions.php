@@ -184,16 +184,10 @@ function caweb_color_schemes( $version = -1, $field = '', $color = '' ) {
 	Get glob of colorschemes based on version,
 	if no version provided return all colors from all versions
 	*/
-	switch ( $version ) {
-		case 5.5:
-			$tmp = glob( sprintf( '%1$s/version-5.5/colorscheme/*.css', $css_dir ) );
-			break;
-		case 'design-system':
-			$tmp = glob( sprintf( '%1$s/version-design-system/colorscheme/*.css', $css_dir ) );
-			break;
-		default:
-			$tmp = glob( sprintf( '%1$s/*/colorscheme/*.css', $css_dir ) );
-			break;
+	$tmp = glob( sprintf( '%1$s/version-%2$s/colorscheme/*.css', $css_dir, $version ) );
+
+	if( empty( $tmp ) ){
+		$tmp = glob( sprintf( '%1$s/*/colorscheme/*.css', $css_dir ) );
 	}
 
 	/*

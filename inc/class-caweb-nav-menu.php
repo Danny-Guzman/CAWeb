@@ -106,10 +106,12 @@ if ( ! class_exists( 'CAWeb_Nav_Menu' ) ) {
 				if ( $caweb_enable_design_system ) {
 					$nav_menu = $this->create_design_system_nav_menu( $args );
 
+					$mobile = '<div class="expanded-menu-section mobile-only"><strong class="expanded-menu-section-header"><a class="expanded-menu-section-header-link js-event-hm-menu" href="/">Home</a></strong></div>';
+
 					$nav_menu = sprintf(
-						'<nav class="expanded-menu" role="navigation" aria-label="Site Navigation" aria-hidden="false" id="main-menu">
-					<div class="expanded-menu-grid">%1$s</div></nav>',
-						$nav_menu
+						'<div class="expanded-menu" role="navigation" aria-label="Site Navigation" aria-hidden="false" id="main-menu">
+					<ul class="expanded-menu-grid">%1$s%2$s</ul></div>',
+						$mobile, $nav_menu
 					);
 
 				} else {
@@ -122,6 +124,7 @@ if ( ! class_exists( 'CAWeb_Nav_Menu' ) ) {
 										'<li class="nav-item" id="nav-item-search" ><button class="first-level-link h-auto"><span class="ca-gov-icon-search" aria-hidden="true"></span> Search</button></li>' : '';
 
 					$nav_style = isset( $args->style ) ? ( 'flexmega' === $args->style ? 'megadropdown' : $args->style ) : 'singlelevel';
+					$nav_style .= '6.0' >= get_option('ca_site_version', CAWEB_MINIMUM_SUPPORTED_TEMPLATE_VERSION ) ? ' justify-content-end' : '';
 
 					$nav_menu = sprintf(
 						'<nav id="navigation" class="main-navigation %1$s hidden-print nav">
@@ -371,6 +374,9 @@ if ( ! class_exists( 'CAWeb_Nav_Menu' ) ) {
 										$nav_img
 									);
 
+								}else{
+									$sub_img_class = '';
+									$sub_img = '';
 								}
 
 								$nav_item .= sprintf(
@@ -438,7 +444,7 @@ if ( ! class_exists( 'CAWeb_Nav_Menu' ) ) {
 						</span>';
 
 						$link = sprintf(
-							'<button class="expanded-menu-section-header-link js-event-hm-menu">
+							'<button class="expanded-menu-section-header-link js-event-hm-menu" data-toggle="dropdown">
 						<span>%1$s</span>%2$s</button>',
 							$item->title,
 							$arrow
@@ -461,12 +467,12 @@ if ( ! class_exists( 'CAWeb_Nav_Menu' ) ) {
 
 					/* Create Link */
 					$nav_item .= sprintf(
-						'<div class="expanded-menu-col js-cagov-navoverlay-expandable">
+						'<li class="expanded-menu-col js-cagov-navoverlay-expandable expanded-menu-section">
 					<div class="expanded-menu-section">
 					  <strong class="expanded-menu-section-header">%1$s
 					  </strong>%2$s
 					  </div>
-					  </div>',
+					  </li>',
 						$link,
 						$sub_nav
 					);

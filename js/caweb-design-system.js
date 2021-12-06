@@ -1546,4 +1546,4 @@ class CaGovMinus extends window.HTMLElement {
 }
 window.customElements.define('cagov-minus', CaGovMinus);
 
-// Custom JS
+// Custom Js

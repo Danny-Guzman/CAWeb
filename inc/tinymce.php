@@ -31,7 +31,7 @@ function caweb_tiny_mce_settings( $settings = array() ) {
 	$colorscheme = caweb_color_schemes( $version, 'filename', $color );
 	$colorscheme = is_array( $colorscheme ) ? array_shift( $colorscheme ) : $colorscheme;
 
-	$editor_css = caweb_get_min_file( "/css/cagov-$version-$colorscheme.css" );
+	$editor_css = caweb_get_min_file( "/css/caweb-$version-$colorscheme.css" );
 
 	$css = array(
 		includes_url( '/css/dashicons.min.css' ),

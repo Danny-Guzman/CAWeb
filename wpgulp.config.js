@@ -11,7 +11,7 @@
 module.exports = {
 	// CA State Template Options
 	templateVer: '5.5', // Minimum CA State Template Version
-	availableVers: ['5.5', 'design-system'], // Available CA State Template Versions
+	availableVers: ['5.5', 'design-system', '6.0'], // Available CA State Template Versions
 	availableColors: {
 		'cagov.css' : 'CAGov',
 		'cannabis.css' : 'Cannabis',
