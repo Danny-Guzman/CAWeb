@@ -63,7 +63,7 @@ module.exports = {
 	],
 	themeCustomizerControlJS: [ // Theme Customizer Control JS 
 		'assets/js/caweb/options/icon.js',
-		'assets/js/caweb/options/toggle-colorschemes.js',
+		'assets/js/caweb/options/colorschemes.js',
 		'assets/js/wp/theme-customizer/controls/*.js',
 	],
 };

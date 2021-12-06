@@ -140,8 +140,16 @@ function caweb_display_general_options() {
 		</a>
 	</div>
 	<div class="collapse show" id="general-setting" data-parent="#general-settings">
-		<!-- State Template Version Row -->
+		<!-- Enable Design System -->
 		<div class="form-row">
+			<div class="form-group col-sm-12">
+				<label for="caweb_enable_design_system"><strong>Enable Design System</strong></label>
+				<input type="checkbox" name="caweb_enable_design_system" id="caweb_enable_design_system" data-toggle="toggle" data-onstyle="success" <?php print $caweb_enable_design_system ? ' checked' : ''; ?>>
+				<small class="text-muted d-block">This will enable the new design system.</small>
+			</div>
+		</div>
+		<!-- State Template Version Row -->
+		<div class="form-row<?php print $caweb_enable_design_system ? ' d-none' : ''; ?>">
 			<div class="form-group col-sm-5">
 				<label for="ca_site_version" class="d-block mb-0"><strong>State Template Version</strong></label>
 				<small class="mb-2 text-muted d-block">Select a California State Template version.</small>
@@ -473,7 +481,6 @@ function caweb_display_google_options() {
 
 	// Translate.
 	$google_translate_mode       = get_option( 'ca_google_trans_enabled', 'none' );
-	$google_translate_enabled    = 'custom' !== $google_translate_mode ? ' class="hidden"' : '';
 	$google_translate_page       = get_option( 'ca_google_trans_page', '' );
 	$google_translate_new_window = get_option( 'ca_google_trans_page_new_window', true ) ? ' checked' : '';
 	$google_translate_icon       = get_option( 'ca_google_trans_icon', 'globe' );
@@ -498,7 +505,7 @@ function caweb_display_google_options() {
 
 		<!-- Analytics ID Row -->
 		<div class="form-row">
-			<div class="form-group col-sm-12<?php print ! empty( $google_tag_manager_approved ) ? ' hidden' : ''; ?>">
+			<div class="form-group col-sm-12">
 				<label for="ca_google_analytic_id" class="d-block mb-0"><strong>Analytics ID</strong></label>
 				<small class="mb-2 text-muted d-block">Enter your unique Google Analytics ID, if you don't have one see an administrator.</small>
 				<!-- Analytics ID Field -->
@@ -909,14 +916,6 @@ function caweb_display_additional_features_settings( $is_active = false ) {
 				<small class="doc-sitemap-update text-muted"><?php print esc_url( $file_url ); ?></small>
 			</div>
 		</div>
-		<div class="form-row">
-			<!-- Enable Design System -->
-			<div class="form-group col-sm-12">
-				<label for="caweb_enable_design_system"><strong>Enable Design System</strong></label>
-				<input type="checkbox" name="caweb_enable_design_system" id="caweb_enable_design_system" data-toggle="toggle" data-onstyle="success" <?php print esc_attr( $caweb_enable_design_system ); ?>>
-				<small class="text-muted d-block">This will enable the new design system.</small>
-			</div>
-		</div>
 		<?php if ( current_user_can( $cap ) ) : ?>
 		<div class="form-row">
 			<!-- Live Drafts Option -->
@@ -926,7 +925,6 @@ function caweb_display_additional_features_settings( $is_active = false ) {
 				<small class="text-muted d-block">This will enable the live drafts functionality.</small>
 			</div>
 		</div>
-
 		<div class="form-row">
 			<!-- Enable Debug -->
 			<div class="form-group col-sm-12">
