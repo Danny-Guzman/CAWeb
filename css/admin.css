@@ -8925,11 +8925,6 @@ a[data-toggle="collapse"].collapsed label > span:after {
   cursor: pointer;
 }
 
-#ca_custom_css,
-#ca_custom_js {
-  min-height: 300px;
-}
-
 #uploaded-css li,
 #uploaded-js li {
   cursor: grab;
@@ -9083,6 +9078,18 @@ li[id^="customize-control-caweb_alert_banner_"] input[type="checkbox"] {
   font-weight: normal;
   font-style: normal;
   font-display: block;
+}
+
+select[data-class-icon] {
+  font-size: 20px;
+  font-family: "CaGov";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .et_font_icon li[class^="ca-gov-icon-"]:before,
