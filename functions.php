@@ -322,9 +322,11 @@ function caweb_wp_enqueue_scripts() {
 	}
 
 	if ( ! empty( $ga4 ) ) {
-		wp_enqueue_script( 'google-tag-manager-gtag', 'https://www.googletagmanager.com/gtag/js?id=' . $ga4, array(), CAWEB_VERSION, true );
-
 		$localize_args['ca_google_analytic4_id'] = $ga4;
+	}
+
+	if ( ! empty( $ga4 ) || ! empty( get_site_option( 'caweb_multi_ga4', '' ) ) ) {
+		wp_enqueue_script( 'google-tag-manager-gtag', 'https://www.googletagmanager.com/gtag/js?id=G-69TD0KNT0F', array(), CAWEB_VERSION, true );
 	}
 
 	$frontend_js_file = caweb_get_min_file( "/js/caweb-$version.js", 'js' );
@@ -340,7 +342,7 @@ function caweb_wp_enqueue_scripts() {
 	/* Register Scripts */
 	wp_register_script( 'cagov-modernizr-script', CAWEB_URI . '/js/libs/modernizr-3.6.0.min.js', array( 'jquery' ), CAWEB_VERSION, false );
 
-	wp_register_script( 'caweb-script', $frontend_js_file, array( 'cagov-modernizr-script' ), time(), true );
+	wp_register_script( 'caweb-script', $frontend_js_file, array( 'cagov-modernizr-script' ), CAWEB_VERSION, true );
 
 	wp_localize_script( 'caweb-script', 'args', $localize_args );
 
