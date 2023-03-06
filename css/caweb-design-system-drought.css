@@ -6364,72 +6364,6 @@ figure figcaption {
 /* all of the above will become part of base-css component */
 /*# sourceMappingURL=drought.css.map */
 
-/* PDF Icon */
-.pdf-link-icon {
-  display: inline-block;
-  outline: 1px solid;
-  outline-offset: -2px;
-  padding: 0;
-  position: relative;
-  left: 1px;
-  top: -3px;
-  line-height: 0.9rem;
-  text-decoration: none;
-}
-
-.pdf-link-icon svg path {
-  fill: var(--primary-700, #004abc);
-}
-
-/* External link icon */
-.external-link-icon {
-  display: inline-block;
-  padding: 0;
-  position: relative;
-  left: 3px;
-  margin-right: 2px;
-  top: 1px;
-  text-decoration: none;
-  width: 0.8em;
-}
-
-.external-link-icon svg path {
-  fill: var(--primary-700, #004abc);
-}
-
-main a:hover .external-link-icon svg path,
-.site-footer a:hover .external-link-icon svg path,
-.agency-footer a:hover .external-link-icon svg path {
-  fill: var(--primary-900, #003484);
-}
-
-footer a .external-link-icon svg path {
-  fill: var(--black, #000);
-}
-
-/* External link icon exceptions */
-.cagov-card .external-link-icon,
-.wp-block-button__link .external-link-icon,
-.footer-social-links a .external-link-icon,
-img ~ .external-link-icon,
-svg ~ .external-link-icon,
-.pdf-link-icon ~ .external-link-icon {
-  display: none;
-}
-
-.sr-only {
-  height: unset !important;
-  text-indent: -10000px;
-  width: unset !important;
-  clip: rect(0, 0, 0, 0) !important;
-  border: 0 !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  position: absolute !important;
-  white-space: nowrap !important;
-}
-
 /* Tablet and wider */
 /* Desktop and wider */
 /* utility classes */
@@ -6851,6 +6785,39 @@ cagov-site-navigation .expanded-menu-close-mobile-svg {
 
 .expanded-menu-section-header-arrow-svg {
   max-width: 20px;
+}
+
+/* skip-to-content */
+#skip-to-content {
+  position: relative;
+  left: 50% !important;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 1px;
+  height: 1px;
+  z-index: 999;
+}
+
+#skip-to-content a {
+  width: 1px;
+  height: 1px;
+  text-align: center;
+  position: absolute !important;
+  left: 50% !important;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  clip: unset;
+  background-color: white;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  overflow: hidden;
+}
+
+#skip-to-content a:focus {
+  width: 160px;
+  height: 27px;
 }
 
 .site-header {
@@ -7315,6 +7282,101 @@ section.site-footer .footer-social-links a:hover svg path {
   border: 0;
 }
 
+/* footer */
+footer {
+  font-size: var(--font-size-1, 1rem);
+  border-top: solid 1px var(--gray-200, #d4d4d7);
+}
+
+footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  box-sizing: border-box;
+  max-width: var(--w-lg, 1176px);
+  margin: 0 auto;
+  padding: var(--s-2, 1rem);
+}
+
+footer a:hover {
+  color: var(--primary-900, #003588);
+}
+
+footer a:focus {
+  outline: 2px solid var(--accent2-500, #ac8226);
+}
+
+footer .footer-secondary-links {
+  display: flex;
+  flex-direction: column;
+}
+
+footer .footer-secondary-links a {
+  margin-right: var(--s-3, 1.5rem);
+  padding-top: var(--s-1, 0.5rem);
+  padding-bottom: var(--s-1, 0.5rem);
+}
+
+footer .footer-secondary-links a span.external-link-icon,
+footer .footer-secondary-links a span.ca-gov-icon-external-link {
+  display: none;
+}
+
+footer .footer-secondary-links a:hover {
+  text-decoration: none;
+}
+
+footer .bg-light-grey svg {
+  padding: 0;
+}
+
+footer .bg-light-grey svg .ca {
+  fill: var(--cagov-highlight, #fec02f);
+}
+
+footer .bg-light-grey svg .gov {
+  fill: var(--cagov-primary-dark, #003484);
+}
+
+footer .cagov-logo {
+  padding-top: var(--s-1, 0.5rem);
+  padding-bottom: var(--s-1, 0.5rem);
+  padding-right: var(--s-3, 1.5rem);
+}
+
+footer .footer-secondary-links a,
+footer .copyright {
+  color: var(--black, #000);
+  padding-top: var(--s-1, 0.5rem);
+  padding-bottom: var(--s-1, 0.5rem);
+}
+
+footer .copyright {
+  margin: 0;
+}
+
+.bg-light-grey {
+  background-color: var(--gray-50, #fafafa);
+}
+
+.pt-0 {
+  padding-top: 0 !important;
+}
+
+@media (min-width: 991px) {
+  footer .footer-secondary-links,
+  footer .container {
+    margin-right: auto;
+    flex-direction: row;
+    align-items: center;
+  }
+  footer .footer-secondary-links.flex-col-end,
+  footer .container.flex-col-end {
+    flex-direction: column;
+    align-items: end;
+  }
+}
+
 /* translate widget loader */
 #google_translate_element {
   font-size: var(--font-size-sm, 0.875rem);
@@ -7505,133 +7567,5 @@ section.site-footer .footer-social-links a:hover svg path {
 @media screen and (min-width: 800px) {
   .desktop-only {
     display: inline;
-  }
-}
-
-/* skip-to-content */
-#skip-to-content {
-  position: relative;
-  left: 50% !important;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
-  width: 1px;
-  height: 1px;
-  z-index: 999;
-}
-
-#skip-to-content a {
-  width: 1px;
-  height: 1px;
-  text-align: center;
-  position: absolute !important;
-  left: 50% !important;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
-  clip: unset;
-  background-color: white;
-  border-bottom-left-radius: 7px;
-  border-bottom-right-radius: 7px;
-  overflow: hidden;
-}
-
-#skip-to-content a:focus {
-  width: 160px;
-  height: 27px;
-}
-
-/* footer */
-footer {
-  font-size: var(--font-size-1, 1rem);
-  border-top: solid 1px var(--gray-200, #d4d4d7);
-}
-
-footer .container {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  box-sizing: border-box;
-  max-width: var(--w-lg, 1176px);
-  margin: 0 auto;
-  padding: var(--s-2, 1rem);
-}
-
-footer a:hover {
-  color: var(--primary-900, #003588);
-}
-
-footer a:focus {
-  outline: 2px solid var(--accent2-500, #ac8226);
-}
-
-footer .footer-secondary-links {
-  display: flex;
-  flex-direction: column;
-}
-
-footer .footer-secondary-links a {
-  margin-right: var(--s-3, 1.5rem);
-  padding-top: var(--s-1, 0.5rem);
-  padding-bottom: var(--s-1, 0.5rem);
-}
-
-footer .footer-secondary-links a span.external-link-icon,
-footer .footer-secondary-links a span.ca-gov-icon-external-link {
-  display: none;
-}
-
-footer .footer-secondary-links a:hover {
-  text-decoration: none;
-}
-
-footer .bg-light-grey svg {
-  padding: 0;
-}
-
-footer .bg-light-grey svg .ca {
-  fill: var(--cagov-highlight, #fec02f);
-}
-
-footer .bg-light-grey svg .gov {
-  fill: var(--cagov-primary-dark, #003484);
-}
-
-footer .cagov-logo {
-  padding-top: var(--s-1, 0.5rem);
-  padding-bottom: var(--s-1, 0.5rem);
-  padding-right: var(--s-3, 1.5rem);
-}
-
-footer .footer-secondary-links a,
-footer .copyright {
-  color: var(--black, #000);
-  padding-top: var(--s-1, 0.5rem);
-  padding-bottom: var(--s-1, 0.5rem);
-}
-
-footer .copyright {
-  margin: 0;
-}
-
-.bg-light-grey {
-  background-color: var(--gray-50, #fafafa);
-}
-
-.pt-0 {
-  padding-top: 0 !important;
-}
-
-@media (min-width: 991px) {
-  footer .footer-secondary-links,
-  footer .container {
-    margin-right: auto;
-    flex-direction: row;
-    align-items: center;
-  }
-  footer .footer-secondary-links.flex-col-end,
-  footer .container.flex-col-end {
-    flex-direction: column;
-    align-items: end;
   }
 }

@@ -8,6 +8,10 @@
  * @package CAWeb
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 define( 'CAWEB_ABSPATH', get_stylesheet_directory() );
 define( 'CAWEB_URI', get_stylesheet_directory_uri() );
 define( 'CAWEB_VERSION', wp_get_theme( 'CAWeb' )->get( 'Version' ) );
@@ -16,8 +20,8 @@ define( 'CAWEB_DIVI_VERSION', wp_get_theme( 'Divi' )->get( 'Version' ) );
 define( 'CAWEB_CA_STATE_PORTAL_CDN_URL', 'https://california.azureedge.net/cdt/CAgovPortal' );
 define( 'CAWEB_EXTERNAL_DIR', sprintf( '%1$s/%2$s-ext/', wp_get_upload_dir()['basedir'], strtolower( wp_get_theme()->stylesheet ) ) );
 define( 'CAWEB_EXTERNAL_URI', sprintf( '%1$s/%2$s-ext', wp_get_upload_dir()['baseurl'], strtolower( wp_get_theme()->stylesheet ) ) );
-define( 'CAWEB_MINIMUM_SUPPORTED_TEMPLATE_VERSION', 5.5 );
-define( 'CAWEB_SUPPORTED_TEMPLATE_VERSIONS', array( 5.5 ) );
+define( 'CAWEB_MINIMUM_SUPPORTED_TEMPLATE_VERSION', '5.5' );
+define( 'CAWEB_SUPPORTED_TEMPLATE_VERSIONS', array( '5.5', '6.0' ) );
 define( 'CAWEB_BETA_TEMPLATE_VERSIONS', array() );
 
 
@@ -28,7 +32,7 @@ define( 'CAWEB_BETA_TEMPLATE_VERSIONS', array() );
  * @link https://codex.wordpress.org/Plugin_API/Action_Reference#Actions_Run_During_a_Typical_Request
  */
 add_action( 'after_setup_theme', 'caweb_setup_theme', 11 );
-add_action( 'send_headers', 'caweb_enable_hsts' );
+add_action( 'send_headers', 'caweb_send_headers' );
 add_action( 'init', 'caweb_init' );
 add_action( 'pre_get_posts', 'caweb_pre_get_posts', 11 );
 add_action( 'wp_head', 'caweb_wp_head' );
@@ -79,7 +83,7 @@ if ( is_child_theme() && 'Divi' === wp_get_theme()->get( 'Template' ) ) {
  *
  * @link https://codex.wordpress.org/Plugin_API/Action_Reference/after_setup_theme
  *
- * @category add_action( 'after_setup_theme', 'caweb_setup_theme', 9999999 );
+ * @wp_action add_action( 'after_setup_theme', 'caweb_setup_theme', 9999999 );
  * @return void
  */
 function caweb_setup_theme() {
@@ -180,13 +184,19 @@ function caweb_setup_theme() {
 }
 
 /**
- * Enables the HTTP Strict Transport Security (HSTS) header in WordPress.
- *
- * @category add_action( 'send_headers', 'caweb_enable_hsts' );
+ * Adds additional headers
+ * 
+ * Adds Strict-Transport-Security (HSTS) header.
+ * Adds Content-Security-Policy header.
+ * Adds X-Content-Type-Options header.
+ * 
+ * @wp_action add_action( 'send_headers', 'caweb_send_headers' );
  * @return void
  */
-function caweb_enable_hsts() {
+function caweb_send_headers() {
 	header( 'Strict-Transport-Security: max-age=31536000; includeSubDomains' );
+	header( "Content-Security-Policy: frame-ancestors 'self' *.ca.gov" );
+	header( "X-Content-Type-Options: nosniff" );
 }
 
 /**
@@ -195,7 +205,7 @@ function caweb_enable_hsts() {
  * Note, this does not just run on user-facing admin screens.
  * It runs on admin-ajax.php and admin-post.php as well.
  *
- * @category add_action( 'init', 'caweb_init' );
+ * @wp_action add_action( 'init', 'caweb_init' );
  * @link https://codex.wordpress.org/Plugin_API/Action_Reference/admin_init
  * @return void
  */
@@ -219,7 +229,7 @@ function caweb_init() {
  * Fires after the query variable object is created, but before the actual query is run.
  *
  * @link https://developer.wordpress.org/reference/hooks/pre_get_posts/
- * @category add_action( 'pre_get_posts', 'caweb_pre_get_posts', 11 );
+ * @wp_action add_action( 'pre_get_posts', 'caweb_pre_get_posts', 11 );
  * @param WP_Query $query The WP Query Instance.
  * @return WP_Query
  */
@@ -240,7 +250,7 @@ function caweb_pre_get_posts( $query ) {
  *
  * Fires when scripts and styles are enqueued.
  *
- * @category add_action( 'wp_enqueue_scripts', 'caweb_wp_enqueue_scripts', 99999999 );
+ * @wp_action add_action( 'wp_enqueue_scripts', 'caweb_wp_enqueue_scripts', 99999999 );
  * @link https://developer.wordpress.org/reference/hooks/wp_enqueue_scripts/
  *
  * @return void
@@ -332,7 +342,8 @@ function caweb_wp_enqueue_scripts() {
 
 	$vb_enabled = isset( $_GET['et_fb'] ) && '1' === $_GET['et_fb'] ? true : false;
 
-	if ( $vb_enabled ) {
+	/* If not on the activation page or Divi Visual Builder is enabled */
+	if ( $vb_enabled || 'wp-activate.php' === $pagenow ) {
 		return;
 	}
 
@@ -352,7 +363,7 @@ function caweb_wp_enqueue_scripts() {
  * Prints scripts or data in the head tag on the front end.
  *
  * @link https://developer.wordpress.org/reference/hooks/wp_head/
- * @category add_action( 'wp_head', 'caweb_wp_head' );
+ * @wp_action add_action( 'wp_head', 'caweb_wp_head' );
  * @return void
  */
 function caweb_wp_head() {
@@ -411,7 +422,7 @@ function caweb_wp_head() {
  * CAWeb Footer
  *
  * @link https://codex.wordpress.org/Plugin_API/Action_Reference/wp_footer
- * @category add_action( 'wp_footer', 'caweb_wp_footer', 11 );
+ * @wp_action add_action( 'wp_footer', 'caweb_wp_footer', 11 );
  * @return void
  */
 function caweb_wp_footer() {
@@ -439,7 +450,7 @@ function caweb_wp_footer() {
  * It runs on admin-ajax.php and admin-post.php as well.
  *
  * @link https://codex.wordpress.org/Plugin_API/Action_Reference/admin_init
- * @category add_action( 'admin_init', 'caweb_admin_init' );
+ * @wp_action add_action( 'admin_init', 'caweb_admin_init' );
  * @return void
  */
 function caweb_admin_init() {
@@ -463,7 +474,7 @@ function caweb_admin_init() {
  * CAWeb Admin Enqueue Scripts and Styles
  *
  * @link https://developer.wordpress.org/reference/hooks/admin_enqueue_scripts/
- * @category add_action( 'admin_enqueue_scripts', 'caweb_admin_enqueue_scripts', 15 );
+ * @wp_action add_action( 'admin_enqueue_scripts', 'caweb_admin_enqueue_scripts', 15 );
  * @param  string $hook The current admin page.
  *
  * @return void
@@ -532,7 +543,7 @@ function caweb_admin_enqueue_scripts( $hook ) {
  * Fires once a post has been saved.
  *
  * @link https://developer.wordpress.org/reference/hooks/save_post/
- * @category add_action( 'save_post', 'caweb_save_post_list_meta', 10, 2 );
+ * @wp_action add_action( 'save_post', 'caweb_save_post_list_meta', 10, 2 );
  * @param  int     $post_id Post ID.
  * @param  WP_POST $post Post object.
  *

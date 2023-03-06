@@ -5,6 +5,10 @@
  * @package CAWeb
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 // Render Options Page.
 caweb_display_options_page();
 
@@ -169,11 +173,10 @@ function caweb_display_general_options() {
 				<label for="ca_site_version" class="d-block mb-0"><strong>State Template Version</strong></label>
 				<small class="mb-2 text-muted d-block">Select a California State Template version.</small>
 				<select id="ca_site_version" name="ca_site_version" class="w-50 form-control">
-				<?php
-				foreach ( caweb_template_versions() as $version => $label ) :
-					?>
-					<option value="<?php print esc_attr( $version ); ?>"<?php print "$version" === "$ver" ? ' selected="selected"' : ''; ?>><?php print esc_attr( $label ); ?></option>
-				<?php endforeach; ?>
+					<option value="5.5"<?php print "5.0" === "$ver" ? ' selected="selected"' : ''; ?>>Version 5.5</option>
+					<?php if ( current_user_can( $network ) ) : ?>
+						<option value="6.0"<?php print "6.0" === "$ver" ? ' selected="selected"' : ''; ?>>Version 6.0</option>
+					<?php endif; ?>
 				</select>
 			</div>
 		</div>
@@ -553,7 +556,7 @@ function caweb_display_google_options() {
 				<label for="ca_google_meta_id" class="d-block mb-0"><strong>Site Verification Meta ID</strong></label>
 				<small class="mb-2 text-muted d-block">Enter your unique Google Site Verification Meta ID, if you don't have one see an administrator.</small>
 				<!-- Meta ID Field -->
-				<input type="text" name="ca_google_meta_id" id="ca_google_meta_id" class="form-control" value="<?php print esc_attr( $google_search_id ); ?>" >
+				<input type="text" name="ca_google_meta_id" id="ca_google_meta_id" class="form-control" value="<?php print esc_attr( $google_meta_id ); ?>" >
 			</div>
 		</div>
 
@@ -643,56 +646,58 @@ function caweb_display_social_media_settings( $is_active = false ) {
 		</div>
 		<?php
 			$social_options = caweb_get_site_options( 'social' );
-		foreach ( $social_options as $social => $option ) {
-			$share_email        = 'ca_social_email' === $option ? true : false;
-			$social             = $share_email ? "Share via $social" : $social;
-			$header_checked     = get_option( sprintf( '%1$s_header', $option ) ) ? ' checked' : '';
-			$footer_checked     = get_option( sprintf( '%1$s_footer', $option ) ) ? ' checked' : '';
-			$new_window_checked = get_option( sprintf( '%1$s_new_window', $option ) ) ? ' checked' : '';
-			$hover_text         = get_option( sprintf( '%1$s_hover_text', $option ), "Share via $social" );
-			?>
-				<div class="form-row">
-					<a class="collapsed d-block text-decoration-none" data-toggle="collapse" href="#<?php print esc_attr( $option ); ?>-settings" role="button" aria-expanded="false" aria-controls="<?php print esc_attr( $option ); ?>-settings">
-						<h2 class="d-inline"><?php print esc_attr( $social ); ?> <span class="text-secondary ca-gov-icon-"></span></h2>
-					</a>
-				</div>
-				<div class="form-row collapse pt-2" id="<?php print esc_attr( $option ); ?>-settings">
-				<?php if ( ! $share_email ) : ?>
-					<!-- Option URL -->
-					<div class="form-group col-md-12">
-						<input type="text" class="form-control w-50" name="<?php print esc_attr( $option ); ?>" aria-label="<?php print esc_attr( $social ); ?>" value="<?php print esc_url( get_option( $option ) ); ?>" />
-						<small class="text-muted d-block">Enter social media URL share link.</small>
+			$deprecating = '5.5' !== caweb_template_version();
+	
+			foreach ( $social_options as $social => $option ) {
+				$share_email        = 'ca_social_email' === $option ? true : false;
+				$social             = $share_email ? "Share via $social" : $social;
+				$header_checked     = get_option( sprintf( '%1$s_header', $option ) ) ? ' checked' : '';
+				$footer_checked     = get_option( sprintf( '%1$s_footer', $option ) ) ? ' checked' : '';
+				$new_window_checked = get_option( sprintf( '%1$s_new_window', $option ) ) ? ' checked' : '';
+				$hover_text         = get_option( sprintf( '%1$s_hover_text', $option ), "Share via $social" );
+				?>
+					<div class="form-row">
+						<a class="collapsed d-block text-decoration-none" data-toggle="collapse" href="#<?php print esc_attr( $option ); ?>-settings" role="button" aria-expanded="false" aria-controls="<?php print esc_attr( $option ); ?>-settings">
+							<h2 class="d-inline"><?php print esc_attr( $social ); ?> <span class="text-secondary ca-gov-icon-"></span></h2>
+						</a>
 					</div>
-					<?php endif; ?>
-					<!-- Show in header -->
-					<div class="form-group col-sm-3">
-						<label for="<?php print esc_attr( $option ); ?>_header" class="d-block"><strong>Show in header:</strong></label>
-						<small class="text-muted d-block">Display social link in the utility header.</small>
-						<input type="checkbox" id="<?php print esc_attr( $option ); ?>_header" name="<?php print esc_attr( $option ); ?>_header" data-toggle="toggle" data-onstyle="success"<?php print esc_attr( $header_checked ); ?>>
+					<div class="form-row collapse pt-2" id="<?php print esc_attr( $option ); ?>-settings">
+					<?php if ( ! $share_email ) : ?>
+						<!-- Option URL -->
+						<div class="form-group col-md-12">
+							<input type="text" class="form-control w-50" name="<?php print esc_attr( $option ); ?>" aria-label="<?php print esc_attr( $social ); ?>" value="<?php print esc_url( get_option( $option ) ); ?>" />
+							<small class="text-muted d-block">Enter social media URL share link.</small>
+						</div>
+						<?php endif; ?>
+						<!-- Show in header -->
+						<div class="form-group col-sm-3<?php print esc_attr($deprecating ? ' d-none' : '') ?>">
+							<label for="<?php print esc_attr( $option ); ?>_header" class="d-block"><strong>Show in header:</strong></label>
+							<small class="text-muted d-block">Display social link in the utility header.</small>
+							<input type="checkbox" id="<?php print esc_attr( $option ); ?>_header" name="<?php print esc_attr( $option ); ?>_header" data-toggle="toggle" data-onstyle="success"<?php print esc_attr( $header_checked ); ?>>
+						</div>
+						<!-- Show in footer -->
+						<div class="form-group col-sm-3">
+							<label for="<?php print esc_attr( $option ); ?>_footer" class="d-block"><strong>Show in footer:</strong></label>
+							<small class="text-muted d-block">Display social link in the footer.</small>
+							<input type="checkbox" id="<?php print esc_attr( $option ); ?>_footer" name="<?php print esc_attr( $option ); ?>_footer" data-toggle="toggle" data-onstyle="success"<?php print esc_attr( $footer_checked ); ?>>
+						</div>
+					<?php if ( ! $share_email ) : ?>
+						<!-- Open in New Tab -->
+						<div class="form-group col-sm-3">
+							<label for="<?php print esc_attr( $option ); ?>_new_window" class="d-block"><strong>Open in New Tab:</strong></label>
+							<small class="text-muted d-block">Open link in new tab.</small>
+							<input type="checkbox" id="<?php print esc_attr( $option ); ?>_new_window" name="<?php print esc_attr( $option ); ?>_new_window" data-on="Yes" data-off="No" data-toggle="toggle" data-onstyle="success"<?php print esc_attr( $new_window_checked ); ?>>
+						</div>
+						<!-- Hover Text -->
+						<div class="form-group col-sm-3">
+							<label for="<?php print esc_attr( $option ); ?>_hover_text" class="d-block"><strong>Hover Text:</strong></label>
+							<small class="text-muted d-block">Text displayed on mouse hover.</small>
+							<input type="text" id="<?php print esc_attr( $option ); ?>_hover_text" name="<?php print esc_attr( $option ); ?>_hover_text" value="<?php print esc_attr( $hover_text ); ?>">
+						</div>
+						<?php endif; ?>
 					</div>
-					<!-- Show in footer -->
-					<div class="form-group col-sm-3">
-						<label for="<?php print esc_attr( $option ); ?>_footer" class="d-block"><strong>Show in footer:</strong></label>
-						<small class="text-muted d-block">Display social link in the footer.</small>
-						<input type="checkbox" id="<?php print esc_attr( $option ); ?>_footer" name="<?php print esc_attr( $option ); ?>_footer" data-toggle="toggle" data-onstyle="success"<?php print esc_attr( $footer_checked ); ?>>
-					</div>
-				<?php if ( ! $share_email ) : ?>
-					<!-- Open in New Tab -->
-					<div class="form-group col-sm-3">
-						<label for="<?php print esc_attr( $option ); ?>_new_window" class="d-block"><strong>Open in New Tab:</strong></label>
-						<small class="text-muted d-block">Open link in new tab.</small>
-						<input type="checkbox" id="<?php print esc_attr( $option ); ?>_new_window" name="<?php print esc_attr( $option ); ?>_new_window" data-on="Yes" data-off="No" data-toggle="toggle" data-onstyle="success"<?php print esc_attr( $new_window_checked ); ?>>
-					</div>
-					<!-- Hover Text -->
-					<div class="form-group col-sm-3">
-						<label for="<?php print esc_attr( $option ); ?>_hover_text" class="d-block"><strong>Hover Text:</strong></label>
-						<small class="text-muted d-block">Text displayed on mouse hover.</small>
-						<input type="text" id="<?php print esc_attr( $option ); ?>_hover_text" name="<?php print esc_attr( $option ); ?>_hover_text" value="<?php print esc_attr( $hover_text ); ?>">
-					</div>
-					<?php endif; ?>
-				</div>
-				<?php
-		}
+					<?php
+			}
 		?>
 	</div>
 	<?php

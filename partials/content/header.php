@@ -5,6 +5,10 @@
  * @package CAWeb
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 global $post;
 
 $caweb_loaded       = isset( $args['loaded'] ) && $args['loaded'];
@@ -74,7 +78,7 @@ if ( ! empty( $caweb_google_tag_manager_id ) ) :
 		);
 
 		$caweb_search_class = is_front_page() && $caweb_frontpage_search_enabled ? ' featured-search fade ' : '';
-		$caweb_search_class = empty( $caweb_google_search_id ) ? ' hidden ' : '';
+		$caweb_search_class .= empty( $caweb_google_search_id ) ? ' hidden ' : '';
 		?>
 		<div id="head-search" class="search-container hidden-print<?php print esc_attr( $caweb_search_class ); ?>" role="region" aria-label="Search Expanded">
 			<?php

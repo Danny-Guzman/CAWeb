@@ -66,7 +66,7 @@ module.exports = {
 	],
 	themeCustomizerControlScripts: [ // Theme Customizer Control JS 
 		'assets/js/caweb/options/icon.js',
-		'assets/js/caweb/options/colorschemes.js',
+		'assets/js/caweb/options/toggle-options.js',
 		'assets/js/wp/theme-customizer/controls/*.js',
 	],
 	designSystemThemeDir:  'node_modules/@cagov/ds-base-css/dist/themes/',
@@ -74,7 +74,7 @@ module.exports = {
 		'node_modules/@cagov/*/src/index.scss',
 	], 
 	designSystemJS: [ // Design Components JS
-		'node_modules/@cagov/ds-link-icon/src/index.js',
+		// 'node_modules/@cagov/ds-link-icon/src/index.js', waiting for export statement to be removed 1.1.2
 		'node_modules/@cagov/ds-site-navigation/src/index.js',
 		'node_modules/@cagov/ds-statewide-header/src/index.js',
 	],
