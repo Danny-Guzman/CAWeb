@@ -30,18 +30,16 @@ function caweb_tiny_mce_settings( $settings = array() ) {
 		$styles[ str_replace( ' ', '', strtolower( $style->name ) ) ] = $style;
 	}
 
-	$version     = caweb_template_version();
-	$color       = get_option( 'ca_site_color_scheme', 'oceanside' );
-	$colorscheme = caweb_color_schemes( $version, 'filename', $color );
-	$colorscheme = is_array( $colorscheme ) ? array_shift( $colorscheme ) : $colorscheme;
+	$version = caweb_template_version();
+	$color   = get_option( 'ca_site_color_scheme', 'oceanside' );
 
-	$editor_css = caweb_get_min_file( "/css/caweb-$version-$colorscheme.css" );
+	$editor_css = caweb_get_min_file( "/dist/$color-$version.css" );
 
 	$css = array(
 		includes_url( '/css/dashicons.min.css' ),
 		includes_url( '/js/tinymce/skins/wordpress/wp-content.css' ),
 		$editor_css,
-		caweb_get_min_file( '/css/admin.css' ),
+		caweb_get_min_file( '/dist/caweb-admin.css' ),
 	);
 
 	$defaults_settings = array(
@@ -63,7 +61,9 @@ function caweb_tiny_mce_settings( $settings = array() ) {
 		),
 	);
 
-	return is_array( $settings ) ? array_merge( $defaults_settings, $settings ) : $defaults_settings;
+	$tiny_mce_settings = is_array( $settings ) ? array_merge( $defaults_settings, $settings ) : $defaults_settings;
+
+	return apply_filters( 'caweb_tiny_mce_settings', $tiny_mce_settings );
 }
 
 /**
@@ -122,12 +122,38 @@ function caweb_tiny_mce_before_init( $init_array ) {
 		),
 	);
 
+	/*
+	Define the font families
+	*/
+	$font_family = array(
+		'Andale Mono=andale mono,times',
+		'Arial=arial,helvetica,sans-serif',
+		'Arial Black=arial black,avant garde',
+		'Book Antiqua=book antiqua,palatino',
+		'Comic Sans MS=comic sans ms,sans-serif',
+		'Courier New=courier new,courier',
+		'Georgia=georgia,palatino',
+		'Helvetica=helvetica',
+		'Impact=impact,chicago',
+		'Open Sans=sans-serif',
+		'Symbol=symbol',
+		'Tahoma=tahoma,arial,helvetica,sans-serif',
+		'Terminal=terminal,monaco',
+		'Times New Roman=times new roman,times',
+		'Trebuchet MS=trebuchet ms,geneva',
+		'Verdana=verdana,geneva',
+		'Webdings=webdings',
+		'Wingdings=wingdings,zapf dingbats',
+	);
+
 	/* Insert the array, JSON ENCODED, into 'style_formats' */
 	$init_array['style_formats'] = wp_json_encode( $style_formats );
 
 	/* TinyMCE default is 11pt but it doesnt appear in the font size box */
 	$font_sizes                     = caweb_font_sizes( array(), true );
 	$init_array['fontsize_formats'] = implode( ' ', $font_sizes );
+
+	$init_array['font_formats'] = implode( ';', $font_family );
 
 	/* TinyMCE Toolbar Start off unhidden */
 	$init_array['wordpress_adv_hidden'] = false;
