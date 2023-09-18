@@ -13,6 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_filter( 'body_class', 'caweb_body_class', 20, 2 );
 add_filter( 'post_class', 'caweb_post_class', 15 );
 add_filter( 'theme_page_templates', 'caweb_theme_page_templates', 15 );
+add_filter( 'script_loader_tag', 'caweb_script_loader_tag', 10, 3 );
 add_filter( 'map_meta_cap', 'caweb_add_unfiltered_html_capability', 1, 3 );
 add_filter( 'allowed_redirect_hosts', 'caweb_allowed_redirect_hosts' );
 add_filter( 'xmlrpc_enabled', 'caweb_xmlrpc_enabled' );
@@ -46,10 +47,10 @@ add_filter( 'tribe_default_events_template_classes', 'caweb_default_events_templ
 function caweb_body_class( $wp_classes, $extra_classes ) {
 	global $post;
 	$template_version = caweb_template_version();
-	$user_classes = get_option('caweb_body_classes', '');
+	$user_classes     = get_option( 'caweb_body_classes', '' );
 
 	// Add user body class names to extra classes.
-	$extra_classes = array_merge( $extra_classes, explode(' ', $user_classes) );
+	$extra_classes = array_merge( $extra_classes, explode( ' ', $user_classes ) );
 
 	/* List of the classes that need to be removed */
 	$blacklist = array(
@@ -74,7 +75,7 @@ function caweb_body_class( $wp_classes, $extra_classes ) {
 	$whitelist[] = get_option( 'ca_sticky_navigation', false ) ? 'sticky_nav' : '';
 
 	// Merge any extra classes to the wp classes.
-	$wp_classes = array_merge($wp_classes, $extra_classes);
+	$wp_classes = array_merge( $wp_classes, $extra_classes );
 
 	/* Remove any classes in the blacklist from the wp_classes */
 	$wp_classes = array_diff( $wp_classes, $blacklist );
@@ -117,6 +118,26 @@ function caweb_theme_page_templates( $templates ) {
 	return $templates;
 }
 
+/**
+ * CAWeb Script Loader Tags
+ * Filters the HTML script tag of an enqueued script.
+ *
+ * @param  string $tag The <script> tag for the enqueued script.
+ * @param  string $handle The script's registered handle.
+ * @param  string $src The script's source URL.
+ *
+ * @return string
+ */
+function caweb_script_loader_tag( $tag, $handle, $src ) {
+	/* Defer some scripts */
+	$js_scripts = array( 'cagov-statewide-alerts' );
+	
+	if ( in_array( $handle, $js_scripts, true ) ) {
+		$tag = str_replace( 'src', 'defer crossorigin="anonymous" src', $tag );
+	}
+
+	return $tag;
+}
 
 /**
  * Enable unfiltered_html capability for Administrators.
