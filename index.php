@@ -30,7 +30,14 @@ if ( have_posts() ) {
 
 			<?php if ( has_post_thumbnail() ): ?>
 				<a class="thumbnail-link" href="<?php the_permalink(); ?>">
-					<?php print get_the_post_thumbnail( get_the_ID(), array(200, 150) ); ?>
+					<?php 
+					the_post_thumbnail(
+						'medium',
+						array(
+							'class' => 'w-100 h-100'
+						)
+					);
+					?>
 				</a>
 			<?php endif; ?>
 
@@ -44,7 +51,7 @@ if ( have_posts() ) {
 			// if on search truncate the post content.
 			if ( is_search() ) {
 				the_excerpt();
-				} else {
+			} else {
 				the_content();
 			}
 			?>

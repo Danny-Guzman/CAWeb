@@ -448,6 +448,8 @@ function caweb_is_divi_used( $wp_classes = array() ) {
 
 /**
  * Generates markup for post meta
+ * 
+ * @return void
  */
 function caweb_post_meta(){
 	global $authordata, $post;
