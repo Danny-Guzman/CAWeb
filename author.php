@@ -54,8 +54,8 @@ if ( have_posts() ) :
 		endwhile;
 	?>
 	<div class="pagination clearfix">
-		<div class="pull-left"><?php next_posts_link( esc_html__( '&laquo; Older Entries', 'Divi' ) ); ?></div>
-		<div class="pull-right"><?php previous_posts_link( esc_html__( 'Next Entries &raquo;', 'Divi' ) ); ?></div>
+		<div class="pull-left"><?php next_posts_link( esc_html('&laquo; Older Entries')); ?></div>
+		<div class="pull-right"><?php previous_posts_link(esc_html('Next Entries &raquo;') ); ?></div>
 	</div>
 	<?php
 endif;
