@@ -445,3 +445,45 @@ function caweb_is_divi_used( $wp_classes = array() ) {
 
 	return $builder_used;
 }
+
+/**
+ * Generates markup for post meta
+ */
+function caweb_post_meta(){
+	global $authordata, $post;
+
+	$postinfo_meta = array();
+
+	// Fallback for preview.
+	if ( empty( $authordata ) && isset( $post->post_author ) ) {
+		$authordata = get_userdata( $post->post_author ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- If $authordata is not set then set it.
+	}
+
+	if( ! empty( $authordata ) ){
+		$link = get_author_posts_url( $authordata->ID, $authordata->user_nicename );
+
+		$postinfo_meta[] = sprintf('<span class="author">by <a href="%1$s" title="Posts by %2$s" rel="author">%3$s</a></span>', 
+			esc_url( $link ), 
+			esc_attr( $authordata->display_name ),
+			esc_html($authordata->display_name)
+		);
+
+	}
+
+	$postinfo_meta[] = '<span class="published">' . esc_html( get_the_time( 'M j, Y' ) ) . '</span>';
+	
+	$categories_list = get_the_category_list( ', ' );
+
+	// do not output anything if no categories retrieved.
+	if ( ! empty( $categories_list ) ) {
+		$postinfo_meta[] = $categories_list;
+	}
+
+	?>
+	<p class="post-meta">
+		<?php 
+			print implode( ' | ', array_filter( $postinfo_meta ) ); 
+		?>
+	</p>
+	<?php
+}

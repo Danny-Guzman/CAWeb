@@ -2921,6 +2921,9 @@ body.page-template-searchpage form#Search .close-search {
 body.page-template-searchpage .gsc-cursor-page:focus {
   outline: solid 2px #2ea3f2;
 }
+body.page-template-searchpage .entry-title a {
+  color: #428bca;
+}
 body.page-template-searchpage.logged-in .gssb_c {
   margin-top: 35px;
 }

@@ -316,9 +316,7 @@ class CAWeb_Module_Post_List extends ET_Builder_CAWeb_Module {
 			$post_info = array(
 				'id'      => $p->ID,
 				'title'   => $p->post_title,
-				'url'     => get_permalink( $p->ID ),
-				'excerpt' => get_the_excerpt( $p->ID ),
-				'content' => $p->post_content,
+				'url'     => get_permalink( $p->ID )
 			);
 
 			$post_content_handler = caweb_get_shortcode_from_content( $p->post_content, 'et_pb_ca_post_handler' );
