@@ -10,7 +10,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 add_action( 'admin_menu', 'caweb_admin_menu' );
-add_action( 'admin_menu', 'caweb_remove_admin_menus', 999 );
 add_action( 'load-themes.php', 'caweb_load_themes_tools' );
 add_action( 'settings_page_disable_rest_api_settings', 'caweb_load_themes_tools' );
 add_action( 'load-tools.php', 'caweb_load_themes_tools' );
@@ -122,49 +121,6 @@ function caweb_uploads_use_yearmonth_folders() {
 }
 
 /**
- * CAWeb Administration Menu Setup
- * Fires before the administration menu loads in the admin.
- *
- * @link https://developer.wordpress.org/reference/hooks/admin_menu/
- * @return void
- */
-function caweb_remove_admin_menus() {
-	global $submenu;
-
-	/* If Multisite instance & user is not a Network Admin */
-	if ( is_multisite() && ! current_user_can( 'manage_network_options' ) ) {
-		/* Remove Themes and Background option under Appearance menu */
-		if ( isset( $submenu['themes.php'] ) ) {
-			foreach ( $submenu['themes.php'] as $m => $menu_data ) {
-				if ( 'Background' === $menu_data[0] || preg_match( '/\bthemes.php\b|\bcustom-background\b/', $menu_data[2] ) ) {
-					unset( $submenu['themes.php'][ $m ] );
-				}
-			}
-		}
-
-		/* Remove WP-Forms Addons Menus */
-		remove_submenu_page( 'wpforms-overview', 'wpforms-addons' );
-
-		/* Removal of Tools Submenu Pages */
-		remove_submenu_page( 'tools.php', 'tools.php' );
-		remove_submenu_page( 'tools.php', 'import.php' );
-		remove_submenu_page( 'tools.php', 'ms-delete-site.php' );
-		remove_submenu_page( 'tools.php', 'domainmapping' );
-
-		/* Removal of Divi Submenu Pages */
-		remove_submenu_page( 'et_divi_options', 'et_divi_options' );
-		remove_submenu_page( 'et_divi_options', 'et_theme_builder' );
-		remove_submenu_page( 'et_divi_options', 'customize.php?et_customizer_option_set=theme' );
-		remove_submenu_page( 'et_divi_options', 'customize.php?et_customizer_option_set=module' );
-		remove_submenu_page( 'et_divi_options', 'et_divi_role_editor' );
-
-		// Remove Disable Rest API setting.
-		remove_submenu_page( 'options-general.php', 'disable_rest_api_settings' );
-
-	}
-}
-
-/**
  * If direct access to certain menus is accessed
  * redirect to admin page
  *
@@ -228,7 +184,7 @@ function caweb_api_menu_option_setup() {
 	// CAWeb API Nonce.
 	$caweb_nonce      = wp_create_nonce( 'caweb_theme_api_options' );
 	$privated_enabled = get_site_option( 'caweb_private_theme_enabled', false ) ? ' checked' : '';
-	$username         = get_site_option( 'caweb_username', 'CA-CODE-Works' );
+	$username         = get_site_option( 'caweb_username', 'CAWebPublishing' );
 	$password         = get_site_option( 'caweb_password', '' );
 	?>
 	<form id="caweb-api-options-form" action="<?php print esc_url( admin_url( 'admin.php?page=caweb_api' ) ); ?>" method="POST">
@@ -245,7 +201,7 @@ function caweb_api_menu_option_setup() {
 			<div class="mb-3 col-sm-5">
 				<label for="caweb_username" class="d-block mb-0">Username</label>
 				<small class="text-muted">Setting this feature enables us to update the theme through GitHub</small>
-				<input type="text" name="caweb_username" class="form-control" size="50" value="<?php print esc_attr( $username ); ?>" placeholder="Default: CA-CODE-Works" />
+				<input type="text" name="caweb_username" class="form-control" size="50" value="<?php print esc_attr( $username ); ?>" placeholder="Default: CAWebPublishing" />
 			</div>
 		</div>
 		<div class="row">
@@ -370,13 +326,13 @@ function caweb_save_options( $values = array(), $files = array() ) {
 		$i    = substr( $k, strrpos( $k, '-' ) + 1 );
 		$data = array(
 			'status'       => isset( $values[ "alert-status-$i" ] ) ? '' : 'on',
-			'header'       => isset( $values[ "alert-header-$i" ] ) ? $values[ "alert-header-$i" ] : '',
+			'header'       => isset( $values[ "alert-header-$i" ] ) ? wp_strip_all_tags( $values[ "alert-header-$i" ] ) : '',
 			'message'      => isset( $values[ "alert-message-$i" ] ) ? $values[ "alert-message-$i" ] : '',
 			'page_display' => isset( $values[ "alert-display-$i" ] ) ? $values[ "alert-display-$i" ] : 'home',
 			'color'        => isset( $values[ "alert-banner-color-$i" ] ) ? $values[ "alert-banner-color-$i" ] : '#FDB81E',
 			'button'       => isset( $values[ "alert-read-more-$i" ] ) ? $values[ "alert-read-more-$i" ] : '',
 			'url'          => isset( $values[ "alert-read-more-url-$i" ] ) ? $values[ "alert-read-more-url-$i" ] : '',
-			'text'         => isset( $values[ "alert-read-more-text-$i" ] ) ? $values[ "alert-read-more-text-$i" ] : '',
+			'text'         => isset( $values[ "alert-read-more-text-$i" ] ) ? wp_strip_all_tags( $values[ "alert-read-more-text-$i" ] ) : '',
 			'target'       => isset( $values[ "alert-read-more-target-$i" ] ) ? $values[ "alert-read-more-target-$i" ] : '',
 			'icon'         => isset( $values[ "alert-icon-$i" ] ) ? $values[ "alert-icon-$i" ] : '',
 		);
@@ -396,9 +352,40 @@ function caweb_save_options( $values = array(), $files = array() ) {
 			case 'caweb_external_js':
 				$val = array_merge( $val, array_diff( array_keys( $jsfiles ), $val ) );
 				break;
-			case 'caweb_live_drafts':
-			case 'caweb_debug_mode':
+
 			default:
+				/**
+				 * Strip tags for the following options:
+				 *
+				 * Utility Link Labels
+				 * Alert Banner Title
+				 * Alert Banner Read More Button Text
+				 * Social Media Hover Text
+				 * Page Header Organization Logo Alt Text
+				 * */
+				if ( in_array(
+					$opt,
+					array(
+						'ca_utility_link_1_name',
+						'ca_utility_link_2_name',
+						'ca_utility_link_3_name',
+						'header_ca_branding_alt_text',
+						'ca_google_search_id',
+						'ca_google_analytic_id',
+						'ca_google_analytic4_id',
+						'ca_google_tag_manager_id',
+						'ca_google_meta_id',
+						'caweb_body_classes',
+						'caweb_page_container_classes',
+						'caweb_main_content_classes',
+					),
+					true
+				) ||
+					str_ends_with($opt, '_hover_text' )
+				) {
+					$val = wp_strip_all_tags( $val );
+				}
+
 				if ( 'on' === $val ) {
 					$val = true;
 				}
@@ -512,7 +499,7 @@ function caweb_get_site_options( $group = '' ) {
 	}
 
 	$caweb_special_options = array(
-		'caweb_username'  => 'CA-CODE-Works',
+		'caweb_username'  => 'CAWebPublishing',
 		'caweb_password'  => '',
 		'caweb_multi_ga'  => '',
 		'caweb_multi_ga4' => '',
@@ -606,7 +593,7 @@ function caweb_get_social_media_links() {
 		'Pinterest'       => 'ca_social_pinterest',
 		'RSS'             => 'ca_social_rss',
 		'Snapchat'        => 'ca_social_snapchat',
-		'Twitter'         => 'ca_social_twitter',
+		'X'               => 'ca_social_twitter',
 		'YouTube'         => 'ca_social_youtube',
 	);
 
@@ -633,7 +620,7 @@ function caweb_upload_external_files( $upload_path, $prev_files = array(), $exis
 	if ( ! empty( $uploaded_files ) ) {
 		/* create the external site directory if its never been created */
 		if ( ! file_exists( $site_path ) ) {
-			mkdir( $site_path, 0777, true );
+			wp_mkdir_p( $site_path );
 		}
 
 		foreach ( $uploaded_files as $key => $data ) {
@@ -655,7 +642,7 @@ function caweb_upload_external_files( $upload_path, $prev_files = array(), $exis
 		if ( file_exists( "$site_path$filename" ) &&
 		! in_array( $filename, $existing_files, true ) &&
 		! in_array( $filename, $file_upload, true ) ) {
-			unlink( "$site_path$filename" );
+			wp_delete_file( "$site_path$filename" );
 		}
 	}
 }

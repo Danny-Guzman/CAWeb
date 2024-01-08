@@ -76,16 +76,16 @@ jQuery(document).ready(function($) {
 	gtag('js', new Date());
 
 	//Statewide UA property
-	gtag('config', 'UA-3419582-2', {cookie_flags:'samesite=lax;domain='+document.domain});
+	gtag('config', 'UA-3419582-2', {cookie_flags:'secure;samesite=lax;domain='});
 
 	// CAWeb Multisite analytics
 	if(undefined !== args.caweb_multi_ga){
-		gtag('config', args.caweb_multi_ga, {cookie_flags:'samesite=lax;domain='+document.domain});
+		gtag('config', args.caweb_multi_ga, {cookie_flags:'secure;samesite=lax;domain='});
 	}
 	
 	// Agency UA ID
 	if( undefined !== args.ca_google_analytic_id){
-		gtag('config', args.ca_google_analytic_id, {cookie_flags:'samesite=lax;domain='+document.domain});
+		gtag('config', args.ca_google_analytic_id, {cookie_flags:'secure;samesite=lax;domain='});
 	}
 
 	var getOutboundLink = function(url) {
@@ -120,13 +120,13 @@ jQuery(document).ready(function($) {
 	gtag('js', new Date());
 
 	if( undefined !== args.ca_google_analytic4_id){
-		gtag('config', args.ca_google_analytic4_id, {cookie_flags:'samesite=lax;domain='+document.domain}); // individual agency - either from your own google account, or contact eServices to have one set up for you
+		gtag('config', args.ca_google_analytic4_id, {cookie_flags:'secure;samesite=lax;domain='}); // individual agency - either from your own google account, or contact eServices to have one set up for you
 	}
 
-	gtag('config', 'G-69TD0KNT0F', {cookie_flags:'samesite=lax;domain='+document.domain}); // statewide analytics - do not remove or change
+	gtag('config', 'G-69TD0KNT0F', {cookie_flags:'secure;samesite=lax;domain='}); // statewide analytics - do not remove or change
 
 	if( undefined !== args.caweb_multi_ga4 ){
-		gtag('config', args.caweb_multi_ga4, {cookie_flags:'samesite=lax;domain='+document.domain}); // CAWeb multisite analytics - do not remove or change
+		gtag('config', args.caweb_multi_ga4, {cookie_flags:'secure;samesite=lax;domain='}); // CAWeb multisite analytics - do not remove or change
 	}
 		
 	var getOutboundLink = function(url) {
@@ -1152,121 +1152,6 @@ __webpack_require__(4);
 (() => {
 jQuery(document).ready(function($) {
 	
-	// from https://www.w3schools.com/js/js_cookies.asp
-	function getCookie(cname) {
-		let name = cname + "=";
-		let decodedCookie = decodeURIComponent(document.cookie);
-		let ca = decodedCookie.split(';');
-		for(let i = 0; i <ca.length; i++) {
-		  let c = ca[i];
-		  while (c.charAt(0) == ' ') {
-			c = c.substring(1);
-		  }
-		  if (c.indexOf(name) == 0) {
-			return c.substring(name.length, c.length);
-		  }
-		}
-		return null;
-	}
-
-	if( "" !== args.caweb_alerts && undefined !== args.caweb_alerts ){
-		args.caweb_alerts.forEach(function(obj, alert){			
-			
-			if( 
-				( null === getCookie('caweb-alert-id-' + alert) || "true" === getCookie('caweb-alert-id-' + alert) ) &&
-				( 'active' == obj.status || 'on' == obj.status ) &&
-				( ( args.is_front && 'home' === obj.page_display ) || 'all' == obj.page_display  )
-			 ){
-				document.cookie = 'caweb-alert-id-' + alert + '=true;path=' + args.path;
-				createAlertBanner(obj, alert);
-			}
-		})
-	}
-
-	function createAlertBanner( alert, id ){
-		var parent_container = $('#caweb_alerts');
-
-		var alert_container = document.createElement('DIV');
-		var alert_inner_container = document.createElement('DIV');
-		var alert_close_button = document.createElement('Button');
-
-		$(alert_container).addClass('alert alert-dismissible alert-banner border-top border-dark alert-' + id)
-		$(alert_container).addClass('alert-' + id);
-		$(alert_container).css('background-color', alert.color);
-
-		$(alert_inner_container).addClass('container');
-
-		// Alert Close Button
-		$(alert_close_button).addClass('close caweb-alert-close');
-		$(alert_close_button).attr('type', 'button');
-		$(alert_close_button).attr('data-id', id);
-		$(alert_close_button).attr('data-dismiss', 'alert');
-		$(alert_close_button).attr('aria-label', 'Close Alert ' + id);
-		$(alert_close_button).html('<span aria-hidden="true">&times;</span>');
-
-		alert_inner_container.append(alert_close_button);
-
-		// Alert Read More Button
-		if( "" !== alert.button && "" !== alert.url ){
-			var alert_read_more = document.createElement('A');
-
-			$(alert_read_more).addClass('alert-link btn btn-default btn-xs');
-			$(alert_read_more).attr('href', alert.url);
-
-			if( "" !== alert.target ){
-				$(alert_read_more).attr('target', '_blank');
-			}
-
-			$(alert_read_more).html(alert.text);
-
-			alert_inner_container.append(alert_read_more);
-		}
-
-		// Alert Header
-		if( "" !== alert.header ){
-			var alert_header = document.createElement('SPAN');
-
-			$(alert_header).addClass('alert-level');
-
-			// Alert Icon
-			if( "" !== alert.icon ){
-				var alert_icon = document.createElement('SPAN');
-
-				$(alert_icon).addClass('ca-gov-icon-' + alert.icon );
-				$(alert_icon).attr('aria-hidden', 'true');
-				
-				$(alert_header).append(alert_icon);
-			}
-
-			$(alert_header).append(alert.header);
-			
-			alert_inner_container.append(alert_header);
-
-		}
-
-		// Alert Message
-		var alert_message = document.createElement('SPAN');
-
-		var message = alert.message.replaceAll('\\"', '');
-
-		$(alert_message).addClass('alert-text');
-		$(alert_message).html(message);
-		
-
-		alert_inner_container.append(alert_message);
-
-		alert_container.append(alert_inner_container);
-		parent_container.append(alert_container);
-
-	}
-
-
-	$('.caweb-alert-close').on( 'click', function(e){ 
-		var alert_id = this.dataset.id; 
-		document.cookie = 'caweb-alert-id-' + alert_id + '=false;path=' + args.path;
-
-		$(`.alert-${alert_id}`)[0].remove();
-	});
 	
 	/* Fixed padding for wp-activate.php page when Navigation is fixed */
 	if( $('header.fixed + #signup-content').length ){
