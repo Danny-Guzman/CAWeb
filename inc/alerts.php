@@ -75,8 +75,8 @@ function caweb_render_alerts() {
 			$msg    = $alert['message'];
 
 			?>
-			<div  id="caweb-alert-<?php print esc_attr( $a ); ?>" style="background-color: <?php print esc_attr( $color ); ?>" class="alert alert-dismissible mb-0 border-top border-dark alert-<?php print esc_attr( $a ); ?>">
-				<div class="container d-flex flex-row">
+			<div  id="caweb-alert-<?php print esc_attr( $a ); ?>" style="background-color: <?php print esc_attr( $color ); ?>" class="alert alert-dismissible alert-banner mb-0 border-top border-dark alert-<?php print esc_attr( $a ); ?>">
+				<div class="container  d-flex flex-row">
 					
 					<?php if ( ! empty( $button ) && ! empty( $url ) ) : ?>
 					<a href="<?php print esc_url( $url ); ?>" target="<?php print empty( $target ) ? '_self' : '_blank'; ?>" class="alert-link btn btn-default btn-xs"><?php print esc_html( $text ); ?></a>

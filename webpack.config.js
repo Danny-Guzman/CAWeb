@@ -26,15 +26,6 @@ let entries = {
   ]
 };
 
-fs.readdirSync('./src/version-5.5/colorscheme').forEach((color) => {
-  // add entries for each colorscheme 
-  var scheme = color.substring(0, color.indexOf('.')).replace(' ', '');
-    
-  entries[`${scheme}-5.5`] = [
-    `./src/version-5.5/cagov.core.css`,
-    `./src/version-5.5/colorscheme/${color}`,
-  ]
-})
 fs.readdirSync('node_modules/@caweb/html-webpack-plugin/build').filter(file => file.toString().endsWith('.css') && ! file.toString().includes('-rtl') ).forEach((color) => {
   // add entries for each colorscheme 
   var scheme = color.substring(0, color.indexOf('.')).replace(' ', '');

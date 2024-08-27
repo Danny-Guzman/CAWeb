@@ -84,7 +84,6 @@ function caweb_customize_controls_print_styles() {
  * @return void
  */
 function caweb_customize_register( $wp_customize ) {
-	$site_version = caweb_template_version();
 
 	/* Remove Divi Customization Panels and Sections */
 	$divi_panels = array(
@@ -151,7 +150,6 @@ function caweb_customize_register( $wp_customize ) {
  * @return void
  */
 function caweb_customize_register_general_settings( $wp_customize ) {
-	$site_version = caweb_template_version();
 
 	$wp_customize->add_section(
 		'caweb_settings',
@@ -159,30 +157,6 @@ function caweb_customize_register_general_settings( $wp_customize ) {
 			'title'    => 'General Settings',
 			'priority' => 30,
 			'panel'    => 'caweb_options',
-		)
-	);
-
-	// Site Version.
-	$wp_customize->add_setting(
-		'ca_site_version',
-		array(
-			'type'    => 'option',
-			'default' => $site_version,
-		)
-	);
-
-	$versions = caweb_template_versions();
-
-	$wp_customize->add_control(
-		new WP_Customize_Control(
-			$wp_customize,
-			'ca_site_version',
-			array(
-				'label'      => 'State Template Version',
-				'type'       => 'select',
-				'choices'    => $versions,
-				'section'    => 'caweb_settings',
-			)
 		)
 	);
 

@@ -101,8 +101,6 @@ function caweb_display_general_settings( $is_active = false ) {
  * @return void
  */
 function caweb_display_general_options() {
-	// State Template Version variables.
-	$version = caweb_template_version();
 
 	// Fav Icon.
 	$fav_icon      = get_option( 'ca_fav_ico', caweb_default_favicon_url() );
@@ -146,17 +144,6 @@ function caweb_display_general_options() {
 	</div>
 	<div class="collapse show" id="general-setting" data-bs-parent="#general-settings">
 		<?php do_action('caweb_options_general_custom_fields'); ?>
-		<!-- State Template Version Row -->
-		<div class="row">
-			<div class="mb-3 col-sm-5">
-				<label for="ca_site_version" class="d-block mb-0"><strong>State Template Version</strong></label>
-				<small class="mb-2 text-muted d-block">Select a California State Template version.</small>
-				<select id="ca_site_version" name="ca_site_version" class="w-50 form-control">
-					<option value="5.5"<?php print '5.5' === $version ? ' selected="selected"' : ''; ?>>Version 5.5</option>
-					<option value="6.0"<?php print '6.0' === $version ? ' selected="selected"' : ''; ?>>Version 6.0</option>
-				</select>
-			</div>
-		</div>
 		<!-- Fav Icon Row -->
 		<div class="row">
 			<div class="mb-3 col-sm-5">
@@ -252,14 +239,6 @@ function caweb_display_general_options() {
 					<small class="mb-2 text-muted d-block">Display the title for all new pages/posts.</small>
 				</div>
 			</div>
-			<!-- Menu Home Link -->
-			<div class="mb-3 col">
-				<div class="form-check form-switch">
-					<input type="checkbox" class="form-check-input mt-1" name="ca_home_nav_link" id="ca_home_nav_link" <?php print esc_attr( $home_nav_link_enabled ); ?>>
-					<label for="ca_home_nav_link" class="d-block mb-0 form-check-label"><strong>Menu Home Link</strong></label>
-					<small class="mb-2 text-muted d-block">Add Home link to subpages header.</small>
-				</div>
-			</div>
 			<!-- Sticky Navigation -->
 			<div class="mb-3 col">
 				<div class="form-check form-switch">
@@ -289,14 +268,6 @@ function caweb_display_general_options() {
 					<small class="text-danger d-block"><?php print ! empty( $ua_compatibiliy ) ? 'IE 11 browser compatibility enabled. Warning: creates accessibility errors when using IE browsers.' : ''; ?></small>
 				</div>
 			</div>
-			<!-- Search on FrontPage -->
-			<div class="mb-3 col">
-				<div class="form-check form-switch">
-					<input type="checkbox" class="form-check-input mt-1" name="ca_frontpage_search_enabled" id="ca_frontpage_search_enabled" <?php print esc_attr( $frontpage_search_enabled ); ?> >
-					<label for="ca_frontpage_search_enabled" class="d-block mb-0 form-check-label"><strong>Show Search on Front Page</strong></label>
-					<small class="mb-2 text-muted d-block">Enable Feature Search box on home page.</small>
-				</div>
-			</div>
 		</div>
 	</div>
 	<?php
@@ -311,12 +282,6 @@ function caweb_display_utility_header_options() {
 
 	// Contact Us Page.
 	$contact_us_link = get_option( 'ca_contact_us_link', '' );
-
-	// Geo Locator.
-	$geo_locator_enabled = get_option( 'ca_geo_locator_enabled', false ) ? ' checked' : '';
-
-	// Utility Header Home Icon.
-	$utility_header_home_icon = get_option( 'ca_utility_home_icon', true ) ? ' checked' : '';
 
 	?>
 	<!-- Utility Header Section -->
@@ -344,14 +309,6 @@ function caweb_display_utility_header_options() {
 					<input type="checkbox" class="form-check-input mt-1" name="ca_geo_locator_enabled" id="ca_geo_locator_enabled" <?php print esc_attr( $geo_locator_enabled ); ?>> 
 					<label for="ca_geo_locator_enabled" class="d-block mb-0"><strong>Enable Geo Locator</strong></label>
 					<small class="mb-2 text-muted d-block">Displays a geo locator feature at the top right of each page.</small>
-				</div>
-			</div>
-			<!-- Home Link -->
-			<div class="mb-3 col-4">
-				<div class="form-check form-switch">
-					<input type="checkbox" class="form-check-input mt-1" name="ca_utility_home_icon" id="ca_utility_home_icon" <?php print esc_attr( $utility_header_home_icon ); ?>>
-					<label for="ca_utility_home_icon" class="d-block mb-0 form-check-label"><strong>Home Link</strong></label>
-					<small class="mb-2 text-muted d-block">Put a home icon/link on the left side of the utility header.</small>
 				</div>
 			</div>
 		</div>

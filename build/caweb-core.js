@@ -962,22 +962,6 @@ jQuery(document).ready(function ($) {
 
 /***/ }),
 
-/***/ "./src/scripts/a11y/utility-header.js":
-/*!********************************************!*\
-  !*** ./src/scripts/a11y/utility-header.js ***!
-  \********************************************/
-/***/ (() => {
-
-jQuery(document).ready(function ($) {
-  /* -----------------------------------------
-  Utility Header
-  ----------------------------------------- */
-  // removing role attribute to fix accessibilty error
-  $(".settings-links button[data-target='#locationSettings']").removeAttr("role");
-});
-
-/***/ }),
-
 /***/ "./src/scripts/google/cse.js":
 /*!***********************************!*\
   !*** ./src/scripts/google/cse.js ***!
@@ -1214,7 +1198,6 @@ __webpack_require__(/*! ./plugins/ */ "./src/scripts/a11y/plugins/index.js");
 __webpack_require__(/*! ./button */ "./src/scripts/a11y/button.js");
 __webpack_require__(/*! ./others */ "./src/scripts/a11y/others.js");
 __webpack_require__(/*! ./twitter */ "./src/scripts/a11y/twitter.js");
-__webpack_require__(/*! ./utility-header */ "./src/scripts/a11y/utility-header.js");
 })();
 
 /******/ })()

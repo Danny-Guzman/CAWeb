@@ -10,55 +10,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Returns the Site Wide Template Version Setting
- *
- * @since 1.5.4 Template Version 5 has been deprecated and all customers moved to 5.5.
- * @return int
- */
-function caweb_template_version() {
-	$version       = get_option( 'ca_site_version', CAWEB_MINIMUM_SUPPORTED_TEMPLATE_VERSION );
-	$theme_version = wp_get_theme()->get( 'Version' );
-
-	if ( '1.5.4' <= $theme_version && '5.5' > $version ) {
-		return 5.5;
-	}
-
-	return $version;
-}
-
-/**
- * Returns all CAWeb State Template Versions
- *
- * @param boolean $include_beta Include beta versions.
- * @return array
- */
-function caweb_template_versions( $include_beta = true ) {
-	$tmp               = CAWEB_SUPPORTED_TEMPLATE_VERSIONS;
-	$template_versions = array();
-
-	if ( $include_beta ) {
-		$tmp = array_merge( $tmp, CAWEB_BETA_TEMPLATE_VERSIONS );
-	}
-
-	sort( $tmp );
-
-	foreach ( $tmp as $t ) {
-		$template_versions[ "$t" ] = "Version $t";
-	}
-
-	return $template_versions;
-}
-
-/**
- * Returns whether or not the Site Wide Template Version is a Beta
- *
- * @return boolean
- */
-function caweb_is_beta_version() {
-	return in_array( caweb_template_version(), CAWEB_BETA_TEMPLATE_VERSIONS, true );
-}
-
-/**
  * Returns array of CAWeb Menu Theme Locations
  *
  * @return array
@@ -186,13 +137,12 @@ function caweb_template_colors() {
 /**
  * Returns array of CAWeb Menu Types
  *
+ * @since 1.12.0 Flex Mega Menu and Mega Drop menu styles have been dropped.
  * @return array
  */
 function caweb_nav_menu_types() {
 	$menu_types = array(
 		'dropdown'     => 'Drop Down',
-		'flexmega'     => 'Flex Mega Menu',
-		'megadropdown' => 'Mega Drop',
 		'singlelevel'  => 'Single Level',
 	);
 

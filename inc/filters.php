@@ -46,7 +46,6 @@ add_filter( 'tribe_default_events_template_classes', 'caweb_default_events_templ
  */
 function caweb_body_class( $wp_classes, $extra_classes ) {
 	global $post;
-	$template_version = caweb_template_version();
 	$user_classes     = wp_unslash( get_option( 'caweb_body_classes', '' ) );
 
 	// Add user body class names to extra classes.
@@ -71,7 +70,7 @@ function caweb_body_class( $wp_classes, $extra_classes ) {
 			( ! caweb_is_divi_used() && is_active_sidebar( 'sidebar-1' ) && $sidebar_enabled ? 'sidebar-displayed' : '' ),
 		);
 	}
-	$whitelist[] = sprintf( '%1$s', $template_version );
+	$whitelist[] = sprintf( '%1$s', CAWEB_TEMPLATE_VERSION );
 	$whitelist[] = get_option( 'ca_sticky_navigation', false ) ? 'sticky_nav' : '';
 
 	// Merge any extra classes to the wp classes.

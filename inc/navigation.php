@@ -32,14 +32,10 @@ function caweb_nav_menu( $nav_menu, $args ) {
 	if ( ! empty( $args->menu ) && $args->echo &&
 			isset(
 				$args->theme_location,
-				$args->caweb_nav_type,
-				$args->caweb_template_version
+				$args->caweb_nav_type
 			)
 		) {
-
-			$template_version = $args->caweb_template_version;
-
-			get_template_part( "parts/$template_version/nav", $args->caweb_nav_type, $args );
+			get_template_part( "parts/nav", $args->caweb_nav_type, $args );
 	} else {
 		return $nav_menu;
 	}
@@ -69,6 +65,8 @@ function caweb_widget_nav_menu_args( $nav_menu_args, $nav_menu, $args, $instance
 /**
  * CAWeb wp nav menu item custom fields.
  *
+ * @since 1.12.0 Flex and Mega menu options have been removed.
+ * 
  * @param  mixed $item_id Not used.
  * @param  mixed $item Menu item data object.
  * @param  mixed $depth Depth of menu item. Used for padding.

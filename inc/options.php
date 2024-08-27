@@ -21,7 +21,7 @@ add_filter( 'menu_order', 'caweb_wpse_custom_menu_order', 10, 1 );
 // Theme Option filters.
 add_filter( 'option_ca_site_color_scheme', 'caweb_ca_site_color_scheme', 10, 2 );
 add_filter( 'option_ca_fav_ico', 'caweb_pre_option_ca_fav_ico', 10, 2 );
-//add_filter( 'option_ca_default_navigation_menu', 'caweb_pre_ca_default_navigation_menu', 10, 2 );
+add_filter( 'option_ca_default_navigation_menu', 'caweb_pre_ca_default_navigation_menu', 10, 2 );
 
 /**
  * This filter is used to switch menu order.
@@ -442,7 +442,7 @@ function caweb_save_multi_ga_options( $values = array() ) {
 function caweb_get_site_options( $group = '' ) {
 	$caweb_general_options = array(
 		'ca_fav_ico'                    => caweb_default_favicon_url(),
-		'ca_site_version'               => CAWEB_MINIMUM_SUPPORTED_TEMPLATE_VERSION,
+		'ca_site_version'               => CAWEB_TEMPLATE_VERSION,
 		'ca_default_navigation_menu'    => 'singlelevel',
 		'ca_site_color_scheme'          => 'oceanside',
 		'ca_frontpage_search_enabled'   => false,
@@ -590,14 +590,9 @@ function caweb_get_social_media_links() {
 	$caweb_social_options = array(
 		'Email'           => 'ca_social_email',
 		'Facebook'        => 'ca_social_facebook',
-		'Flickr'          => 'ca_social_flickr',
 		'Github'          => 'ca_social_github',
-		'Google Plus'     => 'ca_social_google_plus',
 		'Instagram'       => 'ca_social_instagram',
 		'LinkedIn'        => 'ca_social_linkedin',
-		'Pinterest'       => 'ca_social_pinterest',
-		'RSS'             => 'ca_social_rss',
-		'Snapchat'        => 'ca_social_snapchat',
 		'X'               => 'ca_social_twitter',
 		'YouTube'         => 'ca_social_youtube',
 	);
@@ -696,6 +691,7 @@ function caweb_ca_site_color_scheme( $value, $option ) {
  *
  * @link https://developer.wordpress.org/reference/hooks/option_option/
  *
+ * @since 1.10.0 favicon file was moved.
  * @param  mixed  $value Value of the option. If stored serialized, it will be unserialized prior to being returned.
  * @param  string $option Option name.
  * @return mixed
@@ -729,3 +725,4 @@ function caweb_pre_ca_default_navigation_menu( $value, $option ) {
 
 	return $value;
 }
+

@@ -5,25 +5,6 @@ based off CA State Template v5.5.23
 @import './custom/variables';
 
 body{
-	// State Template 5.5 specific styles
-	&[class*="5.5"]{
-        @import './custom/';
-
-		// if page is a standard WordPress page
-		&:not(.divi-built){
-			@import './custom/main-content';
-		}
-
-		// if page was built using Divi
-        &.divi-built{
-            @import 'divi';
-        }
-
-		// Add any custom Version styles
-		@import '../version-5.5/navigation';
-
-    }
-
 	// State Template 6 specific styles
 	&[class*="6.0"]{
 		// Add any custom Version variables
