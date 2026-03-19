@@ -1,8 +1,32 @@
+/* Panel and Fullwidth Panel */
+.et_pb_module.et_pb_ca_panel .panel-body ul,
+.et_pb_module.et_pb_ca_panel .panel-body ol{
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+/* Panel and Fullwidth Panel */
+.et_pb_module.et_pb_ca_fullwidth_panel .panel-body ul,
+.et_pb_module.et_pb_ca_fullwidth_panel .panel-body ol{
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
 .et_pb_ca_section_primary {
     overflow: hidden;
 }
 .et_pb_ca_fullwidth_section_primary {
     overflow: hidden;
 }
+/* Section - Footer Group */
+.et_pb_ca_section_footer_group.et_pb_module [class^=list-]{
+	list-style-type: none !important;
+}
+
+/* Section - Footer Group */
+.et_pb_ca_fullwidth_section_footer.et_pb_module [class^=list-]{
+	list-style-type: none !important;
+}
+
 
 /*# sourceMappingURL=bundle4.css.map*/

@@ -11,16 +11,16 @@ export default {
     
     externals: {
         // Divi Dependencies.
-        '@divi/rest': ['divi', 'rest'],
-        '@divi/data': ['divi', 'data'],
+        // '@divi/rest': ['divi', 'rest'],
+        // '@divi/data': ['divi', 'data'],
         '@divi/module': ['divi', 'module'],
         '@divi/module-utils': ['divi', 'moduleUtils'],
-        '@divi/modal': ['divi', 'modal'],
-        '@divi/field-library': ['divi', 'fieldLibrary'],
-        '@divi/icon-library': ['divi', 'iconLibrary'],
+        // '@divi/modal': ['divi', 'modal'],
+        // '@divi/field-library': ['divi', 'fieldLibrary'],
+        // '@divi/icon-library': ['divi', 'iconLibrary'],
         '@divi/module-library': ['divi', 'moduleLibrary'],
-        '@divi/style-library': ['divi', 'styleLibrary'],
-        '@divi/shortcode-module': ['divi', 'shortcodeModule'],
+        // '@divi/style-library': ['divi', 'styleLibrary'],
+        // '@divi/shortcode-module': ['divi', 'shortcodeModule'],
     },
   
     

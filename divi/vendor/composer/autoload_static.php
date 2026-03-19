@@ -7,14 +7,14 @@ namespace Composer\Autoload;
 class ComposerStaticInit8c447a48099142c174e7829d97bee8e0
 {
     public static $prefixLengthsPsr4 = array (
-        'C' => 
+        'C' =>
         array (
             'CAWeb\\Modules\\' => 14,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'CAWeb\\Modules\\' => 
+        'CAWeb\\Modules\\' =>
         array (
             0 => __DIR__ . '/../..' . '/build/modules',
         ),

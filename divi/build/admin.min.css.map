@@ -1,0 +1,1 @@
+{"version":3,"file":"admin.min.css","mappings":"AAAA,qCACI","sources":["webpack://caweb-divi-extension/./src/styles/_icons.scss"],"sourcesContent":[".et-vb-icon-picker-list button:after{\r\n    font-family: 'CaGov' !important;\r\n}"],"names":[],"sourceRoot":""}
