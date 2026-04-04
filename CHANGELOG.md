@@ -1,6 +1,11 @@
 v1.14.0
 - Transition from archived https://github.com/elegantthemes/create-divi-extension to new Divi 5 API https://devalpha.elegantthemes.com/
 
+v1.13.5
+- Added Mega Drop navigation menu back
+- Fixed issue with navigation menu styles
+- Advanced Menu Screen Options are now hidden
+
 v1.13.4
 - Removed Show in Header option from Social Media Links
 - Removed unneeded classes from alert
