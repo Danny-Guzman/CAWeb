@@ -88,7 +88,7 @@ _wp_menu_item_classes_by_context( $caweb_menuitems );
 						<?php print esc_html( $caweb_item->title ); ?>
 						</a>
 						<?php if ( ! empty( $caweb_child_items ) ) : ?>
-						<ul class="dropdown-menu">
+						<div class="dropdown-menu">
 							<?php
 								foreach ( $caweb_child_items as $c => $caweb_child_item ) {
 									$caweb_child_item_meta      = get_post_meta( $caweb_child_item->ID );
@@ -96,7 +96,7 @@ _wp_menu_item_classes_by_context( $caweb_menuitems );
 									// if the child item has the mega menu border option enabled, add class to submenu
 									$caweb_border = isset( $caweb_child_item_meta['_caweb_menu_mega_border'][0] ) ? ' border border-1' : '';
 
-									// on first loop, if there are child items, it opens a div with class .submenu that wraps the second level nav items. 
+									// on first loop, open a div.submenu and add the border class if set,
 									// If there are mega menu rows, the .submenu divs will be closed and opened accordingly to wrap each mega menu row.
 									if( 0 === $c ){
 										?>
@@ -105,7 +105,7 @@ _wp_menu_item_classes_by_context( $caweb_menuitems );
 									}
 
 									
-									// new row is determined by the _caweb_menu_mega_row meta value, if true, it closes the current second-level-nav div and opens a new one.
+									// new row is determined by the _caweb_menu_mega_row meta value, if true, it closes the current submenu div and opens a new one.
 									$caweb_new_row = isset( $caweb_child_item_meta['_caweb_menu_mega_row'][0] ) ? $caweb_child_item_meta['_caweb_menu_mega_row'][0] : '';
 
 									$caweb_child_item_unit_size = isset( $caweb_child_item_meta['_caweb_menu_unit_size'][0] ) ? $caweb_child_item_meta['_caweb_menu_unit_size'][0] : 'unit1';
@@ -115,13 +115,16 @@ _wp_menu_item_classes_by_context( $caweb_menuitems );
 	
 									// nav media type (none, icon or image).
 									$nav_media_type= isset( $caweb_child_item_meta['_caweb_menu_media_type'][0] ) ? $caweb_child_item_meta['_caweb_menu_media_type'][0] : 'none';
+								
+									// nav media alignment (left or top).
+									$nav_media_alignment = isset( $caweb_child_item_meta['_caweb_menu_media_alignment'][0] ) ? $caweb_child_item_meta['_caweb_menu_media_alignment'][0] : 'left';
 
 									// Get icon if present.
 									$caweb_child_item_icon = isset( $caweb_child_item_meta['_caweb_menu_icon'] ) && ! empty( $caweb_child_item_meta['_caweb_menu_icon'][0] ) ?
 										$caweb_child_item_meta['_caweb_menu_icon'][0] : '';
 										
 									if( $caweb_new_row ){
-										// close the open second-level-nav and open another for the new row.
+										// close the open submenu div and open another for the next row.
 										?>
 											</div>
 											<div class="submenu<?php print esc_attr( $caweb_border ); ?>">
@@ -131,7 +134,7 @@ _wp_menu_item_classes_by_context( $caweb_menuitems );
 									
 										<a 
 											href="<?php print esc_url( $caweb_child_item->url ); ?>" 
-											class="dropdown-item nav-link"
+											class="dropdown-item nav-link<?php print 'none' !== $nav_media_type ? ' with-media-' . esc_attr( $nav_media_alignment ) : ''; ?>"
 											tabindex="-1"
 											<?php if ( ! empty( $caweb_child_item->target ) ) : ?>
 											target="<?php print esc_attr( $caweb_child_item->target ); ?>" 
@@ -166,12 +169,16 @@ _wp_menu_item_classes_by_context( $caweb_menuitems );
 												}
 											}
 										?>
+										<div>
+											<span class="fs-4">
+												<?php print esc_html( $caweb_child_item->title ); ?>
 
-										<?php print esc_html( $caweb_child_item->title ); ?>
+											</span>
 										
 										<?php if ( in_array( $caweb_child_item_unit_size, array( 'unit2', 'unit3' ), true ) && ! empty( $caweb_child_item->description ) ) : ?>
 											<div class="link-description"><?php print esc_html( $caweb_child_item->description ); ?></div>
 										<?php endif; ?>
+										</div>
 										</a>
 									<?php
 
@@ -183,7 +190,7 @@ _wp_menu_item_classes_by_context( $caweb_menuitems );
 									}
 								}
 							?>
-						</ul>
+						</div>
 						<?php endif; ?>
 					</li>
 				<?php
