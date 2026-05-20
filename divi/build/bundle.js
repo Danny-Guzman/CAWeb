@@ -2,50 +2,1379 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/modules/FullwidthSectionPrimary/index.ts"
+/***/ "./src/modules/Github/edit.jsx"
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   CAWebModuleFullwidthSectionPrimary: () => (/* binding */ CAWebModuleFullwidthSectionPrimary)
+/* harmony export */   ModuleEdit: () => (/* binding */ ModuleEdit)
 /* harmony export */ });
-/* harmony import */ var _SectionPrimary_module_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/modules/SectionPrimary/module.json");
-/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/FullwidthSectionPrimary/module.json");
-/* harmony import */ var _SectionPrimary_edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/SectionPrimary/edit.tsx");
-/* harmony import */ var _SectionPrimary_placeholder_content__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/SectionPrimary/placeholder-content.ts");
-/* harmony import */ var _SectionPrimary_conversion_outline__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/SectionPrimary/conversion-outline.ts");
-/* harmony import */ var _SectionPrimary_Settings_content__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/SectionPrimary/Settings/content.tsx");
-var __assign = undefined && undefined.__assign || function () {
-  __assign = Object.assign || function (t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-      s = arguments[i];
-      for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-    }
-    return t;
-  };
-  return __assign.apply(this, arguments);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/Github/types.ts");
+/* harmony import */ var _styles_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/Github/styles.jsx");
+/* harmony import */ var _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/Github/module-classnames.js");
+/* harmony import */ var _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/Github/module-script-data.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__);
+// External Dependencies.
+
+
+// Divi Dependencies.
+
+
+
+// Local Dependencies.
+
+
+
+
+
+/**
+ * Divi 5 Module edit component of visual builder.
+ *
+ * @since ??
+ *
+ * @param {GithubModuleEditProps} props React component props.
+ *
+ * @returns {ReactElement}
+ */
+
+const ModuleEdit = props => {
+  const {
+    attrs,
+    id,
+    name,
+    elements
+  } = props;
+  let title = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.title?.innerContent);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ModuleContainer, {
+    attrs: attrs,
+    elements: elements,
+    id: id,
+    name: name,
+    stylesComponent: _styles_jsx__WEBPACK_IMPORTED_MODULE_4__.ModuleStyles,
+    classnamesFunction: _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__.moduleClassnames,
+    scriptDataComponent: _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__.ModuleScriptData,
+    children: [elements.styleComponents({
+      attrName: 'module'
+    }), elements.render({
+      attrName: 'title'
+    })]
+  });
 };
+_c = ModuleEdit;
+
+var _c;
+$RefreshReg$(_c, "ModuleEdit");
+
+/***/ },
+
+/***/ "./src/modules/Github/module-script-data.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleScriptData: () => (/* binding */ ModuleScriptData)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/Github/types.ts");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+/**
+ * Divi 5 module's script data component.
+ *
+ * @since ??
+ *
+ * @param {ModuleScriptDataProps<ModuleAttrs>} props React component props.
+ *
+ * @returns {ReactElement}
+ */
+
+const ModuleScriptData = ({
+  elements
+}) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+  children: elements.scriptData({
+    attrName: 'module'
+  })
+});
+_c = ModuleScriptData;
+var _c;
+$RefreshReg$(_c, "ModuleScriptData");
+
+/***/ },
+
+/***/ "./src/modules/Github/styles.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleStyles: () => (/* binding */ ModuleStyles)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _custom_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/Github/custom-css.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+// External dependencies.
+
+
+// Divi dependencies.
+
+
 // Local dependencies.
 
 
-// Fullwidth Modules use everything from the standard modules
+/**
+ * Module's style components.
+ *
+ * @since ??
+ */
+
+const ModuleStyles = ({
+  attrs,
+  settings,
+  orderClass,
+  mode,
+  state,
+  noStyleTag,
+  elements
+}) => {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_divi_module__WEBPACK_IMPORTED_MODULE_1__.StyleContainer, {
+    mode: mode,
+    state: state,
+    noStyleTag: noStyleTag,
+    children: [elements.style({
+      attrName: 'module',
+      styleProps: {
+        disabledOn: {
+          disabledModuleVisibility: settings?.disabledModuleVisibility
+        }
+      }
+    }), elements.style({
+      attrName: 'title'
+    }), elements.style({
+      attrName: 'content'
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_divi_module__WEBPACK_IMPORTED_MODULE_1__.CssStyle, {
+      selector: orderClass,
+      attr: attrs?.css,
+      cssFields: _custom_css__WEBPACK_IMPORTED_MODULE_2__.cssFields
+    })]
+  });
+};
+_c = ModuleStyles;
+
+var _c;
+$RefreshReg$(_c, "ModuleStyles");
+
+/***/ },
+
+/***/ "./src/modules/Location/Settings/content.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SettingsContent: () => (/* binding */ SettingsContent)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
+// External dependencies.
+
+
+
+// WordPress dependencies
+
+
+// Divi dependencies.
+
+
+
+// Local dependencies.
+
+const SettingsContent = ({
+  attrs,
+  defaultSettingsAttrs,
+  groupConfiguration
+}) => {
+  let layout = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(attrs?.layout?.innerContent);
+  let layoutDefault = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(defaultSettingsAttrs?.layout?.innerContent);
+  let contact = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(attrs?.contact?.innerContent);
+  let link = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(attrs?.link?.innerContent);
+  layout = layout ?? layoutDefault;
+
+  // Toggle Featured Image field visibility based on layout
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'src', 'render'], 'banner' === layout);
+
+  // Toggle Description field visibility based on layout
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'descInnercontent', 'render'], 'banner' === layout);
+
+  // Toggle Show Contact Button field visibility based on layout
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'showContact', 'render'], 'contact' === layout);
+
+  // Toggle Phone/Fax fields visibility based on layout and Show Contact Button
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'phone', 'render'], 'contact' === layout && 'on' === contact?.show);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'fax', 'render'], 'contact' === layout && 'on' === contact?.show);
+
+  // Toggle Show Button field visibility based on layout
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'showLink', 'render'], 'mini' !== layout);
+
+  // Toggle URL field visibility based on Show Button
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'url', 'render'], 'on' === link?.show);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
+    groups: groupConfiguration
+  });
+};
+_c = SettingsContent;
+var _c;
+$RefreshReg$(_c, "SettingsContent");
+
+/***/ },
+
+/***/ "./src/modules/Location/Settings/design.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SettingsDesign: () => (/* binding */ SettingsDesign)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
+// External dependencies.
+
+
+
+// WordPress dependencies
+
+
+// Divi dependencies.
+
+
+
+// Local dependencies.
+
+const SettingsDesign = ({
+  attrs,
+  defaultSettingsAttrs,
+  groupConfiguration
+}) => {
+  let layout = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(attrs?.layout?.innerContent);
+  let layoutDefault = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(defaultSettingsAttrs?.layout?.innerContent);
+  layout = layout ?? layoutDefault;
+
+  // Toggle Icon Design group visibility based on layout
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['icon', 'render'], 'banner' !== layout);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
+    groups: groupConfiguration
+  });
+};
+_c = SettingsDesign;
+var _c;
+$RefreshReg$(_c, "SettingsDesign");
+
+/***/ },
+
+/***/ "./src/modules/Location/edit.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleEdit: () => (/* binding */ ModuleEdit)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _styles_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/Location/styles.jsx");
+/* harmony import */ var _module_classnames_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/Location/module-classnames.js");
+/* harmony import */ var _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/Location/module-script-data.jsx");
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/Location/types.ts");
+/* harmony import */ var _Utils_index_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./src/modules/Utils/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__);
+// External Dependencies.
+
+
+// Divi Dependencies.
+
+
+
+// Local Dependencies.
 
 
 
 
-// Merged metadata 
-var metadata = __assign(__assign({}, _SectionPrimary_module_json__WEBPACK_IMPORTED_MODULE_0__), _module_json__WEBPACK_IMPORTED_MODULE_1__);
-var CAWebModuleFullwidthSectionPrimary = {
-  metadata: metadata,
-  placeholderContent: _SectionPrimary_placeholder_content__WEBPACK_IMPORTED_MODULE_3__.placeholderContent,
-  conversionOutline: _SectionPrimary_conversion_outline__WEBPACK_IMPORTED_MODULE_4__.conversionOutline,
-  renderers: {
-    edit: _SectionPrimary_edit__WEBPACK_IMPORTED_MODULE_2__.ModuleEdit
-  },
-  settings: {
-    content: _SectionPrimary_Settings_content__WEBPACK_IMPORTED_MODULE_5__.SettingsContent
+
+
+/**
+ * Renders Location (contact)
+ *
+ * @return ReactElement
+ */
+
+const contactLocation = ({
+  elements,
+  address,
+  contact,
+  icon,
+  link,
+  name
+}) => {
+  // get a map link if address info exists
+  let addressMapLink = (0,_Utils_index_js__WEBPACK_IMPORTED_MODULE_7__.get_google_map_place_link)([address?.addr, address?.city, address?.state, address?.zip]);
+
+  // If displaying an icon
+  let displayIcon = 'on' === icon?.show ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+    className: "thumbnail",
+    children: (0,_Utils_index_js__WEBPACK_IMPORTED_MODULE_7__.get_icon_span)(icon?.icon)
+  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {});
+
+  // show contact info if enabled
+  let displayOther = 'on' === contact?.show ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    children: ['' !== contact?.phone ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("p", {
+      children: ["General Information: ", contact?.phone]
+    }) : null, '' !== contact?.fax ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("p", {
+      children: ["FAX: ", contact?.fax]
+    }) : null]
+  }) : null;
+  let linkElement = '' !== link?.url && 'on' === link?.show ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
+    href: link?.url,
+    className: "btn btn-outline-dark",
+    target: "_blank",
+    children: "More"
+  }) : null;
+
+  // we combine all contact info elements here
+  let contactInfo = "" !== name || null !== displayOther && displayOther?.props?.children || null !== addressMapLink || null !== linkElement && linkElement?.props?.children ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+    className: "contact",
+    children: [elements.render({
+      'attrName': 'name'
+    }), addressMapLink, displayOther, linkElement]
+  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {});
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    children: contactInfo
+  });
+};
+
+/**
+ * Renders Location (mini)
+ *
+ * @return ReactElement
+ */
+const miniLocation = ({
+  elements,
+  address,
+  icon,
+  link,
+  name
+}) => {
+  // get a map link if address info exists
+  let addressMapLink = (0,_Utils_index_js__WEBPACK_IMPORTED_MODULE_7__.get_google_map_place_link)([address?.addr, address?.city, address?.state, address?.zip]);
+
+  // If displaying an icon
+  let displayIcon = 'on' === icon?.show ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+    className: "thumbnail",
+    children: (0,_Utils_index_js__WEBPACK_IMPORTED_MODULE_7__.get_icon_span)(icon?.icon)
+  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {});
+
+  // we wrap the name in a link if a link url is provided
+  let nameElement = '' !== name ? '' !== link?.url ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
+    href: link?.url,
+    target: "_blank",
+    children: name
+  }) : elements.render({
+    'attrName': 'name'
+  }) : null;
+
+  // we combine all contact info elements here
+  let contactInfo = '' !== name || null !== addressMapLink ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+    className: "contact",
+    children: [nameElement, addressMapLink]
+  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {});
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    children: contactInfo
+  });
+};
+
+/**
+ * Renders Location (banner)
+ *
+ * @return ReactElement
+ */
+const bannerLocation = ({
+  elements,
+  address,
+  link,
+  name,
+  image,
+  desc
+}) => {
+  let imageElement = '' !== image?.src ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+    className: "thumbnail",
+    children: elements.render({
+      attrName: 'image'
+    })
+  }) : null;
+
+  // get a map link if address info exists
+  let addressMapLink = (0,_Utils_index_js__WEBPACK_IMPORTED_MODULE_7__.get_google_map_place_link)([address?.addr, address?.city, address?.state, address?.zip]);
+
+  // Add description markup
+  let descElement = '' !== desc ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("strong", {
+      children: "Description:"
+    }), elements.render({
+      attrName: 'desc'
+    })]
+  }) : null;
+  let linkElement = '' !== link?.url && 'on' === link?.show ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
+    href: link?.url,
+    target: "_blank",
+    className: "btn btn-outline-dark",
+    children: "View More Details"
+  }) : null;
+
+  // we combine all contact info elements here
+  let contactInfo = "" !== name || null !== addressMapLink ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+    className: "contact",
+    children: [elements.render({
+      'attrName': 'name'
+    }), addressMapLink ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+      className: "address",
+      children: [(0,_Utils_index_js__WEBPACK_IMPORTED_MODULE_7__.get_icon_span)('road-pin'), addressMapLink]
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {})]
+  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {});
+
+  // we combine all summary info elements here
+  let summaryInfo = "" !== desc || null !== linkElement ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+    className: "summary",
+    children: [descElement, linkElement]
+  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {});
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    children: [imageElement, contactInfo, summaryInfo]
+  });
+};
+
+/**
+ * Divi 5 Module edit component of visual builder.
+ *
+ * @since ??
+ *
+ * @param {LocationModuleEditProps} props React component props.
+ *
+ * @returns {ReactElement}
+ */
+const ModuleEdit = ({
+  attrs,
+  id,
+  name,
+  elements
+}) => {
+  let layout = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.layout?.innerContent);
+  let address = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.address?.innerContent);
+  let contact = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.contact?.innerContent);
+  let icon = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.icon?.innerContent);
+  let link = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.link?.innerContent);
+  let locationName = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.name?.innerContent);
+  let image = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.image?.innerContent);
+  let desc = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.desc?.innerContent);
+  let output = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {});
+  switch (layout) {
+    case 'mini':
+      output = miniLocation({
+        elements,
+        address,
+        icon,
+        link,
+        name: locationName
+      });
+      break;
+    case 'banner':
+      output = bannerLocation({
+        elements,
+        address,
+        image,
+        link,
+        desc,
+        name: locationName
+      });
+      break;
+    case 'contact':
+    default:
+      output = contactLocation({
+        elements,
+        address,
+        contact,
+        icon,
+        link,
+        name: locationName
+      });
+      break;
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ModuleContainer, {
+    attrs: attrs,
+    elements: elements,
+    id: id,
+    name: name,
+    stylesComponent: _styles_jsx__WEBPACK_IMPORTED_MODULE_3__.ModuleStyles,
+    classnamesFunction: _module_classnames_js__WEBPACK_IMPORTED_MODULE_4__.moduleClassnames,
+    scriptDataComponent: _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_5__.ModuleScriptData,
+    children: [elements.styleComponents({
+      attrName: 'module'
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      className: `location ${layout}`,
+      children: output
+    })]
+  });
+};
+_c = ModuleEdit;
+
+var _c;
+$RefreshReg$(_c, "ModuleEdit");
+
+/***/ },
+
+/***/ "./src/modules/Location/module-script-data.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleScriptData: () => (/* binding */ ModuleScriptData)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/Location/types.ts");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+/**
+ * Divi 5 module's script data component.
+ *
+ * @since ??
+ *
+ * @param {ModuleScriptDataProps<ModuleAttrs>} props React component props.
+ *
+ * @returns {ReactElement}
+ */
+
+const ModuleScriptData = ({
+  elements
+}) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+  children: elements.scriptData({
+    attrName: 'module'
+  })
+});
+_c = ModuleScriptData;
+var _c;
+$RefreshReg$(_c, "ModuleScriptData");
+
+/***/ },
+
+/***/ "./src/modules/Location/styles.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleStyles: () => (/* binding */ ModuleStyles)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _custom_css_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/Location/custom-css.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+// External dependencies.
+
+
+// Divi dependencies.
+
+
+// Local dependencies.
+
+
+/**
+ * Module's style components.
+ *
+ * @since ??
+ */
+
+const ModuleStyles = ({
+  attrs,
+  settings,
+  orderClass,
+  mode,
+  state,
+  noStyleTag,
+  elements
+}) => {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_divi_module__WEBPACK_IMPORTED_MODULE_1__.StyleContainer, {
+    mode: mode,
+    state: state,
+    noStyleTag: noStyleTag,
+    children: [elements.style({
+      attrName: 'module',
+      styleProps: {
+        disabledOn: {
+          disabledModuleVisibility: settings?.disabledModuleVisibility
+        }
+      }
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_divi_module__WEBPACK_IMPORTED_MODULE_1__.TextStyle, {
+      selector: `${orderClass} .example_d4_module_inner`,
+      attr: attrs?.module?.advanced?.text
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_divi_module__WEBPACK_IMPORTED_MODULE_1__.CommonStyle, {
+      selector: `${orderClass} .example_d4_module_inner`,
+      attr: attrs?.module?.decoration?.background,
+      declarationFunction: ({
+        attrValue
+      }) => {
+        if ('on' === attrValue?.image?.parallax?.enabled) {
+          return 'position: relative;';
+        }
+        return '';
+      }
+    }), elements.style({
+      attrName: 'title'
+    }), elements.style({
+      attrName: 'content'
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_divi_module__WEBPACK_IMPORTED_MODULE_1__.CssStyle, {
+      selector: orderClass,
+      attr: attrs?.css,
+      cssFields: _custom_css_js__WEBPACK_IMPORTED_MODULE_2__.cssFields
+    })]
+  });
+};
+_c = ModuleStyles;
+
+var _c;
+$RefreshReg$(_c, "ModuleStyles");
+
+/***/ },
+
+/***/ "./src/modules/ProfileBanner/edit.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleEdit: () => (/* binding */ ModuleEdit)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/ProfileBanner/types.ts");
+/* harmony import */ var _styles_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/ProfileBanner/styles.jsx");
+/* harmony import */ var _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/ProfileBanner/module-classnames.js");
+/* harmony import */ var _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/ProfileBanner/module-script-data.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__);
+// External Dependencies.
+
+
+// Divi Dependencies.
+
+
+
+// Local Dependencies.
+
+
+
+
+
+/**
+ * Divi 5 Module edit component of visual builder.
+ *
+ * @since ??
+ *
+ * @param {ProfileBannerModuleEditProps} props React component props.
+ *
+ * @returns {ReactElement}
+ */
+
+const ModuleEdit = props => {
+  const {
+    attrs,
+    id,
+    name,
+    elements
+  } = props;
+  let profile = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.profile?.innerContent);
+  let portrait = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.portrait?.advanced);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ModuleContainer, {
+    attrs: attrs,
+    elements: elements,
+    id: id,
+    name: name,
+    stylesComponent: _styles_jsx__WEBPACK_IMPORTED_MODULE_4__.ModuleStyles,
+    classnamesFunction: _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__.moduleClassnames,
+    scriptDataComponent: _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__.ModuleScriptData,
+    children: [elements.styleComponents({
+      attrName: 'module'
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("figure", {
+      className: `executive-profile${"on" === portrait?.vertical ? ' vertical' : ''}`,
+      children: [elements.render({
+        attrName: 'portrait',
+        attrSubName: 'src',
+        className: `${"on" === portrait?.rounded ? 'rounded-circle' : ''}` // rounded image
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        className: "body",
+        children: [elements.render({
+          attrName: 'name'
+        }), elements.render({
+          attrName: 'job'
+        }), profile?.text && profile?.url ? elements.render({
+          attrName: 'profile',
+          attrSubName: 'text',
+          htmlAttributes: {
+            href: profile?.url
+          }
+        }) : '']
+      })]
+    })]
+  });
+};
+_c = ModuleEdit;
+
+var _c;
+$RefreshReg$(_c, "ModuleEdit");
+
+/***/ },
+
+/***/ "./src/modules/ProfileBanner/module-script-data.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleScriptData: () => (/* binding */ ModuleScriptData)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/ProfileBanner/types.ts");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+/**
+ * Divi 5 module's script data component.
+ *
+ * @since ??
+ *
+ * @param {ModuleScriptDataProps<ModuleAttrs>} props React component props.
+ *
+ * @returns {ReactElement}
+ */
+
+const ModuleScriptData = ({
+  elements
+}) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+  children: elements.scriptData({
+    attrName: 'module'
+  })
+});
+_c = ModuleScriptData;
+var _c;
+$RefreshReg$(_c, "ModuleScriptData");
+
+/***/ },
+
+/***/ "./src/modules/ProfileBanner/styles.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleStyles: () => (/* binding */ ModuleStyles)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _custom_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/ProfileBanner/custom-css.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+// External dependencies.
+
+
+// Divi dependencies.
+
+
+// Local dependencies.
+
+
+/**
+ * Module's style components.
+ *
+ * @since ??
+ */
+
+const ModuleStyles = ({
+  attrs,
+  settings,
+  orderClass,
+  mode,
+  state,
+  noStyleTag,
+  elements
+}) => {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_divi_module__WEBPACK_IMPORTED_MODULE_1__.StyleContainer, {
+    mode: mode,
+    state: state,
+    noStyleTag: noStyleTag,
+    children: [elements.style({
+      attrName: 'module',
+      styleProps: {
+        disabledOn: {
+          disabledModuleVisibility: settings?.disabledModuleVisibility
+        }
+      }
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_divi_module__WEBPACK_IMPORTED_MODULE_1__.TextStyle, {
+      selector: `${orderClass} .example_d4_module_inner`,
+      attr: attrs?.module?.advanced?.text
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_divi_module__WEBPACK_IMPORTED_MODULE_1__.CommonStyle, {
+      selector: `${orderClass} .example_d4_module_inner`,
+      attr: attrs?.module?.decoration?.background,
+      declarationFunction: ({
+        attrValue
+      }) => {
+        if ('on' === attrValue?.image?.parallax?.enabled) {
+          return 'position: relative;';
+        }
+        return '';
+      }
+    }), elements.style({
+      attrName: 'title'
+    }), elements.style({
+      attrName: 'content'
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_divi_module__WEBPACK_IMPORTED_MODULE_1__.CssStyle, {
+      selector: orderClass,
+      attr: attrs?.css,
+      cssFields: _custom_css__WEBPACK_IMPORTED_MODULE_2__.cssFields
+    })]
+  });
+};
+_c = ModuleStyles;
+
+var _c;
+$RefreshReg$(_c, "ModuleStyles");
+
+/***/ },
+
+/***/ "./src/modules/SectionPrimary/Settings/content.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SettingsContent: () => (/* binding */ SettingsContent)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/SectionPrimary/types.ts");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
+// External dependencies.
+
+
+
+// WordPress dependencies
+
+
+// Divi dependencies.
+
+
+
+// Local dependencies.
+
+
+const SettingsContent = ({
+  attrs,
+  defaultSettingsAttrs,
+  groupConfiguration
+}) => {
+  let image = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(attrs?.image?.innerContent);
+  let link = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(attrs?.link?.innerContent);
+
+  // Toggle Featured Image Image Position, Fade From Left and Src field visibility based on if show image is on
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'position', 'render'], 'off' !== image?.show);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'fade', 'render'], 'off' !== image?.show);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'src', 'render'], 'off' !== image?.show);
+
+  // Toggle Link URL field visibility based on if show more button is on
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'url', 'render'], 'off' !== link?.show);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
+    groups: groupConfiguration
+  });
+};
+_c = SettingsContent;
+var _c;
+$RefreshReg$(_c, "SettingsContent");
+
+/***/ },
+
+/***/ "./src/modules/SectionPrimary/edit.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleEdit: () => (/* binding */ ModuleEdit)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/SectionPrimary/types.ts");
+/* harmony import */ var _styles_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/SectionPrimary/styles.jsx");
+/* harmony import */ var _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/SectionPrimary/module-classnames.js");
+/* harmony import */ var _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/SectionPrimary/module-script-data.jsx");
+/* harmony import */ var _Utils_index_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./src/modules/Utils/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__);
+// External Dependencies.
+
+
+// Divi Dependencies.
+
+
+
+// Local Dependencies.
+
+
+
+
+
+
+/**
+ * Renders the Header
+ *
+ * @param {{
+ *       text?: string;
+ *       color?: string;
+ *       alignment?: 'start' | 'center' | 'end';
+ *       level?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
+ * }} props 
+ * @returns {ReactElement} 
+ */
+
+const renderHeader = ({
+  text,
+  color,
+  alignment,
+  level
+}) => {
+  let style = {};
+  if (color) {
+    style = Object.assign(style, (0,_Utils_index_js__WEBPACK_IMPORTED_MODULE_7__.processColorPickerValue)(color));
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(Tag, {
+    className: `text-${alignment}`,
+    style: style,
+    children: text
+  });
+};
+
+/**
+ * Renders the Featured Image
+ *
+ * @param {{
+ *     elements?: Module.ModuleElements,
+ *     image?: {
+ *       src?: string,
+ *       alt?: string,
+ *       title?: string,
+ *       show?: string,
+ *       alignment?: string,
+ *       fade?: string
+ *     }
+ * }} props 
+ * @returns {ReactElement} 
+ */
+const renderImage = ({
+  elements,
+  image: {
+    src,
+    alt,
+    title,
+    show,
+    alignment,
+    fade
+  }
+}) => {
+  if ('off' === image?.show) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {});
+  }
+  let classes = 'col-4';
+  classes += 'on' === image?.alignment ? ' ps-3 float-end' : ' pe-3 float-start';
+  classes += 'on' === image?.fade ? ' animate__animated  animate__fadeInLeft' : '';
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+    className: classes,
+    children: elements.render({
+      attrName: 'image'
+    })
+  });
+};
+
+/**
+ * Renders the More Button
+ *
+ * @param {{
+ *     text?: string;
+ *     link?: {
+ *       url?: string;
+ *       show?: string;
+ *     }
+ * }} props 
+ * @returns {ReactElement} 
+ */
+const renderButton = ({
+  text,
+  link: {
+    url,
+    show
+  }
+}) => {
+  if (!link || 'off' === link?.show || !link?.url) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {});
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("a", {
+      href: link?.url,
+      className: "btn btn-outline-dark",
+      target: "_blank",
+      children: ["More Information", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("span", {
+        className: "sr-only",
+        children: ["More information about ", text, " "]
+      })]
+    })
+  });
+};
+
+/**
+ * Divi 5 Module edit component of visual builder.
+ *
+ * @since ??
+ *
+ * @param {SectionPrimaryModuleEditProps} props React component props.
+ *
+ * @returns {ReactElement}
+ */
+const ModuleEdit = props => {
+  const {
+    attrs,
+    id,
+    name,
+    elements
+  } = props;
+  let title = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.title?.innerContent);
+  let image = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.image?.innerContent);
+  let link = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.link?.innerContent);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ModuleContainer, {
+    attrs: attrs,
+    elements: elements,
+    id: id,
+    name: name,
+    stylesComponent: _styles_jsx__WEBPACK_IMPORTED_MODULE_4__.ModuleStyles,
+    classnamesFunction: _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__.moduleClassnames,
+    scriptDataComponent: _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__.ModuleScriptData,
+    children: [elements.styleComponents({
+      attrName: 'module'
+    }), renderImage({
+      elements,
+      image
+    }), renderHeader(title), elements.render({
+      attrName: 'content'
+    }), renderButton({
+      text: title?.text,
+      link
+    })]
+  });
+};
+_c = ModuleEdit;
+
+var _c;
+$RefreshReg$(_c, "ModuleEdit");
+
+/***/ },
+
+/***/ "./src/modules/SectionPrimary/module-script-data.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleScriptData: () => (/* binding */ ModuleScriptData)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/SectionPrimary/types.ts");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+/**
+ * Divi 5 module's script data component.
+ *
+ * @since ??
+ *
+ * @param {ModuleScriptDataProps<ModuleAttrs>} props React component props.
+ *
+ * @returns {ReactElement}
+ */
+
+const ModuleScriptData = ({
+  elements
+}) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+  children: elements.scriptData({
+    attrName: 'module'
+  })
+});
+_c = ModuleScriptData;
+var _c;
+$RefreshReg$(_c, "ModuleScriptData");
+
+/***/ },
+
+/***/ "./src/modules/SectionPrimary/styles.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleStyles: () => (/* binding */ ModuleStyles)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _custom_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/SectionPrimary/custom-css.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+// External dependencies.
+
+
+// Divi dependencies.
+
+
+// Local dependencies.
+
+
+/**
+ * Module's style components.
+ *
+ * @since ??
+ */
+
+const ModuleStyles = ({
+  attrs,
+  settings,
+  orderClass,
+  mode,
+  state,
+  noStyleTag,
+  elements
+}) => {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_divi_module__WEBPACK_IMPORTED_MODULE_1__.StyleContainer, {
+    mode: mode,
+    state: state,
+    noStyleTag: noStyleTag,
+    children: [elements.style({
+      attrName: 'module',
+      styleProps: {
+        disabledOn: {
+          disabledModuleVisibility: settings?.disabledModuleVisibility
+        }
+      }
+    }), elements.style({
+      attrName: 'title'
+    }), elements.style({
+      attrName: 'content'
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_divi_module__WEBPACK_IMPORTED_MODULE_1__.CssStyle, {
+      selector: orderClass,
+      attr: attrs?.css,
+      cssFields: _custom_css__WEBPACK_IMPORTED_MODULE_2__.cssFields
+    })]
+  });
+};
+_c = ModuleStyles;
+
+var _c;
+$RefreshReg$(_c, "ModuleStyles");
+
+/***/ },
+
+/***/ "./src/modules/Utils/Module.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   get_address: () => (/* binding */ get_address),
+/* harmony export */   get_google_map_place_link: () => (/* binding */ get_google_map_place_link),
+/* harmony export */   get_icon_span: () => (/* binding */ get_icon_span),
+/* harmony export */   processColorPickerValue: () => (/* binding */ processColorPickerValue)
+/* harmony export */ });
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
+// External Dependencies.
+
+
+
+/**
+ * Process Divi Color Picker Value
+ *
+ * @param  string $color Color value from color picker.
+ * @return string
+ */
+
+const processColorPickerValue = color => {
+  let colorProp = {
+    color
+  };
+  if (color.startsWith('$variable(') && color.endsWith(')$')) {
+    try {
+      let colorString = color.slice(10, -2);
+      let colorObj = JSON.parse(colorString);
+
+      // if object is a color type
+      if ('color' === colorObj?.type) {
+        // if opacity has been set
+        if (colorObj?.value?.settings?.opacity) {
+          // divide the opacity by 100
+          colorObj.value.settings.opacity = colorObj.value.settings.opacity / 100;
+        }
+
+        // add color and any settings to the CSSProperty
+        colorProp = {
+          color: `var(--${colorObj?.value?.name})`,
+          ...colorObj.value.settings
+        };
+      }
+    } catch (e) {
+      // color isn't valid JSON
+    }
+  }
+  return colorProp;
+};
+
+/**
+ * Returns address in CSV format
+ *
+ * @param  array|address $addr Address to format.
+ * @return string
+ */
+const get_address = address => {
+  if ("" === address || address.length === 0) {
+    return;
+  } else if ('string' === typeof address) {
+    address = address.split(',');
+  }
+  return address.map(part => part?.trim()).filter(Boolean).join(', ');
+};
+
+/**
+ * Create a GoogleMap Place Link/Embedded IFrame
+ *
+ * @param  array|string $addr Address to format.
+ * @param  mixed        $embed Whether to create a link or embedded iframe.
+ * @param  mixed        $target The links target, default _blank.
+ * @param  mixed        $classes Class for the link.
+ * @return string
+ */
+const get_google_map_place_link = (address, embed = false, target = '_blank', classes = '') => {
+  let addr = get_address(address);
+  if (!addr) {
+    return null;
+  }
+  if (embed) {
+    let map_url = `https://www.google.com/maps/embed/v1/place?q=${addr}&zoom=10&key=key`;
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("iframe", {
+      title: `IFrame for Address ${addr}`,
+      src: map_url
+    });
+  } else {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+      href: `https://www.google.com/maps/place/${addr}`,
+      target: target,
+      className: classes,
+      children: addr
+    });
   }
 };
+
+/**
+ * Create icon span
+ *
+ * @param  string $icon Icon to render.
+ * @param  string $classes Classes for the span.
+ * @param  string $styles Styles for the span.
+ * @return string
+ */
+const get_icon_span = icon => {
+  if ("" === icon) {
+    return;
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+    className: `ca-gov-icon-${icon}`
+  });
+};
+
 
 /***/ },
 
@@ -122,331 +1451,11 @@ var conversionOutline = {
 
 /***/ },
 
-/***/ "./src/modules/Github/custom-css.ts"
+/***/ "./src/modules/Github/types.ts"
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   cssFields: () => (/* binding */ cssFields)
-/* harmony export */ });
-// const customCssFields = metadata.customCssFields as Record<'name', { subName: string, selectorSuffix: string, label: string }>;
-// customCssFields.name.label            = __('Name', 'd5-extension-example-modules');
-var cssFields = {};
-// export const cssFields = { ...customCssFields };
 
-/***/ },
-
-/***/ "./src/modules/Github/edit.tsx"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ModuleEdit: () => (/* binding */ ModuleEdit)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/module-utils");
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/Github/styles.tsx");
-/* harmony import */ var _module_classnames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/Github/module-classnames.ts");
-/* harmony import */ var _module_script_data__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/Github/module-script-data.tsx");
-// External Dependencies.
-
-// Divi Dependencies.
-
-
-
-
-
-/**
- * Divi 5 Module edit component of visual builder.
- *
- * @since ??
- *
- * @param {SectionPrimaryModuleEditProps} props React component props.
- *
- * @returns {ReactElement}
- */
-var ModuleEdit = function (props) {
-  var _a;
-  var attrs = props.attrs,
-    id = props.id,
-    name = props.name,
-    elements = props.elements;
-  var title = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)((_a = attrs === null || attrs === void 0 ? void 0 : attrs.title) === null || _a === void 0 ? void 0 : _a.innerContent);
-  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ModuleContainer, {
-    attrs: attrs,
-    elements: elements,
-    id: id,
-    name: name,
-    stylesComponent: _styles__WEBPACK_IMPORTED_MODULE_3__.ModuleStyles,
-    classnamesFunction: _module_classnames__WEBPACK_IMPORTED_MODULE_4__.moduleClassnames,
-    scriptDataComponent: _module_script_data__WEBPACK_IMPORTED_MODULE_5__.ModuleScriptData
-  }, elements.styleComponents({
-    attrName: 'module'
-  }), elements.render({
-    attrName: 'title'
-  }));
-};
-_c = ModuleEdit;
-
-var _c;
-$RefreshReg$(_c, "ModuleEdit");
-
-/***/ },
-
-/***/ "./src/modules/Github/index.ts"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   CAWebModuleGithub: () => (/* binding */ CAWebModuleGithub)
-/* harmony export */ });
-/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/modules/Github/module.json");
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/Github/edit.tsx");
-/* harmony import */ var _placeholder_content__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/Github/placeholder-content.ts");
-/* harmony import */ var _conversion_outline__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/Github/conversion-outline.ts");
-// Local dependencies.
-
-
-
-
-// import { SettingsContent } from './Settings/content';
-var CAWebModuleGithub = {
-  metadata: _module_json__WEBPACK_IMPORTED_MODULE_0__,
-  placeholderContent: _placeholder_content__WEBPACK_IMPORTED_MODULE_2__.placeholderContent,
-  conversionOutline: _conversion_outline__WEBPACK_IMPORTED_MODULE_3__.conversionOutline,
-  renderers: {
-    edit: _edit__WEBPACK_IMPORTED_MODULE_1__.ModuleEdit
-  },
-  settings: {}
-};
-
-/***/ },
-
-/***/ "./src/modules/Github/module-classnames.ts"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   moduleClassnames: () => (/* binding */ moduleClassnames)
-/* harmony export */ });
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_0__);
-
-/**
- * Module classnames function for Dynamic Module.
- *
- * @since ??
- *
- * @param {ModuleClassnamesParams<ModuleAttrs>} param0 Function parameters.
- */
-var moduleClassnames = function (_a) {
-  var _b, _c;
-  var classnamesInstance = _a.classnamesInstance,
-    attrs = _a.attrs;
-  // Text Options.
-  classnamesInstance.add((0,_divi_module__WEBPACK_IMPORTED_MODULE_0__.textOptionsClassnames)((_c = (_b = attrs === null || attrs === void 0 ? void 0 : attrs.module) === null || _b === void 0 ? void 0 : _b.advanced) === null || _c === void 0 ? void 0 : _c.text));
-};
-
-/***/ },
-
-/***/ "./src/modules/Github/module-script-data.tsx"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ModuleScriptData: () => (/* binding */ ModuleScriptData)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-/**
- * Divi 5 module's script data component.
- *
- * @since ??
- *
- * @param {ModuleScriptDataProps<ModuleAttrs>} props React component props.
- *
- * @returns {ReactElement}
- */
-var ModuleScriptData = function (_a) {
-  var elements = _a.elements;
-  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, elements.scriptData({
-    attrName: 'module'
-  }));
-};
-_c = ModuleScriptData;
-var _c;
-$RefreshReg$(_c, "ModuleScriptData");
-
-/***/ },
-
-/***/ "./src/modules/Github/placeholder-content.ts"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   placeholderContent: () => (/* binding */ placeholderContent)
-/* harmony export */ });
-// Divi dependencies.
-// import { placeholderContent as placeholder } from '@divi/module-utils';
-var placeholderContent = {};
-
-/***/ },
-
-/***/ "./src/modules/Github/styles.tsx"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ModuleStyles: () => (/* binding */ ModuleStyles)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _custom_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/Github/custom-css.ts");
-// External dependencies.
-
-// Divi dependencies.
-
-
-/**
- * Module's style components.
- *
- * @since ??
- */
-var ModuleStyles = function (_a) {
-  var attrs = _a.attrs,
-    settings = _a.settings,
-    orderClass = _a.orderClass,
-    mode = _a.mode,
-    state = _a.state,
-    noStyleTag = _a.noStyleTag,
-    elements = _a.elements;
-  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.StyleContainer, {
-    mode: mode,
-    state: state,
-    noStyleTag: noStyleTag
-  }, elements.style({
-    attrName: 'module',
-    styleProps: {
-      disabledOn: {
-        disabledModuleVisibility: settings === null || settings === void 0 ? void 0 : settings.disabledModuleVisibility
-      }
-    }
-  }), elements.style({
-    attrName: 'title'
-  }), elements.style({
-    attrName: 'content'
-  }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.CssStyle, {
-    selector: orderClass,
-    attr: attrs === null || attrs === void 0 ? void 0 : attrs.css,
-    cssFields: _custom_css__WEBPACK_IMPORTED_MODULE_2__.cssFields
-  }));
-};
-_c = ModuleStyles;
-
-var _c;
-$RefreshReg$(_c, "ModuleStyles");
-
-/***/ },
-
-/***/ "./src/modules/Location/Settings/content.tsx"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   SettingsContent: () => (/* binding */ SettingsContent)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lodash");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/module-utils");
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_3__);
-// External dependencies.
-
-
-// Divi dependencies.
-
-
-var SettingsContent = function (_a) {
-  var _b, _c, _d, _e;
-  var attrs = _a.attrs,
-    defaultSettingsAttrs = _a.defaultSettingsAttrs,
-    groupConfiguration = _a.groupConfiguration;
-  var layout = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_3__.getAttrByMode)((_b = attrs === null || attrs === void 0 ? void 0 : attrs.layout) === null || _b === void 0 ? void 0 : _b.innerContent);
-  var layoutDefault = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_3__.getAttrByMode)((_c = defaultSettingsAttrs === null || defaultSettingsAttrs === void 0 ? void 0 : defaultSettingsAttrs.layout) === null || _c === void 0 ? void 0 : _c.innerContent);
-  var contact = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_3__.getAttrByMode)((_d = attrs === null || attrs === void 0 ? void 0 : attrs.contact) === null || _d === void 0 ? void 0 : _d.innerContent);
-  var link = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_3__.getAttrByMode)((_e = attrs === null || attrs === void 0 ? void 0 : attrs.link) === null || _e === void 0 ? void 0 : _e.innerContent);
-  layout = layout !== null && layout !== void 0 ? layout : layoutDefault;
-  // Toggle Featured Image field visibility based on layout
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'src', 'render'], 'banner' === layout);
-  // Toggle Description field visibility based on layout
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'descInnercontent', 'render'], 'banner' === layout);
-  // Toggle Show Contact Button field visibility based on layout
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'showContact', 'render'], 'contact' === layout);
-  // Toggle Phone/Fax fields visibility based on layout and Show Contact Button
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'phone', 'render'], 'contact' === layout && 'on' === (contact === null || contact === void 0 ? void 0 : contact.show));
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'fax', 'render'], 'contact' === layout && 'on' === (contact === null || contact === void 0 ? void 0 : contact.show));
-  // Toggle Show Button field visibility based on layout
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'showLink', 'render'], 'mini' !== layout);
-  // Toggle URL field visibility based on Show Button
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'url', 'render'], 'on' === (link === null || link === void 0 ? void 0 : link.show));
-  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_2__.ModuleGroups, {
-    groups: groupConfiguration
-  });
-};
-_c2 = SettingsContent;
-var _c2;
-$RefreshReg$(_c2, "SettingsContent");
-
-/***/ },
-
-/***/ "./src/modules/Location/Settings/design.tsx"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   SettingsDesign: () => (/* binding */ SettingsDesign)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lodash");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/module-utils");
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_3__);
-// External dependencies.
-
-
-// Divi dependencies.
-
-
-var SettingsDesign = function (_a) {
-  var _b, _c;
-  var attrs = _a.attrs,
-    defaultSettingsAttrs = _a.defaultSettingsAttrs,
-    groupConfiguration = _a.groupConfiguration;
-  var layout = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_3__.getAttrByMode)((_b = attrs === null || attrs === void 0 ? void 0 : attrs.layout) === null || _b === void 0 ? void 0 : _b.innerContent);
-  var layoutDefault = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_3__.getAttrByMode)((_c = defaultSettingsAttrs === null || defaultSettingsAttrs === void 0 ? void 0 : defaultSettingsAttrs.layout) === null || _c === void 0 ? void 0 : _c.innerContent);
-  layout = layout !== null && layout !== void 0 ? layout : layoutDefault;
-  // Toggle Icon Design group visibility based on layout
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['icon', 'render'], 'banner' !== layout);
-  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_2__.ModuleGroups, {
-    groups: groupConfiguration
-  });
-};
-_c2 = SettingsDesign;
-var _c2;
-$RefreshReg$(_c2, "SettingsDesign");
 
 /***/ },
 
@@ -526,415 +1535,11 @@ var conversionOutline = {
 
 /***/ },
 
-/***/ "./src/modules/Location/custom-css.ts"
+/***/ "./src/modules/Location/types.ts"
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   cssFields: () => (/* binding */ cssFields)
-/* harmony export */ });
-// const customCssFields = metadata.customCssFields as Record<'name', { subName: string, selectorSuffix: string, label: string }>;
-// customCssFields.name.label            = __('Name', 'd5-extension-example-modules');
-var cssFields = {};
-// export const cssFields = { ...customCssFields };
 
-/***/ },
-
-/***/ "./src/modules/Location/edit.tsx"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ModuleEdit: () => (/* binding */ ModuleEdit)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/module-utils");
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/Location/styles.tsx");
-/* harmony import */ var _module_classnames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/Location/module-classnames.ts");
-/* harmony import */ var _module_script_data__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/Location/module-script-data.tsx");
-/* harmony import */ var _Utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/Utils/index.ts");
-var __spreadArray = undefined && undefined.__spreadArray || function (to, from, pack) {
-  if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-    if (ar || !(i in from)) {
-      if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-      ar[i] = from[i];
-    }
-  }
-  return to.concat(ar || Array.prototype.slice.call(from));
-};
-// External Dependencies.
-
-// Divi Dependencies.
-
-
-// Local Dependencies.
-
-
-
-
-/**
- * Renders Location (contact)
- *
- * @return ReactElement
- */
-var contactLocation = function (props) {
-  var _a, _b;
-  var address = props.address,
-    contact = props.contact,
-    icon = props.icon,
-    link = props.link,
-    elements = props.elements,
-    name = props.name;
-  // get a map link if address info exists
-  var addressMapLink = (0,_Utils__WEBPACK_IMPORTED_MODULE_6__.get_google_map_place_link)([address === null || address === void 0 ? void 0 : address.addr, address === null || address === void 0 ? void 0 : address.city, address === null || address === void 0 ? void 0 : address.state, address === null || address === void 0 ? void 0 : address.zip]);
-  // If displaying an icon
-  var displayIcon = 'on' === (icon === null || icon === void 0 ? void 0 : icon.show) ? react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "thumbnail"
-  }, (0,_Utils__WEBPACK_IMPORTED_MODULE_6__.get_icon_span)(icon === null || icon === void 0 ? void 0 : icon.icon)) : react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null);
-  // show contact info if enabled
-  var displayOther = 'on' === (contact === null || contact === void 0 ? void 0 : contact.show) ? react__WEBPACK_IMPORTED_MODULE_0___default().createElement.apply((react__WEBPACK_IMPORTED_MODULE_0___default()), __spreadArray([react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null], ['' !== (contact === null || contact === void 0 ? void 0 : contact.phone) ? react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "General Information: ", contact === null || contact === void 0 ? void 0 : contact.phone) : null, '' !== (contact === null || contact === void 0 ? void 0 : contact.fax) ? react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "FAX: ", contact === null || contact === void 0 ? void 0 : contact.fax) : null].filter(Boolean), false)) : null;
-  var linkElement = '' !== (link === null || link === void 0 ? void 0 : link.url) && 'on' === (link === null || link === void 0 ? void 0 : link.show) ? react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: link === null || link === void 0 ? void 0 : link.url,
-    className: 'btn btn-outline-dark',
-    target: '_blank'
-  }, "More") : null;
-  // we combine all contact info elements here
-  var contactInfo = "" !== name || null !== displayOther && ((_a = displayOther === null || displayOther === void 0 ? void 0 : displayOther.props) === null || _a === void 0 ? void 0 : _a.children) || null !== addressMapLink || null !== linkElement && ((_b = linkElement === null || linkElement === void 0 ? void 0 : linkElement.props) === null || _b === void 0 ? void 0 : _b.children) ? react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "contact"
-  }, elements.render({
-    'attrName': 'name'
-  }), addressMapLink, displayOther, linkElement) : react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null);
-  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, contactInfo);
-};
-/**
- * Renders Location (mini)
- *
- * @return ReactElement
- */
-var miniLocation = function (props) {
-  var address = props.address,
-    icon = props.icon,
-    link = props.link,
-    elements = props.elements,
-    name = props.name;
-  // get a map link if address info exists
-  var addressMapLink = (0,_Utils__WEBPACK_IMPORTED_MODULE_6__.get_google_map_place_link)([address === null || address === void 0 ? void 0 : address.addr, address === null || address === void 0 ? void 0 : address.city, address === null || address === void 0 ? void 0 : address.state, address === null || address === void 0 ? void 0 : address.zip]);
-  // If displaying an icon
-  var displayIcon = 'on' === (icon === null || icon === void 0 ? void 0 : icon.show) ? react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "thumbnail"
-  }, (0,_Utils__WEBPACK_IMPORTED_MODULE_6__.get_icon_span)(icon === null || icon === void 0 ? void 0 : icon.icon)) : react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null);
-  // we wrap the name in a link if a link url is provided
-  var nameElement = '' !== name ? '' !== (link === null || link === void 0 ? void 0 : link.url) ? react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: link === null || link === void 0 ? void 0 : link.url,
-    target: "_blank"
-  }, name) : elements.render({
-    'attrName': 'name'
-  }) : null;
-  // we combine all contact info elements here
-  var contactInfo = '' !== name || null !== addressMapLink ? react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "contact"
-  }, nameElement, addressMapLink) : react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null);
-  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, contactInfo);
-};
-/**
- * Renders Location (banner)
- *
- * @return ReactElement
- */
-var bannerLocation = function (props) {
-  var address = props.address,
-    link = props.link,
-    elements = props.elements,
-    name = props.name,
-    image = props.image,
-    desc = props.desc;
-  var imageElement = '' !== (image === null || image === void 0 ? void 0 : image.src) ? react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: 'thumbnail'
-  }, elements.render({
-    attrName: 'image'
-  })) : null;
-  // get a map link if address info exists
-  var addressMapLink = (0,_Utils__WEBPACK_IMPORTED_MODULE_6__.get_google_map_place_link)([address === null || address === void 0 ? void 0 : address.addr, address === null || address === void 0 ? void 0 : address.city, address === null || address === void 0 ? void 0 : address.state, address === null || address === void 0 ? void 0 : address.zip]);
-  // Add description markup
-  var descElement = '' !== desc ? react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, "Description:"), elements.render({
-    attrName: 'desc'
-  })) : null;
-  var linkElement = '' !== (link === null || link === void 0 ? void 0 : link.url) && 'on' === (link === null || link === void 0 ? void 0 : link.show) ? react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: link === null || link === void 0 ? void 0 : link.url,
-    target: "_blank",
-    className: "btn btn-outline-dark"
-  }, "View More Details") : null;
-  // we combine all contact info elements here
-  var contactInfo = "" !== name || null !== addressMapLink ? react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "contact"
-  }, elements.render({
-    'attrName': 'name'
-  }), addressMapLink ? react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: 'address'
-  }, (0,_Utils__WEBPACK_IMPORTED_MODULE_6__.get_icon_span)('road-pin'), addressMapLink) : react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null)) : react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null);
-  // we combine all summary info elements here
-  var summaryInfo = "" !== desc || null !== linkElement ? react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "summary"
-  }, descElement, linkElement) : react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null);
-  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, imageElement, contactInfo, summaryInfo);
-};
-/**
- * Divi 5 Module edit component of visual builder.
- *
- * @since ??
- *
- * @param {LocationModuleEditProps} props React component props.
- *
- * @returns {ReactElement}
- */
-var ModuleEdit = function (props) {
-  var _a, _b, _c, _d, _e, _f, _g, _h;
-  var attrs = props.attrs,
-    id = props.id,
-    name = props.name,
-    elements = props.elements;
-  var layout = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)((_a = attrs === null || attrs === void 0 ? void 0 : attrs.layout) === null || _a === void 0 ? void 0 : _a.innerContent);
-  var address = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)((_b = attrs === null || attrs === void 0 ? void 0 : attrs.address) === null || _b === void 0 ? void 0 : _b.innerContent);
-  var contact = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)((_c = attrs === null || attrs === void 0 ? void 0 : attrs.contact) === null || _c === void 0 ? void 0 : _c.innerContent);
-  var icon = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)((_d = attrs === null || attrs === void 0 ? void 0 : attrs.icon) === null || _d === void 0 ? void 0 : _d.innerContent);
-  var link = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)((_e = attrs === null || attrs === void 0 ? void 0 : attrs.link) === null || _e === void 0 ? void 0 : _e.innerContent);
-  var locationName = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)((_f = attrs === null || attrs === void 0 ? void 0 : attrs.name) === null || _f === void 0 ? void 0 : _f.innerContent);
-  var image = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)((_g = attrs === null || attrs === void 0 ? void 0 : attrs.image) === null || _g === void 0 ? void 0 : _g.innerContent);
-  var desc = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)((_h = attrs === null || attrs === void 0 ? void 0 : attrs.desc) === null || _h === void 0 ? void 0 : _h.innerContent);
-  var output = react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null);
-  switch (layout) {
-    case 'mini':
-      output = miniLocation({
-        elements: elements,
-        address: address,
-        icon: icon,
-        link: link,
-        name: locationName
-      });
-      break;
-    case 'banner':
-      output = bannerLocation({
-        elements: elements,
-        address: address,
-        image: image,
-        link: link,
-        desc: desc,
-        name: locationName
-      });
-      break;
-    case 'contact':
-    default:
-      output = contactLocation({
-        elements: elements,
-        address: address,
-        contact: contact,
-        icon: icon,
-        link: link,
-        name: locationName
-      });
-      break;
-  }
-  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ModuleContainer, {
-    attrs: attrs,
-    elements: elements,
-    id: id,
-    name: name,
-    stylesComponent: _styles__WEBPACK_IMPORTED_MODULE_3__.ModuleStyles,
-    classnamesFunction: _module_classnames__WEBPACK_IMPORTED_MODULE_4__.moduleClassnames,
-    scriptDataComponent: _module_script_data__WEBPACK_IMPORTED_MODULE_5__.ModuleScriptData
-  }, elements.styleComponents({
-    attrName: 'module'
-  }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "location ".concat(layout)
-  }, output));
-};
-_c2 = ModuleEdit;
-
-var _c2;
-$RefreshReg$(_c2, "ModuleEdit");
-
-/***/ },
-
-/***/ "./src/modules/Location/index.ts"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   CAWebModuleLocation: () => (/* binding */ CAWebModuleLocation)
-/* harmony export */ });
-/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/modules/Location/module.json");
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/Location/edit.tsx");
-/* harmony import */ var _placeholder_content__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/Location/placeholder-content.ts");
-/* harmony import */ var _conversion_outline__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/Location/conversion-outline.ts");
-/* harmony import */ var _Settings_content__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/Location/Settings/content.tsx");
-/* harmony import */ var _Settings_design__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/Location/Settings/design.tsx");
-// Local dependencies.
-
-
-
-
-
-
-var CAWebModuleLocation = {
-  metadata: _module_json__WEBPACK_IMPORTED_MODULE_0__,
-  placeholderContent: _placeholder_content__WEBPACK_IMPORTED_MODULE_2__.placeholderContent,
-  conversionOutline: _conversion_outline__WEBPACK_IMPORTED_MODULE_3__.conversionOutline,
-  renderers: {
-    edit: _edit__WEBPACK_IMPORTED_MODULE_1__.ModuleEdit
-  },
-  settings: {
-    content: _Settings_content__WEBPACK_IMPORTED_MODULE_4__.SettingsContent,
-    design: _Settings_design__WEBPACK_IMPORTED_MODULE_5__.SettingsDesign
-  }
-};
-
-/***/ },
-
-/***/ "./src/modules/Location/module-classnames.ts"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   moduleClassnames: () => (/* binding */ moduleClassnames)
-/* harmony export */ });
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_0__);
-
-/**
- * Module classnames function for Dynamic Module.
- *
- * @since ??
- *
- * @param {ModuleClassnamesParams<ModuleAttrs>} param0 Function parameters.
- */
-var moduleClassnames = function (_a) {
-  var _b, _c;
-  var classnamesInstance = _a.classnamesInstance,
-    attrs = _a.attrs;
-  // Text Options.
-  classnamesInstance.add((0,_divi_module__WEBPACK_IMPORTED_MODULE_0__.textOptionsClassnames)((_c = (_b = attrs === null || attrs === void 0 ? void 0 : attrs.module) === null || _b === void 0 ? void 0 : _b.advanced) === null || _c === void 0 ? void 0 : _c.text));
-};
-
-/***/ },
-
-/***/ "./src/modules/Location/module-script-data.tsx"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ModuleScriptData: () => (/* binding */ ModuleScriptData)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-/**
- * Divi 5 module's script data component.
- *
- * @since ??
- *
- * @param {ModuleScriptDataProps<ModuleAttrs>} props React component props.
- *
- * @returns {ReactElement}
- */
-var ModuleScriptData = function (_a) {
-  var elements = _a.elements;
-  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, elements.scriptData({
-    attrName: 'module'
-  }));
-};
-_c = ModuleScriptData;
-var _c;
-$RefreshReg$(_c, "ModuleScriptData");
-
-/***/ },
-
-/***/ "./src/modules/Location/placeholder-content.ts"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   placeholderContent: () => (/* binding */ placeholderContent)
-/* harmony export */ });
-// Divi dependencies.
-// import { placeholderContent as placeholder } from '@divi/module-utils';
-var placeholderContent = {};
-
-/***/ },
-
-/***/ "./src/modules/Location/styles.tsx"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ModuleStyles: () => (/* binding */ ModuleStyles)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _custom_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/Location/custom-css.ts");
-// External dependencies.
-
-// Divi dependencies.
-
-
-/**
- * Module's style components.
- *
- * @since ??
- */
-var ModuleStyles = function (_a) {
-  var _b, _c, _d, _e;
-  var attrs = _a.attrs,
-    settings = _a.settings,
-    orderClass = _a.orderClass,
-    mode = _a.mode,
-    state = _a.state,
-    noStyleTag = _a.noStyleTag,
-    elements = _a.elements;
-  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.StyleContainer, {
-    mode: mode,
-    state: state,
-    noStyleTag: noStyleTag
-  }, elements.style({
-    attrName: 'module',
-    styleProps: {
-      disabledOn: {
-        disabledModuleVisibility: settings === null || settings === void 0 ? void 0 : settings.disabledModuleVisibility
-      }
-    }
-  }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.TextStyle, {
-    selector: "".concat(orderClass, " .example_d4_module_inner"),
-    attr: (_c = (_b = attrs === null || attrs === void 0 ? void 0 : attrs.module) === null || _b === void 0 ? void 0 : _b.advanced) === null || _c === void 0 ? void 0 : _c.text
-  }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.CommonStyle, {
-    selector: "".concat(orderClass, " .example_d4_module_inner"),
-    attr: (_e = (_d = attrs === null || attrs === void 0 ? void 0 : attrs.module) === null || _d === void 0 ? void 0 : _d.decoration) === null || _e === void 0 ? void 0 : _e.background,
-    declarationFunction: function (_a) {
-      var _b, _c;
-      var attrValue = _a.attrValue;
-      if ('on' === ((_c = (_b = attrValue === null || attrValue === void 0 ? void 0 : attrValue.image) === null || _b === void 0 ? void 0 : _b.parallax) === null || _c === void 0 ? void 0 : _c.enabled)) {
-        return 'position: relative;';
-      }
-      return '';
-    }
-  }), elements.style({
-    attrName: 'title'
-  }), elements.style({
-    attrName: 'content'
-  }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.CssStyle, {
-    selector: orderClass,
-    attr: attrs === null || attrs === void 0 ? void 0 : attrs.css,
-    cssFields: _custom_css__WEBPACK_IMPORTED_MODULE_2__.cssFields
-  }));
-};
-_c2 = ModuleStyles;
-
-var _c2;
-$RefreshReg$(_c2, "ModuleStyles");
 
 /***/ },
 
@@ -1011,310 +1616,11 @@ var conversionOutline = {
 
 /***/ },
 
-/***/ "./src/modules/ProfileBanner/custom-css.ts"
+/***/ "./src/modules/ProfileBanner/types.ts"
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   cssFields: () => (/* binding */ cssFields)
-/* harmony export */ });
-// const customCssFields = metadata.customCssFields as Record<'name', { subName: string, selectorSuffix: string, label: string }>;
-// customCssFields.name.label            = __('Name', 'd5-extension-example-modules');
-var cssFields = {};
-// export const cssFields = { ...customCssFields };
 
-/***/ },
-
-/***/ "./src/modules/ProfileBanner/edit.tsx"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ModuleEdit: () => (/* binding */ ModuleEdit)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/module-utils");
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/ProfileBanner/styles.tsx");
-/* harmony import */ var _module_classnames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/ProfileBanner/module-classnames.ts");
-/* harmony import */ var _module_script_data__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/ProfileBanner/module-script-data.tsx");
-// External Dependencies.
-
-// Divi Dependencies.
-
-
-
-
-
-/**
- * Divi 5 Module edit component of visual builder.
- *
- * @since ??
- *
- * @param {ProfileBannerModuleEditProps} props React component props.
- *
- * @returns {ReactElement}
- */
-var ModuleEdit = function (props) {
-  var _a, _b;
-  var attrs = props.attrs,
-    id = props.id,
-    name = props.name,
-    elements = props.elements;
-  var profile = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)((_a = attrs === null || attrs === void 0 ? void 0 : attrs.profile) === null || _a === void 0 ? void 0 : _a.innerContent);
-  var portrait = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)((_b = attrs === null || attrs === void 0 ? void 0 : attrs.portrait) === null || _b === void 0 ? void 0 : _b.advanced);
-  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ModuleContainer, {
-    attrs: attrs,
-    elements: elements,
-    id: id,
-    name: name,
-    stylesComponent: _styles__WEBPACK_IMPORTED_MODULE_3__.ModuleStyles,
-    classnamesFunction: _module_classnames__WEBPACK_IMPORTED_MODULE_4__.moduleClassnames,
-    scriptDataComponent: _module_script_data__WEBPACK_IMPORTED_MODULE_5__.ModuleScriptData
-  }, elements.styleComponents({
-    attrName: 'module'
-  }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("figure", {
-    className: "executive-profile".concat("on" === (portrait === null || portrait === void 0 ? void 0 : portrait.vertical) ? ' vertical' : '')
-  }, elements.render({
-    attrName: 'portrait',
-    attrSubName: 'src',
-    className: "".concat("on" === (portrait === null || portrait === void 0 ? void 0 : portrait.rounded) ? 'rounded-circle' : '') // rounded image
-  }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "body"
-  }, elements.render({
-    attrName: 'name'
-  }), elements.render({
-    attrName: 'job'
-  }), (profile === null || profile === void 0 ? void 0 : profile.text) && (profile === null || profile === void 0 ? void 0 : profile.url) ? elements.render({
-    attrName: 'profile',
-    attrSubName: 'text',
-    htmlAttributes: {
-      href: profile === null || profile === void 0 ? void 0 : profile.url
-    }
-  }) : '')));
-};
-_c = ModuleEdit;
-
-var _c;
-$RefreshReg$(_c, "ModuleEdit");
-
-/***/ },
-
-/***/ "./src/modules/ProfileBanner/index.ts"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   CAWebModuleProfileBanner: () => (/* binding */ CAWebModuleProfileBanner)
-/* harmony export */ });
-/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/modules/ProfileBanner/module.json");
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/ProfileBanner/edit.tsx");
-/* harmony import */ var _placeholder_content__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/ProfileBanner/placeholder-content.ts");
-/* harmony import */ var _conversion_outline__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/ProfileBanner/conversion-outline.ts");
-// Local dependencies.
-
-
-
-
-var CAWebModuleProfileBanner = {
-  metadata: _module_json__WEBPACK_IMPORTED_MODULE_0__,
-  placeholderContent: _placeholder_content__WEBPACK_IMPORTED_MODULE_2__.placeholderContent,
-  conversionOutline: _conversion_outline__WEBPACK_IMPORTED_MODULE_3__.conversionOutline,
-  renderers: {
-    edit: _edit__WEBPACK_IMPORTED_MODULE_1__.ModuleEdit
-  }
-};
-
-/***/ },
-
-/***/ "./src/modules/ProfileBanner/module-classnames.ts"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   moduleClassnames: () => (/* binding */ moduleClassnames)
-/* harmony export */ });
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_0__);
-
-/**
- * Module classnames function for Dynamic Module.
- *
- * @since ??
- *
- * @param {ModuleClassnamesParams<ModuleAttrs>} param0 Function parameters.
- */
-var moduleClassnames = function (_a) {
-  var _b, _c;
-  var classnamesInstance = _a.classnamesInstance,
-    attrs = _a.attrs;
-  // Text Options.
-  classnamesInstance.add((0,_divi_module__WEBPACK_IMPORTED_MODULE_0__.textOptionsClassnames)((_c = (_b = attrs === null || attrs === void 0 ? void 0 : attrs.module) === null || _b === void 0 ? void 0 : _b.advanced) === null || _c === void 0 ? void 0 : _c.text));
-};
-
-/***/ },
-
-/***/ "./src/modules/ProfileBanner/module-script-data.tsx"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ModuleScriptData: () => (/* binding */ ModuleScriptData)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-/**
- * Divi 5 module's script data component.
- *
- * @since ??
- *
- * @param {ModuleScriptDataProps<ModuleAttrs>} props React component props.
- *
- * @returns {ReactElement}
- */
-var ModuleScriptData = function (_a) {
-  var elements = _a.elements;
-  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, elements.scriptData({
-    attrName: 'module'
-  }));
-};
-_c = ModuleScriptData;
-var _c;
-$RefreshReg$(_c, "ModuleScriptData");
-
-/***/ },
-
-/***/ "./src/modules/ProfileBanner/placeholder-content.ts"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   placeholderContent: () => (/* binding */ placeholderContent)
-/* harmony export */ });
-// Divi dependencies.
-// import { placeholderContent as placeholder } from '@divi/module-utils';
-var placeholderContent = {};
-
-/***/ },
-
-/***/ "./src/modules/ProfileBanner/styles.tsx"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ModuleStyles: () => (/* binding */ ModuleStyles)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _custom_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/ProfileBanner/custom-css.ts");
-// External dependencies.
-
-// Divi dependencies.
-
-
-/**
- * Module's style components.
- *
- * @since ??
- */
-var ModuleStyles = function (_a) {
-  var _b, _c, _d, _e;
-  var attrs = _a.attrs,
-    settings = _a.settings,
-    orderClass = _a.orderClass,
-    mode = _a.mode,
-    state = _a.state,
-    noStyleTag = _a.noStyleTag,
-    elements = _a.elements;
-  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.StyleContainer, {
-    mode: mode,
-    state: state,
-    noStyleTag: noStyleTag
-  }, elements.style({
-    attrName: 'module',
-    styleProps: {
-      disabledOn: {
-        disabledModuleVisibility: settings === null || settings === void 0 ? void 0 : settings.disabledModuleVisibility
-      }
-    }
-  }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.TextStyle, {
-    selector: "".concat(orderClass, " .example_d4_module_inner"),
-    attr: (_c = (_b = attrs === null || attrs === void 0 ? void 0 : attrs.module) === null || _b === void 0 ? void 0 : _b.advanced) === null || _c === void 0 ? void 0 : _c.text
-  }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.CommonStyle, {
-    selector: "".concat(orderClass, " .example_d4_module_inner"),
-    attr: (_e = (_d = attrs === null || attrs === void 0 ? void 0 : attrs.module) === null || _d === void 0 ? void 0 : _d.decoration) === null || _e === void 0 ? void 0 : _e.background,
-    declarationFunction: function (_a) {
-      var _b, _c;
-      var attrValue = _a.attrValue;
-      if ('on' === ((_c = (_b = attrValue === null || attrValue === void 0 ? void 0 : attrValue.image) === null || _b === void 0 ? void 0 : _b.parallax) === null || _c === void 0 ? void 0 : _c.enabled)) {
-        return 'position: relative;';
-      }
-      return '';
-    }
-  }), elements.style({
-    attrName: 'title'
-  }), elements.style({
-    attrName: 'content'
-  }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.CssStyle, {
-    selector: orderClass,
-    attr: attrs === null || attrs === void 0 ? void 0 : attrs.css,
-    cssFields: _custom_css__WEBPACK_IMPORTED_MODULE_2__.cssFields
-  }));
-};
-_c2 = ModuleStyles;
-
-var _c2;
-$RefreshReg$(_c2, "ModuleStyles");
-
-/***/ },
-
-/***/ "./src/modules/SectionPrimary/Settings/content.tsx"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   SettingsContent: () => (/* binding */ SettingsContent)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lodash");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/module-utils");
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_3__);
-// External dependencies.
-
-
-// Divi dependencies.
-
-
-var SettingsContent = function (_a) {
-  var _b, _c;
-  var attrs = _a.attrs,
-    defaultSettingsAttrs = _a.defaultSettingsAttrs,
-    groupConfiguration = _a.groupConfiguration;
-  var image = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_3__.getAttrByMode)((_b = attrs === null || attrs === void 0 ? void 0 : attrs.image) === null || _b === void 0 ? void 0 : _b.innerContent);
-  var link = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_3__.getAttrByMode)((_c = attrs === null || attrs === void 0 ? void 0 : attrs.link) === null || _c === void 0 ? void 0 : _c.innerContent);
-  // Toggle Featured Image Image Position, Fade From Left and Src field visibility based on if show image is on
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'position', 'render'], 'off' !== (image === null || image === void 0 ? void 0 : image.show));
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'fade', 'render'], 'off' !== (image === null || image === void 0 ? void 0 : image.show));
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'src', 'render'], 'off' !== (image === null || image === void 0 ? void 0 : image.show));
-  // Toggle Link URL field visibility based on if show more button is on
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'url', 'render'], 'off' !== (link === null || link === void 0 ? void 0 : link.show));
-  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_2__.ModuleGroups, {
-    groups: groupConfiguration
-  });
-};
-_c2 = SettingsContent;
-var _c2;
-$RefreshReg$(_c2, "SettingsContent");
 
 /***/ },
 
@@ -1394,516 +1700,10 @@ var conversionOutline = {
 
 /***/ },
 
-/***/ "./src/modules/SectionPrimary/custom-css.ts"
+/***/ "./src/modules/SectionPrimary/types.ts"
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   cssFields: () => (/* binding */ cssFields)
-/* harmony export */ });
-// const customCssFields = metadata.customCssFields as Record<'name', { subName: string, selectorSuffix: string, label: string }>;
-// customCssFields.name.label            = __('Name', 'd5-extension-example-modules');
-var cssFields = {};
-// export const cssFields = { ...customCssFields };
-
-/***/ },
-
-/***/ "./src/modules/SectionPrimary/edit.tsx"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ModuleEdit: () => (/* binding */ ModuleEdit)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/module-utils");
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/SectionPrimary/styles.tsx");
-/* harmony import */ var _module_classnames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/SectionPrimary/module-classnames.ts");
-/* harmony import */ var _module_script_data__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/SectionPrimary/module-script-data.tsx");
-/* harmony import */ var _Utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/Utils/index.ts");
-// External Dependencies.
-
-// Divi Dependencies.
-
-
-
-
-
-
-/**
- * Renders the Header
- *
- * @param {{
- *       text?: string;
- *       color?: string;
- *       alignment?: 'start' | 'center' | 'end';
- *       level?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
- * }} props
- * @returns {ReactElement}
- */
-var renderHeader = function (props) {
-  var text = props.text,
-    color = props.color,
-    alignment = props.alignment,
-    Tag = props.level;
-  var style = {};
-  if (color) {
-    style = Object.assign(style, (0,_Utils__WEBPACK_IMPORTED_MODULE_6__.processColorPickerValue)(color));
-  }
-  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Tag, {
-    className: "text-".concat(alignment),
-    style: style
-  }, text);
-};
-/**
- * Renders the Featured Image
- *
- * @param {{
- *     elements?: Module.ModuleElements,
- *     image?: {
- *       src?: string,
- *       alt?: string,
- *       title?: string,
- *       show?: OnOff,
- *       alignment?: OnOff,
- *       fade?: OnOff
- *     }
- * }} props
- * @returns {ReactElement}
- */
-var renderImage = function (props) {
-  var elements = props.elements,
-    image = props.image;
-  if ('off' === (image === null || image === void 0 ? void 0 : image.show)) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null);
-  }
-  var classes = 'col-4';
-  classes += 'on' === (image === null || image === void 0 ? void 0 : image.alignment) ? ' ps-3 float-end' : ' pe-3 float-start';
-  classes += 'on' === (image === null || image === void 0 ? void 0 : image.fade) ? ' animate__animated  animate__fadeInLeft' : '';
-  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: classes
-  }, elements.render({
-    attrName: 'image'
-  }));
-};
-/**
- * Renders the More Button
- *
- * @param {{
- *     text?: string;
- *     link?: {
- *       url?: string;
- *       show?: OnOff;
- *     }
- * }} props
- * @returns {ReactElement}
- */
-var renderButton = function (props) {
-  var text = props.text,
-    link = props.link;
-  if (!link || 'off' === (link === null || link === void 0 ? void 0 : link.show) || !(link === null || link === void 0 ? void 0 : link.url)) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null);
-  }
-  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: link === null || link === void 0 ? void 0 : link.url,
-    className: "btn btn-outline-dark",
-    target: "_blank"
-  }, "More Information", react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
-    className: "sr-only"
-  }, "More information about ", text, " ")));
-};
-/**
- * Divi 5 Module edit component of visual builder.
- *
- * @since ??
- *
- * @param {SectionPrimaryModuleEditProps} props React component props.
- *
- * @returns {ReactElement}
- */
-var ModuleEdit = function (props) {
-  var _a, _b, _c;
-  var attrs = props.attrs,
-    id = props.id,
-    name = props.name,
-    elements = props.elements;
-  var title = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)((_a = attrs === null || attrs === void 0 ? void 0 : attrs.title) === null || _a === void 0 ? void 0 : _a.innerContent);
-  var image = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)((_b = attrs === null || attrs === void 0 ? void 0 : attrs.image) === null || _b === void 0 ? void 0 : _b.innerContent);
-  var link = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)((_c = attrs === null || attrs === void 0 ? void 0 : attrs.link) === null || _c === void 0 ? void 0 : _c.innerContent);
-  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ModuleContainer, {
-    attrs: attrs,
-    elements: elements,
-    id: id,
-    name: name,
-    stylesComponent: _styles__WEBPACK_IMPORTED_MODULE_3__.ModuleStyles,
-    classnamesFunction: _module_classnames__WEBPACK_IMPORTED_MODULE_4__.moduleClassnames,
-    scriptDataComponent: _module_script_data__WEBPACK_IMPORTED_MODULE_5__.ModuleScriptData
-  }, elements.styleComponents({
-    attrName: 'module'
-  }), renderImage({
-    elements: elements,
-    image: image
-  }), renderHeader(title), elements.render({
-    attrName: 'content'
-  }), renderButton({
-    text: title === null || title === void 0 ? void 0 : title.text,
-    link: link
-  }));
-};
-_c2 = ModuleEdit;
-
-var _c2;
-$RefreshReg$(_c2, "ModuleEdit");
-
-/***/ },
-
-/***/ "./src/modules/SectionPrimary/index.ts"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   CAWebModuleSectionPrimary: () => (/* binding */ CAWebModuleSectionPrimary)
-/* harmony export */ });
-/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/modules/SectionPrimary/module.json");
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/SectionPrimary/edit.tsx");
-/* harmony import */ var _placeholder_content__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/SectionPrimary/placeholder-content.ts");
-/* harmony import */ var _conversion_outline__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/SectionPrimary/conversion-outline.ts");
-/* harmony import */ var _Settings_content__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/SectionPrimary/Settings/content.tsx");
-// Local dependencies.
-
-
-
-
-
-var CAWebModuleSectionPrimary = {
-  metadata: _module_json__WEBPACK_IMPORTED_MODULE_0__,
-  placeholderContent: _placeholder_content__WEBPACK_IMPORTED_MODULE_2__.placeholderContent,
-  conversionOutline: _conversion_outline__WEBPACK_IMPORTED_MODULE_3__.conversionOutline,
-  renderers: {
-    edit: _edit__WEBPACK_IMPORTED_MODULE_1__.ModuleEdit
-  },
-  settings: {
-    content: _Settings_content__WEBPACK_IMPORTED_MODULE_4__.SettingsContent
-  }
-};
-
-/***/ },
-
-/***/ "./src/modules/SectionPrimary/module-classnames.ts"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   moduleClassnames: () => (/* binding */ moduleClassnames)
-/* harmony export */ });
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_0__);
-
-/**
- * Module classnames function for Dynamic Module.
- *
- * @since ??
- *
- * @param {ModuleClassnamesParams<ModuleAttrs>} param0 Function parameters.
- */
-var moduleClassnames = function (_a) {
-  var _b, _c;
-  var classnamesInstance = _a.classnamesInstance,
-    attrs = _a.attrs;
-  classnamesInstance.add('section');
-  // Text Options.
-  classnamesInstance.add((0,_divi_module__WEBPACK_IMPORTED_MODULE_0__.textOptionsClassnames)((_c = (_b = attrs === null || attrs === void 0 ? void 0 : attrs.module) === null || _b === void 0 ? void 0 : _b.advanced) === null || _c === void 0 ? void 0 : _c.text));
-};
-
-/***/ },
-
-/***/ "./src/modules/SectionPrimary/module-script-data.tsx"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ModuleScriptData: () => (/* binding */ ModuleScriptData)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-/**
- * Divi 5 module's script data component.
- *
- * @since ??
- *
- * @param {ModuleScriptDataProps<ModuleAttrs>} props React component props.
- *
- * @returns {ReactElement}
- */
-var ModuleScriptData = function (_a) {
-  var elements = _a.elements;
-  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, elements.scriptData({
-    attrName: 'module'
-  }));
-};
-_c = ModuleScriptData;
-var _c;
-$RefreshReg$(_c, "ModuleScriptData");
-
-/***/ },
-
-/***/ "./src/modules/SectionPrimary/placeholder-content.ts"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   placeholderContent: () => (/* binding */ placeholderContent)
-/* harmony export */ });
-// Divi dependencies.
-// import { placeholderContent as placeholder } from '@divi/module-utils';
-var placeholderContent = {
-  title: {
-    innerContent: {
-      desktop: {
-        value: {
-          text: '',
-          level: 'h2',
-          color: '',
-          alignment: 'start'
-        }
-      }
-    }
-  }
-};
-
-/***/ },
-
-/***/ "./src/modules/SectionPrimary/styles.tsx"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ModuleStyles: () => (/* binding */ ModuleStyles)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _custom_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/SectionPrimary/custom-css.ts");
-// External dependencies.
-
-// Divi dependencies.
-
-
-/**
- * Module's style components.
- *
- * @since ??
- */
-var ModuleStyles = function (_a) {
-  var attrs = _a.attrs,
-    settings = _a.settings,
-    orderClass = _a.orderClass,
-    mode = _a.mode,
-    state = _a.state,
-    noStyleTag = _a.noStyleTag,
-    elements = _a.elements;
-  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.StyleContainer, {
-    mode: mode,
-    state: state,
-    noStyleTag: noStyleTag
-  }, elements.style({
-    attrName: 'module',
-    styleProps: {
-      disabledOn: {
-        disabledModuleVisibility: settings === null || settings === void 0 ? void 0 : settings.disabledModuleVisibility
-      }
-    }
-  }), elements.style({
-    attrName: 'title'
-  }), elements.style({
-    attrName: 'content'
-  }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.CssStyle, {
-    selector: orderClass,
-    attr: attrs === null || attrs === void 0 ? void 0 : attrs.css,
-    cssFields: _custom_css__WEBPACK_IMPORTED_MODULE_2__.cssFields
-  }));
-};
-_c = ModuleStyles;
-
-var _c;
-$RefreshReg$(_c, "ModuleStyles");
-
-/***/ },
-
-/***/ "./src/modules/Utils/Module.tsx"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   get_address: () => (/* binding */ get_address),
-/* harmony export */   get_google_map_place_link: () => (/* binding */ get_google_map_place_link),
-/* harmony export */   get_icon_span: () => (/* binding */ get_icon_span),
-/* harmony export */   processColorPickerValue: () => (/* binding */ processColorPickerValue)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var __assign = undefined && undefined.__assign || function () {
-  __assign = Object.assign || function (t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-      s = arguments[i];
-      for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-    }
-    return t;
-  };
-  return __assign.apply(this, arguments);
-};
-
-/**
- * Process Divi Color Picker Value
- *
- * @param  string $color Color value from color picker.
- * @return string
- */
-var processColorPickerValue = function (color) {
-  var _a, _b, _c;
-  var colorProp = {
-    color: color
-  };
-  if (color.startsWith('$variable(') && color.endsWith(')$')) {
-    try {
-      var colorString = color.slice(10, -2);
-      var colorObj = JSON.parse(colorString);
-      // if object is a color type
-      if ('color' === (colorObj === null || colorObj === void 0 ? void 0 : colorObj.type)) {
-        // if opacity has been set
-        if ((_b = (_a = colorObj === null || colorObj === void 0 ? void 0 : colorObj.value) === null || _a === void 0 ? void 0 : _a.settings) === null || _b === void 0 ? void 0 : _b.opacity) {
-          // divide the opacity by 100
-          colorObj.value.settings.opacity = colorObj.value.settings.opacity / 100;
-        }
-        // add color and any settings to the CSSProperty
-        colorProp = __assign({
-          color: "var(--".concat((_c = colorObj === null || colorObj === void 0 ? void 0 : colorObj.value) === null || _c === void 0 ? void 0 : _c.name, ")")
-        }, colorObj.value.settings);
-      }
-    } catch (e) {
-      // color isn't valid JSON
-    }
-  }
-  return colorProp;
-};
-/**
- * Returns address in CSV format
- *
- * @param  array|address $addr Address to format.
- * @return string
- */
-var get_address = function (address) {
-  if ("" === address || address.length === 0) {
-    return;
-  } else if ('string' === typeof address) {
-    address = address.split(',');
-  }
-  return address.map(function (part) {
-    return part === null || part === void 0 ? void 0 : part.trim();
-  }).filter(Boolean).join(', ');
-};
-/**
- * Create a GoogleMap Place Link/Embedded IFrame
- *
- * @param  array|string $addr Address to format.
- * @param  mixed        $embed Whether to create a link or embedded iframe.
- * @param  mixed        $target The links target, default _blank.
- * @param  mixed        $classes Class for the link.
- * @return string
- */
-var get_google_map_place_link = function (address, embed, target, classes) {
-  if (embed === void 0) {
-    embed = false;
-  }
-  if (target === void 0) {
-    target = '_blank';
-  }
-  if (classes === void 0) {
-    classes = '';
-  }
-  var addr = get_address(address);
-  if (!addr) {
-    return null;
-  }
-  if (embed) {
-    var map_url = "https://www.google.com/maps/embed/v1/place?q=".concat(addr, "&zoom=10&key=key");
-    return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("iframe", {
-      title: "IFrame for Address ".concat(addr),
-      src: map_url
-    });
-  } else {
-    return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-      href: "https://www.google.com/maps/place/".concat(addr),
-      target: target,
-      className: classes
-    }, addr);
-  }
-};
-/**
- * Create icon span
- *
- * @param  string $icon Icon to render.
- * @param  string $classes Classes for the span.
- * @param  string $styles Styles for the span.
- * @return string
- */
-var get_icon_span = function (icon) {
-  if ("" === icon) {
-    return;
-  }
-  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
-    className: "ca-gov-icon-".concat(icon)
-  });
-};
-
-
-/***/ },
-
-/***/ "./src/modules/Utils/index.ts"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   get_address: () => (/* reexport safe */ _Module__WEBPACK_IMPORTED_MODULE_0__.get_address),
-/* harmony export */   get_google_map_place_link: () => (/* reexport safe */ _Module__WEBPACK_IMPORTED_MODULE_0__.get_google_map_place_link),
-/* harmony export */   get_icon_span: () => (/* reexport safe */ _Module__WEBPACK_IMPORTED_MODULE_0__.get_icon_span),
-/* harmony export */   processColorPickerValue: () => (/* reexport safe */ _Module__WEBPACK_IMPORTED_MODULE_0__.processColorPickerValue)
-/* harmony export */ });
-/* harmony import */ var _Module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/modules/Utils/Module.tsx");
-
-
-
-/***/ },
-
-/***/ "./src/modules/index.ts"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   CAWebModuleFullwidthSectionPrimary: () => (/* reexport safe */ _FullwidthSectionPrimary__WEBPACK_IMPORTED_MODULE_3__.CAWebModuleFullwidthSectionPrimary),
-/* harmony export */   CAWebModuleGithub: () => (/* reexport safe */ _Github__WEBPACK_IMPORTED_MODULE_4__.CAWebModuleGithub),
-/* harmony export */   CAWebModuleLocation: () => (/* reexport safe */ _Location__WEBPACK_IMPORTED_MODULE_1__.CAWebModuleLocation),
-/* harmony export */   CAWebModuleProfileBanner: () => (/* reexport safe */ _ProfileBanner__WEBPACK_IMPORTED_MODULE_0__.CAWebModuleProfileBanner),
-/* harmony export */   CAWebModuleSectionPrimary: () => (/* reexport safe */ _SectionPrimary__WEBPACK_IMPORTED_MODULE_2__.CAWebModuleSectionPrimary)
-/* harmony export */ });
-/* harmony import */ var _ProfileBanner__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/modules/ProfileBanner/index.ts");
-/* harmony import */ var _Location__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/Location/index.ts");
-/* harmony import */ var _SectionPrimary__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/SectionPrimary/index.ts");
-/* harmony import */ var _FullwidthSectionPrimary__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/FullwidthSectionPrimary/index.ts");
-/* harmony import */ var _Github__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/Github/index.ts");
-
-
-
-
-
-// This is base module for testing purposes only.
-// import { CAWebModuleBase } from './Base';
 
 
 /***/ },
@@ -1936,6 +1736,13 @@ module.exports = window["React"];
 
 /***/ },
 
+/***/ "react/jsx-runtime"
+(module) {
+
+module.exports = window["ReactJSXRuntime"];
+
+/***/ },
+
 /***/ "lodash"
 (module) {
 
@@ -1947,6 +1754,471 @@ module.exports = window["lodash"];
 (module) {
 
 module.exports = window["wp"]["hooks"];
+
+/***/ },
+
+/***/ "@wordpress/i18n"
+(module) {
+
+module.exports = window["wp"]["i18n"];
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionPrimary/index.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   CAWebModuleFullwidthSectionPrimary: () => (/* binding */ CAWebModuleFullwidthSectionPrimary),
+/* harmony export */   CAWebModuleFullwidthSectionPrimaryMetadata: () => (/* binding */ CAWebModuleFullwidthSectionPrimaryMetadata)
+/* harmony export */ });
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _SectionPrimary_module_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/SectionPrimary/module.json");
+/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/FullwidthSectionPrimary/module.json");
+/* harmony import */ var _SectionPrimary_edit_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/SectionPrimary/edit.jsx");
+/* harmony import */ var _SectionPrimary_placeholder_content_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/SectionPrimary/placeholder-content.js");
+/* harmony import */ var _SectionPrimary_conversion_outline_ts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/SectionPrimary/conversion-outline.ts");
+/* harmony import */ var _SectionPrimary_Settings_content_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/SectionPrimary/Settings/content.jsx");
+// WordPress dependencies.
+
+
+// Local dependencies.
+
+
+
+// Fullwidth Modules use everything from the standard modules
+
+
+
+
+
+// Merged metadata 
+const CAWebModuleFullwidthSectionPrimaryMetadata = {
+  ..._SectionPrimary_module_json__WEBPACK_IMPORTED_MODULE_1__,
+  ..._module_json__WEBPACK_IMPORTED_MODULE_2__
+};
+const CAWebModuleFullwidthSectionPrimary = {
+  placeholderContent: _SectionPrimary_placeholder_content_js__WEBPACK_IMPORTED_MODULE_4__.placeholderContent,
+  conversionOutline: _SectionPrimary_conversion_outline_ts__WEBPACK_IMPORTED_MODULE_5__.conversionOutline,
+  renderers: {
+    edit: _SectionPrimary_edit_jsx__WEBPACK_IMPORTED_MODULE_3__.ModuleEdit
+  },
+  settings: {
+    content: _SectionPrimary_Settings_content_jsx__WEBPACK_IMPORTED_MODULE_6__.SettingsContent
+  }
+};
+
+/***/ },
+
+/***/ "./src/modules/Github/custom-css.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   cssFields: () => (/* binding */ cssFields)
+/* harmony export */ });
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/Github/module.json");
+// WordPress dependencies.
+
+
+
+// const customCssFields = metadata.customCssFields as Record<'name', { subName: string, selectorSuffix: string, label: string }>;
+
+// customCssFields.name.label            = __('Name', 'd5-extension-example-modules');
+
+const cssFields = {};
+// export const cssFields = { ...customCssFields };
+
+/***/ },
+
+/***/ "./src/modules/Github/index.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   CAWebModuleGithub: () => (/* binding */ CAWebModuleGithub),
+/* harmony export */   CAWebModuleGithubMetadata: () => (/* binding */ CAWebModuleGithubMetadata)
+/* harmony export */ });
+/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/modules/Github/module.json");
+/* harmony import */ var _edit_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/Github/edit.jsx");
+/* harmony import */ var _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/Github/placeholder-content.js");
+/* harmony import */ var _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/Github/conversion-outline.ts");
+// WordPress dependencies.
+// import { __ } from '@wordpress/i18n';
+
+// Local dependencies.
+
+
+
+
+const CAWebModuleGithubMetadata = _module_json__WEBPACK_IMPORTED_MODULE_0__;
+const CAWebModuleGithub = {
+  placeholderContent: _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__.placeholderContent,
+  conversionOutline: _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_3__.conversionOutline,
+  renderers: {
+    edit: _edit_jsx__WEBPACK_IMPORTED_MODULE_1__.ModuleEdit
+  }
+};
+
+/***/ },
+
+/***/ "./src/modules/Github/module-classnames.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   moduleClassnames: () => (/* binding */ moduleClassnames)
+/* harmony export */ });
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@divi/module");
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/Github/types.ts");
+
+
+
+/**
+ * Module classnames function for Dynamic Module.
+ *
+ * @since ??
+ *
+ * @param {ModuleClassnamesParams<ModuleAttrs>} param0 Function parameters.
+ */
+const moduleClassnames = ({
+  classnamesInstance,
+  attrs
+}) => {
+  // Text Options.
+  classnamesInstance.add((0,_divi_module__WEBPACK_IMPORTED_MODULE_0__.textOptionsClassnames)(attrs?.module?.advanced?.text));
+};
+
+/***/ },
+
+/***/ "./src/modules/Github/placeholder-content.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   placeholderContent: () => (/* binding */ placeholderContent)
+/* harmony export */ });
+// Divi dependencies.
+// import { placeholderContent as placeholder } from '@divi/module-utils';
+
+// Local dependencies.
+
+const placeholderContent = {};
+
+/***/ },
+
+/***/ "./src/modules/Location/custom-css.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   cssFields: () => (/* binding */ cssFields)
+/* harmony export */ });
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/Location/module.json");
+// WordPress dependencies.
+
+
+
+// const customCssFields = metadata.customCssFields as Record<'name', { subName: string, selectorSuffix: string, label: string }>;
+
+// customCssFields.name.label            = __('Name', 'd5-extension-example-modules');
+
+const cssFields = {};
+// export const cssFields = { ...customCssFields };
+
+/***/ },
+
+/***/ "./src/modules/Location/index.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   CAWebModuleLocation: () => (/* binding */ CAWebModuleLocation),
+/* harmony export */   CAWebModuleLocationMetadata: () => (/* binding */ CAWebModuleLocationMetadata)
+/* harmony export */ });
+/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/modules/Location/module.json");
+/* harmony import */ var _edit_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/Location/edit.jsx");
+/* harmony import */ var _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/Location/placeholder-content.js");
+/* harmony import */ var _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/Location/conversion-outline.ts");
+/* harmony import */ var _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/Location/Settings/content.jsx");
+/* harmony import */ var _Settings_design_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/Location/Settings/design.jsx");
+// Local dependencies.
+
+
+
+
+
+
+const CAWebModuleLocationMetadata = _module_json__WEBPACK_IMPORTED_MODULE_0__;
+const CAWebModuleLocation = {
+  placeholderContent: _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__.placeholderContent,
+  conversionOutline: _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_3__.conversionOutline,
+  renderers: {
+    edit: _edit_jsx__WEBPACK_IMPORTED_MODULE_1__.ModuleEdit
+  },
+  settings: {
+    content: _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_4__.SettingsContent,
+    design: _Settings_design_jsx__WEBPACK_IMPORTED_MODULE_5__.SettingsDesign
+  }
+};
+
+/***/ },
+
+/***/ "./src/modules/Location/module-classnames.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   moduleClassnames: () => (/* binding */ moduleClassnames)
+/* harmony export */ });
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@divi/module");
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/Location/types.ts");
+
+
+
+/**
+ * Module classnames function for Dynamic Module.
+ *
+ * @since ??
+ *
+ * @param {ModuleClassnamesParams<ModuleAttrs>} param0 Function parameters.
+ */
+const moduleClassnames = ({
+  classnamesInstance,
+  attrs
+}) => {
+  // Text Options.
+  classnamesInstance.add((0,_divi_module__WEBPACK_IMPORTED_MODULE_0__.textOptionsClassnames)(attrs?.module?.advanced?.text));
+};
+
+/***/ },
+
+/***/ "./src/modules/Location/placeholder-content.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   placeholderContent: () => (/* binding */ placeholderContent)
+/* harmony export */ });
+const placeholderContent = {};
+
+/***/ },
+
+/***/ "./src/modules/ProfileBanner/custom-css.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   cssFields: () => (/* binding */ cssFields)
+/* harmony export */ });
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/ProfileBanner/module.json");
+// WordPress dependencies.
+
+
+
+// const customCssFields = metadata.customCssFields as Record<'name', { subName: string, selectorSuffix: string, label: string }>;
+
+// customCssFields.name.label            = __('Name', 'd5-extension-example-modules');
+
+const cssFields = {};
+// export const cssFields = { ...customCssFields };
+
+/***/ },
+
+/***/ "./src/modules/ProfileBanner/index.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   CAWebModuleProfileBanner: () => (/* binding */ CAWebModuleProfileBanner),
+/* harmony export */   CAWebModuleProfileBannerMetadata: () => (/* binding */ CAWebModuleProfileBannerMetadata)
+/* harmony export */ });
+/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/modules/ProfileBanner/module.json");
+/* harmony import */ var _edit_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/ProfileBanner/edit.jsx");
+/* harmony import */ var _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/ProfileBanner/placeholder-content.js");
+/* harmony import */ var _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/ProfileBanner/conversion-outline.ts");
+// Local dependencies.
+
+
+
+
+const CAWebModuleProfileBannerMetadata = _module_json__WEBPACK_IMPORTED_MODULE_0__;
+const CAWebModuleProfileBanner = {
+  placeholderContent: _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__.placeholderContent,
+  conversionOutline: _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_3__.conversionOutline,
+  renderers: {
+    edit: _edit_jsx__WEBPACK_IMPORTED_MODULE_1__.ModuleEdit
+  }
+};
+
+/***/ },
+
+/***/ "./src/modules/ProfileBanner/module-classnames.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   moduleClassnames: () => (/* binding */ moduleClassnames)
+/* harmony export */ });
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@divi/module");
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/ProfileBanner/types.ts");
+
+
+
+/**
+ * Module classnames function for Dynamic Module.
+ *
+ * @since ??
+ *
+ * @param {ModuleClassnamesParams<ModuleAttrs>} param0 Function parameters.
+ */
+const moduleClassnames = ({
+  classnamesInstance,
+  attrs
+}) => {
+  // Text Options.
+  classnamesInstance.add((0,_divi_module__WEBPACK_IMPORTED_MODULE_0__.textOptionsClassnames)(attrs?.module?.advanced?.text));
+};
+
+/***/ },
+
+/***/ "./src/modules/ProfileBanner/placeholder-content.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   placeholderContent: () => (/* binding */ placeholderContent)
+/* harmony export */ });
+const placeholderContent = {};
+
+/***/ },
+
+/***/ "./src/modules/SectionPrimary/custom-css.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   cssFields: () => (/* binding */ cssFields)
+/* harmony export */ });
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/SectionPrimary/module.json");
+// WordPress dependencies.
+
+
+
+// const customCssFields = metadata.customCssFields as Record<'name', { subName: string, selectorSuffix: string, label: string }>;
+
+// customCssFields.name.label            = __('Name', 'd5-extension-example-modules');
+
+const cssFields = {};
+// export const cssFields = { ...customCssFields };
+
+/***/ },
+
+/***/ "./src/modules/SectionPrimary/index.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   CAWebModuleSectionPrimary: () => (/* binding */ CAWebModuleSectionPrimary),
+/* harmony export */   CAWebModuleSectionPrimaryMetadata: () => (/* binding */ CAWebModuleSectionPrimaryMetadata)
+/* harmony export */ });
+/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/modules/SectionPrimary/module.json");
+/* harmony import */ var _edit_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/SectionPrimary/edit.jsx");
+/* harmony import */ var _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/SectionPrimary/placeholder-content.js");
+/* harmony import */ var _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/SectionPrimary/conversion-outline.ts");
+/* harmony import */ var _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/SectionPrimary/Settings/content.jsx");
+// Local dependencies.
+
+
+
+
+
+const CAWebModuleSectionPrimaryMetadata = _module_json__WEBPACK_IMPORTED_MODULE_0__;
+const CAWebModuleSectionPrimary = {
+  placeholderContent: _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__.placeholderContent,
+  conversionOutline: _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_3__.conversionOutline,
+  renderers: {
+    edit: _edit_jsx__WEBPACK_IMPORTED_MODULE_1__.ModuleEdit
+  },
+  settings: {
+    content: _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_4__.SettingsContent
+  }
+};
+
+/***/ },
+
+/***/ "./src/modules/SectionPrimary/module-classnames.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   moduleClassnames: () => (/* binding */ moduleClassnames)
+/* harmony export */ });
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@divi/module");
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/SectionPrimary/types.ts");
+
+
+
+/**
+ * Module classnames function for Dynamic Module.
+ *
+ * @since ??
+ *
+ * @param {ModuleClassnamesParams<ModuleAttrs>} param0 Function parameters.
+ */
+const moduleClassnames = ({
+  classnamesInstance,
+  attrs
+}) => {
+  classnamesInstance.add('section');
+
+  // Text Options.
+  classnamesInstance.add((0,_divi_module__WEBPACK_IMPORTED_MODULE_0__.textOptionsClassnames)(attrs?.module?.advanced?.text));
+};
+
+/***/ },
+
+/***/ "./src/modules/SectionPrimary/placeholder-content.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   placeholderContent: () => (/* binding */ placeholderContent)
+/* harmony export */ });
+const placeholderContent = {
+  title: {
+    innerContent: {
+      desktop: {
+        value: {
+          text: '',
+          level: 'h2',
+          color: '',
+          alignment: 'start'
+        }
+      }
+    }
+  }
+};
+
+/***/ },
+
+/***/ "./src/modules/Utils/index.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   get_address: () => (/* reexport safe */ _Module_jsx__WEBPACK_IMPORTED_MODULE_0__.get_address),
+/* harmony export */   get_google_map_place_link: () => (/* reexport safe */ _Module_jsx__WEBPACK_IMPORTED_MODULE_0__.get_google_map_place_link),
+/* harmony export */   get_icon_span: () => (/* reexport safe */ _Module_jsx__WEBPACK_IMPORTED_MODULE_0__.get_icon_span),
+/* harmony export */   processColorPickerValue: () => (/* reexport safe */ _Module_jsx__WEBPACK_IMPORTED_MODULE_0__.processColorPickerValue)
+/* harmony export */ });
+/* harmony import */ var _Module_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/modules/Utils/Module.jsx");
+
+
 
 /***/ },
 
@@ -2057,30 +2329,43 @@ var __webpack_exports__ = {};
 // This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
 (() => {
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("lodash");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@wordpress/hooks");
-/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _divi_module_library__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/module-library");
-/* harmony import */ var _divi_module_library__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_module_library__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _modules__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/index.ts");
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@wordpress/hooks");
+/* harmony import */ var _divi_module_library__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module-library");
+/* harmony import */ var _modules_Github_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/Github/index.js");
+/* harmony import */ var _modules_Location_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/Location/index.js");
+/* harmony import */ var _modules_ProfileBanner_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/ProfileBanner/index.js");
+/* harmony import */ var _modules_SectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/SectionPrimary/index.js");
+/* harmony import */ var _modules_FullwidthSectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/FullwidthSectionPrimary/index.js");
 
 
 
 /**
  * Internal dependencies
  */
-// modules
 
+// standard modules
+
+
+
+
+
+//fullwidth modules
+
+
+//
 // import icon-library integration
 // import './icons';
+
 // Register modules.
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_1__.addAction)('divi.moduleLibrary.registerModuleLibraryStore.after', 'cawebDiviExtension', function () {
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_2__.registerModule)(_modules__WEBPACK_IMPORTED_MODULE_3__.CAWebModuleProfileBanner.metadata, (0,lodash__WEBPACK_IMPORTED_MODULE_0__.omit)(_modules__WEBPACK_IMPORTED_MODULE_3__.CAWebModuleProfileBanner, 'metadata'));
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_2__.registerModule)(_modules__WEBPACK_IMPORTED_MODULE_3__.CAWebModuleLocation.metadata, (0,lodash__WEBPACK_IMPORTED_MODULE_0__.omit)(_modules__WEBPACK_IMPORTED_MODULE_3__.CAWebModuleLocation, 'metadata'));
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_2__.registerModule)(_modules__WEBPACK_IMPORTED_MODULE_3__.CAWebModuleSectionPrimary.metadata, (0,lodash__WEBPACK_IMPORTED_MODULE_0__.omit)(_modules__WEBPACK_IMPORTED_MODULE_3__.CAWebModuleSectionPrimary, 'metadata'));
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_2__.registerModule)(_modules__WEBPACK_IMPORTED_MODULE_3__.CAWebModuleFullwidthSectionPrimary.metadata, (0,lodash__WEBPACK_IMPORTED_MODULE_0__.omit)(_modules__WEBPACK_IMPORTED_MODULE_3__.CAWebModuleFullwidthSectionPrimary, 'metadata'));
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_2__.registerModule)(_modules__WEBPACK_IMPORTED_MODULE_3__.CAWebModuleGithub.metadata, (0,lodash__WEBPACK_IMPORTED_MODULE_0__.omit)(_modules__WEBPACK_IMPORTED_MODULE_3__.CAWebModuleGithub, 'metadata'));
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__.addAction)('divi.moduleLibrary.registerModuleLibraryStore.after', 'cawebDiviExtension', () => {
+  // Standard modules
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_Github_index_js__WEBPACK_IMPORTED_MODULE_2__.CAWebModuleGithubMetadata, _modules_Github_index_js__WEBPACK_IMPORTED_MODULE_2__.CAWebModuleGithub);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_Location_index_js__WEBPACK_IMPORTED_MODULE_3__.CAWebModuleLocationMetadata, _modules_Location_index_js__WEBPACK_IMPORTED_MODULE_3__.CAWebModuleLocation);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_ProfileBanner_index_js__WEBPACK_IMPORTED_MODULE_4__.CAWebModuleProfileBannerMetadata, _modules_ProfileBanner_index_js__WEBPACK_IMPORTED_MODULE_4__.CAWebModuleProfileBanner);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_SectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_5__.CAWebModuleSectionPrimaryMetadata, _modules_SectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_5__.CAWebModuleSectionPrimary);
+
+  // Fullwidth modules
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_FullwidthSectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_6__.CAWebModuleFullwidthSectionPrimaryMetadata, _modules_FullwidthSectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_6__.CAWebModuleFullwidthSectionPrimary);
 });
 })();
 

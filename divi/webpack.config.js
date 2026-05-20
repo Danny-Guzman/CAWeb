@@ -5,7 +5,7 @@ export default {
     // @see https://webpack.js.org/concepts/#entry
     entry: {
         bundle4: './divi-4/src/index.js',
-        bundle: './src/index.ts',
+        bundle: './src/index.js',
         admin: './src/styles/_icons.scss',
     },
     

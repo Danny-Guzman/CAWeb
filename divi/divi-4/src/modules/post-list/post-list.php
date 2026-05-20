@@ -214,7 +214,7 @@ class CAWeb_Module_Post_List extends ET_Builder_CAWeb_Module {
 				'label'             => esc_html__( 'Title Size', 'et_builder' ),
 				'type'              => 'select',
 				'option_category'   => 'configuration',
-				'options'           => $this->caweb_get_text_sizes( array( 'p', 'h6' ) ),
+				'options'           => array( 'h1', 'h2', 'h3', 'h4', 'h5' ),
 				'description'       => esc_html__( 'Select the size for the title of this module.', 'et_builder' ),
 				'tab_slug'          => 'advanced',
 				'toggle_slug'       => 'header',
