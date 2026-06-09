@@ -2365,6 +2365,7 @@ __webpack_require__.r(__webpack_exports__);
   (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_SectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_5__.CAWebModuleSectionPrimaryMetadata, _modules_SectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_5__.CAWebModuleSectionPrimary);
 
   // Fullwidth modules
+  console.log('Registering FullwidthSectionPrimary module', _modules_FullwidthSectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_6__.CAWebModuleFullwidthSectionPrimaryMetadata);
   (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_FullwidthSectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_6__.CAWebModuleFullwidthSectionPrimaryMetadata, _modules_FullwidthSectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_6__.CAWebModuleFullwidthSectionPrimary);
 });
 })();

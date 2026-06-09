@@ -26,7 +26,7 @@
     "@babel/core": "^7.24.5",
     "@babel/preset-env": "^7.24.5",
     "@babel/preset-react": "^7.24.1",
-    "@caweb/cli": "^1.16.12",
+    "@caweb/cli": "^1.16.17",
     "@divi/module": "^1.0.2",
     "@divi/module-library": "^1.0.2",
     "@divi/module-utils": "^1.0.2",
@@ -57,5 +57,15 @@
   },
   "optionalDependencies": {
     "win-node-env": "^0.6.1"
+  },
+  "allowScripts": {
+    "@caweb/css-audit-webpack-plugin@2.1.5": true,
+    "@parcel/watcher@2.5.6": true,
+    "accessibility-checker@4.0.18": true,
+    "chromedriver@148.0.1": true,
+    "core-js@3.49.0": true,
+    "fs-ext-extra-prebuilt@2.2.7": true,
+    "fsevents@2.3.3": true,
+    "puppeteer@22.15.0": true
   }
 }

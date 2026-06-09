@@ -11,7 +11,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-add_filter( 'wp_nav_menu', 'caweb_nav_menu', 10, 2 );
 add_filter( 'widget_nav_menu_args', 'caweb_widget_nav_menu_args', 10, 4 );
 
 add_action( 'wp_nav_menu_item_custom_fields', 'caweb_nav_menu_item_custom_fields', 9, 4 );
@@ -49,34 +48,6 @@ function caweb_nav_menu_icon_modal() {
 		</div>
 	</div>
 	<?php
-}
-/**
- * Filters the HTML content for navigation menus.
- *
- * @link https://developer.wordpress.org/reference/hooks/wp_nav_menu/
- * @param  string   $nav_menu The HTML content for the navigation menu.
- * @param  stdClass $args An object containing wp_nav_menu() arguments.
- *
- * @return string
- */
-function caweb_nav_menu( $nav_menu, $args ) {
-	// In the event that a plugin is using the wp_nav_menu filter with the same arguments.
-	// we check for the $args->theme = 'CAWeb' to prevent duplicate menus from rendering.
-
-	/* Menu Construction */
-	if ( ! empty( $args->menu ) && $args->echo &&
-			isset(
-				$args->theme,
-				$args->theme_location,
-				$args->caweb_nav_type
-			) &&
-			'CAWeb' === $args->theme
-		) {
-
-		get_template_part( "parts/nav", $args->caweb_nav_type, $args );
-	} else {
-		return $nav_menu;
-	}
 }
 
 /**

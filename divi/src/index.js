@@ -29,6 +29,7 @@ addAction('divi.moduleLibrary.registerModuleLibraryStore.after', 'cawebDiviExten
   registerModule(CAWebModuleSectionPrimaryMetadata, CAWebModuleSectionPrimary);
   
   // Fullwidth modules
+  console.log('Registering FullwidthSectionPrimary module', CAWebModuleFullwidthSectionPrimaryMetadata);
   registerModule(CAWebModuleFullwidthSectionPrimaryMetadata, CAWebModuleFullwidthSectionPrimary);
 
 });

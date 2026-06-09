@@ -89,7 +89,7 @@ function caweb_divi_extension_enqueue_d4_vb_scripts() {
 	// Enqueue Frontend and Visual Builder Styles
 	wp_enqueue_style(
 		'caweb-divi4-vb',
-		CAWEB_DIVI_EXT_URL . "build/bundle4.css",
+		CAWEB_DIVI_EXT_URL . "build/style-bundle4.css",
 		array(),
 		'1.0.0'
 	);

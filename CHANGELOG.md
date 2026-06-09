@@ -1,5 +1,6 @@
 v1.14.0
 - Transition from archived https://github.com/elegantthemes/create-divi-extension to new Divi 5 API https://devalpha.elegantthemes.com/
+- add_filter( 'wp_nav_menu', 'caweb_nav_menu', 10, 2 ); was removed due to new Divi 5 add_filter( 'wp_nav_menu', [ $this, 'fix_nav_menu_unclosed_tags' ] );
 
 v1.13.5
 - Added Mega Drop navigation menu back
