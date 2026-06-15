@@ -6,7 +6,7 @@ import React, {
 import {
   ModuleScriptDataProps,
 } from '@divi/module';
-import { ModuleAttrs } from './types';
+import { ModuleAttrs } from './types.ts';
 
 
 /**
@@ -20,7 +20,7 @@ import { ModuleAttrs } from './types';
  */
 export const ModuleScriptData = ({
   elements,
-}: ModuleScriptDataProps<ModuleAttrs>): ReactElement => (
+}) => (
   <Fragment>
     {elements.scriptData({
       attrName: 'module',

@@ -12,6 +12,7 @@ import { CAWebModuleGithub, CAWebModuleGithubMetadata } from './modules/Github/i
 import { CAWebModuleLocation, CAWebModuleLocationMetadata } from './modules/Location/index.js';
 import { CAWebModuleProfileBanner, CAWebModuleProfileBannerMetadata } from './modules/ProfileBanner/index.js';
 import { CAWebModuleSectionPrimary, CAWebModuleSectionPrimaryMetadata } from './modules/SectionPrimary/index.js';
+import { CAWebModuleCard, CAWebModuleCardMetadata } from './modules/Card/index.js';
 
 //fullwidth modules
 import { CAWebModuleFullwidthSectionPrimary, CAWebModuleFullwidthSectionPrimaryMetadata } from './modules/FullwidthSectionPrimary/index.js';
@@ -27,9 +28,9 @@ addAction('divi.moduleLibrary.registerModuleLibraryStore.after', 'cawebDiviExten
   registerModule( CAWebModuleLocationMetadata, CAWebModuleLocation );
   registerModule(CAWebModuleProfileBannerMetadata, CAWebModuleProfileBanner);
   registerModule(CAWebModuleSectionPrimaryMetadata, CAWebModuleSectionPrimary);
+  registerModule(CAWebModuleCardMetadata, CAWebModuleCard);
   
   // Fullwidth modules
-  console.log('Registering FullwidthSectionPrimary module', CAWebModuleFullwidthSectionPrimaryMetadata);
   registerModule(CAWebModuleFullwidthSectionPrimaryMetadata, CAWebModuleFullwidthSectionPrimary);
 
 });

@@ -9,7 +9,7 @@ import {
 
 
 // Local dependencies.
-import { cssFields } from './custom-css';
+import { cssFields } from './custom-css.js';
 
 /**
  * Module's style components.

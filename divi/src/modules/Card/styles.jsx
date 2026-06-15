@@ -4,12 +4,14 @@ import React, { ReactElement } from 'react';
 // Divi dependencies.
 import {
   StyleContainer,
+  StylesProps,
   CssStyle,
   CommonStyle,
   TextStyle,
 } from '@divi/module';
 
 // Local dependencies.
+import { ModuleAttrs } from './types.ts';
 import { cssFields } from './custom-css.js';
 
 /**
@@ -33,16 +35,14 @@ import { cssFields } from './custom-css.js';
         styleProps: {
           disabledOn: {
             disabledModuleVisibility: settings?.disabledModuleVisibility,
-          },
+          }
         },
       })}
      
       {elements.style({
         attrName: 'title',
       })}
-      {elements.style({
-        attrName: 'content',
-      })}
+      
       <CssStyle
         selector={orderClass}
         attr={attrs?.css}

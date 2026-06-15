@@ -1,0 +1,130 @@
+{
+  "name": "caweb/card",
+  "d4Shortcode": "et_pb_ca_card",
+  "title": "Card",
+  "titles": "Cards",
+  "moduleIcon": "caweb/module-logo",
+  "moduleClassName": "et_pb_ca_card",
+  "moduleOrderClassName": "et_pb_ca_card",
+  "category": "module",
+  "attributes": {
+    "module": {
+      "type": "object",
+      "selector": "{{selector}}",
+      "settings": {
+        "meta": {
+          "adminLabel": {}
+        },
+        "advanced": {
+          "link": {},
+          "text": {},
+          "htmlAttributes": {}
+        },
+        "decoration": {
+          "background": {},
+          "bodyFont": {},
+          "sizing": {},
+          "spacing": {},
+          "border": {},
+          "boxShadow": {},
+          "filters": {},
+          "transform": {},
+          "animation": {},
+          "overflow": {},
+          "disabledOn": {},
+          "transition": {},
+          "position": {},
+          "zIndex": {},
+          "scroll": {},
+          "sticky": {}
+        },
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+              "groupSlug": "style",
+              "render": true,
+              "attrName": "module.decoration.background",
+              "subName": "color",
+              "label": "Background Color",
+              "description": "Here you can define a custom background color for the section.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "type": "field",
+                "name": "divi/color-picker"
+              }
+            }
+        }
+      }
+    },
+
+    
+    "layout": {
+      "type": "object",
+      "inlineEditor": "plainText",
+      "elementType": "heading",
+      "childrenSanitizer": "et_core_esc_previously",
+      "default": {
+        "innerContent": {
+          "desktop": {
+            "value": "default"
+          }
+        }
+      },
+      "settings": {
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+            "groupSlug": "style",
+            "render": true,
+            "attrName": "layout.innerContent",
+            "label": "Card Style",
+            "description": "Here you can choose the style in which to display the card.",
+            "features": {
+              "sticky": false,
+              "dynamicContent": false
+            },
+            "component": {
+              "name": "divi/select",
+              "type": "field",
+              "props": {
+                "defaultValue": "default",
+                "options": {
+                  "default": {
+                    "label": "Default",
+                    "value": "default"
+                  },
+                  "standout": {
+                    "label": "Standout",
+                    "value": "standout"
+                  },
+                  "overstated": {
+                    "label": "Overstated",
+                    "value": "overstated"
+                  },
+                  "understated": {
+                    "label": "Understated",
+                    "value": "understated"
+                  },
+                  "custom": {
+                    "label": "Custom",
+                    "value": "custom"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }    
+  },
+  "settings": {
+    "design": "auto",
+    "advanced": "auto",
+    "content": "auto",
+    "groups":{
+      
+    }
+  }
+}

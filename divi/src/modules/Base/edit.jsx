@@ -4,20 +4,13 @@ import React, { ReactElement } from 'react';
 // Divi Dependencies.
 import {
   ModuleContainer,
-  ElementComponents,
-  DynamicData,
 } from '@divi/module';
-import {
-  type Module,
-  type OnOff
-} from '@divi/types';
 import {
   getAttrByMode,
 } from '@divi/module-utils';
 
 // Local Dependencies.
-import { SectionPrimaryModuleEditProps } from './types';
-import { ModuleStyles } from './styles';
+import { ModuleStyles } from './styles.jsx';
 import { moduleClassnames } from './module-classnames';
 import { ModuleScriptData } from './module-script-data';
 
@@ -30,14 +23,13 @@ import { ModuleScriptData } from './module-script-data';
  *
  * @returns {ReactElement}
  */
-const ModuleEdit = (props: SectionPrimaryModuleEditProps): ReactElement => {
-  const {
+const ModuleEdit = ({
     attrs,
     id,
     name,
     elements,
-  } = props;
-
+  }) => {
+  
   // let title = getAttrByMode(attrs?.title?.innerContent);
   
   return (

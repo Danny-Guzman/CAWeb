@@ -10,13 +10,9 @@ import {
   TextStyle,
 } from '@divi/module';
 
-import { 
-  type Element,
-} from '@divi/types';
-
 // Local dependencies.
 import { ModuleAttrs } from './types';
-import { cssFields } from './custom-css';
+import { cssFields } from './custom-css.js';
 
 /**
  * Module's style components.
@@ -31,7 +27,7 @@ import { cssFields } from './custom-css';
   state,
   noStyleTag,
   elements,
-}: StylesProps<ModuleAttrs>): ReactElement => {
+}) => {
   return (
     <StyleContainer mode={mode} state={state} noStyleTag={noStyleTag}>
       {elements.style({

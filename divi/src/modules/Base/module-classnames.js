@@ -1,5 +1,5 @@
 import { ModuleClassnamesParams, textOptionsClassnames } from '@divi/module';
-import { ModuleAttrs } from './types';
+import { ModuleAttrs } from './types.ts';
 
 
 /**
@@ -12,9 +12,7 @@ import { ModuleAttrs } from './types';
 export const moduleClassnames = ({
   classnamesInstance,
   attrs,
-}: ModuleClassnamesParams<ModuleAttrs>): void => {
-
-
+}) => {
   // Text Options.
   classnamesInstance.add(textOptionsClassnames(attrs?.module?.advanced?.text));
 };
