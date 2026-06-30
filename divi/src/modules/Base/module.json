@@ -37,24 +37,6 @@
           "zIndex": {},
           "scroll": {},
           "sticky": {}
-        },
-        "innerContent": {
-          "groupType": "group-item",
-          "item": {
-              "groupSlug": "style",
-              "render": true,
-              "attrName": "module.decoration.background",
-              "subName": "color",
-              "label": "Background Color",
-              "description": "Here you can define a custom background color for the section.",
-              "features": {
-                "responsive": false
-              },
-              "component": {
-                "type": "field",
-                "name": "divi/color-picker"
-              }
-            }
         }
       }
     },
@@ -88,10 +70,7 @@
               "label": "Title",
               "description": "Define the title for the section.",
               "features": {
-                "sticky": false,
-                "dynamicContent": {
-                  "type": "text"
-                }
+                "responsive": false
               },
               "component": {
                 "name": "divi/text",
@@ -106,8 +85,7 @@
               "label": "Size",
               "description": "Here you can choose the size for the panel header.",
               "features": {
-                "sticky": false,
-                "dynamicContent": false
+                "responsive": false
               },
               "component": {
                 "name": "divi/select",
@@ -147,8 +125,7 @@
               "label": "Alignment",
               "description": "Here you can choose the alignment for the panel header.",
               "features": {
-                "sticky": false,
-                "dynamicContent": false
+                "responsive": false
               },
               "component": {
                 "name": "divi/select",

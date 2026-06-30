@@ -1,6 +1,8 @@
 import { ModuleClassnamesParams, textOptionsClassnames } from '@divi/module';
 import { ModuleAttrs } from './types.ts';
-
+import {
+  getAttrByMode,
+} from '@divi/module-utils';
 
 /**
  * Module classnames function for Dynamic Module.
@@ -13,6 +15,13 @@ export const moduleClassnames = ({
   classnamesInstance,
   attrs,
 }) => {
+
+  let layout = getAttrByMode(attrs?.layout?.innerContent);
+  
+  // Add card class to module.
+  classnamesInstance.add('card');
+  classnamesInstance.add('custom' === layout ? 'card-default' : `card-${layout}`);
+  
   // Text Options.
   classnamesInstance.add(textOptionsClassnames(attrs?.module?.advanced?.text));
 };

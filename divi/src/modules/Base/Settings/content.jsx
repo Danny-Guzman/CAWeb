@@ -10,18 +10,15 @@ import {
   ModuleGroups,
 } from '@divi/module';
 import { getAttrByMode } from '@divi/module-utils';
-import {
-  type Module,
-} from '@divi/types';
+
 
 // Local dependencies.
-import {ModuleAttrs} from "../types";
 
 export const SettingsContent = ({
   attrs,
   defaultSettingsAttrs,
   groupConfiguration,
-}: Module.Settings.Panel.Props<ModuleAttrs>): ReactElement => {
+}) => {
 
   let image = getAttrByMode(attrs?.image?.innerContent);
   let link = getAttrByMode(attrs?.link?.innerContent);

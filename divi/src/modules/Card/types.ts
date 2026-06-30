@@ -47,7 +47,7 @@ export interface ModuleAttrs extends InternalAttrs {
   layout?: {
     innerContent?: FormatBreakpointStateAttr<string>;
     advanced?: FormatBreakpointStateAttr<{
-      cardColor?: string;
+      color?: string;
     }>;
   };
 
@@ -62,8 +62,8 @@ export interface ModuleAttrs extends InternalAttrs {
     innerContent?: FormatBreakpointStateAttr<string>;
     advanced?: FormatBreakpointStateAttr<{
       show?: OnOff;
-      headingSize?: string;
       color?: string;
+      size?: string;
     }>;
   };
 

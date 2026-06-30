@@ -9,7 +9,9 @@ import {
   CommonStyle,
   TextStyle,
 } from '@divi/module';
-
+import {
+  getAttrByMode,
+} from '@divi/module-utils';
 // Local dependencies.
 import { ModuleAttrs } from './types.ts';
 import { cssFields } from './custom-css.js';
@@ -28,6 +30,7 @@ import { cssFields } from './custom-css.js';
   noStyleTag,
   elements,
 }) => {
+
   return (
     <StyleContainer mode={mode} state={state} noStyleTag={noStyleTag}>
       {elements.style({
@@ -37,10 +40,6 @@ import { cssFields } from './custom-css.js';
             disabledModuleVisibility: settings?.disabledModuleVisibility,
           }
         },
-      })}
-     
-      {elements.style({
-        attrName: 'title',
       })}
       
       <CssStyle

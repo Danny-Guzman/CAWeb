@@ -33,9 +33,52 @@ const ModuleEdit = ({
     elements,
   }) => {
  
-
-  // let title = getAttrByMode(attrs?.title?.innerContent);
+  let layout = getAttrByMode(attrs?.layout?.innerContent);
   
+  let { src: imgSrc } = getAttrByMode(attrs?.image?.innerContent);
+  let { show: showImage } = getAttrByMode(attrs?.image?.advanced);
+
+  let { 
+    show: showHeader,
+    color: headerColor,
+    size: HeaderSize, 
+  } = getAttrByMode(attrs?.title?.advanced);
+
+  let {
+    show: showButton
+  } = getAttrByMode(attrs?.button?.advanced);
+  let {
+    linkUrl: buttonUrl,
+    text: buttonText,
+  } = getAttrByMode(attrs?.button?.innerContent);
+  let buttonClass = 'light';
+
+  let header = getAttrByMode(attrs?.title?.innerContent);
+  let headerStyle = {};
+  if( headerColor ){
+      headerStyle = Object.assign( headerStyle, {color:headerColor} );
+  }
+
+  let content = getAttrByMode(attrs?.content?.innerContent);
+
+  let { 
+    show: showFooter,
+    color: footerColor,
+  } = getAttrByMode(attrs?.footer?.advanced);
+
+  switch( layout ) {
+    case 'overstated':
+      buttonClass = 'main';
+      break;
+    case 'understated':
+      buttonClass = 'alt';
+      break;
+    case 'standout':
+      buttonClass = 'standout';
+      break;
+
+  }
+
   return (
     <ModuleContainer
       attrs={attrs}
@@ -52,9 +95,15 @@ const ModuleEdit = ({
         })
       }
       {
-        elements.render({
-          attrName: 'content',
-        })
+        'on' === showImage && imgSrc ? 
+          <img src={imgSrc} className="card-img-top img-responsive" /> : null
+      }
+      {
+        'on' === showHeader ? <div className="card-header"><HeaderSize className="card-title pb-0 mb-0 border-bottom-0" style={headerStyle}>{header}</HeaderSize></div> : null
+      }
+      <div className='card-body' dangerouslySetInnerHTML={{__html: content + ('on' === showButton ? `<a href="${buttonUrl}" class="btn btn-${buttonClass}" target="_blank">${buttonText}</a>` : '')}}></div>
+      {
+        'on' === showFooter ? <div className="card-footer" style={{color:footerColor}}>{getAttrByMode(attrs?.footer?.innerContent)}</div> : null
       }
     </ModuleContainer>
   );

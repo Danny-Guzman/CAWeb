@@ -13,6 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use ET\Builder\Packages\Module\Options\Text\TextClassnames;
+use ET\Builder\Packages\ModuleUtils\ModuleUtils;
 
 trait ModuleClassnamesTrait {
 
@@ -31,8 +32,16 @@ trait ModuleClassnamesTrait {
 	public static function module_classnames( $args ) {
 		$classnames_instance = $args['classnamesInstance'];
 		$attrs               = $args['attrs'];
+  		$layout = ModuleUtils::get_attr_value(
+			array(
+				'attr' => $attrs['layout']['innerContent'],
+				'breakpoint' => 'desktop',
+				'state' => 'value',
+			)
+		);
 
-		$classnames_instance->add( 'section', true );
+		$classnames_instance->add( 'card', true );
+		$classnames_instance->add( 'custom' === $layout ? 'card-default' : "card-{$layout}", true );
 
 		$text_options_classnames = TextClassnames::text_options_classnames( $attrs['module']['advanced']['text'] ?? [] );
 

@@ -48,19 +48,19 @@
   },
   "module": {
     "card_layout": "layout.innerContent.*",
-    "card_color": "layout.cardColor.*",
-    "show_image": "image.show.*",
+    "card_color": "layout.advanced.*.color",
+    "show_image": "image.advanced.*.show",
     "featured_image": "image.innerContent.*.src",
-    "include_header": "title.show.*",
+    "include_header": "title.advanced.*.show",
     "title": "title.innerContent.*",
-    "heading_size": "title.headingSize.*",
-    "text_color": "title.color.*",
+    "heading_size": "title.advanced.*.size",
+    "text_color": "title.advanced.*.color",
     "content": "content.innerContent.*",
-    "show_button": "button.show.*",
+    "show_button": "button.advanced.*.show",
     "button_text": "button.innerContent.*.text",
     "button_link": "button.innerContent.*.linkUrl",
-    "include_footer": "footer.show.*",
+    "include_footer": "footer.advanced.*.show",
     "footer_text": "footer.innerContent.*",
-    "footer_color": "footer.color.*"
+    "footer_color": "footer.advanced.*.color"
   }
 }
