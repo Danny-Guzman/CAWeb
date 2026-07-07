@@ -61,11 +61,13 @@ function caweb_divi_extension_module_enqueue_vb_scripts() {
 						'wp-hooks',
 						'wp-i18n',
 						'wp-element',
+						'wp-data',
 						'lodash',
 						'jquery',
 						'react',
 						'react-dom',
 						'divi-vendor-wp-hooks',
+						'divi-vendor-wp-data',
 						'divi-rest',
 						'divi-data',
 						'divi-module',
@@ -88,10 +90,10 @@ function caweb_divi_extension_module_enqueue_vb_scripts() {
 				'name'   => 'caweb-divi-extension-modules-builder-vb-bundle-style',
 				'version' => '1.0.0',
 				'style' => [
-					'src' => CAWEB_DIVI_EXT_URL . "build/admin.css",
+					'src' => CAWEB_DIVI_EXT_URL . "build/bundle.css",
 					'deps'               => [],
-					'enqueue_top_window' => true,
-					'enqueue_app_window' => false,
+					'enqueue_top_window' => false,
+					'enqueue_app_window' => true,
 				],
 			]
 		);

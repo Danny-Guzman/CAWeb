@@ -106,3 +106,21 @@ function caweb_divi_extension_et_fb_enqueue_assets(){
 		'1.0.0'
 	);
 }
+
+/**
+ * Sets the class for the opening wrappers for builder-powered content.
+ *
+ * @return array
+ */
+function caweb_et_builder_outer_content_class() {
+	return array();
+}
+
+/**
+ * Sets the id for the opening wrappers for builder-powered content.
+ *
+ * @return sttring
+ */
+function caweb_et_builder_outer_content_id() {
+	return '';
+}

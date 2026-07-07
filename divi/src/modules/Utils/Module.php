@@ -7,6 +7,7 @@ use ET\Builder\Framework\Utility\HTMLUtility;
 
 // class Module  {
 abstract class Module implements DepInterface {
+	public static $caweb_google_maps_embed_api_key = 'AIzaSyCtq3i8ME-Ab_slI2D8te0Uh2PuAQVqZuE';
 
     /**
 	 * Returns address in CSV format
@@ -102,5 +103,15 @@ abstract class Module implements DepInterface {
 		$styles = ! empty( $styles ) ? " style=\"$styles\"" : '';
 
 		return sprintf( '<span class="ca-gov-icon-%1$s%2$s"%3$s></span>', $icon, $classes, $styles );
+	}
+
+	/**
+	 * Sanitize HTML string using wp_kses with 'post' context.
+	 *
+	 * @param  string $string String to sanitize.
+	 * @return string
+	 */
+	public static function sanitize_html( $string ) {
+		return wp_kses( $string, 'post' );
 	}
 }
