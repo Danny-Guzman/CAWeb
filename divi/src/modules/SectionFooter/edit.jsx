@@ -38,10 +38,6 @@ const ModuleEdit = (props) => {
     canvasId,
   } = props;
 
-  // let title = getAttrByMode(attrs?.title?.innerContent);
-  // let image = getAttrByMode(attrs?.image?.innerContent);
-  // let link = getAttrByMode(attrs?.link?.innerContent);
-  
   return (
     <ModuleContainer
       attrs={attrs}

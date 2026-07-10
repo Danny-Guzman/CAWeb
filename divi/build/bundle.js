@@ -662,6 +662,1062 @@ const ModuleStyles = ({
 
 /***/ },
 
+/***/ "./src/modules/FullwidthSectionCarousel/Settings/content.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SettingsContent: () => (/* binding */ SettingsContent)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/FullwidthSectionCarousel/types.ts");
+// External dependencies.
+
+
+
+// WordPress dependencies
+
+
+// Divi dependencies.
+
+
+
+// Local dependencies.
+
+const SettingsContent = ({
+  attrs,
+  defaultSettingsAttrs,
+  groupConfiguration
+}) => {
+  // let image = getAttrByMode(attrs?.image?.innerContent);
+  // let link = getAttrByMode(attrs?.link?.innerContent);
+
+  // Toggle Featured Image Image Position, Fade From Left and Src field visibility based on if show image is on
+  // set(groupConfiguration, ['body', 'component', 'props', 'fields', 'position', 'render'], 'off' !== image?.show );
+  // set(groupConfiguration, ['body', 'component', 'props', 'fields', 'fade', 'render'], 'off' !== image?.show );
+  // set(groupConfiguration, ['body', 'component', 'props', 'fields', 'src', 'render'], 'off' !== image?.show );
+
+  // Toggle Link URL field visibility based on if show more button is on
+  // set(groupConfiguration, ['body', 'component', 'props', 'fields', 'url', 'render'], 'off' !== link?.show );
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
+    groups: groupConfiguration
+  });
+};
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionCarousel/edit.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleEdit: () => (/* binding */ ModuleEdit)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/FullwidthSectionCarousel/types.ts");
+/* harmony import */ var _styles_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/FullwidthSectionCarousel/styles.jsx");
+/* harmony import */ var _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/FullwidthSectionCarousel/module-classnames.js");
+/* harmony import */ var _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/FullwidthSectionCarousel/module-script-data.jsx");
+// External Dependencies.
+
+
+// Divi Dependencies.
+
+
+
+// Local Dependencies.
+
+
+
+
+
+/**
+ * Divi 5 Module edit component of visual builder.
+ *
+ * @since ??
+ *
+ * @param {FullwidthSectionCarouselModuleEditProps} props React component props.
+ *
+ * @returns {ReactElement}
+ */
+const ModuleEdit = props => {
+  const {
+    attrs,
+    id,
+    name,
+    elements,
+    childrenIds,
+    isLooped,
+    loopIndex,
+    canvasId
+  } = props;
+  let indicators = [];
+  for (let i = 0; i < childrenIds.length; i++) {
+    indicators.push(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+      key: i,
+      type: "button",
+      "data-bs-target": `#${id}`,
+      "data-bs-slide-to": i,
+      className: i === 0 ? 'active' : ''
+    }));
+  }
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ModuleContainer, {
+    attrs: attrs,
+    elements: elements,
+    id: id,
+    name: name,
+    stylesComponent: _styles_jsx__WEBPACK_IMPORTED_MODULE_4__.ModuleStyles,
+    classnamesFunction: _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__.moduleClassnames,
+    scriptDataComponent: _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__.ModuleScriptData,
+    htmlAttrs: {
+      'data-bs-ride': 'carousel'
+    }
+  }, elements.styleComponents({
+    attrName: 'module'
+  }), indicators.length ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "carousel-indicators"
+  }, indicators) : '', childrenIds && childrenIds.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "carousel-inner"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ChildModulesContainer, {
+    ids: childrenIds,
+    isLooped: isLooped,
+    loopIndex: loopIndex,
+    canvasId: canvasId
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "carousel-control-prev",
+    type: "button",
+    "data-bs-target": `#${id}`,
+    "data-bs-slide": "prev"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "carousel-control-prev-icon",
+    "aria-hidden": "true"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "visually-hidden"
+  }, "Previous")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "carousel-control-next",
+    type: "button",
+    "data-bs-target": `#${id}`,
+    "data-bs-slide": "next"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "carousel-control-next-icon",
+    "aria-hidden": "true"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "visually-hidden"
+  }, "Next")));
+};
+
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionCarousel/module-script-data.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleScriptData: () => (/* binding */ ModuleScriptData)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/FullwidthSectionCarousel/types.ts");
+
+
+
+
+/**
+ * Divi 5 module's script data component.
+ *
+ * @since ??
+ *
+ * @param {ModuleScriptDataProps<ModuleAttrs>} props React component props.
+ *
+ * @returns {ReactElement}
+ */
+const ModuleScriptData = ({
+  elements
+}) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, elements.scriptData({
+  attrName: 'module'
+}));
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionCarousel/styles.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleStyles: () => (/* binding */ ModuleStyles)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _custom_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/FullwidthSectionCarousel/custom-css.js");
+// External dependencies.
+
+
+// Divi dependencies.
+
+
+// Local dependencies.
+
+
+/**
+ * Module's style components.
+ *
+ * @since ??
+ */
+const ModuleStyles = ({
+  attrs,
+  settings,
+  orderClass,
+  mode,
+  state,
+  noStyleTag,
+  elements
+}) => {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.StyleContainer, {
+    mode: mode,
+    state: state,
+    noStyleTag: noStyleTag
+  }, elements.style({
+    attrName: 'module',
+    styleProps: {
+      disabledOn: {
+        disabledModuleVisibility: settings?.disabledModuleVisibility
+      }
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.CssStyle, {
+    selector: orderClass,
+    attr: attrs?.css,
+    cssFields: _custom_css__WEBPACK_IMPORTED_MODULE_2__.cssFields
+  }));
+};
+
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionCarouselSlide/Settings/content.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SettingsContent: () => (/* binding */ SettingsContent)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/FullwidthSectionCarouselSlide/types.ts");
+// External dependencies.
+
+
+
+// WordPress dependencies
+
+
+// Divi dependencies.
+
+
+
+// Local dependencies.
+
+const SettingsContent = ({
+  attrs,
+  defaultSettingsAttrs,
+  groupConfiguration
+}) => {
+  let {
+    button
+  } = attrs || {};
+  let {
+    show
+  } = button && (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(button?.advanced) || (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(defaultSettingsAttrs?.button?.advanced);
+
+  // Toggle Button URL field visibility based on if show more button is on
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'url', 'render'], 'on' === show);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
+    groups: groupConfiguration
+  });
+};
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionCarouselSlide/Settings/design.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SettingsDesign: () => (/* binding */ SettingsDesign)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/FullwidthSectionCarouselSlide/types.ts");
+// External dependencies.
+
+
+
+// WordPress dependencies
+
+
+// Divi dependencies.
+
+
+
+// Local dependencies.
+
+const SettingsDesign = ({
+  attrs,
+  defaultSettingsAttrs,
+  groupConfiguration
+}) => {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
+    groups: groupConfiguration
+  });
+};
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionCarouselSlide/edit.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleEdit: () => (/* binding */ ModuleEdit)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/FullwidthSectionCarouselSlide/types.ts");
+/* harmony import */ var _styles_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/FullwidthSectionCarouselSlide/styles.jsx");
+/* harmony import */ var _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/FullwidthSectionCarouselSlide/module-classnames.js");
+/* harmony import */ var _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/FullwidthSectionCarouselSlide/module-script-data.jsx");
+// External Dependencies.
+
+
+// Divi Dependencies.
+
+
+
+// Local Dependencies.
+
+
+
+
+
+/**
+ * Divi 5 Module edit component of visual builder.
+ *
+ * @since ??
+ *
+ * @param {FullwidthSectionCarouselSlideModuleEditProps} props React component props.
+ *
+ * @returns {ReactElement}
+ */
+const ModuleEdit = props => {
+  const {
+    attrs,
+    id,
+    name,
+    elements,
+    parentAttrs,
+    isFirst
+  } = props;
+  let title = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.title?.innerContent);
+  let {
+    size
+  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.title?.advanced);
+  let {
+    show
+  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.button?.advanced);
+  let {
+    linkUrl
+  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.button?.innerContent);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ModuleContainer, {
+    attrs: attrs,
+    parentAttrs: parentAttrs,
+    elements: elements,
+    id: id,
+    name: name,
+    stylesComponent: _styles_jsx__WEBPACK_IMPORTED_MODULE_4__.ModuleStyles,
+    classnamesFunction: _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__.moduleClassnames,
+    scriptDataComponent: _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__.ModuleScriptData,
+    isFirst: isFirst
+  }, elements.styleComponents({
+    attrName: 'module'
+  }), elements.render({
+    attrName: 'image',
+    htmlAttributes: {
+      className: 'd-block w-100'
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "carousel-caption d-block"
+  }, elements.render({
+    attrName: 'title',
+    tagName: size
+  }), elements.render({
+    attrName: 'desc'
+  }), 'on' === show && linkUrl.length && title.length && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    href: linkUrl,
+    className: "btn btn-primary",
+    target: "_blank"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, "More Information"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "sr-only"
+  }, "More Information about ", title)))));
+};
+
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionCarouselSlide/module-script-data.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleScriptData: () => (/* binding */ ModuleScriptData)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/FullwidthSectionCarouselSlide/types.ts");
+
+
+
+
+/**
+ * Divi 5 module's script data component.
+ *
+ * @since ??
+ *
+ * @param {ModuleScriptDataProps<ModuleAttrs>} props React component props.
+ *
+ * @returns {ReactElement}
+ */
+const ModuleScriptData = ({
+  elements
+}) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, elements.scriptData({
+  attrName: 'module'
+}));
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionCarouselSlide/styles.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleStyles: () => (/* binding */ ModuleStyles)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _custom_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/FullwidthSectionCarouselSlide/custom-css.js");
+// External dependencies.
+
+
+// Divi dependencies.
+
+
+// Local dependencies.
+
+
+/**
+ * Module's style components.
+ *
+ * @since ??
+ */
+const ModuleStyles = ({
+  attrs,
+  settings,
+  orderClass,
+  mode,
+  state,
+  noStyleTag,
+  elements
+}) => {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.StyleContainer, {
+    mode: mode,
+    state: state,
+    noStyleTag: noStyleTag
+  }, elements.style({
+    attrName: 'module',
+    styleProps: {
+      disabledOn: {
+        disabledModuleVisibility: settings?.disabledModuleVisibility
+      }
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.CssStyle, {
+    selector: orderClass,
+    attr: attrs?.css,
+    cssFields: _custom_css__WEBPACK_IMPORTED_MODULE_2__.cssFields
+  }));
+};
+
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionFooter/Settings/content.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SettingsContent: () => (/* binding */ SettingsContent)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/FullwidthSectionFooter/types.ts");
+// External dependencies.
+
+
+
+// WordPress dependencies
+
+
+// Divi dependencies.
+
+
+
+// Local dependencies.
+
+const SettingsContent = ({
+  attrs,
+  defaultSettingsAttrs,
+  groupConfiguration
+}) => {
+  // let image = getAttrByMode(attrs?.image?.innerContent);
+  // let link = getAttrByMode(attrs?.link?.innerContent);
+
+  // Toggle Featured Image Image Position, Fade From Left and Src field visibility based on if show image is on
+  // set(groupConfiguration, ['body', 'component', 'props', 'fields', 'position', 'render'], 'off' !== image?.show );
+  // set(groupConfiguration, ['body', 'component', 'props', 'fields', 'fade', 'render'], 'off' !== image?.show );
+  // set(groupConfiguration, ['body', 'component', 'props', 'fields', 'src', 'render'], 'off' !== image?.show );
+
+  // Toggle Link URL field visibility based on if show more button is on
+  // set(groupConfiguration, ['body', 'component', 'props', 'fields', 'url', 'render'], 'off' !== link?.show );
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
+    groups: groupConfiguration
+  });
+};
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionFooter/edit.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleEdit: () => (/* binding */ ModuleEdit)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/FullwidthSectionFooter/types.ts");
+/* harmony import */ var _styles_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/FullwidthSectionFooter/styles.jsx");
+/* harmony import */ var _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/FullwidthSectionFooter/module-classnames.js");
+/* harmony import */ var _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/FullwidthSectionFooter/module-script-data.jsx");
+// External Dependencies.
+
+
+// Divi Dependencies.
+
+
+
+// Local Dependencies.
+
+
+
+
+
+/**
+ * Divi 5 Module edit component of visual builder.
+ *
+ * @since ??
+ *
+ * @param {FullwidthSectionFooterModuleEditProps} props React component props.
+ *
+ * @returns {ReactElement}
+ */
+const ModuleEdit = props => {
+  const {
+    attrs,
+    id,
+    name,
+    elements,
+    childrenIds,
+    isLooped,
+    loopIndex,
+    canvasId
+  } = props;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ModuleContainer, {
+    attrs: attrs,
+    elements: elements,
+    id: id,
+    name: name,
+    stylesComponent: _styles_jsx__WEBPACK_IMPORTED_MODULE_4__.ModuleStyles,
+    classnamesFunction: _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__.moduleClassnames,
+    scriptDataComponent: _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__.ModuleScriptData
+  }, elements.styleComponents({
+    attrName: 'module'
+  }), childrenIds && childrenIds.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ChildModulesContainer, {
+    ids: childrenIds,
+    isLooped: isLooped,
+    loopIndex: loopIndex,
+    canvasId: canvasId
+  }));
+};
+
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionFooter/module-script-data.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleScriptData: () => (/* binding */ ModuleScriptData)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/FullwidthSectionFooter/types.ts");
+
+
+
+
+/**
+ * Divi 5 module's script data component.
+ *
+ * @since ??
+ *
+ * @param {ModuleScriptDataProps<ModuleAttrs>} props React component props.
+ *
+ * @returns {ReactElement}
+ */
+const ModuleScriptData = ({
+  elements
+}) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, elements.scriptData({
+  attrName: 'module'
+}));
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionFooter/styles.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleStyles: () => (/* binding */ ModuleStyles)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _custom_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/FullwidthSectionFooter/custom-css.js");
+// External dependencies.
+
+
+// Divi dependencies.
+
+
+// Local dependencies.
+
+
+/**
+ * Module's style components.
+ *
+ * @since ??
+ */
+const ModuleStyles = ({
+  attrs,
+  settings,
+  orderClass,
+  mode,
+  state,
+  noStyleTag,
+  elements
+}) => {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.StyleContainer, {
+    mode: mode,
+    state: state,
+    noStyleTag: noStyleTag
+  }, elements.style({
+    attrName: 'module',
+    styleProps: {
+      disabledOn: {
+        disabledModuleVisibility: settings?.disabledModuleVisibility
+      }
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.CssStyle, {
+    selector: orderClass,
+    attr: attrs?.css,
+    cssFields: _custom_css__WEBPACK_IMPORTED_MODULE_2__.cssFields
+  }));
+};
+
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionFooterGroup/Settings/content.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SettingsContent: () => (/* binding */ SettingsContent)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/FullwidthSectionFooterGroup/types.ts");
+// External dependencies.
+
+
+
+// WordPress dependencies
+
+
+// Divi dependencies.
+
+
+
+// Local dependencies.
+
+const SettingsContent = ({
+  attrs,
+  defaultSettingsAttrs,
+  groupConfiguration
+}) => {
+  let {
+    button
+  } = attrs || {};
+  let links = {};
+  Object.entries(defaultSettingsAttrs).map(([key, value]) => {
+    // only if the key starts with 'link'
+    if (key.startsWith('link')) {
+      // if the attrs exists, use that, otherwise use the defaultSettingsAttrs
+      links[key] = attrs?.[key] || value;
+    }
+  });
+  let {
+    show
+  } = button && (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(button?.advanced) || (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(defaultSettingsAttrs?.button?.advanced);
+  Object.entries(links).forEach(([key, value]) => {
+    let {
+      show
+    } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(value?.advanced) ?? (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(defaultSettingsAttrs?.[key]?.advanced);
+
+    // Toggle Link URL field visibility based on if show more button is on
+    (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', `${key}Text`, 'render'], 'on' === show);
+    (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', `${key}Url`, 'render'], 'on' === show);
+  });
+
+  // Toggle Button URL field visibility based on if show more button is on
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'url', 'render'], 'on' === show);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
+    groups: groupConfiguration
+  });
+};
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionFooterGroup/Settings/design.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SettingsDesign: () => (/* binding */ SettingsDesign)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/FullwidthSectionFooterGroup/types.ts");
+// External dependencies.
+
+
+
+// WordPress dependencies
+
+
+// Divi dependencies.
+
+
+
+// Local dependencies.
+
+const SettingsDesign = ({
+  attrs,
+  defaultSettingsAttrs,
+  groupConfiguration
+}) => {
+  let {
+    icon
+  } = attrs || {};
+  let {
+    show
+  } = (icon && (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(icon?.advanced)) ?? (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(defaultSettingsAttrs?.icon?.advanced);
+
+  // Toggle Icon Design group visibility based on layout
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['designStyle', 'component', 'props', 'fields', 'icon', 'render'], 'on' === show);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
+    groups: groupConfiguration
+  });
+};
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionFooterGroup/edit.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleEdit: () => (/* binding */ ModuleEdit)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/FullwidthSectionFooterGroup/types.ts");
+/* harmony import */ var _styles_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/FullwidthSectionFooterGroup/styles.jsx");
+/* harmony import */ var _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/FullwidthSectionFooterGroup/module-classnames.js");
+/* harmony import */ var _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/FullwidthSectionFooterGroup/module-script-data.jsx");
+// External Dependencies.
+
+
+// Divi Dependencies.
+
+
+
+// Local Dependencies.
+
+
+
+
+
+/**
+ * Divi 5 Module edit component of visual builder.
+ *
+ * @since ??
+ *
+ * @param {FullwidthSectionFooterGroupModuleEditProps} props React component props.
+ *
+ * @returns {ReactElement}
+ */
+const ModuleEdit = props => {
+  const {
+    attrs,
+    id,
+    name,
+    elements,
+    parentAttrs
+  } = props;
+  let {
+    size: TitleSize
+  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.title?.advanced);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ModuleContainer, {
+    attrs: attrs,
+    parentAttrs: parentAttrs,
+    elements: elements,
+    id: id,
+    name: name,
+    stylesComponent: _styles_jsx__WEBPACK_IMPORTED_MODULE_4__.ModuleStyles,
+    classnamesFunction: _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__.moduleClassnames,
+    scriptDataComponent: _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__.ModuleScriptData
+  }, elements.styleComponents({
+    attrName: 'module'
+  }), elements.render({
+    attrName: 'title',
+    tagName: TitleSize
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", {
+    className: "list-unstyled p-0"
+  }, groupListing(attrs)));
+};
+const groupListing = attrs => {
+  let links = Object.fromEntries(Object.entries(attrs).filter(([key, value]) => key.startsWith('link') && Object.hasOwn(value, 'innerContent')));
+  let {
+    color,
+    displayLink
+  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.content?.advanced);
+  let title = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.title?.innerContent);
+  let linkElements = Object.entries(links).map(([key, value]) => {
+    let {
+      url: linkUrl,
+      text
+    } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(value?.innerContent);
+    let {
+      show
+    } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(value?.advanced);
+    if ('on' !== show) {
+      return null;
+    } else {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
+        key: key,
+        className: "mb-2"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+        href: linkUrl,
+        className: 'on' === displayLink ? 'btn btn-default btn-xs' : '',
+        target: "_blank",
+        title: `Section Footer Group ${title}`
+      }, text));
+    }
+  });
+  return linkElements;
+};
+
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionFooterGroup/module-script-data.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleScriptData: () => (/* binding */ ModuleScriptData)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/FullwidthSectionFooterGroup/types.ts");
+
+
+
+
+/**
+ * Divi 5 module's script data component.
+ *
+ * @since ??
+ *
+ * @param {ModuleScriptDataProps<ModuleAttrs>} props React component props.
+ *
+ * @returns {ReactElement}
+ */
+const ModuleScriptData = ({
+  elements
+}) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, elements.scriptData({
+  attrName: 'module'
+}));
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionFooterGroup/styles.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleStyles: () => (/* binding */ ModuleStyles)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _custom_css_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/FullwidthSectionFooterGroup/custom-css.js");
+// External dependencies.
+
+
+// Divi dependencies.
+
+
+// Local dependencies.
+
+
+/**
+ * Module's style components.
+ *
+ * @since ??
+ */
+const ModuleStyles = ({
+  attrs,
+  settings,
+  orderClass,
+  mode,
+  state,
+  noStyleTag,
+  elements
+}) => {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.StyleContainer, {
+    mode: mode,
+    state: state,
+    noStyleTag: noStyleTag
+  }, elements.style({
+    attrName: 'module',
+    styleProps: {
+      disabledOn: {
+        disabledModuleVisibility: settings?.disabledModuleVisibility
+      }
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.CssStyle, {
+    selector: orderClass,
+    attr: attrs?.css,
+    cssFields: _custom_css_js__WEBPACK_IMPORTED_MODULE_2__.cssFields
+  }));
+};
+
+
+/***/ },
+
 /***/ "./src/modules/FullwidthSectionPrimary/Settings/content.jsx"
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -2068,6 +3124,535 @@ const ModuleStyles = ({
 
 /***/ },
 
+/***/ "./src/modules/SectionCarousel/Settings/content.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SettingsContent: () => (/* binding */ SettingsContent)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/SectionCarousel/types.ts");
+// External dependencies.
+
+
+
+// WordPress dependencies
+
+
+// Divi dependencies.
+
+
+
+// Local dependencies.
+
+const SettingsContent = ({
+  attrs,
+  defaultSettingsAttrs,
+  groupConfiguration
+}) => {
+  // let image = getAttrByMode(attrs?.image?.innerContent);
+  // let link = getAttrByMode(attrs?.link?.innerContent);
+
+  // Toggle Featured Image Image Position, Fade From Left and Src field visibility based on if show image is on
+  // set(groupConfiguration, ['body', 'component', 'props', 'fields', 'position', 'render'], 'off' !== image?.show );
+  // set(groupConfiguration, ['body', 'component', 'props', 'fields', 'fade', 'render'], 'off' !== image?.show );
+  // set(groupConfiguration, ['body', 'component', 'props', 'fields', 'src', 'render'], 'off' !== image?.show );
+
+  // Toggle Link URL field visibility based on if show more button is on
+  // set(groupConfiguration, ['body', 'component', 'props', 'fields', 'url', 'render'], 'off' !== link?.show );
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
+    groups: groupConfiguration
+  });
+};
+
+/***/ },
+
+/***/ "./src/modules/SectionCarousel/edit.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleEdit: () => (/* binding */ ModuleEdit)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/SectionCarousel/types.ts");
+/* harmony import */ var _styles_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/SectionCarousel/styles.jsx");
+/* harmony import */ var _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/SectionCarousel/module-classnames.js");
+/* harmony import */ var _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/SectionCarousel/module-script-data.jsx");
+// External Dependencies.
+
+
+// Divi Dependencies.
+
+
+
+// Local Dependencies.
+
+
+
+
+
+/**
+ * Divi 5 Module edit component of visual builder.
+ *
+ * @since ??
+ *
+ * @param {SectionCarouselModuleEditProps} props React component props.
+ *
+ * @returns {ReactElement}
+ */
+const ModuleEdit = props => {
+  const {
+    attrs,
+    id,
+    name,
+    elements,
+    childrenIds,
+    isLooped,
+    loopIndex,
+    canvasId
+  } = props;
+  let indicators = [];
+  for (let i = 0; i < childrenIds.length; i++) {
+    indicators.push(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+      key: i,
+      type: "button",
+      "data-bs-target": `#${id}`,
+      "data-bs-slide-to": i,
+      className: i === 0 ? 'active' : ''
+    }));
+  }
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ModuleContainer, {
+    attrs: attrs,
+    elements: elements,
+    id: id,
+    name: name,
+    stylesComponent: _styles_jsx__WEBPACK_IMPORTED_MODULE_4__.ModuleStyles,
+    classnamesFunction: _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__.moduleClassnames,
+    scriptDataComponent: _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__.ModuleScriptData,
+    htmlAttrs: {
+      'data-bs-ride': 'carousel'
+    }
+  }, elements.styleComponents({
+    attrName: 'module'
+  }), indicators.length ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "carousel-indicators"
+  }, indicators) : '', childrenIds && childrenIds.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "carousel-inner"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ChildModulesContainer, {
+    ids: childrenIds,
+    isLooped: isLooped,
+    loopIndex: loopIndex,
+    canvasId: canvasId
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "carousel-control-prev",
+    type: "button",
+    "data-bs-target": `#${id}`,
+    "data-bs-slide": "prev"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "carousel-control-prev-icon",
+    "aria-hidden": "true"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "visually-hidden"
+  }, "Previous")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "carousel-control-next",
+    type: "button",
+    "data-bs-target": `#${id}`,
+    "data-bs-slide": "next"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "carousel-control-next-icon",
+    "aria-hidden": "true"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "visually-hidden"
+  }, "Next")));
+};
+
+
+/***/ },
+
+/***/ "./src/modules/SectionCarousel/module-script-data.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleScriptData: () => (/* binding */ ModuleScriptData)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/SectionCarousel/types.ts");
+
+
+
+
+/**
+ * Divi 5 module's script data component.
+ *
+ * @since ??
+ *
+ * @param {ModuleScriptDataProps<ModuleAttrs>} props React component props.
+ *
+ * @returns {ReactElement}
+ */
+const ModuleScriptData = ({
+  elements
+}) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, elements.scriptData({
+  attrName: 'module'
+}));
+
+/***/ },
+
+/***/ "./src/modules/SectionCarousel/styles.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleStyles: () => (/* binding */ ModuleStyles)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _custom_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/SectionCarousel/custom-css.js");
+// External dependencies.
+
+
+// Divi dependencies.
+
+
+// Local dependencies.
+
+
+/**
+ * Module's style components.
+ *
+ * @since ??
+ */
+const ModuleStyles = ({
+  attrs,
+  settings,
+  orderClass,
+  mode,
+  state,
+  noStyleTag,
+  elements
+}) => {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.StyleContainer, {
+    mode: mode,
+    state: state,
+    noStyleTag: noStyleTag
+  }, elements.style({
+    attrName: 'module',
+    styleProps: {
+      disabledOn: {
+        disabledModuleVisibility: settings?.disabledModuleVisibility
+      }
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.CssStyle, {
+    selector: orderClass,
+    attr: attrs?.css,
+    cssFields: _custom_css__WEBPACK_IMPORTED_MODULE_2__.cssFields
+  }));
+};
+
+
+/***/ },
+
+/***/ "./src/modules/SectionCarouselSlide/Settings/content.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SettingsContent: () => (/* binding */ SettingsContent)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/SectionCarouselSlide/types.ts");
+// External dependencies.
+
+
+
+// WordPress dependencies
+
+
+// Divi dependencies.
+
+
+
+// Local dependencies.
+
+const SettingsContent = ({
+  attrs,
+  defaultSettingsAttrs,
+  groupConfiguration
+}) => {
+  let {
+    button
+  } = attrs || {};
+  let {
+    show
+  } = button && (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(button?.advanced) || (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(defaultSettingsAttrs?.button?.advanced);
+
+  // Toggle Button URL field visibility based on if show more button is on
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'url', 'render'], 'on' === show);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
+    groups: groupConfiguration
+  });
+};
+
+/***/ },
+
+/***/ "./src/modules/SectionCarouselSlide/Settings/design.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SettingsDesign: () => (/* binding */ SettingsDesign)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/SectionCarouselSlide/types.ts");
+// External dependencies.
+
+
+
+// WordPress dependencies
+
+
+// Divi dependencies.
+
+
+
+// Local dependencies.
+
+const SettingsDesign = ({
+  attrs,
+  defaultSettingsAttrs,
+  groupConfiguration
+}) => {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
+    groups: groupConfiguration
+  });
+};
+
+/***/ },
+
+/***/ "./src/modules/SectionCarouselSlide/edit.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleEdit: () => (/* binding */ ModuleEdit)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/SectionCarouselSlide/types.ts");
+/* harmony import */ var _styles_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/SectionCarouselSlide/styles.jsx");
+/* harmony import */ var _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/SectionCarouselSlide/module-classnames.js");
+/* harmony import */ var _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/SectionCarouselSlide/module-script-data.jsx");
+// External Dependencies.
+
+
+// Divi Dependencies.
+
+
+
+// Local Dependencies.
+
+
+
+
+
+/**
+ * Divi 5 Module edit component of visual builder.
+ *
+ * @since ??
+ *
+ * @param {SectionCarouselSlideModuleEditProps} props React component props.
+ *
+ * @returns {ReactElement}
+ */
+const ModuleEdit = props => {
+  const {
+    attrs,
+    id,
+    name,
+    elements,
+    parentAttrs,
+    isFirst
+  } = props;
+  let title = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.title?.innerContent);
+  let {
+    size
+  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.title?.advanced);
+  let {
+    show
+  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.button?.advanced);
+  let {
+    linkUrl
+  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.button?.innerContent);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ModuleContainer, {
+    attrs: attrs,
+    parentAttrs: parentAttrs,
+    elements: elements,
+    id: id,
+    name: name,
+    stylesComponent: _styles_jsx__WEBPACK_IMPORTED_MODULE_4__.ModuleStyles,
+    classnamesFunction: _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__.moduleClassnames,
+    scriptDataComponent: _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__.ModuleScriptData,
+    isFirst: isFirst
+  }, elements.styleComponents({
+    attrName: 'module'
+  }), elements.render({
+    attrName: 'image',
+    htmlAttributes: {
+      className: 'd-block w-100'
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "carousel-caption d-block"
+  }, elements.render({
+    attrName: 'title',
+    tagName: size
+  }), elements.render({
+    attrName: 'desc'
+  }), 'on' === show && linkUrl.length && title.length && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    href: linkUrl,
+    className: "btn btn-primary",
+    target: "_blank"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, "More Information"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "sr-only"
+  }, "More Information about ", title)))));
+};
+
+
+/***/ },
+
+/***/ "./src/modules/SectionCarouselSlide/module-script-data.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleScriptData: () => (/* binding */ ModuleScriptData)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/SectionCarouselSlide/types.ts");
+
+
+
+
+/**
+ * Divi 5 module's script data component.
+ *
+ * @since ??
+ *
+ * @param {ModuleScriptDataProps<ModuleAttrs>} props React component props.
+ *
+ * @returns {ReactElement}
+ */
+const ModuleScriptData = ({
+  elements
+}) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, elements.scriptData({
+  attrName: 'module'
+}));
+
+/***/ },
+
+/***/ "./src/modules/SectionCarouselSlide/styles.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleStyles: () => (/* binding */ ModuleStyles)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _custom_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/SectionCarouselSlide/custom-css.js");
+// External dependencies.
+
+
+// Divi dependencies.
+
+
+// Local dependencies.
+
+
+/**
+ * Module's style components.
+ *
+ * @since ??
+ */
+const ModuleStyles = ({
+  attrs,
+  settings,
+  orderClass,
+  mode,
+  state,
+  noStyleTag,
+  elements
+}) => {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.StyleContainer, {
+    mode: mode,
+    state: state,
+    noStyleTag: noStyleTag
+  }, elements.style({
+    attrName: 'module',
+    styleProps: {
+      disabledOn: {
+        disabledModuleVisibility: settings?.disabledModuleVisibility
+      }
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.CssStyle, {
+    selector: orderClass,
+    attr: attrs?.css,
+    cssFields: _custom_css__WEBPACK_IMPORTED_MODULE_2__.cssFields
+  }));
+};
+
+
+/***/ },
+
 /***/ "./src/modules/SectionFooter/Settings/content.jsx"
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -2172,11 +3757,6 @@ const ModuleEdit = props => {
     loopIndex,
     canvasId
   } = props;
-
-  // let title = getAttrByMode(attrs?.title?.innerContent);
-  // let image = getAttrByMode(attrs?.image?.innerContent);
-  // let link = getAttrByMode(attrs?.link?.innerContent);
-
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ModuleContainer, {
     attrs: attrs,
     elements: elements,
@@ -3220,6 +4800,373 @@ Object.defineProperty(exports, "__esModule", ({
 
 /***/ },
 
+/***/ "./src/modules/FullwidthSectionCarousel/conversion-outline.ts"
+(__unused_webpack_module, exports) {
+
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.conversionOutline = void 0;
+// Compare this to wp.data.select('divi/settings').getSetting('shortcodeModuleDefinitions').et_pb_blurb.fields
+exports.conversionOutline = {
+  advanced: {
+    admin_label: 'module.meta.adminLabel',
+    animation: 'module.decoration.animation',
+    background: 'module.decoration.background',
+    borders: {
+      default: 'module.decoration.border'
+    },
+    box_shadow: {
+      default: 'module.decoration.boxShadow'
+    },
+    disabled_on: 'module.decoration.disabledOn',
+    filters: {
+      default: 'module.decoration.filters'
+    },
+    fonts: {
+      body: 'content.decoration.bodyFont.body',
+      body_link: 'content.decoration.bodyFont.link',
+      body_ol: 'content.decoration.bodyFont.ol',
+      body_quote: 'content.decoration.bodyFont.quote',
+      body_ul: 'content.decoration.bodyFont.ul',
+      header: 'title.decoration.font'
+    },
+    height: 'module.decoration.sizing',
+    link_options: 'module.advanced.link',
+    margin_padding: 'module.decoration.spacing',
+    max_width: 'module.decoration.sizing',
+    module: 'module.advanced.htmlAttributes',
+    overflow: 'module.decoration.overflow',
+    position_fields: 'module.decoration.position',
+    scroll: 'module.decoration.scroll',
+    sticky: 'module.decoration.sticky',
+    text: 'module.advanced.text',
+    text_shadow: {
+      default: 'module.advanced.text.textShadow'
+    },
+    transform: 'module.decoration.transform',
+    transition: 'module.decoration.transition',
+    z_index: 'module.decoration.zIndex'
+  },
+  css: {
+    after: 'css.*.after',
+    before: 'css.*.before',
+    main_element: 'css.*.mainElement',
+    content: 'css.*.content',
+    title: 'css.*.title'
+  },
+  module: {
+    section_background_color: 'section.advanced.*.color',
+    content: 'content.innerContent.*',
+    module_text_shadow_style: 'module.advanced.text.textShadow.*.style',
+    module_text_shadow_horizontal_length: 'module.advanced.text.textShadow.*.horizontal',
+    module_text_shadow_vertical_length: 'module.advanced.text.textShadow.*.vertical',
+    module_text_shadow_blur_strength: 'module.advanced.text.textShadow.*.blur'
+  },
+  deprecatedMap: ['module_text_color']
+};
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionCarousel/types.ts"
+(__unused_webpack_module, exports) {
+
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionCarouselSlide/conversion-outline.ts"
+(__unused_webpack_module, exports) {
+
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.conversionOutline = void 0;
+// Compare this to wp.data.select('divi/settings').getSetting('shortcodeModuleDefinitions').et_pb_blurb.fields
+exports.conversionOutline = {
+  advanced: {
+    admin_label: 'module.meta.adminLabel',
+    animation: 'module.decoration.animation',
+    background: 'module.decoration.background',
+    borders: {
+      default: 'module.decoration.border'
+    },
+    box_shadow: {
+      default: 'module.decoration.boxShadow'
+    },
+    disabled_on: 'module.decoration.disabledOn',
+    filters: {
+      default: 'module.decoration.filters'
+    },
+    fonts: {
+      body: 'content.decoration.bodyFont.body',
+      body_link: 'content.decoration.bodyFont.link',
+      body_ol: 'content.decoration.bodyFont.ol',
+      body_quote: 'content.decoration.bodyFont.quote',
+      body_ul: 'content.decoration.bodyFont.ul',
+      header: 'title.decoration.font'
+    },
+    height: 'module.decoration.sizing',
+    link_options: 'module.advanced.link',
+    margin_padding: 'module.decoration.spacing',
+    max_width: 'module.decoration.sizing',
+    module: 'module.advanced.htmlAttributes',
+    overflow: 'module.decoration.overflow',
+    position_fields: 'module.decoration.position',
+    scroll: 'module.decoration.scroll',
+    sticky: 'module.decoration.sticky',
+    text: 'module.advanced.text',
+    text_shadow: {
+      default: 'module.advanced.text.textShadow'
+    },
+    transform: 'module.decoration.transform',
+    transition: 'module.decoration.transition',
+    z_index: 'module.decoration.zIndex'
+  },
+  css: {
+    after: 'css.*.after',
+    before: 'css.*.before',
+    main_element: 'css.*.mainElement',
+    content: 'css.*.content',
+    title: 'css.*.title'
+  },
+  module: {
+    slide_title: 'title.innerContent.*',
+    slide_title_size: 'title.advanced.*.size',
+    slide_image: 'image.innerContent.*.src',
+    slide_alt_text: 'image.innerContent.*.alt',
+    slide_show_more_button: 'button.advanced.*.show',
+    slide_url: 'button.innerContent.*.linkUrl',
+    slide_desc: 'desc.innerContent.*',
+    module_text_color: 'module.advanced.text.text.color',
+    module_text_shadow_style: 'module.advanced.text.textShadow.*.style',
+    module_text_shadow_horizontal_length: 'module.advanced.text.textShadow.*.horizontal',
+    module_text_shadow_vertical_length: 'module.advanced.text.textShadow.*.vertical',
+    module_text_shadow_blur_strength: 'module.advanced.text.textShadow.*.blur'
+  },
+  deprecatedMap: []
+};
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionCarouselSlide/types.ts"
+(__unused_webpack_module, exports) {
+
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionFooter/conversion-outline.ts"
+(__unused_webpack_module, exports) {
+
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.conversionOutline = void 0;
+// Compare this to wp.data.select('divi/settings').getSetting('shortcodeModuleDefinitions').et_pb_blurb.fields
+exports.conversionOutline = {
+  advanced: {
+    admin_label: 'module.meta.adminLabel',
+    animation: 'module.decoration.animation',
+    background: 'module.decoration.background',
+    borders: {
+      default: 'module.decoration.border'
+    },
+    box_shadow: {
+      default: 'module.decoration.boxShadow'
+    },
+    disabled_on: 'module.decoration.disabledOn',
+    filters: {
+      default: 'module.decoration.filters'
+    },
+    fonts: {
+      body: 'content.decoration.bodyFont.body',
+      body_link: 'content.decoration.bodyFont.link',
+      body_ol: 'content.decoration.bodyFont.ol',
+      body_quote: 'content.decoration.bodyFont.quote',
+      body_ul: 'content.decoration.bodyFont.ul',
+      header: 'title.decoration.font'
+    },
+    height: 'module.decoration.sizing',
+    link_options: 'module.advanced.link',
+    margin_padding: 'module.decoration.spacing',
+    max_width: 'module.decoration.sizing',
+    module: 'module.advanced.htmlAttributes',
+    overflow: 'module.decoration.overflow',
+    position_fields: 'module.decoration.position',
+    scroll: 'module.decoration.scroll',
+    sticky: 'module.decoration.sticky',
+    text: 'module.advanced.text',
+    text_shadow: {
+      default: 'module.advanced.text.textShadow'
+    },
+    transform: 'module.decoration.transform',
+    transition: 'module.decoration.transition',
+    z_index: 'module.decoration.zIndex'
+  },
+  css: {
+    after: 'css.*.after',
+    before: 'css.*.before',
+    main_element: 'css.*.mainElement',
+    content: 'css.*.content',
+    title: 'css.*.title'
+  },
+  module: {
+    section_background_color: 'section.advanced.*.color',
+    content: 'content.innerContent.*',
+    module_text_shadow_style: 'module.advanced.text.textShadow.*.style',
+    module_text_shadow_horizontal_length: 'module.advanced.text.textShadow.*.horizontal',
+    module_text_shadow_vertical_length: 'module.advanced.text.textShadow.*.vertical',
+    module_text_shadow_blur_strength: 'module.advanced.text.textShadow.*.blur'
+  },
+  deprecatedMap: ['0']
+};
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionFooter/types.ts"
+(__unused_webpack_module, exports) {
+
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionFooterGroup/conversion-outline.ts"
+(__unused_webpack_module, exports) {
+
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.conversionOutline = void 0;
+// Compare this to wp.data.select('divi/settings').getSetting('shortcodeModuleDefinitions').et_pb_blurb.fields
+exports.conversionOutline = {
+  advanced: {
+    admin_label: 'module.meta.adminLabel',
+    animation: 'module.decoration.animation',
+    background: 'module.decoration.background',
+    borders: {
+      default: 'module.decoration.border'
+    },
+    box_shadow: {
+      default: 'module.decoration.boxShadow'
+    },
+    disabled_on: 'module.decoration.disabledOn',
+    filters: {
+      default: 'module.decoration.filters'
+    },
+    fonts: {
+      body: 'content.decoration.bodyFont.body',
+      body_link: 'content.decoration.bodyFont.link',
+      body_ol: 'content.decoration.bodyFont.ol',
+      body_quote: 'content.decoration.bodyFont.quote',
+      body_ul: 'content.decoration.bodyFont.ul',
+      header: 'title.decoration.font'
+    },
+    height: 'module.decoration.sizing',
+    link_options: 'module.advanced.link',
+    margin_padding: 'module.decoration.spacing',
+    max_width: 'module.decoration.sizing',
+    module: 'module.advanced.htmlAttributes',
+    overflow: 'module.decoration.overflow',
+    position_fields: 'module.decoration.position',
+    scroll: 'module.decoration.scroll',
+    sticky: 'module.decoration.sticky',
+    text: 'module.advanced.text',
+    text_shadow: {
+      default: 'module.advanced.text.textShadow'
+    },
+    transform: 'module.decoration.transform',
+    transition: 'module.decoration.transition',
+    z_index: 'module.decoration.zIndex'
+  },
+  css: {
+    after: 'css.*.after',
+    before: 'css.*.before',
+    main_element: 'css.*.mainElement',
+    content: 'css.*.content',
+    title: 'css.*.title'
+  },
+  module: {
+    group_title: 'title.innerContent.*',
+    heading_size: 'title.advanced.*.size',
+    heading_color: 'title.advanced.*.color',
+    group_show_more_button: 'button.advanced.*.show',
+    group_url: 'button.innerContent.*.linkUrl',
+    text_color: 'content.advanced.*.color',
+    display_link_as_button: 'content.advanced.*.displayLink',
+    group_icon_button: 'icon.advanced.*.show',
+    group_icon: 'icon.innerContent.*',
+    group_link1_show: 'link1.advanced.*.show',
+    group_link_text1: 'link1.innerContent.*.text',
+    group_link_url1: 'link1.innerContent.*.linkUrl',
+    group_link2_show: 'link2.advanced.*.show',
+    group_link_text2: 'link2.innerContent.*.text',
+    group_link_url2: 'link2.innerContent.*.linkUrl',
+    group_link3_show: 'link3.advanced.*.show',
+    group_link_text3: 'link3.innerContent.*.text',
+    group_link_url3: 'link3.innerContent.*.linkUrl',
+    group_link4_show: 'link4.advanced.*.show',
+    group_link_text4: 'link4.innerContent.*.text',
+    group_link_url4: 'link4.innerContent.*.linkUrl',
+    group_link5_show: 'link5.advanced.*.show',
+    group_link_text5: 'link5.innerContent.*.text',
+    group_link_url5: 'link5.innerContent.*.linkUrl',
+    group_link6_show: 'link6.advanced.*.show',
+    group_link_text6: 'link6.innerContent.*.text',
+    group_link_url6: 'link6.innerContent.*.linkUrl',
+    group_link7_show: 'link7.advanced.*.show',
+    group_link_text7: 'link7.innerContent.*.text',
+    group_link_url7: 'link7.innerContent.*.linkUrl',
+    group_link8_show: 'link8.advanced.*.show',
+    group_link_text8: 'link8.innerContent.*.text',
+    group_link_url8: 'link8.innerContent.*.linkUrl',
+    group_link9_show: 'link9.advanced.*.show',
+    group_link_text9: 'link9.innerContent.*.text',
+    group_link_url9: 'link9.innerContent.*.linkUrl',
+    group_link10_show: 'link10.advanced.*.show',
+    group_link_text10: 'link10.innerContent.*.text',
+    group_link_url10: 'link10.innerContent.*.linkUrl',
+    module_text_shadow_style: 'module.advanced.text.textShadow.*.style',
+    module_text_shadow_horizontal_length: 'module.advanced.text.textShadow.*.horizontal',
+    module_text_shadow_vertical_length: 'module.advanced.text.textShadow.*.vertical',
+    module_text_shadow_blur_strength: 'module.advanced.text.textShadow.*.blur'
+  },
+  deprecatedMap: ['0', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']
+};
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionFooterGroup/types.ts"
+(__unused_webpack_module, exports) {
+
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+/***/ },
+
 /***/ "./src/modules/FullwidthSectionPrimary/conversion-outline.ts"
 (__unused_webpack_module, exports) {
 
@@ -3660,6 +5607,173 @@ exports.conversionOutline = {
 /***/ },
 
 /***/ "./src/modules/ProfileBanner/types.ts"
+(__unused_webpack_module, exports) {
+
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+/***/ },
+
+/***/ "./src/modules/SectionCarousel/conversion-outline.ts"
+(__unused_webpack_module, exports) {
+
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.conversionOutline = void 0;
+// Compare this to wp.data.select('divi/settings').getSetting('shortcodeModuleDefinitions').et_pb_blurb.fields
+exports.conversionOutline = {
+  advanced: {
+    admin_label: 'module.meta.adminLabel',
+    animation: 'module.decoration.animation',
+    background: 'module.decoration.background',
+    borders: {
+      default: 'module.decoration.border'
+    },
+    box_shadow: {
+      default: 'module.decoration.boxShadow'
+    },
+    disabled_on: 'module.decoration.disabledOn',
+    filters: {
+      default: 'module.decoration.filters'
+    },
+    fonts: {
+      body: 'content.decoration.bodyFont.body',
+      body_link: 'content.decoration.bodyFont.link',
+      body_ol: 'content.decoration.bodyFont.ol',
+      body_quote: 'content.decoration.bodyFont.quote',
+      body_ul: 'content.decoration.bodyFont.ul',
+      header: 'title.decoration.font'
+    },
+    height: 'module.decoration.sizing',
+    link_options: 'module.advanced.link',
+    margin_padding: 'module.decoration.spacing',
+    max_width: 'module.decoration.sizing',
+    module: 'module.advanced.htmlAttributes',
+    overflow: 'module.decoration.overflow',
+    position_fields: 'module.decoration.position',
+    scroll: 'module.decoration.scroll',
+    sticky: 'module.decoration.sticky',
+    text: 'module.advanced.text',
+    text_shadow: {
+      default: 'module.advanced.text.textShadow'
+    },
+    transform: 'module.decoration.transform',
+    transition: 'module.decoration.transition',
+    z_index: 'module.decoration.zIndex'
+  },
+  css: {
+    after: 'css.*.after',
+    before: 'css.*.before',
+    main_element: 'css.*.mainElement',
+    content: 'css.*.content',
+    title: 'css.*.title'
+  },
+  module: {
+    section_background_color: 'section.advanced.*.color',
+    content: 'content.innerContent.*',
+    module_text_shadow_style: 'module.advanced.text.textShadow.*.style',
+    module_text_shadow_horizontal_length: 'module.advanced.text.textShadow.*.horizontal',
+    module_text_shadow_vertical_length: 'module.advanced.text.textShadow.*.vertical',
+    module_text_shadow_blur_strength: 'module.advanced.text.textShadow.*.blur'
+  },
+  deprecatedMap: ['module_text_color']
+};
+
+/***/ },
+
+/***/ "./src/modules/SectionCarousel/types.ts"
+(__unused_webpack_module, exports) {
+
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+/***/ },
+
+/***/ "./src/modules/SectionCarouselSlide/conversion-outline.ts"
+(__unused_webpack_module, exports) {
+
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.conversionOutline = void 0;
+// Compare this to wp.data.select('divi/settings').getSetting('shortcodeModuleDefinitions').et_pb_blurb.fields
+exports.conversionOutline = {
+  advanced: {
+    admin_label: 'module.meta.adminLabel',
+    animation: 'module.decoration.animation',
+    background: 'module.decoration.background',
+    borders: {
+      default: 'module.decoration.border'
+    },
+    box_shadow: {
+      default: 'module.decoration.boxShadow'
+    },
+    disabled_on: 'module.decoration.disabledOn',
+    filters: {
+      default: 'module.decoration.filters'
+    },
+    fonts: {
+      body: 'content.decoration.bodyFont.body',
+      body_link: 'content.decoration.bodyFont.link',
+      body_ol: 'content.decoration.bodyFont.ol',
+      body_quote: 'content.decoration.bodyFont.quote',
+      body_ul: 'content.decoration.bodyFont.ul',
+      header: 'title.decoration.font'
+    },
+    height: 'module.decoration.sizing',
+    link_options: 'module.advanced.link',
+    margin_padding: 'module.decoration.spacing',
+    max_width: 'module.decoration.sizing',
+    module: 'module.advanced.htmlAttributes',
+    overflow: 'module.decoration.overflow',
+    position_fields: 'module.decoration.position',
+    scroll: 'module.decoration.scroll',
+    sticky: 'module.decoration.sticky',
+    text: 'module.advanced.text',
+    text_shadow: {
+      default: 'module.advanced.text.textShadow'
+    },
+    transform: 'module.decoration.transform',
+    transition: 'module.decoration.transition',
+    z_index: 'module.decoration.zIndex'
+  },
+  css: {
+    after: 'css.*.after',
+    before: 'css.*.before',
+    main_element: 'css.*.mainElement',
+    content: 'css.*.content',
+    title: 'css.*.title'
+  },
+  module: {
+    slide_title: 'title.innerContent.*',
+    slide_title_size: 'title.advanced.*.size',
+    slide_image: 'image.innerContent.*.src',
+    slide_alt_text: 'image.innerContent.*.alt',
+    slide_show_more_button: 'button.advanced.*.show',
+    slide_url: 'button.innerContent.*.linkUrl',
+    slide_desc: 'desc.innerContent.*',
+    module_text_shadow_style: 'module.advanced.text.textShadow.*.style',
+    module_text_shadow_horizontal_length: 'module.advanced.text.textShadow.*.horizontal',
+    module_text_shadow_vertical_length: 'module.advanced.text.textShadow.*.vertical',
+    module_text_shadow_blur_strength: 'module.advanced.text.textShadow.*.blur'
+  },
+  deprecatedMap: []
+};
+
+/***/ },
+
+/***/ "./src/modules/SectionCarouselSlide/types.ts"
 (__unused_webpack_module, exports) {
 
 
@@ -4235,6 +6349,412 @@ const placeholderContent = {};
 
 /***/ },
 
+/***/ "./src/modules/FullwidthSectionCarousel/custom-css.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   cssFields: () => (/* binding */ cssFields)
+/* harmony export */ });
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/FullwidthSectionCarousel/module.json");
+// WordPress dependencies.
+
+
+
+// const customCssFields = metadata.customCssFields as Record<'name', { subName: string, selectorSuffix: string, label: string }>;
+
+// customCssFields.name.label            = __('Name', 'd5-extension-example-modules');
+
+const cssFields = {};
+// export const cssFields = { ...customCssFields };
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionCarousel/index.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   CAWebModuleFullwidthSectionCarousel: () => (/* binding */ CAWebModuleFullwidthSectionCarousel),
+/* harmony export */   CAWebModuleFullwidthSectionCarouselMetadata: () => (/* binding */ CAWebModuleFullwidthSectionCarouselMetadata)
+/* harmony export */ });
+/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/modules/FullwidthSectionCarousel/module.json");
+/* harmony import */ var _edit_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/FullwidthSectionCarousel/edit.jsx");
+/* harmony import */ var _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/FullwidthSectionCarousel/placeholder-content.js");
+/* harmony import */ var _module_default_render_attributes_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/FullwidthSectionCarousel/module-default-render-attributes.json");
+/* harmony import */ var _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/FullwidthSectionCarousel/conversion-outline.ts");
+/* harmony import */ var _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/FullwidthSectionCarousel/Settings/content.jsx");
+// Local dependencies.
+
+
+
+
+
+
+const CAWebModuleFullwidthSectionCarouselMetadata = _module_json__WEBPACK_IMPORTED_MODULE_0__;
+const CAWebModuleFullwidthSectionCarousel = {
+  placeholderContent: _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__.placeholderContent,
+  conversionOutline: _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_4__.conversionOutline,
+  defaultAttrs: _module_default_render_attributes_json__WEBPACK_IMPORTED_MODULE_3__,
+  renderers: {
+    edit: _edit_jsx__WEBPACK_IMPORTED_MODULE_1__.ModuleEdit
+  }
+};
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionCarousel/module-classnames.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   moduleClassnames: () => (/* binding */ moduleClassnames)
+/* harmony export */ });
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@divi/module");
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/FullwidthSectionCarousel/types.ts");
+
+
+
+/**
+ * Module classnames function for Section Carousel Module.
+ *
+ * @since ??
+ *
+ * @param {ModuleClassnamesParams<ModuleAttrs>} param0 Function parameters.
+ */
+const moduleClassnames = ({
+  classnamesInstance,
+  attrs
+}) => {
+  classnamesInstance.add('carousel');
+  classnamesInstance.add('slide');
+
+  // Text Options.
+  classnamesInstance.add((0,_divi_module__WEBPACK_IMPORTED_MODULE_0__.textOptionsClassnames)(attrs?.module?.advanced?.text));
+};
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionCarousel/placeholder-content.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   placeholderContent: () => (/* binding */ placeholderContent)
+/* harmony export */ });
+const placeholderContent = {};
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionCarouselSlide/custom-css.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   cssFields: () => (/* binding */ cssFields)
+/* harmony export */ });
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/FullwidthSectionCarouselSlide/module.json");
+// WordPress dependencies.
+
+
+
+// const customCssFields = metadata.customCssFields as Record<'name', { subName: string, selectorSuffix: string, label: string }>;
+
+// customCssFields.name.label            = __('Name', 'd5-extension-example-modules');
+
+const cssFields = {};
+// export const cssFields = { ...customCssFields };
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionCarouselSlide/index.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   CAWebModuleFullwidthSectionCarouselSlide: () => (/* binding */ CAWebModuleFullwidthSectionCarouselSlide),
+/* harmony export */   CAWebModuleFullwidthSectionCarouselSlideMetadata: () => (/* binding */ CAWebModuleFullwidthSectionCarouselSlideMetadata)
+/* harmony export */ });
+/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/modules/FullwidthSectionCarouselSlide/module.json");
+/* harmony import */ var _edit_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/FullwidthSectionCarouselSlide/edit.jsx");
+/* harmony import */ var _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/FullwidthSectionCarouselSlide/placeholder-content.js");
+/* harmony import */ var _module_default_render_attributes_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/FullwidthSectionCarouselSlide/module-default-render-attributes.json");
+/* harmony import */ var _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/FullwidthSectionCarouselSlide/conversion-outline.ts");
+/* harmony import */ var _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/FullwidthSectionCarouselSlide/Settings/content.jsx");
+/* harmony import */ var _Settings_design_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/FullwidthSectionCarouselSlide/Settings/design.jsx");
+// Local dependencies.
+
+
+
+
+
+
+
+const CAWebModuleFullwidthSectionCarouselSlideMetadata = _module_json__WEBPACK_IMPORTED_MODULE_0__;
+const CAWebModuleFullwidthSectionCarouselSlide = {
+  placeholderContent: _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__.placeholderContent,
+  conversionOutline: _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_4__.conversionOutline,
+  defaultAttrs: _module_default_render_attributes_json__WEBPACK_IMPORTED_MODULE_3__,
+  renderers: {
+    edit: _edit_jsx__WEBPACK_IMPORTED_MODULE_1__.ModuleEdit
+  },
+  settings: {
+    content: _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_5__.SettingsContent,
+    design: _Settings_design_jsx__WEBPACK_IMPORTED_MODULE_6__.SettingsDesign
+  }
+};
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionCarouselSlide/module-classnames.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   moduleClassnames: () => (/* binding */ moduleClassnames)
+/* harmony export */ });
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@divi/module");
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/FullwidthSectionCarouselSlide/types.ts");
+
+
+
+/**
+ * Module classnames function for Dynamic Module.
+ *
+ * @since ??
+ *
+ * @param {ModuleClassnamesParams<ModuleAttrs>} param0 Function parameters.
+ */
+const moduleClassnames = ({
+  classnamesInstance,
+  attrs,
+  isFirst
+}) => {
+  classnamesInstance.add('carousel-item');
+  if (isFirst) {
+    classnamesInstance.add('active');
+  }
+
+  // Text Options.
+  classnamesInstance.add((0,_divi_module__WEBPACK_IMPORTED_MODULE_0__.textOptionsClassnames)(attrs?.module?.advanced?.text));
+};
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionCarouselSlide/placeholder-content.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   placeholderContent: () => (/* binding */ placeholderContent)
+/* harmony export */ });
+const placeholderContent = {};
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionFooter/custom-css.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   cssFields: () => (/* binding */ cssFields)
+/* harmony export */ });
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/FullwidthSectionFooter/module.json");
+// WordPress dependencies.
+
+
+
+// const customCssFields = metadata.customCssFields as Record<'name', { subName: string, selectorSuffix: string, label: string }>;
+
+// customCssFields.name.label            = __('Name', 'd5-extension-example-modules');
+
+const cssFields = {};
+// export const cssFields = { ...customCssFields };
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionFooter/index.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   CAWebModuleFullwidthSectionFooter: () => (/* binding */ CAWebModuleFullwidthSectionFooter),
+/* harmony export */   CAWebModuleFullwidthSectionFooterMetadata: () => (/* binding */ CAWebModuleFullwidthSectionFooterMetadata)
+/* harmony export */ });
+/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/modules/FullwidthSectionFooter/module.json");
+/* harmony import */ var _edit_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/FullwidthSectionFooter/edit.jsx");
+/* harmony import */ var _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/FullwidthSectionFooter/placeholder-content.js");
+/* harmony import */ var _module_default_render_attributes_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/FullwidthSectionFooter/module-default-render-attributes.json");
+/* harmony import */ var _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/FullwidthSectionFooter/conversion-outline.ts");
+/* harmony import */ var _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/FullwidthSectionFooter/Settings/content.jsx");
+// Local dependencies.
+
+
+
+
+
+
+const CAWebModuleFullwidthSectionFooterMetadata = _module_json__WEBPACK_IMPORTED_MODULE_0__;
+const CAWebModuleFullwidthSectionFooter = {
+  placeholderContent: _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__.placeholderContent,
+  conversionOutline: _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_4__.conversionOutline,
+  defaultAttrs: _module_default_render_attributes_json__WEBPACK_IMPORTED_MODULE_3__,
+  renderers: {
+    edit: _edit_jsx__WEBPACK_IMPORTED_MODULE_1__.ModuleEdit
+  }
+};
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionFooter/module-classnames.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   moduleClassnames: () => (/* binding */ moduleClassnames)
+/* harmony export */ });
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@divi/module");
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/FullwidthSectionFooter/types.ts");
+
+
+
+/**
+ * Module classnames function for Dynamic Module.
+ *
+ * @since ??
+ *
+ * @param {ModuleClassnamesParams<ModuleAttrs>} param0 Function parameters.
+ */
+const moduleClassnames = ({
+  classnamesInstance,
+  attrs
+}) => {
+  classnamesInstance.add('section');
+  classnamesInstance.add('row');
+
+  // Text Options.
+  classnamesInstance.add((0,_divi_module__WEBPACK_IMPORTED_MODULE_0__.textOptionsClassnames)(attrs?.module?.advanced?.text));
+};
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionFooter/placeholder-content.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   placeholderContent: () => (/* binding */ placeholderContent)
+/* harmony export */ });
+const placeholderContent = {};
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionFooterGroup/custom-css.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   cssFields: () => (/* binding */ cssFields)
+/* harmony export */ });
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/FullwidthSectionFooterGroup/module.json");
+// WordPress dependencies.
+
+
+
+// const customCssFields = metadata.customCssFields as Record<'name', { subName: string, selectorSuffix: string, label: string }>;
+
+// customCssFields.name.label            = __('Name', 'd5-extension-example-modules');
+
+const cssFields = {};
+// export const cssFields = { ...customCssFields };
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionFooterGroup/index.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   CAWebModuleFullwidthSectionFooterGroup: () => (/* binding */ CAWebModuleFullwidthSectionFooterGroup),
+/* harmony export */   CAWebModuleFullwidthSectionFooterGroupMetadata: () => (/* binding */ CAWebModuleFullwidthSectionFooterGroupMetadata)
+/* harmony export */ });
+/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/modules/FullwidthSectionFooterGroup/module.json");
+/* harmony import */ var _edit_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/FullwidthSectionFooterGroup/edit.jsx");
+/* harmony import */ var _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/FullwidthSectionFooterGroup/placeholder-content.js");
+/* harmony import */ var _module_default_render_attributes_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/FullwidthSectionFooterGroup/module-default-render-attributes.json");
+/* harmony import */ var _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/FullwidthSectionFooterGroup/conversion-outline.ts");
+/* harmony import */ var _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/FullwidthSectionFooterGroup/Settings/content.jsx");
+/* harmony import */ var _Settings_design_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/FullwidthSectionFooterGroup/Settings/design.jsx");
+// Local dependencies.
+
+
+
+
+
+
+
+const CAWebModuleFullwidthSectionFooterGroupMetadata = _module_json__WEBPACK_IMPORTED_MODULE_0__;
+const CAWebModuleFullwidthSectionFooterGroup = {
+  placeholderContent: _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__.placeholderContent,
+  conversionOutline: _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_4__.conversionOutline,
+  defaultAttrs: _module_default_render_attributes_json__WEBPACK_IMPORTED_MODULE_3__,
+  renderers: {
+    edit: _edit_jsx__WEBPACK_IMPORTED_MODULE_1__.ModuleEdit
+  },
+  settings: {
+    content: _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_5__.SettingsContent,
+    design: _Settings_design_jsx__WEBPACK_IMPORTED_MODULE_6__.SettingsDesign
+  }
+};
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionFooterGroup/module-classnames.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   moduleClassnames: () => (/* binding */ moduleClassnames)
+/* harmony export */ });
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@divi/module");
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/FullwidthSectionFooterGroup/types.ts");
+
+
+
+/**
+ * Module classnames function for Dynamic Module.
+ *
+ * @since ??
+ *
+ * @param {ModuleClassnamesParams<ModuleAttrs>} param0 Function parameters.
+ */
+const moduleClassnames = ({
+  classnamesInstance,
+  attrs
+}) => {
+  classnamesInstance.add('col');
+
+  // Text Options.
+  classnamesInstance.add((0,_divi_module__WEBPACK_IMPORTED_MODULE_0__.textOptionsClassnames)(attrs?.module?.advanced?.text));
+};
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionFooterGroup/placeholder-content.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   placeholderContent: () => (/* binding */ placeholderContent)
+/* harmony export */ });
+const placeholderContent = {};
+
+/***/ },
+
 /***/ "./src/modules/FullwidthSectionPrimary/custom-css.js"
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
@@ -4740,6 +7260,211 @@ const placeholderContent = {};
 
 /***/ },
 
+/***/ "./src/modules/SectionCarousel/custom-css.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   cssFields: () => (/* binding */ cssFields)
+/* harmony export */ });
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/SectionCarousel/module.json");
+// WordPress dependencies.
+
+
+
+// const customCssFields = metadata.customCssFields as Record<'name', { subName: string, selectorSuffix: string, label: string }>;
+
+// customCssFields.name.label            = __('Name', 'd5-extension-example-modules');
+
+const cssFields = {};
+// export const cssFields = { ...customCssFields };
+
+/***/ },
+
+/***/ "./src/modules/SectionCarousel/index.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   CAWebModuleSectionCarousel: () => (/* binding */ CAWebModuleSectionCarousel),
+/* harmony export */   CAWebModuleSectionCarouselMetadata: () => (/* binding */ CAWebModuleSectionCarouselMetadata)
+/* harmony export */ });
+/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/modules/SectionCarousel/module.json");
+/* harmony import */ var _edit_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/SectionCarousel/edit.jsx");
+/* harmony import */ var _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/SectionCarousel/placeholder-content.js");
+/* harmony import */ var _module_default_render_attributes_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/SectionCarousel/module-default-render-attributes.json");
+/* harmony import */ var _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/SectionCarousel/conversion-outline.ts");
+/* harmony import */ var _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/SectionCarousel/Settings/content.jsx");
+// Local dependencies.
+
+
+
+
+
+
+const CAWebModuleSectionCarouselMetadata = _module_json__WEBPACK_IMPORTED_MODULE_0__;
+const CAWebModuleSectionCarousel = {
+  placeholderContent: _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__.placeholderContent,
+  conversionOutline: _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_4__.conversionOutline,
+  defaultAttrs: _module_default_render_attributes_json__WEBPACK_IMPORTED_MODULE_3__,
+  renderers: {
+    edit: _edit_jsx__WEBPACK_IMPORTED_MODULE_1__.ModuleEdit
+  }
+};
+
+/***/ },
+
+/***/ "./src/modules/SectionCarousel/module-classnames.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   moduleClassnames: () => (/* binding */ moduleClassnames)
+/* harmony export */ });
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@divi/module");
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/SectionCarousel/types.ts");
+
+
+
+/**
+ * Module classnames function for Section Carousel Module.
+ *
+ * @since ??
+ *
+ * @param {ModuleClassnamesParams<ModuleAttrs>} param0 Function parameters.
+ */
+const moduleClassnames = ({
+  classnamesInstance,
+  attrs
+}) => {
+  classnamesInstance.add('carousel');
+  classnamesInstance.add('slide');
+
+  // Text Options.
+  classnamesInstance.add((0,_divi_module__WEBPACK_IMPORTED_MODULE_0__.textOptionsClassnames)(attrs?.module?.advanced?.text));
+};
+
+/***/ },
+
+/***/ "./src/modules/SectionCarousel/placeholder-content.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   placeholderContent: () => (/* binding */ placeholderContent)
+/* harmony export */ });
+const placeholderContent = {};
+
+/***/ },
+
+/***/ "./src/modules/SectionCarouselSlide/custom-css.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   cssFields: () => (/* binding */ cssFields)
+/* harmony export */ });
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/SectionCarouselSlide/module.json");
+// WordPress dependencies.
+
+
+
+// const customCssFields = metadata.customCssFields as Record<'name', { subName: string, selectorSuffix: string, label: string }>;
+
+// customCssFields.name.label            = __('Name', 'd5-extension-example-modules');
+
+const cssFields = {};
+// export const cssFields = { ...customCssFields };
+
+/***/ },
+
+/***/ "./src/modules/SectionCarouselSlide/index.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   CAWebModuleSectionCarouselSlide: () => (/* binding */ CAWebModuleSectionCarouselSlide),
+/* harmony export */   CAWebModuleSectionCarouselSlideMetadata: () => (/* binding */ CAWebModuleSectionCarouselSlideMetadata)
+/* harmony export */ });
+/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/modules/SectionCarouselSlide/module.json");
+/* harmony import */ var _edit_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/SectionCarouselSlide/edit.jsx");
+/* harmony import */ var _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/SectionCarouselSlide/placeholder-content.js");
+/* harmony import */ var _module_default_render_attributes_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/SectionCarouselSlide/module-default-render-attributes.json");
+/* harmony import */ var _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/SectionCarouselSlide/conversion-outline.ts");
+/* harmony import */ var _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/SectionCarouselSlide/Settings/content.jsx");
+/* harmony import */ var _Settings_design_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/SectionCarouselSlide/Settings/design.jsx");
+// Local dependencies.
+
+
+
+
+
+
+
+const CAWebModuleSectionCarouselSlideMetadata = _module_json__WEBPACK_IMPORTED_MODULE_0__;
+const CAWebModuleSectionCarouselSlide = {
+  placeholderContent: _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__.placeholderContent,
+  conversionOutline: _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_4__.conversionOutline,
+  defaultAttrs: _module_default_render_attributes_json__WEBPACK_IMPORTED_MODULE_3__,
+  renderers: {
+    edit: _edit_jsx__WEBPACK_IMPORTED_MODULE_1__.ModuleEdit
+  },
+  settings: {
+    content: _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_5__.SettingsContent,
+    design: _Settings_design_jsx__WEBPACK_IMPORTED_MODULE_6__.SettingsDesign
+  }
+};
+
+/***/ },
+
+/***/ "./src/modules/SectionCarouselSlide/module-classnames.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   moduleClassnames: () => (/* binding */ moduleClassnames)
+/* harmony export */ });
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@divi/module");
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/SectionCarouselSlide/types.ts");
+
+
+
+/**
+ * Module classnames function for Dynamic Module.
+ *
+ * @since ??
+ *
+ * @param {ModuleClassnamesParams<ModuleAttrs>} param0 Function parameters.
+ */
+const moduleClassnames = ({
+  classnamesInstance,
+  attrs,
+  isFirst
+}) => {
+  classnamesInstance.add('carousel-item');
+  if (isFirst) {
+    classnamesInstance.add('active');
+  }
+
+  // Text Options.
+  classnamesInstance.add((0,_divi_module__WEBPACK_IMPORTED_MODULE_0__.textOptionsClassnames)(attrs?.module?.advanced?.text));
+};
+
+/***/ },
+
+/***/ "./src/modules/SectionCarouselSlide/placeholder-content.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   placeholderContent: () => (/* binding */ placeholderContent)
+/* harmony export */ });
+const placeholderContent = {};
+
+/***/ },
+
 /***/ "./src/modules/SectionFooter/custom-css.js"
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
@@ -5095,6 +7820,62 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/fullwidth-panel","d4Sho
 
 /***/ },
 
+/***/ "./src/modules/FullwidthSectionCarousel/module-default-render-attributes.json"
+(module) {
+
+module.exports = {};
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionCarousel/module.json"
+(module) {
+
+module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/fullwidth-section-carousel","d4Shortcode":"et_pb_ca_fullwidth_section_carousel","title":"Fullwidth Section - Carousel","titles":"Fullwidth Section - Carousels","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_fullwidth_section_carousel","moduleOrderClassName":"et_pb_ca_fullwidth_section_carousel","category":"module","childModuleName":"caweb/fullwidth-section-carousel-slide","childModuleTitle":"Fullwidth Section Carousel Slide","childrenName":["caweb/fullwidth-section-carousel-slide"],"attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"section":{"type":"object","selector":"{{selector}}","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"designStyle","render":true,"attrName":"section.advanced","subName":"color","label":"Background Color","description":"Here you can define a custom background color for the section.","features":{"responsive":false},"component":{"type":"field","name":"divi/color-picker"}}}}},"content":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","allowHtml":true,"settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"content.innerContent","label":"Content","description":"Here you can create the content that will be used within the panel.","features":{"responsive":false},"component":{"name":"divi/richtext","type":"field"}}}}}},"settings":{"content":"auto","design":"auto","advanced":"auto","groups":{"designStyle":{"panel":"design","priority":1,"groupName":"designStyle","component":{"name":"divi/composite","props":{"groupLabel":"Style"}}}}}}');
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionCarouselSlide/module-default-render-attributes.json"
+(module) {
+
+module.exports = /*#__PURE__*/JSON.parse('{"title":{"innerContent":{"desktop":{"value":"Slide Title"}},"advanced":{"desktop":{"value":{"size":"h2"}}}},"desc":{"innerContent":{"desktop":{"value":"Slide Description"}}},"button":{"innerContent":{"desktop":{"value":{"text":"","linkUrl":""}}},"advanced":{"desktop":{"value":{"show":"off"}}}},"image":{"innerContent":{"desktop":{"value":{"src":"","alt":""}}}}}');
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionCarouselSlide/module.json"
+(module) {
+
+module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/fullwidth-section-carousel-slide","d4Shortcode":"et_pb_ca_fullwidth_section_carousel_slide","title":"Fullwidth Carousel Slide","titles":"Fullwidth Carousel Slides","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_fullwidth_section_carousel_slide","moduleOrderClassName":"et_pb_ca_fullwidth_section_carousel_slide","category":"child-module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"title":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"into-multiple-groups","groups":{"header":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"title.innerContent","label":"Title","description":"Define the title for the group section.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}},"designHeader":{"groupType":"group-item","item":{"groupSlug":"designHeader","render":true,"attrName":"title.advanced","subName":"size","label":"Heading Size","description":"Here you can choose the heading size for the header title.","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"defaultValue":"h2","options":{"h1":{"label":"H1","value":"h1"},"h2":{"label":"H2","value":"h2"},"h3":{"label":"H3","value":"h3"},"h4":{"label":"H4","value":"h4"},"h5":{"label":"H5","value":"h5"}}}}}}}}}},"image":{"type":"object","elementType":"image","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"src":{"groupSlug":"body","render":true,"priority":1,"attrName":"image.innerContent","subName":"src","label":"Image","description":"If defined, this image will be used as the background for this slide. To remove a background image, simply delete the URL from the settings field.","features":{"responsive":false},"component":{"name":"divi/upload","type":"field"}},"alt":{"groupSlug":"body","render":true,"priority":1,"attrName":"image.innerContent","subName":"alt","label":"Image Alt Text","description":"Override the existing alternate text for the slide image.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"button":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"showButton":{"groupSlug":"body","render":true,"attrName":"button.advanced","subName":"show","label":"Add More Link","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"off"}}},"url":{"groupSlug":"body","render":true,"attrName":"button.innerContent","subName":"linkUrl","label":"Link URL","description":"Define the URL for the link.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"desc":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"desc.innerContent","label":"Description","description":"Define the text for the slide content.","features":{"responsive":false},"component":{"name":"divi/textarea","type":"field"}}}}}},"settings":{"advanced":"auto","groups":{"header":{"panel":"content","priority":1,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"body":{"panel":"content","priority":1,"groupName":"body","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Body"}}},"designHeader":{"panel":"design","priority":1,"groupName":"designHeader","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}}}}}');
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionFooter/module-default-render-attributes.json"
+(module) {
+
+module.exports = {};
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionFooter/module.json"
+(module) {
+
+module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/fullwidth-section-footer","d4Shortcode":"et_pb_ca_fullwidth_section_footer","title":"Fullwidth Section - Footer","titles":"Fullwidth Section - Footers","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_fullwidth_section_footer","moduleOrderClassName":"et_pb_ca_fullwidth_section_footer","category":"module","childModuleName":"caweb/fullwidth-section-footer-group","childModuleTitle":"Fullwidth Section Footer Group","childrenName":["caweb/fullwidth-section-footer-group"],"attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"section":{"type":"object","selector":"{{selector}}","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"designStyle","render":true,"attrName":"section.advanced","subName":"color","label":"Background Color","description":"Here you can define a custom background color for the section.","features":{"responsive":false},"component":{"type":"field","name":"divi/color-picker"}}}}},"content":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","allowHtml":true,"settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"content.innerContent","label":"Content","description":"Here you can create the content that will be used within the panel.","features":{"responsive":false},"component":{"name":"divi/richtext","type":"field"}}}}}},"settings":{"content":"auto","design":"auto","advanced":"auto","groups":{"designStyle":{"panel":"design","priority":1,"groupName":"designStyle","component":{"name":"divi/composite","props":{"groupLabel":"Style"}}}}}}');
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionFooterGroup/module-default-render-attributes.json"
+(module) {
+
+module.exports = /*#__PURE__*/JSON.parse('{"title":{"innerContent":{"desktop":{"value":"Group Title"}},"advanced":{"desktop":{"value":{"size":"h4","color":""}}}},"content":{"advanced":{"desktop":{"value":{"color":"","displayLink":"off"}}}},"button":{"innerContent":{"desktop":{"value":{"text":"","linkUrl":""}}},"advanced":{"desktop":{"value":{"show":"off"}}}},"icon":{"innerContent":{"desktop":{"value":{"icon":""}}},"advanced":{"desktop":{"value":{"show":"off"}}}},"link1":{"innerContent":{"desktop":{"value":{"text":"Link1","linkUrl":"#"}}},"advanced":{"desktop":{"value":{"show":"off"}}}},"link2":{"innerContent":{"desktop":{"value":{"text":"Link2","linkUrl":"#"}}},"advanced":{"desktop":{"value":{"show":"off"}}}},"link3":{"innerContent":{"desktop":{"value":{"text":"Link3","linkUrl":"#"}}},"advanced":{"desktop":{"value":{"show":"off"}}}},"link4":{"innerContent":{"desktop":{"value":{"text":"Link4","linkUrl":"#"}}},"advanced":{"desktop":{"value":{"show":"off"}}}},"link5":{"innerContent":{"desktop":{"value":{"text":"Link5","linkUrl":"#"}}},"advanced":{"desktop":{"value":{"show":"off"}}}},"link6":{"innerContent":{"desktop":{"value":{"text":"Link6","linkUrl":"#"}}},"advanced":{"desktop":{"value":{"show":"off"}}}},"link7":{"innerContent":{"desktop":{"value":{"text":"Link7","linkUrl":"#"}}},"advanced":{"desktop":{"value":{"show":"off"}}}},"link8":{"innerContent":{"desktop":{"value":{"text":"Link8","linkUrl":"#"}}},"advanced":{"desktop":{"value":{"show":"off"}}}},"link9":{"innerContent":{"desktop":{"value":{"text":"Link9","linkUrl":"#"}}},"advanced":{"desktop":{"value":{"show":"off"}}}},"link10":{"innerContent":{"desktop":{"value":{"text":"Link10","linkUrl":"#"}}},"advanced":{"desktop":{"value":{"show":"off"}}}}}');
+
+/***/ },
+
+/***/ "./src/modules/FullwidthSectionFooterGroup/module.json"
+(module) {
+
+module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/fullwidth-section-footer-group","d4Shortcode":"et_pb_ca_section_fullwidth_footer_group","title":"Fullwidth Footer Group","titles":"Fullwidth Footer Groups","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_section_fullwidth_footer_group","moduleOrderClassName":"et_pb_ca_section_fullwidth_footer_group","category":"child-module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"title":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"into-multiple-groups","groups":{"header":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"title.innerContent","label":"Title","description":"Define the title for the group section.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}},"designHeader":{"groupType":"group-items","items":{"size":{"groupSlug":"designHeader","render":true,"attrName":"title.advanced","subName":"size","label":"Heading Size","description":"Here you can choose the heading size for the header title.","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"defaultValue":"h4","options":{"h1":{"label":"H1","value":"h1"},"h2":{"label":"H2","value":"h2"},"h3":{"label":"H3","value":"h3"},"h4":{"label":"H4","value":"h4"},"h5":{"label":"H5","value":"h5"}}}}},"color":{"groupSlug":"designHeader","render":true,"attrName":"title.advanced","subName":"color","label":"Heading Text Color","description":"Here you can define a custom text color.","features":{"responsive":false},"component":{"name":"divi/color-picker","type":"field"}}}}}}}},"button":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"showButton":{"groupSlug":"body","render":true,"attrName":"button.advanced","subName":"show","label":"Read More Button","description":"Toggle to include or exclude a button in the group.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"off"}}},"url":{"groupSlug":"body","render":true,"attrName":"button.innerContent","subName":"linkUrl","label":"Button Link","description":"Here you can enter the URL that the button will link to.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"content":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"into-multiple-groups","groups":{"body":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"priority":1,"attrName":"content.advanced","subName":"displayLink","label":"Display Links as Button","description":"Whether the links should display as buttons or not.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"off"}}}},"designStyle":{"groupType":"group-items","items":{"size":{"groupSlug":"designStyle","render":true,"attrName":"content.advanced","subName":"color","label":"Text Color","description":"Here you can define a custom text color for the list items.","features":{"responsive":false},"component":{"name":"divi/color-picker","type":"field"}}}}}}}},"icon":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"showIcon":{"groupSlug":"designStyle","render":true,"attrName":"icon.advanced","subName":"show","label":"Use Icon","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"off"}}},"icon":{"groupSlug":"designStyle","render":true,"attrName":"icon.innerContent","label":"Group Icon","description":"Define the icon for the group section.","features":{"responsive":false},"component":{"name":"divi/icon-picker","type":"field"}}}}}},"link1":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"link1ShowButton":{"groupSlug":"body","render":true,"attrName":"link1.advanced","subName":"show","label":"Link 1","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"off"}}},"link1Text":{"groupSlug":"body","render":true,"attrName":"link1.innerContent","subName":"text","label":"Link 1 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link1Url":{"groupSlug":"body","render":true,"attrName":"link1.innerContent","subName":"linkUrl","label":"Link 1 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link2":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"link2ShowButton":{"groupSlug":"body","render":true,"attrName":"link2.advanced","subName":"show","label":"Link 2","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"off"}}},"link2Text":{"groupSlug":"body","render":true,"attrName":"link2.innerContent","subName":"text","label":"Link 2 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link2Url":{"groupSlug":"body","render":true,"attrName":"link2.innerContent","subName":"linkUrl","label":"Link 2 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link3":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"link3ShowButton":{"groupSlug":"body","render":true,"attrName":"link3.advanced","subName":"show","label":"Link 3","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"off"}}},"link3Text":{"groupSlug":"body","render":true,"attrName":"link3.innerContent","subName":"text","label":"Link 3 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link3Url":{"groupSlug":"body","render":true,"attrName":"link3.innerContent","subName":"linkUrl","label":"Link 3 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link4":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"link4ShowButton":{"groupSlug":"body","render":true,"attrName":"link4.advanced","subName":"show","label":"Link 4","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"off"}}},"link4Text":{"groupSlug":"body","render":true,"attrName":"link4.innerContent","subName":"text","label":"Link 4 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link4Url":{"groupSlug":"body","render":true,"attrName":"link4.innerContent","subName":"linkUrl","label":"Link 4 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link5":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"link5ShowButton":{"groupSlug":"body","render":true,"attrName":"link5.advanced","subName":"show","label":"Link 5","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"off"}}},"link5Text":{"groupSlug":"body","render":true,"attrName":"link5.innerContent","subName":"text","label":"Link 5 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link5Url":{"groupSlug":"body","render":true,"attrName":"link5.innerContent","subName":"linkUrl","label":"Link 5 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link6":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"link6ShowButton":{"groupSlug":"body","render":true,"attrName":"link6.advanced","subName":"show","label":"Link 6","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"off"}}},"link6Text":{"groupSlug":"body","render":true,"attrName":"link6.innerContent","subName":"text","label":"Link 6 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link6Url":{"groupSlug":"body","render":true,"attrName":"link6.innerContent","subName":"linkUrl","label":"Link 6 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link7":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"link7ShowButton":{"groupSlug":"body","render":true,"attrName":"link7.advanced","subName":"show","label":"Link 7","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"off"}}},"link7Text":{"groupSlug":"body","render":true,"attrName":"link7.innerContent","subName":"text","label":"Link 7 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link7Url":{"groupSlug":"body","render":true,"attrName":"link7.innerContent","subName":"linkUrl","label":"Link 7 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link8":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"link8ShowButton":{"groupSlug":"body","render":true,"attrName":"link8.advanced","subName":"show","label":"Link 8","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"off"}}},"link8Text":{"groupSlug":"body","render":true,"attrName":"link8.innerContent","subName":"text","label":"Link 8 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link8Url":{"groupSlug":"body","render":true,"attrName":"link8.innerContent","subName":"linkUrl","label":"Link 8 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link9":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"link9ShowButton":{"groupSlug":"body","render":true,"attrName":"link9.advanced","subName":"show","label":"Link 9","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"off"}}},"link9Text":{"groupSlug":"body","render":true,"attrName":"link9.innerContent","subName":"text","label":"Link 9 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link9Url":{"groupSlug":"body","render":true,"attrName":"link9.innerContent","subName":"linkUrl","label":"Link 9 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link10":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"link10ShowButton":{"groupSlug":"body","render":true,"attrName":"link10.advanced","subName":"show","label":"Link 10","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"off"}}},"link10Text":{"groupSlug":"body","render":true,"attrName":"link10.innerContent","subName":"text","label":"Link 10 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link10Url":{"groupSlug":"body","render":true,"attrName":"link10.innerContent","subName":"linkUrl","label":"Link 10 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}}},"settings":{"advanced":"auto","groups":{"style":{"panel":"content","priority":1,"groupName":"style","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Style"}}},"header":{"panel":"content","priority":1,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"body":{"panel":"content","priority":1,"groupName":"body","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Body"}}},"designHeader":{"panel":"design","priority":1,"groupName":"designHeader","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"designStyle":{"panel":"design","priority":1,"groupName":"designStyle","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Style"}}}}}}');
+
+/***/ },
+
 /***/ "./src/modules/FullwidthSectionPrimary/module.json"
 (module) {
 
@@ -5134,6 +7915,34 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/panel","d4Shortcode":"e
 (module) {
 
 module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/profile-banner","d4Shortcode":"et_pb_profile_banner","title":"Profile Banner","titles":"Profile Banners","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_profile_banner","moduleOrderClassName":"et_pb_profile_banner","category":"module","attributes":{"module":{"type":"object","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"name":{"type":"object","inlineEditor":"plainText","elementType":"heading","childrenSanitizer":"et_core_esc_previously","tagName":"h4","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"name.innerContent","label":"Profile Name","description":"Input the name of the profile.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}},"job":{"type":"object","inlineEditor":"plainText","elementType":"heading","childrenSanitizer":"et_core_esc_previously","tagName":"span","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"job.innerContent","label":"Job Title","description":"Input the job title.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}},"profile":{"type":"object","inlineEditor":"plainText","tagName":"a","elementType":"element","childrenSanitizer":"et_core_esc_previously","default":{"innerContent":{"desktop":{"value":{"text":"Link","url":"#"}}}},"settings":{"innerContent":{"groupType":"group-items","items":{"text":{"groupSlug":"profile","render":true,"attrName":"profile.innerContent","subName":"text","label":"Link Text","description":"Input the text for the profile link.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"url":{"groupSlug":"profile","render":true,"attrName":"profile.innerContent","subName":"url","label":"URL","description":"Input the website of the profile.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"portrait":{"type":"object","childrenSanitizer":"et_core_esc_previously","tagName":"img","elementType":"image","default":{"innerContent":{"desktop":{"value":{"rounded":"on"}}}},"settings":{"innerContent":{"groupType":"group-items","items":{"imgText":{"groupSlug":"portrait","render":true,"attrName":"portrait.innerContent","subName":"src","label":"Image URL","description":"Type in the URL to the image you would like to display, or upload your desired image below.","features":{"responsive":false},"component":{"name":"divi/text","type":"field","props":{"syncImageData":{"src":true,"id":true,"alt":true,"titleText":false}}}},"img":{"groupSlug":"portrait","render":true,"attrName":"portrait.innerContent","subName":"src","label":"Image","description":"Upload your desired image, or type in the URL to the image you would like to display above.","features":{"responsive":false},"component":{"name":"divi/upload","type":"field","props":{"syncImageData":{"src":true,"id":true,"alt":true,"titleText":false}}}},"alt":{"groupSlug":"portrait","render":true,"attrName":"portrait.innerContent","subName":"alt","label":"Image Alt Text","description":"Input the alt text for the portrait image.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"rounded":{"groupSlug":"portraitDesign","render":true,"attrName":"portrait.advanced","subName":"rounded","label":"Round Image","description":"Switch to yes if you want the profile banner to display vertically.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"vertical":{"groupSlug":"portraitDesign","render":true,"label":"Display Vertically","attrName":"portrait.advanced","subName":"vertical","description":"Switch to yes if you want the profile banner to display vertically.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"on"}}}}}}}},"settings":{"content":"auto","design":"auto","advanced":"auto","groups":{"header":{"panel":"content","priority":2,"groupName":"header","component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"profile":{"panel":"content","priority":2,"groupName":"profile","component":{"name":"divi/composite","props":{"groupLabel":"Profile"}}},"portrait":{"panel":"content","priority":2,"groupName":"portrait","component":{"name":"divi/composite","props":{"groupLabel":"Portrait"}}},"portraitDesign":{"panel":"design","priority":2,"groupName":"portraitDesign","component":{"name":"divi/composite","props":{"groupLabel":"Portrait"}}}}}}');
+
+/***/ },
+
+/***/ "./src/modules/SectionCarousel/module-default-render-attributes.json"
+(module) {
+
+module.exports = {};
+
+/***/ },
+
+/***/ "./src/modules/SectionCarousel/module.json"
+(module) {
+
+module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/section-carousel","d4Shortcode":"et_pb_ca_section_carousel","title":"Section - Carousel","titles":"Section - Carousels","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_section_carousel","moduleOrderClassName":"et_pb_ca_section_carousel","category":"module","childModuleName":"caweb/section-carousel-slide","childModuleTitle":"Section Carousel Slide","childrenName":["caweb/section-carousel-slide"],"attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"section":{"type":"object","selector":"{{selector}}","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"designStyle","render":true,"attrName":"section.advanced","subName":"color","label":"Background Color","description":"Here you can define a custom background color for the section.","features":{"responsive":false},"component":{"type":"field","name":"divi/color-picker"}}}}},"content":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","allowHtml":true,"settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"content.innerContent","label":"Content","description":"Here you can create the content that will be used within the panel.","features":{"responsive":false},"component":{"name":"divi/richtext","type":"field"}}}}}},"settings":{"content":"auto","design":"auto","advanced":"auto","groups":{"designStyle":{"panel":"design","priority":1,"groupName":"designStyle","component":{"name":"divi/composite","props":{"groupLabel":"Style"}}}}}}');
+
+/***/ },
+
+/***/ "./src/modules/SectionCarouselSlide/module-default-render-attributes.json"
+(module) {
+
+module.exports = /*#__PURE__*/JSON.parse('{"title":{"innerContent":{"desktop":{"value":"Slide Title"}},"advanced":{"desktop":{"value":{"size":"h2"}}}},"desc":{"innerContent":{"desktop":{"value":"Slide Description"}}},"button":{"innerContent":{"desktop":{"value":{"text":"","linkUrl":""}}},"advanced":{"desktop":{"value":{"show":"off"}}}},"image":{"innerContent":{"desktop":{"value":{"src":"","alt":""}}}}}');
+
+/***/ },
+
+/***/ "./src/modules/SectionCarouselSlide/module.json"
+(module) {
+
+module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/section-carousel-slide","d4Shortcode":"et_pb_ca_section_carousel_slide","title":"Carousel Slide","titles":"Carousel Slides","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_section_carousel_slide","moduleOrderClassName":"et_pb_ca_section_carousel_slide","category":"child-module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"title":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"into-multiple-groups","groups":{"header":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"title.innerContent","label":"Title","description":"Define the title for the group section.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}},"designHeader":{"groupType":"group-item","item":{"groupSlug":"designHeader","render":true,"attrName":"title.advanced","subName":"size","label":"Heading Size","description":"Here you can choose the heading size for the header title.","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"defaultValue":"h2","options":{"h1":{"label":"H1","value":"h1"},"h2":{"label":"H2","value":"h2"},"h3":{"label":"H3","value":"h3"},"h4":{"label":"H4","value":"h4"},"h5":{"label":"H5","value":"h5"}}}}}}}}}},"image":{"type":"object","elementType":"image","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"src":{"groupSlug":"body","render":true,"priority":1,"attrName":"image.innerContent","subName":"src","label":"Image","description":"If defined, this image will be used as the background for this slide. To remove a background image, simply delete the URL from the settings field.","features":{"responsive":false},"component":{"name":"divi/upload","type":"field"}},"alt":{"groupSlug":"body","render":true,"priority":1,"attrName":"image.innerContent","subName":"alt","label":"Image Alt Text","description":"Override the existing alternate text for the slide image.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"button":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"showButton":{"groupSlug":"body","render":true,"attrName":"button.advanced","subName":"show","label":"Add More Link","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"off"}}},"url":{"groupSlug":"body","render":true,"attrName":"button.innerContent","subName":"linkUrl","label":"Link URL","description":"Define the URL for the link.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"desc":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"desc.innerContent","label":"Description","description":"Define the text for the slide content.","features":{"responsive":false},"component":{"name":"divi/textarea","type":"field"}}}}}},"settings":{"advanced":"auto","groups":{"header":{"panel":"content","priority":1,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"body":{"panel":"content","priority":1,"groupName":"body","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Body"}}},"designHeader":{"panel":"design","priority":1,"groupName":"designHeader","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}}}}}');
 
 /***/ },
 
@@ -5255,8 +8064,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_Panel_index_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./src/modules/Panel/index.js");
 /* harmony import */ var _modules_SectionFooter_index_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./src/modules/SectionFooter/index.js");
 /* harmony import */ var _modules_SectionFooterGroup_index_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./src/modules/SectionFooterGroup/index.js");
-/* harmony import */ var _modules_FullwidthSectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("./src/modules/FullwidthSectionPrimary/index.js");
-/* harmony import */ var _modules_FullwidthPanel_index_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__("./src/modules/FullwidthPanel/index.js");
+/* harmony import */ var _modules_SectionCarousel_index_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("./src/modules/SectionCarousel/index.js");
+/* harmony import */ var _modules_SectionCarouselSlide_index_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__("./src/modules/SectionCarouselSlide/index.js");
+/* harmony import */ var _modules_FullwidthSectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__("./src/modules/FullwidthSectionPrimary/index.js");
+/* harmony import */ var _modules_FullwidthPanel_index_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__("./src/modules/FullwidthPanel/index.js");
+/* harmony import */ var _modules_FullwidthSectionFooter_index_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__("./src/modules/FullwidthSectionFooter/index.js");
+/* harmony import */ var _modules_FullwidthSectionFooterGroup_index_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__("./src/modules/FullwidthSectionFooterGroup/index.js");
+/* harmony import */ var _modules_FullwidthSectionCarousel_index_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__("./src/modules/FullwidthSectionCarousel/index.js");
+/* harmony import */ var _modules_FullwidthSectionCarouselSlide_index_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__("./src/modules/FullwidthSectionCarouselSlide/index.js");
 
 
 
@@ -5276,7 +8091,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 //fullwidth modules
+
+
+
+
 
 
 
@@ -5295,10 +8116,16 @@ __webpack_require__.r(__webpack_exports__);
   (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_Panel_index_js__WEBPACK_IMPORTED_MODULE_8__.CAWebModulePanelMetadata, _modules_Panel_index_js__WEBPACK_IMPORTED_MODULE_8__.CAWebModulePanel);
   (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_SectionFooter_index_js__WEBPACK_IMPORTED_MODULE_9__.CAWebModuleSectionFooterMetadata, _modules_SectionFooter_index_js__WEBPACK_IMPORTED_MODULE_9__.CAWebModuleSectionFooter);
   (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_SectionFooterGroup_index_js__WEBPACK_IMPORTED_MODULE_10__.CAWebModuleSectionFooterGroupMetadata, _modules_SectionFooterGroup_index_js__WEBPACK_IMPORTED_MODULE_10__.CAWebModuleSectionFooterGroup);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_SectionCarousel_index_js__WEBPACK_IMPORTED_MODULE_11__.CAWebModuleSectionCarouselMetadata, _modules_SectionCarousel_index_js__WEBPACK_IMPORTED_MODULE_11__.CAWebModuleSectionCarousel);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_SectionCarouselSlide_index_js__WEBPACK_IMPORTED_MODULE_12__.CAWebModuleSectionCarouselSlideMetadata, _modules_SectionCarouselSlide_index_js__WEBPACK_IMPORTED_MODULE_12__.CAWebModuleSectionCarouselSlide);
 
   // Fullwidth modules
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_FullwidthSectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_11__.CAWebModuleFullwidthSectionPrimaryMetadata, _modules_FullwidthSectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_11__.CAWebModuleFullwidthSectionPrimary);
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_FullwidthPanel_index_js__WEBPACK_IMPORTED_MODULE_12__.CAWebModuleFullwidthPanelMetadata, _modules_FullwidthPanel_index_js__WEBPACK_IMPORTED_MODULE_12__.CAWebModuleFullwidthPanel);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_FullwidthSectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_13__.CAWebModuleFullwidthSectionPrimaryMetadata, _modules_FullwidthSectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_13__.CAWebModuleFullwidthSectionPrimary);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_FullwidthPanel_index_js__WEBPACK_IMPORTED_MODULE_14__.CAWebModuleFullwidthPanelMetadata, _modules_FullwidthPanel_index_js__WEBPACK_IMPORTED_MODULE_14__.CAWebModuleFullwidthPanel);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_FullwidthSectionFooter_index_js__WEBPACK_IMPORTED_MODULE_15__.CAWebModuleFullwidthSectionFooterMetadata, _modules_FullwidthSectionFooter_index_js__WEBPACK_IMPORTED_MODULE_15__.CAWebModuleFullwidthSectionFooter);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_FullwidthSectionFooterGroup_index_js__WEBPACK_IMPORTED_MODULE_16__.CAWebModuleFullwidthSectionFooterGroupMetadata, _modules_FullwidthSectionFooterGroup_index_js__WEBPACK_IMPORTED_MODULE_16__.CAWebModuleFullwidthSectionFooterGroup);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_FullwidthSectionCarousel_index_js__WEBPACK_IMPORTED_MODULE_17__.CAWebModuleFullwidthSectionCarouselMetadata, _modules_FullwidthSectionCarousel_index_js__WEBPACK_IMPORTED_MODULE_17__.CAWebModuleFullwidthSectionCarousel);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_FullwidthSectionCarouselSlide_index_js__WEBPACK_IMPORTED_MODULE_18__.CAWebModuleFullwidthSectionCarouselSlideMetadata, _modules_FullwidthSectionCarouselSlide_index_js__WEBPACK_IMPORTED_MODULE_18__.CAWebModuleFullwidthSectionCarouselSlide);
 });
 })();
 

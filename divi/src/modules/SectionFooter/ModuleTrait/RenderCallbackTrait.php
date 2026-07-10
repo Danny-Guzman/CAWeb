@@ -38,26 +38,16 @@ trait RenderCallbackTrait {
 	 * @return string HTML rendered of SectionFooter module.
 	 */
 	public static function render_callback( $attrs, $content, $block, $elements ) {
-		// $title = ModuleUtils::get_attr_value(array(
-		// 	'attr' => $attrs['title']['innerContent'] ?? $attrs,
-		// 	'breakpoint' => 'desktop',
-		// 	'state' => 'value',
-		// 	'mode' => 'getAndInheritAll',
-		// ));
+		$children_ids = $block->parsed_block['innerBlocks'] ? array_map(
+			function( $inner_block ) {
+				return $inner_block['id'];
+			},
+			$block->parsed_block['innerBlocks']
+		) : [];
 
-		// $image = ModuleUtils::get_attr_value(array(
-		// 	'attr' => $attrs['image']['innerContent'] ?? $attrs,
-		// 	'breakpoint' => 'desktop',
-		// 	'state' => 'value',
-		// 	'mode' => 'getAndInheritAll',
-		// ));
-		
-		// $link = ModuleUtils::get_attr_value(array(
-		// 	'attr' => $attrs['link']['innerContent'] ?? $attrs,
-		// 	'breakpoint' => 'desktop',
-		// 	'state' => 'value',
-		// 	'mode' => 'getAndInheritAll',
-		// ));
+		$parent       = BlockParserStore::get_parent( $block->parsed_block['id'], $block->parsed_block['storeInstance'] );
+		$parent_attrs = $parent->attrs ?? [];
+
 
 
 		$inner_content = array();
@@ -73,16 +63,27 @@ trait RenderCallbackTrait {
 				'name'                => $block->block_type->name,
 				'attrs'               => $attrs,
 				'elements'            => $elements,
-				'children'            =>  $inner_content,
 
 				'classnamesFunction'  => [ self::class, 'module_classnames' ],
 				'stylesComponent'     => [ self::class, 'module_styles' ],
 				'scriptDataComponent' => [ self::class, 'module_script_data' ],
 
 				// parent attrs
-				// 'parentAttrs'         => $parent_attrs,
-				// 'parentId'            => $parent->id ?? '',
-				// 'parentName'          => $parent->blockName ?? '',
+				'parentAttrs'         => $parent_attrs,
+				'parentId'            => $parent->id ?? '',
+				'parentName'          => $parent->blockName ?? '',
+
+				'children'            => ElementComponents::component(
+					[
+						'attrs'         => $attrs['module']['decoration'] ?? [],
+						'id'            => $block->parsed_block['id'],
+
+						// FE only.
+						'orderIndex'    => $block->parsed_block['orderIndex'],
+						'storeInstance' => $block->parsed_block['storeInstance'],
+					]
+				) . $content,
+				'childrenIds'         => $children_ids,
 		));
 		
 	}

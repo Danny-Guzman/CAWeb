@@ -18,10 +18,17 @@ import { CAWebModuleCard, CAWebModuleCardMetadata } from './modules/Card/index.j
 import { CAWebModulePanel, CAWebModulePanelMetadata } from './modules/Panel/index.js';
 import { CAWebModuleSectionFooter, CAWebModuleSectionFooterMetadata } from './modules/SectionFooter/index.js';
 import { CAWebModuleSectionFooterGroup, CAWebModuleSectionFooterGroupMetadata } from './modules/SectionFooterGroup/index.js'; 
+import { CAWebModuleSectionCarousel, CAWebModuleSectionCarouselMetadata } from './modules/SectionCarousel/index.js';
+import { CAWebModuleSectionCarouselSlide, CAWebModuleSectionCarouselSlideMetadata } from './modules/SectionCarouselSlide/index.js';
 
 //fullwidth modules
 import { CAWebModuleFullwidthSectionPrimary, CAWebModuleFullwidthSectionPrimaryMetadata } from './modules/FullwidthSectionPrimary/index.js';
 import { CAWebModuleFullwidthPanel, CAWebModuleFullwidthPanelMetadata } from './modules/FullwidthPanel/index.js';
+import { CAWebModuleFullwidthSectionFooter, CAWebModuleFullwidthSectionFooterMetadata } from './modules/FullwidthSectionFooter/index.js';
+import { CAWebModuleFullwidthSectionFooterGroup, CAWebModuleFullwidthSectionFooterGroupMetadata } from './modules/FullwidthSectionFooterGroup/index.js';
+import { CAWebModuleFullwidthSectionCarousel, CAWebModuleFullwidthSectionCarouselMetadata } from './modules/FullwidthSectionCarousel/index.js';
+import { CAWebModuleFullwidthSectionCarouselSlide, CAWebModuleFullwidthSectionCarouselSlideMetadata } from './modules/FullwidthSectionCarouselSlide/index.js';
+
 
 //
 // import icon-library integration
@@ -38,8 +45,14 @@ addAction('divi.moduleLibrary.registerModuleLibraryStore.after', 'cawebDiviExten
   registerModule(CAWebModulePanelMetadata, CAWebModulePanel);
   registerModule(CAWebModuleSectionFooterMetadata, CAWebModuleSectionFooter);
   registerModule(CAWebModuleSectionFooterGroupMetadata, CAWebModuleSectionFooterGroup);
+  registerModule(CAWebModuleSectionCarouselMetadata, CAWebModuleSectionCarousel);
+  registerModule(CAWebModuleSectionCarouselSlideMetadata, CAWebModuleSectionCarouselSlide);
   
   // Fullwidth modules
   registerModule(CAWebModuleFullwidthSectionPrimaryMetadata, CAWebModuleFullwidthSectionPrimary);
   registerModule(CAWebModuleFullwidthPanelMetadata, CAWebModuleFullwidthPanel);
+  registerModule(CAWebModuleFullwidthSectionFooterMetadata, CAWebModuleFullwidthSectionFooter);
+  registerModule(CAWebModuleFullwidthSectionFooterGroupMetadata, CAWebModuleFullwidthSectionFooterGroup);
+  registerModule(CAWebModuleFullwidthSectionCarouselMetadata, CAWebModuleFullwidthSectionCarousel);
+  registerModule(CAWebModuleFullwidthSectionCarouselSlideMetadata, CAWebModuleFullwidthSectionCarouselSlide);
 });

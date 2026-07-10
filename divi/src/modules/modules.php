@@ -22,6 +22,12 @@ use CAWeb\Modules\Panel\Panel;
 use CAWeb\Modules\FullwidthPanel\FullwidthPanel;
 use CAWeb\Modules\SectionFooter\SectionFooter;
 use CAWeb\Modules\SectionFooterGroup\SectionFooterGroup;
+use CAWeb\Modules\FullwidthSectionFooter\FullwidthSectionFooter;
+use CAWeb\Modules\FullwidthSectionFooterGroup\FullwidthSectionFooterGroup;
+use CAWeb\Modules\SectionCarousel\SectionCarousel;
+use CAWeb\Modules\SectionCarouselSlide\SectionCarouselSlide;
+use CAWeb\Modules\FullwidthSectionCarousel\FullwidthSectionCarousel;
+use CAWeb\Modules\FullwidthSectionCarouselSlide\FullwidthSectionCarouselSlide;
 
 // This is base module for testing purposes only.
 // use CAWeb\Modules\Base\Base;
@@ -39,6 +45,12 @@ add_action(
 		$dependency_tree->add_dependency( new FullwidthPanel() );
 		$dependency_tree->add_dependency( new SectionFooter() );
 		$dependency_tree->add_dependency( new SectionFooterGroup() );
+		$dependency_tree->add_dependency( new FullwidthSectionFooter() );
+		$dependency_tree->add_dependency( new FullwidthSectionFooterGroup() );
+		$dependency_tree->add_dependency( new SectionCarousel() );
+		$dependency_tree->add_dependency( new SectionCarouselSlide() );
+		$dependency_tree->add_dependency( new FullwidthSectionCarousel() );
+		$dependency_tree->add_dependency( new FullwidthSectionCarouselSlide() );
 		// $dependency_tree->add_dependency( new Base() );
 	}
 );

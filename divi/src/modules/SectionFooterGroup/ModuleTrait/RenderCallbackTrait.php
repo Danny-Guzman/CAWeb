@@ -38,29 +38,41 @@ trait RenderCallbackTrait {
 	 * @return string HTML rendered of SectionFooterGroup module.
 	 */
 	public static function render_callback( $attrs, $content, $block, $elements ) {
-		// $title = ModuleUtils::get_attr_value(array(
-		// 	'attr' => $attrs['title']['innerContent'] ?? $attrs,
-		// 	'breakpoint' => 'desktop',
-		// 	'state' => 'value',
-		// 	'mode' => 'getAndInheritAll',
-		// ));
-
-		// $image = ModuleUtils::get_attr_value(array(
-		// 	'attr' => $attrs['image']['innerContent'] ?? $attrs,
-		// 	'breakpoint' => 'desktop',
-		// 	'state' => 'value',
-		// 	'mode' => 'getAndInheritAll',
-		// ));
+		$title_size = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['title']['advanced'] ?? $attrs,
+			'breakpoint' => 'desktop',
+			'state' => 'value',
+		))['size'] ?? '';	
+	
 		
-		// $link = ModuleUtils::get_attr_value(array(
-		// 	'attr' => $attrs['link']['innerContent'] ?? $attrs,
-		// 	'breakpoint' => 'desktop',
-		// 	'state' => 'value',
-		// 	'mode' => 'getAndInheritAll',
-		// ));
+		// first we filter the attributes to only include those that start with 'link' 
+		$links = array_filter( $attrs, function ( $value, $key ) { 
+			if( str_starts_with( $key, 'link' ) ){
+				// get the 'show' attribute from the advanced settings of the link
+				$show = ModuleUtils::get_attr_value(array(
+					'attr' => $value['advanced'] ?? [],
+					'breakpoint' => 'desktop',
+					'state' => 'value',
+				))['show'] ?? '';
 
+				return 'on' === $show; // only include the link if 'show' is set to 'on'
+			}
+		}, ARRAY_FILTER_USE_BOTH );
 
-		$inner_content = array();
+		$inner_content = array(
+			$elements->render(array(
+				'attrName' => 'title',
+				'tagName' => $title_size,
+			)),
+			HTMLUtility::render(array(
+				'tag' => 'ul',
+				'attributes' => [
+					'class' => 'list-unstyled p-0',
+				],
+				'childrenSanitizer' => [self::class, 'sanitize_html'],
+				'children' => self::groupListing( $links )
+			)),
+		);
 
 		return Module::render(array(
 				// FE only.
@@ -85,5 +97,42 @@ trait RenderCallbackTrait {
 				// 'parentName'          => $parent->blockName ?? '',
 		));
 		
+	}
+
+	static function groupListing( $links ) {
+		$linkElements = array_map(function($value, $key) {
+			$displayLink = ModuleUtils::get_attr_value(array(
+				'attr' => $value['advanced'] ?? [],
+				'breakpoint' => 'desktop',
+				'state' => 'value',
+			))['displayLink'] ?? '';
+
+			$title = ModuleUtils::get_attr_value(array(
+				'attr' => $value['innerContent'] ?? [],
+				'breakpoint' => 'desktop',
+				'state' => 'value',
+			))['title'] ?? '';
+
+			$linkUrl = ModuleUtils::get_attr_value(array(
+				'attr' => $value['innerContent'] ?? [],
+				'breakpoint' => 'desktop',
+				'state' => 'value',
+			))['url'] ?? '';
+
+			$text = ModuleUtils::get_attr_value(array(
+				'attr' => $value['innerContent'] ?? [],
+				'breakpoint' => 'desktop',
+				'state' => 'value',
+			))['text'] ?? '';
+
+			return sprintf('<li class="mb-2"><a href="%1$s" target="_blank" title="Section Footer Group %3$s"%2$s>%4$s</a></li>', 
+				$linkUrl,
+				'on' === $displayLink ? ' class="btn btn-default btn-xs"' : '',
+				$title,
+				$text
+			); 
+		}, $links, array_keys($links));
+
+		return implode('', $linkElements);
 	}
 }
