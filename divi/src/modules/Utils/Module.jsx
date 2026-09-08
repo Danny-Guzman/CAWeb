@@ -1,6 +1,12 @@
 // External Dependencies.
 import { set } from 'lodash';
-import React, { ReactElement, CSSProperties } from 'react';
+import React, { ReactElement, CSSProperties, useEffect } from 'react';
+
+// Divi Dependencies.
+import { useFetch } from '@divi/rest';
+
+// WordPress Dependencies.
+import { addQueryArgs } from '@wordpress/url';
 
 /**
  * Process Divi Color Picker Value
@@ -99,9 +105,37 @@ const get_icon_span = (icon) => {
     return(<span className={`ca-gov-icon-${icon}`}></span>);
 };
 
+const RenderWordPressShortcode = ({shortcodeText}) => {
+    const {
+        fetch,
+        isLoading,
+        response,
+    } = useFetch([]);
+    
+    useEffect(() => {
+        let { ajax_url, js_shortcode_nonce } = CawebDiviExtensionModulesBuilderBundleScriptData;
+        // Build the request payload
+        const formData = new FormData();
+        formData.append('action', 'render_shortcode_via_js');
+        formData.append('security', js_shortcode_nonce);
+        formData.append('shortcode', shortcodeText);
+        
+        fetch({
+            url: ajax_url,
+            method:    'POST',
+            data: formData,
+        })
+        
+        
+    }, [shortcodeText])
+    
+    return isLoading ? <></> : <div dangerouslySetInnerHTML={{__html: response.data}}></div>;
+};
+
 export { 
     get_icon_span, 
     get_address, 
     get_google_map_place_link, 
-    processColorPickerValue 
+    processColorPickerValue,
+    RenderWordPressShortcode
 };

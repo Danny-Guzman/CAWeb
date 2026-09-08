@@ -226,7 +226,8 @@ class CAWeb_Module_Fullwidth_Service_Tiles extends ET_Builder_CAWeb_Module {
 
 		$output .= $this->content;
 
-		$output = sprintf( '<div%1$s%2$s><div class="row clearfix">%3$s</div>%4$s</div>', $this->module_id(), $class, $output, $view_more );
+		$output = sprintf( '<div%1$s%2$s><div class="row clearfix">%3$s</div>%4$s</div>', 
+		$this->module_id(), $class, $output, $view_more );
 
 		return $output;
 	}

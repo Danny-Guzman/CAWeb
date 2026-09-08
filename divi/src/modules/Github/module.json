@@ -288,7 +288,7 @@
               }
             },
 
-            "test": {
+            "definitions": {
               "groupSlug": "organization",
               "render": true,
               "label": "Select which information for each repository you would like to display.",
@@ -344,7 +344,6 @@
   "settings": {
     "design": "auto",
     "advanced": "auto",
-    "content": "auto",
     "groups":{
       "header": {
         "panel": "content",

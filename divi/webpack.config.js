@@ -10,20 +10,28 @@ export default {
     },
     
     externals: {
+        underscore: '_',
+        jquery: 'jQuery',
+        lodash: 'lodash',
+        react: ['vendor', 'React'],
+        'react-dom': ['vendor', 'ReactDOM'],
+
         // Divi Dependencies.
-        // '@divi/rest': ['divi', 'rest'],
-        // '@divi/data': ['divi', 'data'],
+        '@divi/data': ['divi', 'data'],
         '@divi/module': ['divi', 'module'],
+        '@divi/module-library': ['divi', 'moduleLibrary'],
         '@divi/module-utils': ['divi', 'moduleUtils'],
+        '@divi/rest': ['divi', 'rest'],
         // '@divi/modal': ['divi', 'modal'],
         // '@divi/field-library': ['divi', 'fieldLibrary'],
         // '@divi/icon-library': ['divi', 'iconLibrary'],
-        '@divi/module-library': ['divi', 'moduleLibrary'],
         // '@divi/style-library': ['divi', 'styleLibrary'],
         // '@divi/shortcode-module': ['divi', 'shortcodeModule'],
     },
   
-    
+    resolve: {
+        extensions: ['.ts', '.tsx' ],
+    },
     plugins: [
         // Generate conversion-outline.json files from conversion-outline.ts files
         new ConversionOutlineJsonPlugin(),

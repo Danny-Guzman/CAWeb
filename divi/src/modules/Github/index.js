@@ -15,5 +15,5 @@ export const CAWebModuleGithub = {
   conversionOutline,
   renderers: {
     edit: ModuleEdit,
-  },
+  }
 };
