@@ -3818,21 +3818,17 @@ const ModuleEdit = ({
     }
     fetchAbortRef.current = new AbortController();
 
-    // to get the name of the category associated with this list style
+    // to get the slug of the category associated with this list style
     // strip the -list suffix from the style to get the post type
-    // uppercase the first letter of the post type to match the category name
-    // only if Faqs do we want to uppercase the first three letters of the post type to match the category name
-    // let name = selectedStyle.replace('-list', '').replace(/^\w/, (c) => c.toUpperCase()).replace(/^(Faqs)/, (c) => c.toUpperCase());
-    let name = selectedStyle.replace('-list', ''); //.replace(/^(faqs|\w)/, (c) => c.toUpperCase())
-
+    let slug = selectedStyle.replace('-list', '');
     let args = {
       hide_empty: false,
       _fields: 'id'
     };
 
     // if not general, we filter by the slug
-    if ('general' !== name) {
-      args.slug = name;
+    if ('general' !== slug) {
+      args.slug = slug;
       // only for general, we filter by the included categories
     } else if (categoryList.length) {
       args.include = categoryList.join(',');
@@ -4294,7 +4290,6 @@ const ModuleEdit = ({
       }
     });
   }
-  attrs.isAccordion = true;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleContainer, {
     attrs: attrs,
     elements: elements,
@@ -4308,7 +4303,7 @@ const ModuleEdit = ({
   }), elements.render({
     attrName: 'title',
     tagName: titleSize
-  }), !isLoading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ModuleWrapper, null, output), !isLoading && response.length < 1 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__.__)('No post found.', 'd5-extension-example-modules')));
+  }), !isLoading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ModuleWrapper, null, output), !isLoading && response.length < 1 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "No post found."));
 };
 
 

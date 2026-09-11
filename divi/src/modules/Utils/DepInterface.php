@@ -26,4 +26,11 @@ interface DepInterface extends DependencyInterface {
 
     public static function render_address_map_link( $addr, $embed = false, $target = '_blank', $classes = '' );
     
+	public static function get_icon_span( $icon, $classes = '', $styles = '' );
+	
+	public static function sanitize_html( $string );
+
+	public static function get_the_post_thumbnail( $post = null, $size = 'thumbnail', $attr = '', $pixel_size = array() );
+
+	public static function get_excerpt( $con, $excerpt_length, $p = -1 );
 }

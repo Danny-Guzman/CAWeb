@@ -23,6 +23,56 @@ trait RenderCallbackTrait {
 	use ModuleClassnamesTrait;
 	use ModuleStylesTrait;
 	use ModuleScriptDataTrait;
+	use Views\Courses;
+	use Views\Events;
+	use Views\Exams;
+	use Views\FAQs;
+	use Views\Jobs;
+	use Views\News;
+	use Views\Profiles;
+
+	/**
+	 * Get appropriate category ID's based on list style
+	 *
+	 * @param  string $slug Post List Category.
+	 * @return array|string
+	 */
+	static function get_categories($slug){
+		
+		$args = array(
+			'hide_empty' => false,
+			'fields' => 'ids',
+			'slug' => $slug,
+		);
+
+		return get_terms( 'category', $args );
+	}
+
+	/**
+	 * Return posts based on parameters
+	 *
+	 * @param  array  $cats Categories associated with posts requested.
+	 * @param  array  $tags Tags associated with posts requested.
+	 * @param  int    $post_amount Amount of posts to return.
+	 * @param  string $orderby Order posts by specific meta, default post_date.
+	 * @param  string $order Order posts ascending/descending order, default DESC.
+	 * @return array
+	 */
+	static function return_posts( $cats = array(), $tags = array(), $post_amount = -1, $orderby = 'post_date', $order = 'DESC' ){
+		$args['category'] = ( ! empty( $cats ) ? ( is_array( $cats ) ? implode( ',', $cats ) : $cats ) : array() );
+		$args['tag_id'] = ( ! empty( $tags ) ? ( is_array( $tags ) ? implode( ',', $tags ) : $tags ) : array() );
+
+		$args += array(
+			'posts_per_page'    => $post_amount,
+			'orderby'           => $orderby,
+			'order'             => $order,
+			'post_type'         => 'post',
+			'post_status'       => 'publish',
+			'suppress_filters'  => true,
+		);
+
+		return get_posts( $args );
+	}
 
 	/**
 	 * Divi 5 module render callback which outputs server side rendered HTML on the Front-End.
@@ -37,127 +87,167 @@ trait RenderCallbackTrait {
 	 * @return string HTML rendered of PostList module.
 	 */
 	public static function render_callback( $attrs, $content, $block, $elements ) {
-		// Retrieve the card layout from the block attributes
-		// $layout = ModuleUtils::get_attr_value(array(
-		// 	'attr' => $attrs['layout']['innerContent'],
-		// 	'breakpoint' => 'desktop',
-		// 	'state' => 'value'
-		// ));
-
-		// Retrieve the titleAdvanced options and title attributes from the block attributes
-		$titleAdvanced = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['title']['advanced'],
+		// Retrieve the post list style from the block attributes
+		$style = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['style']['innerContent'],
 			'breakpoint' => 'desktop',
 			'state' => 'value'
 		));
-		// $title = ModuleUtils::get_attr_value(array(
-		// 	'attr' => $attrs['title']['innerContent'],
-		// 	'breakpoint' => 'desktop',
-		// 	'state' => 'value'
-		// ));
 
-		// // Retrive content and button attributes from the block attributes
-		// $content = ModuleUtils::get_attr_value(array(
-		// 	'attr' => $attrs['content']['innerContent'],
-		// 	'breakpoint' => 'desktop',
-		// 	'state' => 'value'
-		// ));
-		// $showButton = ModuleUtils::get_attr_value(array(
-		// 	'attr' => $attrs['button']['advanced'],
-		// 	'breakpoint' => 'desktop',
-		// 	'state' => 'value'
-		// ))['show'] ?? 'off';
-		// $button = ModuleUtils::get_attr_value(array(
-		// 	'attr' => $attrs['button']['innerContent'],
-		// 	'breakpoint' => 'desktop',
-		// 	'state' => 'value'
-		// ));
+		$faqStyle = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['style']['advanced'],
+			'breakpoint' => 'desktop',
+			'state' => 'value'
+		))['faq'] ?? 'accordion';
 
-		// $buttonClass = 'light';
-		// switch( $layout ){
-		// 	case 'overstated':
-		// 		$buttonClass = 'main';
-		// 		break;
-		// 	case 'understated':
-		// 		$buttonClass = 'alt';
-		// 		break;
-		// 	case 'standout':
-		// 		$buttonClass = 'standout';
-		// 		break;
-		// }
-		
-		// // Create the button element if showButton is 'on' and button text and linkUrl are not empty
-		// $buttonElement = 'on' === $showButton && ! empty( $button['text'] ) && ! empty( $button['linkUrl'] ) ? 
-		// 	sprintf('<a href="%1$s" class="btn btn-%2$s">%3$s</a>', esc_url( $button['linkUrl'] ), esc_attr( $buttonClass ), esc_html( $button['text'] )) : '';
-		
-		// // Create the content element if content is not empty
-		// $content = sprintf('<div class="card-body">%1$s%2$s</div>', $content, $buttonElement );
+		$showAllCategories = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['categories']['advanced'],
+			'breakpoint' => 'desktop',
+			'state' => 'value'
+		))['all'] ?? 'on';
+ 
+		$selectedCategories = 'on' === $showAllCategories ? array() : ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['categories']['innerContent'],
+			'breakpoint' => 'desktop',
+			'state' => 'value'
+		)) ?? array();
 
-		// // Retrieve the footerAdvanced options and footer attributes from the block attributes
-		// $footerAdvanced = ModuleUtils::get_attr_value(array(
-		// 	'attr' => $attrs['footer']['advanced'],
-		// 	'breakpoint' => 'desktop',
-		// 	'state' => 'value'
-		// )) ?? 'off';
-		// $footer = ModuleUtils::get_attr_value(array(
-		// 	'attr' => $attrs['footer']['innerContent'],
-		// 	'breakpoint' => 'desktop',
-		// 	'state' => 'value'
-		// ));
+		$showAllTags = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['tags']['advanced'],
+			'breakpoint' => 'desktop',
+			'state' => 'value'
+		))['all'] ?? 'on';
 
-		// // Create the image element if showImage is 'on' and image is not empty
-		// $imgElement = 'on' === $showImage && ! empty( $image ) ? sprintf('<img src="%s" class="card-image-top img-responsive" />', $image) : '';
+		$tags = 'on' === $showAllTags ? array() : ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['tags']['innerContent'],
+			'breakpoint' => 'desktop',
+			'state' => 'value'
+		)) ?? array();
 
-		// // Create the header element if titleAdvanced show is 'on' and title is not empty
-		// $headerElement = 'on' === $titleAdvanced['show'] && ! empty( $title ) ? 
-		// 	sprintf('<%1$s class="card-header"%2$s>%3$s</%1$s>', 
-		// 		$titleAdvanced['size'], 
-		// 		! empty( $titleAdvanced['color'] ) ? sprintf(' style="color: %s;"', esc_attr( $titleAdvanced['color'] )) : '', 
-		// 		$title
-		// 	) : '';
-		
-		// // Create the footer element if footerAdvanced show is 'on' and footer is not empty
-		// $footerElement = 'on' === $footerAdvanced['show'] && ! empty( $footer ) ? 
-		// 	sprintf('<div class="card-footer"%s>%s</div>', 
-		// 		! empty( $footerAdvanced['color'] ) ? sprintf(' style="color: %s;"', esc_attr( $footerAdvanced['color'] )) : '', 
-		// 		$footer
-		// 	) : '';
-		
-		// $inner_content = array(
-		// 	$imgElement,
-		// 	$headerElement,
-		// 	$content,
-		// 	$footerElement
-		// );
+		$postsNumber = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['posts']['innerContent'],
+			'breakpoint' => 'desktop',
+			'state' => 'value'
+		)) ?? -1;
+
+		$displayExcerpt = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['excerpt']['innerContent'],
+			'breakpoint' => 'desktop',
+			'state' => 'value'
+		)) ?? 'on';
+
+		$displayImage  = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['image']['innerContent'],
+			'breakpoint' => 'desktop',
+			'state' => 'value'
+		)) ?? 'on';
+
+		$slug = str_replace('-list', '', $style);
+
+		// get categories based on the slug or selected categories
+		$categories = 'general' === $slug ? $selectedCategories : self::get_categories($slug);
+	
+		// get order/orderby parameters
+		$orderBy = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['orderby']['innerContent'],
+			'breakpoint' => 'desktop',
+			'state' => 'value'
+		)) ?? 'rand';
+
+		$order = '';
+
+		if( strpos($orderBy, '_') ){
+			$orderInfo = explode('_', $orderBy);
+			$orderBy = $orderInfo[0];
+			$order = strtoupper($orderInfo[1]);
+		} 
+			
+		$all_posts = self::return_posts(
+			$categories,
+			$tags, 
+			$postsNumber,
+			$orderBy,
+			$order
+		);
+
+		setlocale( LC_MONETARY, 'en_US.UTF-8' );
+
+		// Retrieve the titleSize from the block attributes
+		$titleSize = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['title']['advanced'],
+			'breakpoint' => 'desktop',
+			'state' => 'value'
+		))['size'] ?? 'h1';
 
 		$inner_content = array(
-			// HTMLUtility::render(
-			// 	[
-			// 		'tag' => 'div',
-			// 		'attributes' => [
-			// 			'class' => 'card-header'
-			// 		],
-			// 		'childrenSanitizer' => [self::class, 'sanitize_html'],
-			// 		// 'childrenSanitizer' => [CAWebModule::class, 'sanitize_html'],
-			// 		// 'childrenSanitizer' => function($children) {
-			// 		// 	return wp_kses($children, 'post');
-			// 		// },
-			// 		'children' => $elements->render(
-			// 			[
-			// 				'attrName' => 'title',
-			// 				'tagName' => $titleAdvanced['size'] ?? 'h2',
-
-			// 			]
-			// 		)
-			// 	]
-			// ),
-			// $elements->render(
-			// 	[
-			// 		'attrName' => 'content'
-			// 	]
-			// ),
+			$elements->render(array(
+				'attrName' => 'title',
+				'tagName' => $titleSize,
+			))
 		);
 		
+		$viewType = '';
+		$data = array(
+			'displayExcerpt' => $displayExcerpt,
+			'displayImage' => $displayImage,
+		);
+
+		$outputList = array();
+
+		foreach( $all_posts as $a => $p ){
+			if( has_shortcode( $p->post_content, 'et_pb_ca_post_handler' ) ) {
+				$pattern = get_shortcode_regex(array('et_pb_ca_post_handler'));
+
+				preg_match_all('/' . $pattern . '/', $p->post_content, $matches, PREG_SET_ORDER);
+
+				if( isset( $matches[0][3] ) ) {
+					$data['orderId'] = ModuleUtils::get_module_order_class_name($block->parsed_block['id']);
+
+					// store the post information
+					$data['post']['id'] = $p->ID;
+					$data['post']['url'] = $p->guid;
+					$data['post']['title'] = $p->post_title;
+
+					// store the handlers attributes
+					$data['shortcode'] = shortcode_parse_atts( $matches[0][3] );					// $inner_content[] = $style;
+					$data['shortcode']['content'] = isset($matches[0][5]) ? $matches[0][5] : '';
+					
+					// determine the view type based on the slug
+					// for general list we use events
+					$viewType = 'general-list' === $style ? "render_events" : "render_$slug";
+
+					// if faqs-list add isAccordion flag to the data array
+					if( 'faqs-list' === $style ){
+						$data['isAccordion'] = 'accordion' === $faqStyle;
+					} 
+
+					// if the view type exists as a method in this class, call it with the data array
+					if( ! empty( $viewType ) && method_exists( self::class, $viewType ) ){
+						// for FAQs list, if it's not an accordion, add to the output list instead of inner content
+						if(isset($data['isAccordion']) && ! $data['isAccordion']	){
+							$outputList[] = self::$viewType($data);
+						}else{
+							$inner_content[] = self::$viewType($data);
+						}
+					}
+
+				}
+			}
+		}
+		
+		// if the style is faqs-list and it's not an accordion, render the output list as a separate UL element
+		if( 'faqs-list' === $style && isset($data['isAccordion']) && ! $data['isAccordion']	){
+			$inner_content[] = HTMLUtility::render(array(
+				'tag' => 'ul',
+				'attributes' => array(
+					'class' => 'accordion-list list-overstated',
+					'role' => 'tablist'
+				),
+				'childrenSanitizer' => [self::class, 'sanitize_html'],	
+				'children' => $outputList
+			));
+		}
+
 		return Module::render(array(
 				// FE only.
 				'orderIndex'          => $block->parsed_block['orderIndex'],

@@ -30,18 +30,43 @@ trait ModuleClassnamesTrait {
 	 * }
 	 */
 	public static function module_classnames( $args ) {
+		$attrs = $args['attrs'];
 		$classnames_instance = $args['classnamesInstance'];
-		$attrs               = $args['attrs'];
-  		$layout = ModuleUtils::get_attr_value(
-			array(
-				'attr' => $attrs['layout']['innerContent'],
-				'breakpoint' => 'desktop',
-				'state' => 'value',
-			)
-		);
 
-		$classnames_instance->add( 'card', true );
-		$classnames_instance->add( "card-{$layout}", true );
+		$style = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['style']['innerContent'],
+			'breakpoint' => 'desktop',
+			'state' => 'value'
+		));
+
+		$faqStyle = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['style']['advanced'],
+			'breakpoint' => 'desktop',
+			'state' => 'value'
+		))['faq'] ?? 'accordion';
+
+		$displayImage  = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['image']['innerContent'],
+			'breakpoint' => 'desktop',
+			'state' => 'value'
+		)) ?? 'on';
+
+		$classnames_instance->add( $style, true );
+
+		// if featured image is displayed, and available for the $style
+		if ( 'on' === $displayImage && 
+			in_array($style, array(
+				'courses-list',
+				'events-list', 
+				'news-list', 
+				'profiles-list', 
+			)
+		)) {
+			$classnames_instance->add( 'indent', true );
+		}
+
+		// Add accordion class if FAQ style is set to accordion.
+		$classnames_instance->add( 'accordion', 'accordion' === $faqStyle );
 
 		$text_options_classnames = TextClassnames::text_options_classnames( $attrs['module']['advanced']['text'] ?? [] );
 

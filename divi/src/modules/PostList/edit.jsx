@@ -99,12 +99,9 @@ const ModuleEdit = ({
       
       fetchAbortRef.current = new AbortController();
 
-      // to get the name of the category associated with this list style
+      // to get the slug of the category associated with this list style
       // strip the -list suffix from the style to get the post type
-      // uppercase the first letter of the post type to match the category name
-      // only if Faqs do we want to uppercase the first three letters of the post type to match the category name
-      // let name = selectedStyle.replace('-list', '').replace(/^\w/, (c) => c.toUpperCase()).replace(/^(Faqs)/, (c) => c.toUpperCase());
-      let name = selectedStyle.replace('-list', '');//.replace(/^(faqs|\w)/, (c) => c.toUpperCase())
+      let slug = selectedStyle.replace('-list', '');
 
       let args = {
         hide_empty: false,
@@ -112,8 +109,8 @@ const ModuleEdit = ({
       };
 
       // if not general, we filter by the slug
-      if( 'general' !== name ){
-        args.slug = name;
+      if( 'general' !== slug ){
+        args.slug = slug;
       // only for general, we filter by the included categories
       } else if( categoryList.length ){
         args.include = categoryList.join(',');
@@ -570,8 +567,6 @@ const ModuleEdit = ({
               
       }) 
     }
-  
-    attrs.isAccordion = true;
 
     return (
       <ModuleContainer
@@ -603,7 +598,7 @@ const ModuleEdit = ({
         }
         {
           ! isLoading && response.length < 1 && (
-            <div>{__('No post found.', 'd5-extension-example-modules')}</div>
+            <div>No post found.</div>
           )
         }
       </ModuleContainer>
