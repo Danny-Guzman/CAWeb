@@ -21,12 +21,19 @@ export const SettingsDesign = ({
 }) => {
 
   let { 
-      icon
-    } = attrs || {};
-    let { show: showIcon } = (icon && getAttrByMode(icon?.advanced)) || getAttrByMode(defaultSettingsAttrs?.icon?.advanced);
-    
+    icon,
+    layout
+  } = attrs || {};
+  
+  let { show: showIcon } = (icon && getAttrByMode(icon?.innerContent)) || getAttrByMode(defaultSettingsAttrs?.icon?.innerContent);
+  
+  layout = getAttrByMode(layout?.innerContent);
+  
+  // Title Font Color field is only visible when a 'none' layout is selected.
+  set(groupConfiguration, ['title-font', 'component', 'props', 'fields', 'color', 'render'], 'none' === layout );
+
   // Toggle Heading icon and color field visibility based on if show icon is on
-  set(groupConfiguration, ['designHeader', 'component', 'props', 'fields', 'icon', 'render'], 'off' !== showIcon );
+  set(groupConfiguration, ['icon', 'component', 'props', 'fields', 'icon', 'render'], 'off' !== showIcon );
   
   return (
     <ModuleGroups

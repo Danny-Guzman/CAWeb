@@ -1,10 +1,10 @@
 {
-    "decodedUnicode": "줋",
-    "fontWeight": 400,
-    "name": "module-logo",
+    "searchTerms": "caweb",
     "unicode": "&#xc90b;",
+    "name": "module-logo",
     "styles": [
         "caweb"
     ],
-    "searchTerms": "caweb caweb caweb"
+    "fontWeight": 400,
+    "decodedUnicode": "줋"
 }

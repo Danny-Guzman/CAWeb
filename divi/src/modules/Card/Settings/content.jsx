@@ -1,9 +1,5 @@
 // External dependencies.
-import React, { ReactElement } from 'react';
 import { set } from 'lodash';
-
-// WordPress dependencies
-import { __ } from '@wordpress/i18n';
 
 // Divi dependencies.
 import {
@@ -26,6 +22,7 @@ export const SettingsContent = ({
     button,
     footer
   } = attrs || {};
+  
   let { show: showImage, } = (image && getAttrByMode(image?.advanced)) || getAttrByMode(defaultSettingsAttrs?.image?.advanced);
   let { show: showHeader } = (title && getAttrByMode(title?.advanced)) || getAttrByMode(defaultSettingsAttrs?.title?.advanced);
   let { show: showButton } = (button && getAttrByMode(button?.advanced)) || getAttrByMode(defaultSettingsAttrs?.button?.advanced);

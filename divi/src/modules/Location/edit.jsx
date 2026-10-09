@@ -8,6 +8,7 @@ import {
 import {
   getAttrByMode,
 } from '@divi/module-utils';
+import { processFontIcon, escapeFontIcon } from '@divi/icon-library';
 
 
 // Local Dependencies.
@@ -35,7 +36,7 @@ const contactLocation = ({
   let addressMapLink = get_google_map_place_link( [ address?.addr, address?.city, address?.state, address?.zip ] );
  
   // If displaying an icon
-	let displayIcon   = 'on' === icon?.show ? <div className="thumbnail">{get_icon_span(icon?.icon)}</div> : <></>;
+	let displayIcon   = 'on' === icon?.show ? <div className="thumbnail"><span className="et-pb-icon ca-gov-icon-">{processFontIcon(icon)}</span></div> : <></>;
 
   // show contact info if enabled
   let displayOther = 'on' === contact?.show ? <Fragment>
@@ -66,6 +67,7 @@ const contactLocation = ({
   </div> : <></>;
 
   return(<Fragment>
+    { displayIcon }
     { contactInfo}
   </Fragment>)
 }
@@ -87,7 +89,7 @@ const miniLocation = ({
   let addressMapLink = get_google_map_place_link( [ address?.addr, address?.city, address?.state, address?.zip ] );
  
   // If displaying an icon
-	let displayIcon   = 'on' === icon?.show ? <div className="thumbnail">{get_icon_span(icon?.icon)}</div> : <></>;
+	let displayIcon   = 'on' === icon?.show ? <div className="thumbnail"><span className="et-pb-icon ca-gov-icon-">{processFontIcon(icon)}</span></div> : <></>;
 
   // we wrap the name in a link if a link url is provided
   let nameElement = '' !== name ?
@@ -108,6 +110,7 @@ const miniLocation = ({
   </div> : <></>;
 
   return(<Fragment>
+    { displayIcon }
     { contactInfo}
   </Fragment>)
 }

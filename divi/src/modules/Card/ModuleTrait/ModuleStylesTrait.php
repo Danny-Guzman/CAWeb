@@ -70,7 +70,15 @@ trait ModuleStylesTrait {
 							],
 						]
 					),
-
+					$elements->style([
+						'attrName' => 'title'
+					]),
+					$elements->style([
+						'attrName' => 'content'
+					]),
+					$elements->style([
+						'attrName' => 'footer'
+					]),
 					// The code below is an example of how to use the `CssStyle::style` method to generate CSS style.
 					CssStyle::style(
 						[

@@ -27,8 +27,6 @@ import { ModuleScriptData } from './module-script-data.jsx';
 import { PostListModuleEditProps } from './types.ts';
 import { get_icon_span, get_google_map_place_link, RenderWordPressShortcode } from '../Utils/index.js';
 
-let c = 0;
-
 /**
  * Divi 5 Module edit component of visual builder.
  *
@@ -233,8 +231,8 @@ const ModuleEdit = ({
                         <a href={ post_url } className="fs-5 text-decoration-dotted">{ post_title }</a>
                       </div>
                       <div className="datetime">
-                          { course_start_date && new Date(course_start_date).toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC', hour: '2-digit', minute: '2-digit'}) } -
-                          { course_end_date && new Date(course_end_date).toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC', hour: '2-digit', minute: '2-digit'}) }
+                          { course_start_date && new Date(course_start_date).toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit'}) } -
+                          { course_end_date && new Date(course_end_date).toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit'}) }
                       </div>                                
                     </div>
                     <div className={"body" + ( featuredImage ? ' ps-5 ms-5' : '')}>
@@ -292,7 +290,7 @@ const ModuleEdit = ({
                         excerpt.length && <div className="description">{excerpt}</div>
                       }
                       {
-                        event_start_date && <div className="start-date"><time>{new Date(event_start_date).toLocaleDateString('en-US', {weekday: 'short', month: 'numeric', day: 'numeric', year: 'numeric', timeZone: 'UTC', hour: '2-digit', minute: '2-digit'})}</time></div>
+                        event_start_date && <div className="start-date"><time>{new Date(event_start_date).toLocaleDateString('en-US', {weekday: 'short', month: 'numeric', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit'})}</time></div>
                       }
                     </div>
                   </article>

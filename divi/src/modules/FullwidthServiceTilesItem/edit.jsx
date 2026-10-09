@@ -98,7 +98,6 @@ const ModuleEdit = (props) => {
     );
   }
 
-  console.log( width );
   return (
     <>
     <ModuleContainer

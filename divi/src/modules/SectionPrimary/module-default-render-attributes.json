@@ -1,0 +1,29 @@
+{
+    "title": {
+        "innerContent": {
+            "desktop": {
+                "value": {
+                    "level": "h2"
+                }
+            }
+        }
+    },
+    "link": {
+        "innerContent": {
+            "desktop": {
+                "value": {
+                    "show": "off"
+                }
+            }
+        }
+    },
+    "image": {
+        "innerContent": {
+            "desktop": {
+                "value": {
+                    "show": "on"
+                }
+            }
+        }
+    }
+}

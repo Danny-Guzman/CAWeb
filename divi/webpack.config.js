@@ -1,4 +1,5 @@
 import ConversionOutlineJsonPlugin from './webpack/config/plugins/conversion-outline-json-plugin.js';
+import CopyWebpackPlugin from "copy-webpack-plugin";
 
 export default {
     // Webpack starts bundling the assets from the following file.
@@ -18,13 +19,13 @@ export default {
 
         // Divi Dependencies.
         '@divi/data': ['divi', 'data'],
+        '@divi/icon-library': ['divi', 'iconLibrary'],
         '@divi/module': ['divi', 'module'],
         '@divi/module-library': ['divi', 'moduleLibrary'],
         '@divi/module-utils': ['divi', 'moduleUtils'],
         '@divi/rest': ['divi', 'rest'],
-        // '@divi/modal': ['divi', 'modal'],
+        '@divi/conversion': ['divi', 'conversion'],
         // '@divi/field-library': ['divi', 'fieldLibrary'],
-        // '@divi/icon-library': ['divi', 'iconLibrary'],
         // '@divi/style-library': ['divi', 'styleLibrary'],
         // '@divi/shortcode-module': ['divi', 'shortcodeModule'],
     },
@@ -35,6 +36,15 @@ export default {
     plugins: [
         // Generate conversion-outline.json files from conversion-outline.ts files
         new ConversionOutlineJsonPlugin(),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: "**/iconList.json",
+                    context: "src"
+                },
+            ],
+            options: {},
+        })
     ],
 
 };

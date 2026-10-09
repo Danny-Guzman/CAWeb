@@ -8,6 +8,7 @@ import {
 import {
   getAttrByMode,
 } from '@divi/module-utils';
+import { processFontIcon, escapeFontIcon } from '@divi/icon-library';
 
 // Local Dependencies.
 import { ModuleStyles } from './styles.jsx';
@@ -35,27 +36,24 @@ const ModuleEdit = ({
  
   let layout = getAttrByMode(attrs?.layout?.innerContent);
   
-  let { 
-      align,
-      color,
-      size: HeaderSize, 
-    } = getAttrByMode(attrs?.title?.advanced);
   let header = getAttrByMode(attrs?.title?.innerContent);
+  let { textAlign } = getAttrByMode(attrs?.title?.decoration?.font?.font);
 
   let {
     show: showButton
   } = getAttrByMode(attrs?.button?.advanced);
+
   let {
     linkUrl: buttonUrl,
     text: buttonText,
     linkTarget: buttonTarget,
   } = getAttrByMode(attrs?.button?.innerContent);
 
-  let headerStyle = {};
-  if( 'none' === layout && color && color.length > 0 ) {
-      headerStyle = Object.assign( headerStyle, {color} );
-  }
+  let icon = getAttrByMode(attrs?.icon?.innerContent);
+  let showIcon = getAttrByMode(attrs?.icon?.innerContent)?.show ?? 'off';
 
+ let headerIcon = 'on' === showIcon ? <span className="et-pb-icon ca-gov-icon-">{processFontIcon(icon)}</span> : '';
+  
   // create button element if button is set to show and button text is not empty.
   let buttonElement = null;
   if( 'on' === showButton && buttonUrl && buttonUrl.length > 0 ) {
@@ -63,17 +61,6 @@ const ModuleEdit = ({
       <a href={buttonUrl} target={ 'on' === buttonTarget ? '_blank' : '_self'} className={`btn btn-${layout}`}>{buttonText}</a>
     </div>;
   }
-
-  // Create header element if header is not empty.
-  let headerElement = null;
-  if( header && header.length > 0 ) {
-
-    headerElement = <div className={`card-header ${align}`}>
-      <HeaderSize className="card-title" style={headerStyle}>{header}</HeaderSize>
-      { buttonElement}
-      </div>;
-  }
-
   
   return (
     <ModuleContainer
@@ -90,8 +77,19 @@ const ModuleEdit = ({
           attrName: 'module',
         })
       }
-      {headerElement}
-      { elements.render({
+      {
+        header && header.length > 0 && <div className={ `card-header ${textAlign}` }>
+          { 
+            elements.render({
+              attrName: 'title',
+              valueResolver: value => [headerIcon, value]
+            })
+          }
+          { buttonElement }
+        </div>
+      }
+      { 
+        elements.render({
           'attrName': 'content',
         })
       }

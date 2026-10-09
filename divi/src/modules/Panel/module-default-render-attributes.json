@@ -9,14 +9,19 @@
     "title": {
         "innerContent": {
             "desktop": {
-                "value": "Header"
+                "value": ""
             }
         },
-        "advanced": {
-            "desktop": {
-                "value": {
-                    "align": "left",
-                    "size": "h4"
+        "decoration": {
+            "font":{
+                "font": {
+                    "desktop": {
+                        "value": {
+                            "headingLevel": "h4",
+                            "textAlign": "left",
+                            "color": ""
+                        }
+                    }
                 }
             }
         }
@@ -24,7 +29,7 @@
     "content": {
         "innerContent": {
             "desktop": {
-                "value": "Add content here"
+                "value": ""
             }
         }
     },
@@ -34,7 +39,7 @@
                 "value": {
                     "text": "Read More",
                     "linkUrl": "#",
-                    "linkTarget": "_blank"
+                    "linkTarget": "on"
                 }
             }
         },
@@ -47,7 +52,7 @@
         }
     },
     "icon": {
-        "advanced": {
+        "innerContent": {
             "desktop": {
                 "value": {
                     "show": "off"

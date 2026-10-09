@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { ModuleConversionOutline } from '@divi/types';
+import{ convertFontIcon } from '@divi/conversion';
+import { convertModuleIcon } from '../Utils/ValueExpansion.ts';
 
 // Compare this to wp.data.select('divi/settings').getSetting('shortcodeModuleDefinitions').et_pb_blurb.fields
 
@@ -56,7 +58,7 @@ export const conversionOutline: ModuleConversionOutline = {
     heading_align: 'title.advanced.*.align',
     heading_size: 'title.advanced.*.size',
     heading_text_color: 'title.advanced.*.color',
-    use_icon: 'icon.advanced.*.show',
+    use_icon: 'icon.innerContent.*.show',
     font_icon: 'icon.innerContent.*',
     content: 'content.innerContent.*',
     show_button: 'button.advanced.*.show',
@@ -68,5 +70,8 @@ export const conversionOutline: ModuleConversionOutline = {
     module_text_shadow_horizontal_length: 'module.advanced.text.textShadow.*.horizontal',
     module_text_shadow_vertical_length: 'module.advanced.text.textShadow.*.vertical',
     module_text_shadow_blur_strength: 'module.advanced.text.textShadow.*.blur'
+  },
+  valueExpansionFunctionMap: {
+    font_icon: "CAWeb\\Modules\\Utils\\ValueExpansion::convertModuleIcon",
   }
 };

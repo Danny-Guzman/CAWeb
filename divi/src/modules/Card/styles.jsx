@@ -31,17 +31,42 @@ import { cssFields } from './custom-css.js';
   elements,
 }) => {
 
+  let { 
+      color: headerColor,
+  } = getAttrByMode(attrs?.title?.decoration?.font?.font);
+
+  let { 
+      color: footerColor,
+  } = getAttrByMode(attrs?.footer?.decoration?.font?.font);
+
+
   return (
     <StyleContainer mode={mode} state={state} noStyleTag={noStyleTag}>
-      {elements.style({
-        attrName: 'module',
-        styleProps: {
-          disabledOn: {
-            disabledModuleVisibility: settings?.disabledModuleVisibility,
-          }
-        },
-      })}
-      
+      {
+        elements.style({
+          attrName: 'module',
+          styleProps: {
+            disabledOn: {
+              disabledModuleVisibility: settings?.disabledModuleVisibility,
+            }
+          },
+        })
+      }
+      {
+        elements.style({
+          attrName: 'title'
+        })
+      }
+      {
+        elements.style({
+          attrName: 'content'
+        })
+      }
+      {
+        elements.style({
+          attrName: 'footer'
+        })
+      }
       <CssStyle
         selector={orderClass}
         attr={attrs?.css}

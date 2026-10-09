@@ -1,0 +1,78 @@
+{
+    "layout": {
+        "innerContent": {
+            "desktop": {
+                "value": "contact"
+            }
+        }
+    },
+    "name": {
+        "innerContent": {
+            "desktop": {
+                "value": ""
+            }
+        }
+    },
+    "desc": {
+        "innerContent": {
+            "desktop": {
+                "value": ""
+            }
+        }
+    },
+    "address": {
+        "innerContent": {
+            "desktop": {
+                "value": {
+                    "addr": "",
+                    "city": "",
+                    "state": "",
+                    "zip": ""
+                }
+            }
+        }
+    },
+    "contact": {
+        "innerContent": {
+            "desktop": {
+                "value": {
+                    "show": "off",
+                    "phone": "",
+                    "fax": ""
+                }
+            }
+        }
+    },
+    "link": {
+        "innerContent": {
+            "desktop": {
+                "value": {
+                    "show": "off",
+                    "url": "#",
+                    "text": ""
+                }
+            }
+        }
+    },
+    "icon": {
+        "innerContent": {
+            "desktop": {
+                "value": {
+                    "show": "off"
+                }
+            }
+        }
+    },
+    "image": {
+        "innerContent": {
+            "desktop": {
+                "value": {
+                    "src": "",
+                    "url": "",
+                    "alt": "",
+                    "tilte": ""
+                }
+            }
+        }
+    }
+}

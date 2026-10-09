@@ -93,7 +93,6 @@ export interface ModuleAttrs extends InternalAttrs {
   };
 
   icon?: {
-      // innerContent?: FormatBreakpointStateAttr<iconProps>;
       innerContent?: Icon.Font.Attributes;
   };
 

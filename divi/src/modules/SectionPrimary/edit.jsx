@@ -33,7 +33,7 @@ const renderHeader = ({
       text,
       color,
       alignment,
-      level,
+      level: Tag,
 }) => {
 
   let style = {};
@@ -73,14 +73,14 @@ const renderImage = ({
     }
 }) => {
 
-  if( 'off' === image?.show ){
+  if( 'off' === show ){
     return <></>;
   }
 
   let classes = 'col-4';
 
-  classes += ( 'on' === image?.alignment ) ? ' ps-3 float-end' : ' pe-3 float-start';
-  classes += ( 'on' === image?.fade ) ? ' animate__animated  animate__fadeInLeft' : '';
+  classes += ( 'on' === alignment ) ? ' ps-3 float-end' : ' pe-3 float-start';
+  classes += ( 'on' === fade ) ? ' animate__animated  animate__fadeInLeft' : '';
 
   return <div className={ classes }>
     {
@@ -111,12 +111,12 @@ const renderButton = ({
     }
 }) => {
 
-  if( !link || 'off' === link?.show || !link?.url ){
+  if( 'off' === show || !url ){
     return <></>;
   }
 
   return <div>
-    <a href={ link?.url } className="btn btn-outline-dark" target="_blank">
+    <a href={ url } className="btn btn-outline-dark" target="_blank">
       More Information
       <span className="sr-only">More information about { text } </span></a>
     </div>

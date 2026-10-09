@@ -5,7 +5,8 @@ import {
   InternalAttrs,
   type Element,
   type Module,
-  type OnOff
+  type OnOff,
+  type Icon
 } from '@divi/types';
 
 export interface ModuleCssAttr extends Module.Css.AttributeValue {
@@ -50,11 +51,7 @@ export interface ModuleAttrs extends InternalAttrs {
 
   title?: {
     innerContent?: FormatBreakpointStateAttr<string>;
-    advanced?: FormatBreakpointStateAttr<{
-      align?: 'left' | 'center' | 'right';
-      size?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
-      color?: string;
-    }>;
+    decoration?: Element.Decoration.PickedAttributes<'font'>;
   };
 
   content?: {
@@ -69,10 +66,7 @@ export interface ModuleAttrs extends InternalAttrs {
   };
 
   icon?: {
-    innerContent?: FormatBreakpointStateAttr<string>;
-    advanced?: FormatBreakpointStateAttr<{
-      show?: OnOff;
-    }>;
+    innerContent?: Icon.Font.Attributes;
   };
 }
 

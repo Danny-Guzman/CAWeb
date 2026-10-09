@@ -34,6 +34,7 @@ class CAWeb_Module_Fullwidth_Section_Carousel_Slide extends CAWeb_Module_Section
 	public function init() {
 		$this->name      = esc_html__( 'Fullwidth Carousel Slide', 'et_builder' );
 		$this->fullwidth = true;
+		parent::init();
 	}
 }
 new CAWeb_Module_Fullwidth_Section_Carousel_Slide();

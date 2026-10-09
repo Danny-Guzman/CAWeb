@@ -16,6 +16,7 @@ use ET\Builder\FrontEnd\Module\Style;
 use ET\Builder\Packages\Module\Layout\Components\StyleCommon\CommonStyle;
 use ET\Builder\Packages\Module\Options\Css\CssStyle;
 use ET\Builder\Packages\Module\Options\Text\TextStyle;
+use ET\Builder\Packages\ModuleUtils\ModuleUtils;
 
 trait ModuleStylesTrait {
 
@@ -52,6 +53,14 @@ trait ModuleStylesTrait {
 		$default_printed_style_attrs = $args['defaultPrintedStyleAttrs'] ?? [];
 		$order_class                 = $args['orderClass'] ?? '';
 
+		$layout = ModuleUtils::get_attr_value(
+			array(
+				'attr' => $attrs['layout']['innerContent'],
+				'breakpoint' => 'desktop',
+				'state' => 'value',
+			)
+		);
+
 		Style::add(
 			[
 				'id'            => $args['id'],
@@ -67,6 +76,25 @@ trait ModuleStylesTrait {
 								'disabledOn'               => [
 									'disabledModuleVisibility' => $settings['disabledModuleVisibility'] ?? null,
 								],
+							],
+						]
+					),
+
+					$elements->style(
+						[
+							'attrName'   => 'title',
+							'styleProps' => [
+								'attrsFilter' => function($attrs) use ($layout) {
+									// color is only applied if layout is 'none'
+									if ( 'none' !== $layout ) {
+										unset($attrs['font']['font']['desktop']['value']['color']);
+									}
+										
+									// we remove the textAlign as that's handled as a classname and doesn't need to be included in the style props.
+									unset($attrs['font']['font']['desktop']['value']['textAlign']);
+									
+									return $attrs;
+								}
 							],
 						]
 					),

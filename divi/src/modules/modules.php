@@ -24,6 +24,7 @@ use CAWeb\Modules\SectionFooterGroup\SectionFooterGroup;
 use CAWeb\Modules\SectionCarousel\SectionCarousel;
 use CAWeb\Modules\SectionCarouselSlide\SectionCarouselSlide;
 use CAWeb\Modules\PostList\PostList;
+use CAWeb\Modules\PostDetail\PostDetail;
 
 // Fullwidth modules
 use CAWeb\Modules\FullwidthSectionPrimary\FullwidthSectionPrimary;
@@ -51,6 +52,7 @@ add_action(
 		$dependency_tree->add_dependency( new SectionCarousel() );
 		$dependency_tree->add_dependency( new SectionCarouselSlide() );
 		$dependency_tree->add_dependency( new PostList() );
+		$dependency_tree->add_dependency( new PostDetail() );
 
 		// Add Fullwidth Modules
 		$dependency_tree->add_dependency( new FullwidthSectionPrimary() );

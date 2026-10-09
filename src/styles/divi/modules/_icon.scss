@@ -1,8 +1,13 @@
+// CAWeb Icon font-family override for icons in Divi modules.
 #et-main-area div.et_pb_module span.et-pb-icon{
-	font-family: 'CaGov', 'FontAwesome' !important;
+	font-family: 'CaGov', 'ETModules', 'FontAwesome' !important;
+
+	&.ca-gov-icon-{
+		font-size: inherit;
+	}
 }
 
 // Visual Builder override
 .et-db #et-boc .et-l span.et-pb-icon{
-	font-family: 'CaGov', 'FontAwesome' !important;
+	font-family: 'CaGov', 'ETModules', 'FontAwesome' !important;
 }

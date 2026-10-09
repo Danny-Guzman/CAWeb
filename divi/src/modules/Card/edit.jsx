@@ -5,6 +5,7 @@ import React, { ReactElement } from 'react';
 import {
   ModuleContainer,
 } from '@divi/module';
+
 import {
   getAttrByMode,
 } from '@divi/module-utils';
@@ -14,8 +15,6 @@ import { ModuleStyles } from './styles.jsx';
 import { moduleClassnames } from './module-classnames.js';
 import { ModuleScriptData } from './module-script-data.jsx';
 import { CardModuleEditProps } from './types.ts';
-
-import { get_icon_span, get_google_map_place_link } from '../Utils/index.js';
 
 /**
  * Divi 5 Module edit component of visual builder.
@@ -40,8 +39,6 @@ const ModuleEdit = ({
 
   let { 
     show: showHeader,
-    color: headerColor,
-    size: HeaderSize, 
   } = getAttrByMode(attrs?.title?.advanced);
 
   let {
@@ -53,17 +50,8 @@ const ModuleEdit = ({
   } = getAttrByMode(attrs?.button?.innerContent);
   let buttonClass = 'light';
 
-  let header = getAttrByMode(attrs?.title?.innerContent);
-  let headerStyle = {};
-  if( headerColor ){
-      headerStyle = Object.assign( headerStyle, {color:headerColor} );
-  }
-
-  let content = getAttrByMode(attrs?.content?.innerContent);
-
   let { 
     show: showFooter,
-    color: footerColor,
   } = getAttrByMode(attrs?.footer?.advanced);
 
   switch( layout ) {
@@ -79,6 +67,8 @@ const ModuleEdit = ({
 
   }
 
+  let buttonComponent = 'on' === showButton ? `<a href="${ buttonUrl }" class="btn btn-${buttonClass}" target="_blank">${buttonText}</a>` : '';
+  
   return (
     <ModuleContainer
       attrs={attrs}
@@ -99,11 +89,30 @@ const ModuleEdit = ({
           <img src={imgSrc} className="card-img-top img-responsive" /> : null
       }
       {
-        'on' === showHeader ? <div className="card-header"><HeaderSize className="card-title pb-0 mb-0 border-bottom-0" style={headerStyle}>{header}</HeaderSize></div> : null
+        'on' === showHeader ? <div className="card-header">
+          {
+            elements.render({
+              attrName: 'title',
+              className: [
+                'pb-0',
+                'mb-0',
+                'border-bottom-0',
+              ]
+            })
+          }
+          </div> : null
       }
-      <div className='card-body' dangerouslySetInnerHTML={{__html: content + ('on' === showButton ? `<a href="${buttonUrl}" class="btn btn-${buttonClass}" target="_blank">${buttonText}</a>` : '')}}></div>
       {
-        'on' === showFooter ? <div className="card-footer" style={{color:footerColor}}>{getAttrByMode(attrs?.footer?.innerContent)}</div> : null
+        elements.render({
+          attrName: 'content',
+          valueResolver: value => [value, buttonComponent]
+        })
+      }
+      {
+        'on' === showFooter ? 
+          elements.render({
+            attrName: 'footer',
+          }) : null
       }
     </ModuleContainer>
   );

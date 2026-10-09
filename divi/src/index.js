@@ -1,7 +1,8 @@
 
-import { addAction } from '@wordpress/hooks';
+import { addAction, addFilter } from '@wordpress/hooks';
 
-import { registerModule, getPossibleModuleConversionOutline } from '@divi/module-library';
+import { registerModule } from '@divi/module-library';
+import { select } from '@divi/data';
 
 /**
  * Internal dependencies
@@ -21,6 +22,7 @@ import { CAWebModuleSectionFooterGroup, CAWebModuleSectionFooterGroupMetadata } 
 import { CAWebModuleSectionCarousel, CAWebModuleSectionCarouselMetadata } from './modules/SectionCarousel/index.js';
 import { CAWebModuleSectionCarouselSlide, CAWebModuleSectionCarouselSlideMetadata } from './modules/SectionCarouselSlide/index.js';
 import { CAWebModulePostList, CAWebModulePostListMetadata } from './modules/PostList/index.js';
+import { CAWebModulePostDetail, CAWebModulePostDetailMetadata } from './modules/PostDetail/index.js';
 
 //fullwidth modules
 import { CAWebModuleFullwidthSectionPrimary, CAWebModuleFullwidthSectionPrimaryMetadata } from './modules/FullwidthSectionPrimary/index.js';
@@ -34,7 +36,7 @@ import { CAWebModuleFullwidthServiceTilesItem, CAWebModuleFullwidthServiceTilesI
 
 //
 // import icon-library integration
-// import './icons';
+import './icons.js';
 
 // Register modules.
 addAction('divi.moduleLibrary.registerModuleLibraryStore.after', 'cawebDiviExtension', () => {
@@ -50,6 +52,7 @@ addAction('divi.moduleLibrary.registerModuleLibraryStore.after', 'cawebDiviExten
   registerModule(CAWebModuleSectionCarouselMetadata, CAWebModuleSectionCarousel);
   registerModule(CAWebModuleSectionCarouselSlideMetadata, CAWebModuleSectionCarouselSlide);
   registerModule(CAWebModulePostListMetadata, CAWebModulePostList);
+  registerModule(CAWebModulePostDetailMetadata, CAWebModulePostDetail);
   
   // Fullwidth modules
   registerModule(CAWebModuleFullwidthSectionPrimaryMetadata, CAWebModuleFullwidthSectionPrimary);
@@ -60,4 +63,16 @@ addAction('divi.moduleLibrary.registerModuleLibraryStore.after', 'cawebDiviExten
   registerModule(CAWebModuleFullwidthSectionCarouselSlideMetadata, CAWebModuleFullwidthSectionCarouselSlide);
   registerModule(CAWebModuleFullwidthServiceTilesMetadata, CAWebModuleFullwidthServiceTiles);
   registerModule(CAWebModuleFullwidthServiceTilesItemMetadata, CAWebModuleFullwidthServiceTilesItem);
+});
+
+
+// Post Only Module
+addFilter('divi.modalLibrary.addModule.moduleList', 'cawebDiviExtension', (moduleList) => {
+  const postType = select('divi/settings').getSetting(['post', 'type']);
+
+  if( 'post' !== postType ) {
+    delete moduleList['caweb/post-detail']
+  }
+
+  return moduleList;
 });

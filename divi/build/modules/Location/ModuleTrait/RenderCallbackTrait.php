@@ -18,6 +18,7 @@ use ET\Builder\Packages\Module\Module;
 use ET\Builder\Packages\ModuleUtils\ModuleUtils;
 use ET\Builder\Framework\Utility\HTMLUtility;
 use ET\Builder\Packages\Module\Layout\Components\ModuleElements\ModuleElements;
+use ET\Builder\Packages\IconLibrary\IconFont\Utils;
 
 trait RenderCallbackTrait {
 	
@@ -242,14 +243,17 @@ trait RenderCallbackTrait {
 		$addressMapLink = self::render_address_map_link( $address );
 		
 		// If displaying an icon
-		// $displayIcon   = 'on' === icon?.show ? <div className="thumbnail">{get_icon_span(icon?.icon)}</div> : <></>;
+		$displayIcon   = 'on' === $icon['show'] ? sprintf('<div class="thumbnail"><span class="et-pb-icon ca-gov-icon-">%1$s</span></div>', Utils::process_font_icon( $icon )) : '';
 
 		// we wrap the name in a link if a link url is provided
 		$nameElement = ! empty( $link['name'] )  ?
-			! empty( $link['url'] ) ?
-			sprintf('<a href="%1$s" target="_blank">%2$s</a>', $link['url'], $link['name'])
-			:
-			$elements->render(array('attrName' => 'name'))
+			(
+				! empty( $link['url'] ) 
+				?
+				sprintf('<a href="%1$s" target="_blank">%2$s</a>', $link['url'], $link['name'])
+				:
+				$elements->render(array('attrName' => 'name'))
+			)
 			: '';
 			
 		 // we combine all contact info elements here
@@ -262,7 +266,7 @@ trait RenderCallbackTrait {
 			$addressMapLink
 		) : '';
 
-		return sprintf('%1$s',$contactInfo);
+		return sprintf('%1$s%2$s', $displayIcon, $contactInfo );
 	}
 
 	/**

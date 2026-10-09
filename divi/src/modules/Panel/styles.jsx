@@ -31,6 +31,10 @@ import { cssFields } from './custom-css.js';
   elements,
 }) => {
 
+  let { layout } = attrs || {};
+
+  layout = getAttrByMode(layout?.innerContent);
+
   return (
     <StyleContainer mode={mode} state={state} noStyleTag={noStyleTag}>
       {elements.style({
@@ -41,7 +45,23 @@ import { cssFields } from './custom-css.js';
           }
         },
       })}
-      
+      {
+        elements.style({
+          attrName: 'title',
+          styleProps: {
+            attrsFilter: (attrs) => {
+              // color is only applied if layout is 'none'
+              if( 'none' !== layout ) {
+                delete attrs?.font?.font?.desktop?.value?.color;
+              }
+
+              // we remove the textAlign as that's handled as a classname and doesn't need to be included in the style props.
+              delete attrs?.font?.font?.desktop?.value?.textAlign;
+              return attrs;
+            }
+          }
+        })
+      }
       <CssStyle
         selector={orderClass}
         attr={attrs?.css}

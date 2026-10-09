@@ -62,7 +62,6 @@ export const conversionOutline: ModuleConversionOutline = {
 
     slide_desc: 'desc.innerContent.*',
 
-    module_text_color: 'module.advanced.text.text.color',
     module_text_shadow_style: 'module.advanced.text.textShadow.*.style',
     module_text_shadow_horizontal_length: 'module.advanced.text.textShadow.*.horizontal',
     module_text_shadow_vertical_length: 'module.advanced.text.textShadow.*.vertical',

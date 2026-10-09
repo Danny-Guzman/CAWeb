@@ -36,11 +36,28 @@ define( 'CAWEB_DIVI_EXT_MODULES_JSON_PATH', CAWEB_DIVI_EXT_DIR . 'src/modules/' 
 
 /** Divi 5 Actions */
 add_action( 'divi_visual_builder_assets_before_enqueue_scripts', 'caweb_divi_extension_module_enqueue_vb_scripts' );
+add_filter('divi.conversion.moduleLibrary.conversionMap', 'changeValueExpansionFunctionMap', 20);
+
+function changeValueExpansionFunctionMap($map) {
+	// iterate all modules and their value expansion function maps
+	forEach( $map as $m => $module ){
+		// iterate over each attribute and its corresponding value expansion function
+		forEach( $module['valueExpansionFunctionMap'] as $attr => $function ){
+			// if the function is 'convertIcon' or 'convertFontIcon', replace it with our custom convert function
+			if( in_array( $function, array( 'convertIcon', 'convertFontIcon' )) ){
+				$map[$m]['valueExpansionFunctionMap'][$attr] = 'CAWeb\Modules\Utils\ValueExpansion::convertModuleIcon';
+			}
+		}
+	}
+
+    return $map;
+}
 
 /**
  * Requires Autoloader.
  */
 require CAWEB_DIVI_EXT_DIR . 'vendor/autoload.php';
+require CAWEB_DIVI_EXT_DIR . 'build/icons/icons.php';
 require CAWEB_DIVI_EXT_DIR . 'build/modules/modules.php';
 
 /**
@@ -68,6 +85,8 @@ function caweb_divi_extension_module_enqueue_vb_scripts() {
 						// 'jquery',
 						// 'react',
 						// 'react-dom',
+						// 'divi-vendor-react',
+						// 'divi-vendor-react-dom',
 						'divi-vendor-wp-hooks',
 						// 'divi-vendor-wp-data',
 						// 'divi-rest',
@@ -91,8 +110,6 @@ function caweb_divi_extension_module_enqueue_vb_scripts() {
 			]
 		);
 
-			// 'ajax_url' => admin_url('admin-ajax.php'),
-			// 'js_shortcode_nonce'    => wp_create_nonce('js_shortcode_nonce')
 		\ET\Builder\VisualBuilder\Assets\PackageBuildManager::register_package_build(
 			[
 				'name'   => 'caweb-divi-extension-modules-builder-vb-bundle-style',

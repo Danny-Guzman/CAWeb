@@ -51,6 +51,7 @@ trait RenderCallbackTrait {
 			'breakpoint' => 'desktop',
 			'state' => 'value'
 		))['show'] ?? 'off';
+
 		$image = ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['image']['innerContent'],
 			'breakpoint' => 'desktop',
@@ -58,28 +59,18 @@ trait RenderCallbackTrait {
 		))['src'] ?? '';
 
 		// Retrieve the titleAdvanced options and title attributes from the block attributes
-		$titleAdvanced = ModuleUtils::get_attr_value(array(
+		$showHeader = ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['title']['advanced'],
 			'breakpoint' => 'desktop',
 			'state' => 'value'
-		));
-		$title = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['title']['innerContent'],
-			'breakpoint' => 'desktop',
-			'state' => 'value'
-		));
+		))['show'] ?? 'off';
 
-		// Retrive content and button attributes from the block attributes
-		$content = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['content']['innerContent'],
-			'breakpoint' => 'desktop',
-			'state' => 'value'
-		));
 		$showButton = ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['button']['advanced'],
 			'breakpoint' => 'desktop',
 			'state' => 'value'
 		))['show'] ?? 'off';
+
 		$button = ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['button']['innerContent'],
 			'breakpoint' => 'desktop',
@@ -104,37 +95,40 @@ trait RenderCallbackTrait {
 			sprintf('<a href="%1$s" class="btn btn-%2$s">%3$s</a>', esc_url( $button['linkUrl'] ), esc_attr( $buttonClass ), esc_html( $button['text'] )) : '';
 		
 		// Create the content element if content is not empty
-		$content = sprintf('<div class="card-body">%1$s%2$s</div>', $content, $buttonElement );
+		$content = $elements->render(array(
+			'attrName' => 'content',
+			'valueResolver' => function( $value ) use ( $buttonElement ) {
+				return "{$value}{$buttonElement}";
+			}
+		));
 
 		// Retrieve the footerAdvanced options and footer attributes from the block attributes
-		$footerAdvanced = ModuleUtils::get_attr_value(array(
+		$showFooter = ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['footer']['advanced'],
 			'breakpoint' => 'desktop',
 			'state' => 'value'
-		)) ?? 'off';
-		$footer = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['footer']['innerContent'],
-			'breakpoint' => 'desktop',
-			'state' => 'value'
-		));
-
+		))['show'] ?? 'off';
+		
 		// Create the image element if showImage is 'on' and image is not empty
 		$imgElement = 'on' === $showImage && ! empty( $image ) ? sprintf('<img src="%s" class="card-image-top img-responsive" />', $image) : '';
 
 		// Create the header element if titleAdvanced show is 'on' and title is not empty
-		$headerElement = 'on' === $titleAdvanced['show'] && ! empty( $title ) ? 
-			sprintf('<%1$s class="card-header"%2$s>%3$s</%1$s>', 
-				$titleAdvanced['size'], 
-				! empty( $titleAdvanced['color'] ) ? sprintf(' style="color: %s;"', esc_attr( $titleAdvanced['color'] )) : '', 
-				$title
-			) : '';
+		$headerElement = 'on' === $showHeader ? 
+		HTMLUtility::render(array(
+			'tag' => 'div',
+			'attributes' => array(
+				'class' => 'card-header'
+			),
+			'childrenSanitizer' => [self::class, 'sanitize_html'],
+			'children' => $elements->render(array(
+				'attrName' => 'title',
+			)) 
+		)) : '';
 		
 		// Create the footer element if footerAdvanced show is 'on' and footer is not empty
-		$footerElement = 'on' === $footerAdvanced['show'] && ! empty( $footer ) ? 
-			sprintf('<div class="card-footer"%s>%s</div>', 
-				! empty( $footerAdvanced['color'] ) ? sprintf(' style="color: %s;"', esc_attr( $footerAdvanced['color'] )) : '', 
-				$footer
-			) : '';
+		$footerElement = 'on' === $showFooter ? $elements->render(array(
+				'attrName' => 'footer'
+			)) : '';
 		
 		$inner_content = array(
 			$imgElement,

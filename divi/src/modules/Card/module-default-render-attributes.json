@@ -7,6 +7,13 @@
         }
     },
     "image":{
+        "innerContent": {
+            "desktop": {
+                "value": {
+                    "src": ""
+                }
+            }
+        },
         "advanced": {
             "desktop": {
                 "value": {
@@ -19,13 +26,39 @@
         "advanced": {
             "desktop": {
                 "value": {
-                    "show": "off",
-                    "size": "h4"
+                    "show": "off"
+                }
+            }
+        },
+        "decoration":{
+            "font": {
+                "font": {
+                    "desktop": {
+                        "value": {
+                            "headingLevel": "h4",
+                            "color": ""
+                        }
+                    }
                 }
             }
         }
     },
+    "content": {
+        "innerContent": {
+            "desktop": {
+                "value": ""
+            }
+        }
+    },
     "button": {
+        "innerContent": {
+            "desktop": {
+                "value": {
+                    "linkUrl": "#",
+                    "text": ""
+                }
+            }
+        },
         "advanced": {
             "desktop": {
                 "value": {
@@ -39,6 +72,17 @@
             "desktop": {
                 "value": {
                     "show": "off"
+                }
+            }
+        },
+        "decoration":{
+            "font": {
+                "font": {
+                    "desktop": {
+                        "value": {
+                            "color": ""
+                        }
+                    }
                 }
             }
         }

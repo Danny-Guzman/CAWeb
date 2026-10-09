@@ -62,8 +62,6 @@ trait RenderCallbackTrait {
 			'state' => 'value',
 		))['show'];
 
-		update_site_option('dev', $linkUrl);
-
 		// Use the BlockParserStore to determine if this is the first slide.
 		$isFirst = BlockParserStore::is_first($block->parsed_block['id']);
 

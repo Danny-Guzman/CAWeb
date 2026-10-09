@@ -70,7 +70,6 @@
               "name": "divi/select",
               "type": "field",
               "props": {
-                "defaultValue": "contact",
                 "options": {
                   "contact": {
                     "label": "Contact",
@@ -310,10 +309,7 @@
               },
               "component": {
                 "name": "divi/toggle",
-                "type": "field",
-                "props":{
-                  "defaultValue": "off"
-                }
+                "type": "field"
               }
             },
             
@@ -384,10 +380,7 @@
               },
               "component": {
                 "name": "divi/toggle",
-                "type": "field",
-                "props":{
-                  "defaultValue": "off"
-                }
+                "type": "field"
               }
             },
             
@@ -403,10 +396,7 @@
               },
               "component": {
                 "name": "divi/text",
-                "type": "field",
-                "props": {
-                  "defaultValue": "#"
-                }
+                "type": "field"
               }
             }
           }
@@ -435,10 +425,7 @@
               },
               "component": {
                 "name": "divi/toggle",
-                "type": "field",
-                "props":{
-                  "defaultValue": "off"
-                }
+                "type": "field"
               }
             },
             

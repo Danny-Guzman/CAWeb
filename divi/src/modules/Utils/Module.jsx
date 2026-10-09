@@ -8,6 +8,8 @@ import { useFetch } from '@divi/rest';
 // WordPress Dependencies.
 import { addQueryArgs } from '@wordpress/url';
 
+const caweb_google_maps_embed_api_key = 'AIzaSyCtq3i8ME-Ab_slI2D8te0Uh2PuAQVqZuE';
+
 /**
  * Process Divi Color Picker Value
  *
@@ -81,7 +83,7 @@ const get_google_map_place_link = (address, embed = false, target = '_blank', cl
     }
 
     if( embed ){
-        let map_url = `https://www.google.com/maps/embed/v1/place?q=${addr}&zoom=10&key=key`;
+        let map_url = `https://www.google.com/maps/embed/v1/place?q=${addr}&zoom=10&key=${caweb_google_maps_embed_api_key}`;
     
         return(<iframe title={`IFrame for Address ${addr}`} src={map_url}></iframe>);
     } else {

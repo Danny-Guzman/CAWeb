@@ -46,9 +46,6 @@ export interface ModuleAttrs extends InternalAttrs {
   // Fields
   layout?: {
     innerContent?: FormatBreakpointStateAttr<string>;
-    advanced?: FormatBreakpointStateAttr<{
-      color?: string;
-    }>;
   };
 
   image?: {
@@ -61,14 +58,14 @@ export interface ModuleAttrs extends InternalAttrs {
   title?: {
     innerContent?: FormatBreakpointStateAttr<string>;
     advanced?: FormatBreakpointStateAttr<{
-      show?: OnOff;
-      color?: string;
-      size?: string;
+      show?: OnOff
     }>;
+    decoration?: Element.Decoration.PickedAttributes<'font'>;
   };
 
   content?: {
     innerContent?: FormatBreakpointStateAttr<string>;
+    decoration?: Element.Decoration.PickedAttributes<'background'>;
   };
 
   button?: {
@@ -82,8 +79,8 @@ export interface ModuleAttrs extends InternalAttrs {
     innerContent?: FormatBreakpointStateAttr<string>;
     advanced?: FormatBreakpointStateAttr<{
       show?: OnOff;
-      color?: string;
     }>;
+    decoration?: Element.Decoration.PickedAttributes<'font'>;
   }
 }
 

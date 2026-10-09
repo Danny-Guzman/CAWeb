@@ -19,6 +19,8 @@ use ET\Builder\Packages\ModuleUtils\ModuleUtils;
 use ET\Builder\Framework\Utility\HTMLUtility;
 use ET\Builder\Packages\Module\Layout\Components\ModuleElements\ModuleElements;
 
+use CAWeb\Modules\PostList\Views;
+
 trait RenderCallbackTrait {
 	use ModuleClassnamesTrait;
 	use ModuleStylesTrait;

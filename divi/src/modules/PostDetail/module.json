@@ -1,0 +1,1938 @@
+{
+  "name": "caweb/post-detail",
+  "d4Shortcode": "et_pb_ca_post_handler",
+  "title": "Post Detail",
+  "titles": "Post Details",
+  "moduleIcon": "caweb/module-logo",
+  "moduleClassName": "et_pb_ca_post_handler",
+  "moduleOrderClassName": "et_pb_ca_post_handler",
+  "category": "module",
+  "attributes": {
+    "module": {
+      "type": "object",
+      "selector": "{{selector}}",
+      "settings": {
+        "meta": {
+          "adminLabel": {}
+        },
+        "advanced": {
+          "link": {},
+          "text": {},
+          "htmlAttributes": {}
+        },
+        "decoration": {
+          "background": {},
+          "bodyFont": {},
+          "sizing": {},
+          "spacing": {},
+          "border": {},
+          "boxShadow": {},
+          "filters": {},
+          "transform": {},
+          "animation": {},
+          "overflow": {},
+          "disabledOn": {},
+          "transition": {},
+          "position": {},
+          "zIndex": {},
+          "scroll": {},
+          "sticky": {}
+        }
+      }
+    },
+
+    "layout": {
+      "type": "object",
+      "inlineEditor": "plainText",
+      "selector": "{{selector}}",
+      "childrenSanitizer": "et_core_esc_previously",
+      "settings": {
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+              "groupSlug": "style",
+              "render": true,
+              "attrName": "layout.innerContent",
+              "label": "Content Type",
+              "description": "This is the layout style.",
+              "features": {
+                "responsive": false,
+                "dynamicContent": false
+              },
+              "component": {
+                  "name": "divi/select",
+                  "type": "field",
+                  "props": {
+                    "options": {
+                      "course": {
+                        "label": "Courses",
+                        "value": "course"
+                      },
+                      "event": {
+                        "label": "Events",
+                        "value": "event"
+                      },
+                      "exam": {
+                        "label": "Exams",
+                        "value": "exam"
+                      },
+                      "faqs": {
+                        "label": "FAQs",
+                        "value": "faqs"
+                      },
+                      "general": {
+                        "label": "General",
+                        "value": "general"
+                      },
+                      "jobs": {
+                        "label": "Jobs",
+                        "value": "jobs"
+                      },
+                      "news": {
+                        "label": "News",
+                        "value": "news"
+                      },
+                      "profile": {
+                        "label": "Profile",
+                        "value": "profile"
+                      }
+                    }
+                  }
+              }
+            }
+        }
+      }
+    },
+
+    "image": {
+      "type": "object",
+      "elementType": "heading",
+      "selector": "{{selector}}",
+      "childrenSanitizer": "et_core_esc_previously",
+      "settings": {
+        "innerContent": {
+          "groupType": "into-multiple-groups",
+          "groups": {
+            "profile": {
+              "groupType": "group-item",
+              "item": {
+                "groupSlug": "style",
+                "render": true,
+                "attrName": "image.innerContent",
+                "label": "Display Featured Image",
+                "features": {
+                  "responsive": false
+                },
+                "component": {
+                  "name": "divi/toggle",
+                  "type": "field"
+                }
+              }
+            },
+            "profileDesign": {
+              "groupType": "group-item",
+              "item": {
+                "groupSlug": "profileDesign",
+                "render": true,
+                "attrName": "image.advanced",
+                "subName": "align",
+                "label": "Image Alignment",
+                "description": "Alignment for the featured profile image.",
+                "features": {
+                  "responsive": false
+                },
+                "component": {
+                  "name": "divi/toggle",
+                  "type": "field"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "content": {
+      "type": "object",
+      "selector": "{{selector}}",
+      "childrenSanitizer": "et_core_esc_previously",
+      "allowHtml": true,
+      "settings": {
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+            "groupSlug": "body",
+            "render": true,
+            "attrName": "content.innerContent",
+            "label": "Content",
+            "description": "Enter additional content for this item.",
+            "features": {
+              "responsive": false
+            },
+            "component": {
+              "name": "divi/richtext",
+              "type": "field"
+            }
+          }
+        }
+      }
+    },
+
+    "tags": {
+      "type": "object",
+      "elementType": "heading",
+      "selector": "{{selector}}",
+      "childrenSanitizer": "et_core_esc_previously",
+      "settings": {
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+              "groupSlug": "style",
+              "render": true,
+              "attrName": "tags.innerContent",
+              "label": "Tags",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            }
+        }
+      }
+    },
+
+    "categories": {
+      "type": "object",
+      "elementType": "heading",
+      "selector": "{{selector}}",
+      "childrenSanitizer": "et_core_esc_previously",
+      "settings": {
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+              "groupSlug": "style",
+              "render": true,
+              "attrName": "categories.innerContent",
+              "label": "Categories",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            }
+        }
+      }
+    },    
+
+    "course": {
+      "type": "object",
+      "elementType": "heading",
+      "selector": "{{selector}}",
+      "childrenSanitizer": "et_core_esc_previously",
+      "settings": {
+        "innerContent": {
+          "groupType": "group-items",
+          "items": {
+            "showPresenter": {
+              "groupSlug": "course",
+              "render": true,
+              "attrName": "course.advanced",
+              "subName": "show_presenter",
+              "label": "Presenter",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            },
+            "name": {
+              "groupSlug": "course",
+              "render": true,
+              "attrName": "course.innerContent",
+              "subName": "presenter_name",
+              "label": "Name",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "image": {
+              "groupSlug": "course",
+              "render": true,
+              "attrName": "course.innerContent",
+              "subName": "presenter_image",
+              "label": "Image",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/upload",
+                "type": "field"
+              }
+            },
+            "bio": {
+              "groupSlug": "course",
+              "render": true,
+              "attrName": "course.innerContent",
+              "subName": "presenter_bio",
+              "label": "Short Bio",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/textarea",
+                "type": "field"
+              }
+            },
+            "startDate": {
+              "groupSlug": "course",
+              "render": true,
+              "attrName": "course.innerContent",
+              "subName": "start_date",
+              "label": "Start Date",
+              "description": "Enter start date for this course item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/timepicker",
+                "type": "field"
+              }
+            },
+            "customStartDate": {
+              "groupSlug": "course",
+              "render": true,
+              "attrName": "course.advanced",
+              "subName": "start_date_custom_format",
+              "label": "Custom Date Format",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            },
+            "customStartDateCustomFormat": {
+              "groupSlug": "course",
+              "render": true,
+              "attrName": "course.innerContent",
+              "subName": "start_date_custom_format",
+              "label": "Pattern",
+              "description": "Coming Soon",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field",
+                "props": {
+                  "defaultValue": "D, n/j/Y g:i a"
+                }
+              }
+            },
+            "endDate": {
+              "groupSlug": "course",
+              "render": true,
+              "attrName": "course.innerContent",
+              "subName": "end_date",
+              "label": "End Date",
+              "description": "Enter end date for this course item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/timepicker",
+                "type": "field"
+              }
+            },
+            "customEndDate": {
+              "groupSlug": "course",
+              "render": true,
+              "attrName": "course.advanced",
+              "subName": "end_date_custom_format",
+              "label": "Custom Date Format",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            },
+            "customEndDateCustomFormat": {
+              "groupSlug": "course",
+              "render": true,
+              "attrName": "course.innerContent",
+              "subName": "end_date_custom_format",
+              "label": "Pattern",
+              "description": "Coming Soon",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field",
+                "props": {
+                  "defaultValue": "D, n/j/Y g:i a"
+                }
+              }
+            },
+            "showAddress": {
+              "groupSlug": "course",
+              "render": true,
+              "attrName": "course.advanced",
+              "subName": "show_address",
+              "label": "Course Location",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            },
+            "address": {
+              "groupSlug": "course",
+              "render": true,
+              "attrName": "course.innerContent",
+              "subName": "address",
+              "label": "Address",
+              "description": "Enter Course address for this course item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "city": {
+              "groupSlug": "course",
+              "render": true,
+              "attrName": "course.innerContent",
+              "subName": "city",
+              "label": "City",
+              "description": "Enter Course city for this course item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "state": {
+              "groupSlug": "course",
+              "render": true,
+              "attrName": "course.innerContent",
+              "subName": "state",
+              "label": "State",
+              "description": "Enter Course state for this course item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "zip": {
+              "groupSlug": "course",
+              "render": true,
+              "attrName": "course.innerContent",
+              "subName": "zip",
+              "label": "Zip",
+              "description": "Enter Course zip for this course item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "registration": {
+              "groupSlug": "course",
+              "render": true,
+              "attrName": "course.innerContent",
+              "subName": "registration_type",
+              "label": "Registration Type",
+              "description": "Enter a registration type for this course item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "cost": {
+              "groupSlug": "course",
+              "render": true,
+              "attrName": "course.innerContent",
+              "subName": "cost",
+              "label": "Cost",
+              "description": "Enter Course Cost for this course item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "showMap": {
+              "groupSlug": "course",
+              "render": true,
+              "attrName": "course.advanced",
+              "subName": "show_map",
+              "label": "Course Map",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "event": {
+      "type": "object",
+      "elementType": "heading",
+      "selector": "{{selector}}",
+      "childrenSanitizer": "et_core_esc_previously",
+      "settings": {
+        "innerContent": {
+          "groupType": "group-items",
+          "items": {
+            "organizer": {
+              "groupSlug": "event",
+              "render": true,
+              "attrName": "event.innerContent",
+              "subName": "organizer",
+              "label": "Organizer",
+              "description": "Enter the name of the organizer.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "showPresenter": {
+              "groupSlug": "event",
+              "render": true,
+              "attrName": "event.advanced",
+              "subName": "show_presenter",
+              "label": "Presenter",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            },
+            "name": {
+              "groupSlug": "event",
+              "render": true,
+              "attrName": "event.innerContent",
+              "subName": "presenter_name",
+              "label": "Name",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "image": {
+              "groupSlug": "event",
+              "render": true,
+              "attrName": "event.innerContent",
+              "subName": "presenter_image",
+              "label": "Image",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/upload",
+                "type": "field"
+              }
+            },
+            "bio": {
+              "groupSlug": "event",
+              "render": true,
+              "attrName": "event.innerContent",
+              "subName": "presenter_bio",
+              "label": "Short Bio",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/textarea",
+                "type": "field"
+              }
+            },
+            "startDate": {
+              "groupSlug": "event",
+              "render": true,
+              "attrName": "event.innerContent",
+              "subName": "start_date",
+              "label": "Start Date",
+              "description": "Enter start date for this event item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/timepicker",
+                "type": "field"
+              }
+            },
+            "customStartDate": {
+              "groupSlug": "event",
+              "render": true,
+              "attrName": "event.advanced",
+              "subName": "start_date_custom_format",
+              "label": "Custom Date Format",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            },
+            "customStartDateCustomFormat": {
+              "groupSlug": "event",
+              "render": true,
+              "attrName": "event.innerContent",
+              "subName": "start_date_custom_format",
+              "label": "Pattern",
+              "description": "Coming Soon",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field",
+                "props": {
+                  "defaultValue": "D, n/j/Y g:i a"
+                }
+              }
+            },
+            "endDate": {
+              "groupSlug": "event",
+              "render": true,
+              "attrName": "event.innerContent",
+              "subName": "end_date",
+              "label": "End Date",
+              "description": "Enter end date for this event item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/timepicker",
+                "type": "field"
+              }
+            },
+            "customEndDate": {
+              "groupSlug": "event",
+              "render": true,
+              "attrName": "event.advanced",
+              "subName": "end_date_custom_format",
+              "label": "Custom Date Format",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            },
+            "customEndDateCustomFormat": {
+              "groupSlug": "event",
+              "render": true,
+              "attrName": "event.innerContent",
+              "subName": "end_date_custom_format",
+              "label": "Pattern",
+              "description": "Coming Soon",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field",
+                "props": {
+                  "defaultValue": "D, n/j/Y g:i a"
+                }
+              }
+            },
+            "showAddress": {
+              "groupSlug": "event",
+              "render": true,
+              "attrName": "event.advanced",
+              "subName": "show_address",
+              "label": "Event Location",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            },
+            "address": {
+              "groupSlug": "event",
+              "render": true,
+              "attrName": "event.innerContent",
+              "subName": "address",
+              "label": "Address",
+              "description": "Enter Event address for this event item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "city": {
+              "groupSlug": "event",
+              "render": true,
+              "attrName": "event.innerContent",
+              "subName": "city",
+              "label": "City",
+              "description": "Enter Event city for this event item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "state": {
+              "groupSlug": "event",
+              "render": true,
+              "attrName": "event.innerContent",
+              "subName": "state",
+              "label": "State",
+              "description": "Enter Event state for this event item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "zip": {
+              "groupSlug": "event",
+              "render": true,
+              "attrName": "event.innerContent",
+              "subName": "zip",
+              "label": "Zip",
+              "description": "Enter Event zip for this event item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "registration": {
+              "groupSlug": "event",
+              "render": true,
+              "attrName": "event.innerContent",
+              "subName": "registration_type",
+              "label": "Registration Type",
+              "description": "Enter a registration type for this event item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "cost": {
+              "groupSlug": "event",
+              "render": true,
+              "attrName": "event.innerContent",
+              "subName": "cost",
+              "label": "Cost",
+              "description": "Enter Event Cost for this event item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "exam": {
+      "type": "object",
+      "elementType": "heading",
+      "selector": "{{selector}}",
+      "childrenSanitizer": "et_core_esc_previously",
+      "settings": {
+        "innerContent": {
+          "groupType": "group-items",
+          "items": {
+            "id": {
+              "groupSlug": "exam",
+              "render": true,
+              "attrName": "exam.innerContent",
+              "subName": "id",
+              "label": "Exam Code",
+              "description": "Enter an Exam Code for this exam item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "class": {
+              "groupSlug": "exam",
+              "render": true,
+              "attrName": "exam.innerContent",
+              "subName": "class",
+              "label": "Class Code",
+              "description": "Enter a Class Code for this exam item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "status": {
+              "groupSlug": "exam",
+              "render": true,
+              "attrName": "exam.innerContent",
+              "subName": "status",
+              "label": "Status",
+              "description": "Select the status for this exam item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/select",
+                "type": "field",
+                "props": {
+                  "options": {
+                    "open": {
+                      "label": "Open",
+                      "value": "open"
+                    },
+                    "closed": {
+                      "label": "Closed",
+                      "value": "closed"
+                    }
+                  }
+                }
+              }
+            },
+            "publishedDate": {
+              "groupSlug": "exam",
+              "render": true,
+              "attrName": "exam.innerContent",
+              "subName": "published_date",
+              "label": "Published Date",
+              "description": "Enter the published date for this exam item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/timepicker",
+                "type": "field"
+              }
+            },
+            "enableCustomPublishedDate": {
+              "groupSlug": "exam",
+              "render": true,
+              "attrName": "exam.advanced",
+              "subName": "published_date_custom_format",
+              "label": "Custom Date Format",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            },
+            "customPublishedDateFormat": {
+              "groupSlug": "exam",
+              "render": true,
+              "attrName": "exam.innerContent",
+              "subName": "published_date_custom_format",
+              "label": "Pattern",
+              "description": "Coming Soon",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field",
+                "props": {
+                  "defaultValue": "D, n/j/Y g:i a"
+                }
+              }
+            },
+            "dateChooser": {
+              "groupSlug": "exam",
+              "render": true,
+              "attrName": "exam.advanced",
+              "subName": "date_chooser",
+              "label": "Use Date Picker for Final Filing Date",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            },
+            "finalFilingDate": {
+              "groupSlug": "exam",
+              "render": true,
+              "attrName": "exam.innerContent",
+              "subName": "final_filing_date",
+              "label": "Final Filing Date",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "datePicker": {
+              "groupSlug": "exam",
+              "render": true,
+              "attrName": "exam.innerContent",
+              "subName": "final_filing_date_picker",
+              "label": "Final Filing Date",
+              "description": "Enter final filing date for this exam item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/timepicker",
+                "type": "field"
+              }
+            },
+            "customFilingDate": {
+              "groupSlug": "exam",
+              "render": true,
+              "attrName": "exam.advanced",
+              "subName": "final_filing_date_custom_format",
+              "label": "Custom Date Format",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            },
+            "customFilingDateCustomFormat": {
+              "groupSlug": "exam",
+              "render": true,
+              "attrName": "exam.innerContent",
+              "subName": "final_filing_date_custom_format",
+              "label": "Pattern",
+              "description": "Coming Soon",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field",
+                "props": {
+                  "defaultValue": "D, n/j/Y g:i a"
+                }
+              }
+            },
+            "type": {
+              "groupSlug": "exam",
+              "render": true,
+              "attrName": "exam.innerContent",
+              "subName": "type",
+              "label": "Exam Type",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/select",
+                "type": "field",
+                "props": {
+                  "options": {
+                    "web": {
+                      "label": "Web",
+                      "value": "web"
+                    },
+                    "location": {
+                      "label": "Location",
+                      "value": "location"
+                    }
+                  }
+                }
+              }
+            },
+            "url": {
+              "groupSlug": "exam",
+              "render": true,
+              "attrName": "exam.innerContent",
+              "subName": "url",
+              "label": "URL",
+              "description": "Enter the URL for this exam item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "address": {
+              "groupSlug": "exam",
+              "render": true,
+              "attrName": "exam.innerContent",
+              "subName": "address",
+              "label": "Address",
+              "description": "Enter Event address for this event item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "city": {
+              "groupSlug": "exam",
+              "render": true,
+              "attrName": "exam.innerContent",
+              "subName": "city",
+              "label": "City",
+              "description": "Enter Event city for this event item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "state": {
+              "groupSlug": "exam",
+              "render": true,
+              "attrName": "exam.innerContent",
+              "subName": "state",
+              "label": "State",
+              "description": "Enter Event state for this event item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "zip": {
+              "groupSlug": "exam",
+              "render": true,
+              "attrName": "exam.innerContent",
+              "subName": "zip",
+              "label": "Zip",
+              "description": "Enter Event zip for this event item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "jobs": {
+      "type": "object",
+      "elementType": "heading",
+      "selector": "{{selector}}",
+      "childrenSanitizer": "et_core_esc_previously",
+      "settings": {
+        "innerContent": {
+          "groupType": "group-items",
+          "items": {
+            "showAgency": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.advanced",
+              "subName": "show_about_agency",
+              "label": "Agency",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            },
+            "name": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.innerContent",
+              "subName": "agency_name",
+              "label": "Agency Name",
+              "description": "Enter the name of the agency for this job item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "address": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.innerContent",
+              "subName": "agency_address",
+              "label": "Address",
+              "description": "Enter the address of the agency for this job item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "city": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.innerContent",
+              "subName": "city",
+              "label": "City",
+              "description": "Enter the city of the agency for this job item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "state": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.innerContent",
+              "subName": "state",
+              "label": "State",
+              "description": "Enter the state of the agency for this job item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "zip": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.innerContent",
+              "subName": "zip",
+              "label": "Zip",
+              "description": "Enter the zip code of the agency for this job item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "about": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.innerContent",
+              "subName": "agency_about",
+              "label": "About Agency",
+              "description": "Enter information about the Agency for this job item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/textarea",
+                "type": "field"
+              }
+            },
+            "hours": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.innerContent",
+              "subName": "hours",
+              "label": "Job Hours",
+              "description": "Enter the hours for this job item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "showSalary": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.advanced",
+              "subName": "show_salary",
+              "label": "Salary",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            },
+            "minSalary": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.innerContent",
+              "subName": "salary_min",
+              "label": "Minimum Salary",
+              "description": "Enter the minimum salary for this job item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "maxSalary": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.innerContent",
+              "subName": "salary_max",
+              "label": "Maximum Salary",
+              "description": "Enter the maximum salary for this job item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "postedDate": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.innerContent",
+              "subName": "posted_date",
+              "label": "Date Posted",
+              "description": "Enter the posted date for this job item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/timepicker",
+                "type": "field"
+              }
+            },
+            "customPostedDate": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.advanced",
+              "subName": "posted_date_custom_format",
+              "label": "Custom Date Format",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            },
+            "customPostedDateCustomFormat": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.innerContent",
+              "subName": "posted_date_custom_format",
+              "label": "Pattern",
+              "description": "Coming Soon",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "position": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.innerContent",
+              "subName": "position_number",
+              "label": "Position Number",
+              "description": "Enter the position number for this job item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "rpa": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.innerContent",
+              "subName": "rpa_number",
+              "label": "RPA Number",
+              "description": "Enter the RPA number for this job item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "ds": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.innerContent",
+              "subName": "ds_url",
+              "label": "Duty Statement (URL)",
+              "description": "Enter the URL for the duty statement for this job item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "dateChooser": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.advanced",
+              "subName": "final_filing_date_chooser",
+              "label": "Use Date Picker for Final Filing Date",
+              "description": "Toggle to use a date picker for the final filing date for this job item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            },
+            "finalFilingDate": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.innerContent",
+              "subName": "final_filing_date",
+              "label": "Final Filing Date",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "finalFilingDatePicker": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.innerContent",
+              "subName": "final_filing_date_picker",
+              "label": "Final Filing Date",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/timepicker",
+                "type": "field"
+              }
+            },
+            "customFinalFilingDate": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.advanced",
+              "subName": "final_filing_date_custom_format",
+              "label": "Custom Date Format",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            },
+            "customFinalFilingDateCustomFormat": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.innerContent",
+              "subName": "final_filing_date_custom_format",
+              "label": "Pattern",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "showApply": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.advanced",
+              "subName": "show_apply_to",
+              "label": "Apply to",
+              "description": "Toggle to show the apply section for this job item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            },
+            "applyToDept": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.innerContent",
+              "subName": "apply_to_dept",
+              "label": "Department",
+              "description": "Enter the department for this job item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "applyToName": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.innerContent",
+              "subName": "apply_to_name",
+              "label": "Contact Name",
+              "description": "Enter the contact name for this job item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "applyToAddr": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.innerContent",
+              "subName": "apply_to_address",
+              "label": "Address",
+              "description": "Enter the address for this job item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "applyToCity": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.innerContent",
+              "subName": "apply_to_city",
+              "label": "City",
+              "description": "Enter the city for this job item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "applyToState": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.innerContent",
+              "subName": "apply_to_state",
+              "label": "State",
+              "description": "Enter the state for this job item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "applyToZip": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.innerContent",
+              "subName": "apply_to_zip",
+              "label": "Zip",
+              "description": "Enter the zip code for this job item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "showQuestions": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.advanced",
+              "subName": "show_questions",
+              "label": "Questions",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            },
+            "questionName": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.innerContent",
+              "subName": "questions_name",
+              "label": "Name",
+              "description": "Enter the name for this job item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "phone": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.innerContent",
+              "subName": "questions_phone",
+              "label": "Phone Number",
+              "description": "Enter the phone number for this job item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "email": {
+              "groupSlug": "jobs",
+              "render": true,
+              "attrName": "jobs.innerContent",
+              "subName": "questions_email",
+              "label": "Email",
+              "description": "Enter the email for this job item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "news": {
+      "type": "object",
+      "elementType": "heading",
+      "selector": "{{selector}}",
+      "childrenSanitizer": "et_core_esc_previously",
+      "settings": {
+        "innerContent": {
+          "groupType": "group-items",
+          "items": {
+            "author": {
+              "groupSlug": "news",
+              "render": true,
+              "attrName": "news.innerContent",
+              "subName": "author",
+              "label": "Author",
+              "description": "Enter an Author for this news item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "publishDate": {
+              "groupSlug": "news",
+              "render": true,
+              "attrName": "news.innerContent",
+              "subName": "publish_date",
+              "label": "Publish Date",
+              "description": "Enter the publish date for this news item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/timepicker",
+                "type": "field"
+              }
+            },
+            "customFormat": {
+              "groupSlug": "news",
+              "render": true,
+              "attrName": "news.advanced",
+              "subName": "custom_format",
+              "label": "Custom Date Format",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            },
+            "customPublishDateCustomFormat": {
+              "groupSlug": "news",
+              "render": true,
+              "attrName": "news.innerContent",
+              "subName": "publish_date_custom_format",
+              "label": "Pattern",
+              "description": "Coming Soon",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field",
+                "props": {
+                  "defaultValue": "D, n/j/Y g:i a"
+                }
+              }
+            },
+            "location": {
+              "groupSlug": "news",
+              "render": true,
+              "attrName": "news.innerContent",
+              "subName": "location",
+              "label": "Location",
+              "description": "Enter location for this news item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "profile": {
+      "type": "object",
+      "elementType": "heading",
+      "selector": "{{selector}}",
+      "childrenSanitizer": "et_core_esc_previously",
+      "settings": {
+        "innerContent": {
+          "groupType": "group-items",
+          "items": {
+            "prefix": {
+              "groupSlug": "profile",
+              "render": true,
+              "attrName": "profile.innerContent",
+              "subName": "prefix",
+              "label": "Name Prefix",
+              "description": "Enter a prefix for this profile item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "name": {
+              "groupSlug": "profile",
+              "render": true,
+              "attrName": "profile.innerContent",
+              "subName": "name",
+              "label": "Name",
+              "description": "Enter the name for this profile item.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "career": {
+              "groupSlug": "profile",
+              "render": true,
+              "attrName": "profile.advanced",
+              "subName": "career",
+              "label": "Career",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            },
+            "title": {
+              "groupSlug": "profile",
+              "render": true,
+              "attrName": "profile.innerContent",
+              "subName": "career_title",
+              "label": "Title",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "position": {
+              "groupSlug": "profile",
+              "render": true,
+              "attrName": "profile.innerContent",
+              "subName": "career_position",
+              "label": "Position",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "addtlFields": {
+              "groupSlug": "profile",
+              "render": true,
+              "attrName": "profile.advanced",
+              "subName": "additional_fields",
+              "label": "Additional List Fields",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            },
+            "line1": {
+              "groupSlug": "profile",
+              "render": true,
+              "attrName": "profile.innerContent",
+              "subName": "career_line_1",
+              "label": "Line 1",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "line2": {
+              "groupSlug": "profile",
+              "render": true,
+              "attrName": "profile.innerContent",
+              "subName": "career_line_2",
+              "label": "Line 2",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "line3": {
+              "groupSlug": "profile",
+              "render": true,
+              "attrName": "profile.innerContent",
+              "subName": "career_line_3",
+              "label": "Line 3",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "settings": {
+    "advanced": "auto",
+    "groups": {
+      "style": {
+        "panel": "content",
+        "priority": 1,
+        "groupName": "style",
+        "multiElements": true,
+        "component": {
+            "name": "divi/composite",
+            "props": {
+              "groupLabel": "Style"
+            }
+          }
+      },
+      "body": {
+        "panel": "content",
+        "priority": 2,
+        "groupName": "body",
+        "multiElements": true,
+        "component": {
+          "name": "divi/composite",
+          "props": {
+            "groupLabel": "Body"
+          }
+        }
+      },
+      "course": {
+        "panel": "content",
+        "priority": 3,
+        "groupName": "course",
+        "multiElements": true,
+        "component": {
+          "name": "divi/composite",
+          "props": {
+            "groupLabel": "Course"
+          }
+        }
+      },
+      "event": {
+        "panel": "content",
+        "priority": 4,
+        "groupName": "event",
+        "multiElements": true,
+        "component": {
+          "name": "divi/composite",
+          "props": {
+            "groupLabel": "Event"
+          }
+        }
+      },
+      "exam": {
+        "panel": "content",
+        "priority": 5,
+        "groupName": "exam",
+        "multiElements": true,
+        "component": {
+          "name": "divi/composite",
+          "props": {
+            "groupLabel": "Exam"
+          }
+        }
+      },
+      "jobs": {
+        "panel": "content",
+        "priority": 6,
+        "groupName": "jobs",
+        "multiElements": true,
+        "component": {
+          "name": "divi/composite",
+          "props": {
+            "groupLabel": "Jobs"
+          }
+        }
+      },
+      "news": {
+        "panel": "content",
+        "priority": 7,
+        "groupName": "news",
+        "multiElements": true,
+        "component": {
+          "name": "divi/composite",
+          "props": {
+            "groupLabel": "News"
+          }
+        }
+      },
+      "profile": {
+        "panel": "content",
+        "priority": 8,
+        "groupName": "profile",
+        "multiElements": true,
+        "component": {
+          "name": "divi/composite",
+          "props": {
+            "groupLabel": "Profile"
+          }
+        }
+      },
+      "profileDesign": {
+        "panel": "design",
+        "priority": 1,
+        "groupName": "profile",
+        "multiElements": true,
+        "component": {
+          "name": "divi/composite",
+          "props": {
+            "groupLabel": "Profile"
+          }
+        }
+      }
+    }
+  }
+}
+    

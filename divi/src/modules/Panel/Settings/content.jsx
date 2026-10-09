@@ -24,7 +24,7 @@ export const SettingsContent = ({
     button,
   } = attrs || {};
   let { show: showButton } = (button && getAttrByMode(button?.advanced)) || getAttrByMode(defaultSettingsAttrs?.button?.advanced);
-  
+
   // Toggle Button field visibility based on if show button is on
   set(groupConfiguration, ['header', 'component', 'props', 'fields', 'text', 'render'], 'off' !== showButton );
   set(groupConfiguration, ['header', 'component', 'props', 'fields', 'url', 'render'], 'off' !== showButton );
