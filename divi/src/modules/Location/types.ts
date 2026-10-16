@@ -11,29 +11,6 @@ import {
 
 export interface ModuleCssAttr extends Module.Css.AttributeValue {
 }
-export type addressProps = {
-        addr?:string, 
-        city?:string
-        state?:string
-        zip?:string
-      };
-
-export type contactProps = {
-        show?: OnOff;
-        phone?:string, 
-        fax?:string
-      }
-
-export type iconProps = {
-        icon?:string, 
-        show?: OnOff;
-      }
-
-export type linkProps = {
-        text?:string, 
-        url?:string
-        show?: OnOff;
-      }
       
 export type ModuleCssGroupAttr = FormatBreakpointStateAttr<ModuleCssAttr>;
 
@@ -81,15 +58,28 @@ export interface ModuleAttrs extends InternalAttrs {
   };
 
   address?: {
-      innerContent?: FormatBreakpointStateAttr<addressProps>;
+      innerContent?: FormatBreakpointStateAttr<{
+        addr?:string, 
+        city?:string
+        state?:string
+        zip?:string
+      }>;
   };
 
   contact?: {
-      innerContent?: FormatBreakpointStateAttr<contactProps>;
+      innerContent?: FormatBreakpointStateAttr<{
+        show?: OnOff;
+        phone?:string, 
+        fax?:string
+      }>;
   };
 
   link?: {
-      innerContent?: FormatBreakpointStateAttr<linkProps>;
+      innerContent?: FormatBreakpointStateAttr<{
+        text?:string, 
+        url?:string
+        show?: OnOff;
+      }>;
   };
 
   icon?: {

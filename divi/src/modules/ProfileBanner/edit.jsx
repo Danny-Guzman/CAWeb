@@ -26,13 +26,12 @@ import { ModuleScriptData } from './module-script-data.jsx';
  *
  * @returns {ReactElement}
  */
-const ModuleEdit = (props) => {
-  const {
+const ModuleEdit = ({
     attrs,
     id,
     name,
     elements,
-  } = props;
+  }) => {
 
   let profile = getAttrByMode(attrs?.profile?.innerContent);
   let portrait = getAttrByMode(attrs?.portrait?.advanced);
@@ -43,6 +42,7 @@ const ModuleEdit = (props) => {
       elements={elements}
       id={id}
       name={name}
+      tag="figure"
       stylesComponent={ModuleStyles}
       classnamesFunction={moduleClassnames}
       scriptDataComponent={ModuleScriptData}
@@ -52,37 +52,35 @@ const ModuleEdit = (props) => {
           attrName: 'module',
         })
       }
-      <figure className={`executive-profile${ ("on" === portrait?.vertical ? ' vertical' : '') }`}>
-        {
+      {
           elements.render({
             attrName: 'portrait',
             attrSubName: 'src',
             className: `${("on" === portrait?.rounded ? 'rounded-circle' : '')}` // rounded image
           })
-          }
+        }
         <div className="body">
           {
-          elements.render({
-            attrName: 'name',
-          })
+            elements.render({
+              attrName: 'name',
+            })
           }
           {
-          elements.render({
-            attrName: 'job',
-          })
+            elements.render({
+              attrName: 'job',
+            })
           }
           {
-          profile?.text && profile?.url ? 
-          elements.render({
-            attrName: 'profile',
-            attrSubName: 'text',
-            htmlAttributes: {
-              href: profile?.url,
-            }
-          }) : ''
+          profile?.text && profile?.linkUrl ? 
+            elements.render({
+              attrName: 'profile',
+              attrSubName: 'text',
+              htmlAttributes: {
+                href: profile?.linkUrl,
+              }
+            }) : ''
           } 
         </div>
-      </figure>
     </ModuleContainer>
   );
 }

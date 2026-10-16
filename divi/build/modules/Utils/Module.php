@@ -4,6 +4,7 @@ namespace CAWeb\Modules\Utils;
 use CAWeb\Modules\Utils\DepInterface;
 
 use ET\Builder\Framework\Utility\HTMLUtility;
+use ET\Builder\Packages\IconLibrary\IconFont\Utils;
 
 use DOMDocument;
 
@@ -104,7 +105,20 @@ abstract class Module implements DepInterface {
 		$styles = is_array( $styles ) ? implode( ';', $styles ) : $styles;
 		$styles = ! empty( $styles ) ? " style=\"$styles\"" : '';
 
-		return sprintf( '<span class="ca-gov-icon-%1$s%2$s"%3$s></span>', $icon, $classes, $styles );
+		if( is_string( $icon ) ){
+	        // return a simple span with the icon class
+			return sprintf( '<span class="ca-gov-icon-%1$s%2$s"%3$s></span>', $icon, $classes, $styles );
+		} elseif( is_array($icon) ) {
+        	// we process the icon object using Divi
+			return HTMLUtility::render(array(
+				'tag' => 'span',
+				'attributes' => array(
+					'class' => array( 'et-pb-icon', 'ca-gov-icon-'),
+				),
+				'childrenSanitizer' => [self::class, 'sanitize_html'],
+				'children' => Utils::process_font_icon( $icon )
+			));
+		}
 	}
 
 	/**

@@ -5,11 +5,15 @@
                 "value": "Group Title"
             }
         },
-        "advanced": {
-            "desktop": {
-                "value": {
-                    "size": "h4",
-                    "color": ""
+        "decoration": {
+            "font" : {
+                "font": {
+                    "desktop": {
+                        "value": {
+                            "headingLevel": "h4",
+                            "color": ""
+                        }
+                    }
                 }
             }
         }
@@ -18,8 +22,18 @@
         "advanced": {
             "desktop": {
                 "value": {
-                    "color": "",
                     "displayLink": "off"
+                }
+            }
+        },
+        "decoration": {
+            "font": {
+                "font": {
+                    "desktop": {
+                        "value": {
+                            "color": ""
+                        }
+                    }
                 }
             }
         }
@@ -43,13 +57,6 @@
     },
     "icon": {
         "innerContent": {
-            "desktop": {
-                "value": {
-                    "icon": ""
-                }
-            }
-        },
-        "advanced": {
             "desktop": {
                 "value": {
                     "show": "off"

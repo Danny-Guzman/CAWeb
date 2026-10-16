@@ -12,7 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( 'Direct access forbidden.' );
 }
 use CAWeb\Modules\Utils\Module as CAWebModule;
-use CAWeb\Modules\FullwidthPanel\ModuleTrait;
+
+// we use the standard modules traits
+use CAWeb\Modules\Panel\ModuleTrait;
 
 use ET\Builder\Packages\ModuleLibrary\ModuleRegistration;
 

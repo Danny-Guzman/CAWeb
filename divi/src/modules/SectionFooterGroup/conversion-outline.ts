@@ -52,16 +52,16 @@ export const conversionOutline: ModuleConversionOutline = {
   },
   module: {
     group_title: 'title.innerContent.*',
-    heading_size: 'title.advanced.*.size',
-    heading_color: 'title.advanced.*.color',
+    heading_size: 'title.decoration.font.font.*.headingLevel',
+    heading_color: 'title.decoration.font.font.*.color',
 
     group_show_more_button: 'button.advanced.*.show',
     group_url: 'button.innerContent.*.linkUrl',
     
-    text_color: 'content.advanced.*.color',
+    text_color: 'content.decoration.font.font.*.color',
     display_link_as_button: 'content.advanced.*.displayLink',
     
-    group_icon_button: 'icon.advanced.*.show',
+    group_icon_button: 'icon.innerContent.*.show',
     group_icon: 'icon.innerContent.*',
 
     group_link1_show: 'link1.advanced.*.show',
@@ -104,22 +104,8 @@ export const conversionOutline: ModuleConversionOutline = {
     group_link_text10: 'link10.innerContent.*.text',
     group_link_url10: 'link10.innerContent.*.linkUrl',
 
-    module_text_shadow_style: 'module.advanced.text.textShadow.*.style',
-    module_text_shadow_horizontal_length: 'module.advanced.text.textShadow.*.horizontal',
-    module_text_shadow_vertical_length: 'module.advanced.text.textShadow.*.vertical',
-    module_text_shadow_blur_strength: 'module.advanced.text.textShadow.*.blur'
   },
-  deprecatedMap: [
-    '0',
-    '7',
-    '8',
-    '9',
-    '10',
-    '11',
-    '12',
-    '13',
-    '14',
-    '15',
-    '16',
-  ]
+  valueExpansionFunctionMap: {
+    group_icon: "CAWeb\\Modules\\Utils\\ValueExpansion::convertModuleIcon",
+  }
 };

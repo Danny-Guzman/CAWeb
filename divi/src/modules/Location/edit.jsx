@@ -8,8 +8,6 @@ import {
 import {
   getAttrByMode,
 } from '@divi/module-utils';
-import { processFontIcon, escapeFontIcon } from '@divi/icon-library';
-
 
 // Local Dependencies.
 import { ModuleStyles } from './styles.jsx';
@@ -17,7 +15,7 @@ import { moduleClassnames } from './module-classnames.js';
 import { ModuleScriptData } from './module-script-data.jsx';
 import { LocationModuleEditProps } from './types.ts';
 
-import { get_icon_span, get_google_map_place_link } from '../Utils/index.js';
+import { get_icon_span, get_google_map_place_link } from '../Utils/Module.jsx';
 
 /**
  * Renders Location (contact)
@@ -36,7 +34,7 @@ const contactLocation = ({
   let addressMapLink = get_google_map_place_link( [ address?.addr, address?.city, address?.state, address?.zip ] );
  
   // If displaying an icon
-	let displayIcon   = 'on' === icon?.show ? <div className="thumbnail"><span className="et-pb-icon ca-gov-icon-">{processFontIcon(icon)}</span></div> : <></>;
+	let displayIcon   = 'on' === icon?.show ? <div className="thumbnail">{get_icon_span(icon)}</div> : <></>;
 
   // show contact info if enabled
   let displayOther = 'on' === contact?.show ? <Fragment>
@@ -89,7 +87,7 @@ const miniLocation = ({
   let addressMapLink = get_google_map_place_link( [ address?.addr, address?.city, address?.state, address?.zip ] );
  
   // If displaying an icon
-	let displayIcon   = 'on' === icon?.show ? <div className="thumbnail"><span className="et-pb-icon ca-gov-icon-">{processFontIcon(icon)}</span></div> : <></>;
+	let displayIcon   = 'on' === icon?.show ? <div className="thumbnail">{get_icon_span(icon)}</div> : <></>;
 
   // we wrap the name in a link if a link url is provided
   let nameElement = '' !== name ?
@@ -267,9 +265,7 @@ const ModuleEdit = ({
         })
       }
       {
-      <div className={`location ${layout}`}>
-        { output }
-        </div> 
+        output
       }
       
     </ModuleContainer>

@@ -26,7 +26,9 @@
           "htmlAttributes": {}
         },
         "decoration": {
-          "background": {},
+          "background": {
+            "panel": "design"
+          },
           "bodyFont": {},
           "sizing": {},
           "spacing": {},
@@ -42,30 +44,6 @@
           "zIndex": {},
           "scroll": {},
           "sticky": {}
-        }
-      }
-    },
-    "section": {
-      "type": "object",
-      "selector": "{{selector}}",
-      "settings": {
-        "innerContent": {
-          "groupType": "group-item",
-          "item": {
-              "groupSlug": "designStyle",
-              "render": true,
-              "attrName": "section.advanced",
-              "subName": "color",
-              "label": "Background Color",
-              "description": "Here you can define a custom background color for the section.",
-              "features": {
-                "responsive": false
-              },
-              "component": {
-                "type": "field",
-                "name": "divi/color-picker"
-              }
-            }
         }
       }
     },
@@ -99,19 +77,6 @@
   "settings": {
     "content": "auto",
     "design": "auto",
-    "advanced": "auto",
-    "groups":{
-      "designStyle": {
-        "panel": "design",
-        "priority": 1,
-        "groupName": "designStyle",
-        "component": {
-            "name": "divi/composite",
-            "props": {
-              "groupLabel": "Style"
-            }
-          }
-      }
-    }
+    "advanced": "auto"
   }
 }

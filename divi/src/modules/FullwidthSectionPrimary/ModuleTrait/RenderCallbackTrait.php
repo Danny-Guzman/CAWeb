@@ -41,22 +41,19 @@ trait RenderCallbackTrait {
 		$title = ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['title']['innerContent'] ?? $attrs,
 			'breakpoint' => 'desktop',
-			'state' => 'value',
-			'mode' => 'getAndInheritAll',
+			'state' => 'value'
 		));
 
 		$image = ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['image']['innerContent'] ?? $attrs,
 			'breakpoint' => 'desktop',
-			'state' => 'value',
-			'mode' => 'getAndInheritAll',
+			'state' => 'value'
 		));
 		
 		$link = ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['link']['innerContent'] ?? $attrs,
 			'breakpoint' => 'desktop',
-			'state' => 'value',
-			'mode' => 'getAndInheritAll',
+			'state' => 'value'
 		));
 
 		$inner_content = array(

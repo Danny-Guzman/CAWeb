@@ -44,16 +44,7 @@
     
     "layout": {
       "type": "object",
-      "inlineEditor": "plainText",
-      "elementType": "heading",
       "childrenSanitizer": "et_core_esc_previously",
-      "default": {
-        "innerContent": {
-          "desktop": {
-            "value": "contact"
-          }
-        }
-      },
       "settings": {
         "innerContent": {
           "groupType": "group-item",
@@ -99,9 +90,8 @@
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
         "innerContent": {
-          "groupType": "group-items",
-          "items": {
-            "src": {
+          "groupType": "group-item",
+          "item": {
               "groupSlug": "style",
               "render": true,
               "attrName": "image.innerContent",
@@ -123,23 +113,7 @@
                   }
                 }
               }
-            },
-            "alt": {
-              "groupSlug": "style",
-              "render": false,
-              "attrName": "image.innerContent",
-              "subName": "alt",
-              "label": "Image Alt Text",
-              "description": "Input the alt text for the portrait image.",
-              "features": {
-                "responsive": false
-              },
-              "component": {
-                "name": "divi/text",
-                "type": "field"
-              }
             }
-          }
         }
       }
     },
@@ -173,7 +147,7 @@
 
     "desc": {
       "type": "object",
-      "inlineEditor": "plainText",
+      "inlineEditor": "richText",
       "elementType": "element",
       "tagName": "div",
       "attributes": {
@@ -203,8 +177,6 @@
 
     "address": {
       "type": "object",
-      "inlineEditor": "plainText",
-      "elementType": "heading",
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
         "innerContent": {
@@ -280,20 +252,7 @@
 
     "contact": {
       "type": "object",
-      "inlineEditor": "plainText",
-      "elementType": "heading",
       "childrenSanitizer": "et_core_esc_previously",
-      "default": {
-        "innerContent": {
-          "desktop": {
-            "value": {
-              "show": "off",
-              "phone": "",
-              "fax": ""
-            }
-          }
-        }
-      },
       "settings": {
         "innerContent": {
           "groupType": "group-items",
@@ -351,20 +310,7 @@
 
     "link": {
       "type": "object",
-      "inlineEditor": "plainText",
-      "elementType": "element",
-      "tagName": "a",
       "childrenSanitizer": "et_core_esc_previously",
-      "default": {
-        "innerContent": {
-          "desktop": {
-            "value": {
-              "show": "off",
-              "url": "#"
-            }
-          }
-        }
-      },
       "settings": {
         "innerContent": {
           "groupType": "group-items",
@@ -406,9 +352,6 @@
 
     "icon": {
       "type": "object",
-      "inlineEditor": "plainText",
-      "elementType": "element",
-      "tagName": "span",
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
         "innerContent": {

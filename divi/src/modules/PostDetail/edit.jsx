@@ -25,7 +25,7 @@ import { ModuleStyles } from './styles.jsx';
 import { moduleClassnames } from './module-classnames.js';
 import { ModuleScriptData } from './module-script-data.jsx';
 import { PostDetailModuleEditProps } from './types.ts';
-import { get_icon_span, get_google_map_place_link, RenderWordPressShortcode, get_address } from '../Utils/index.js';
+import { get_icon_span, get_google_map_place_link, RenderWordPressShortcode, get_address } from '../Utils/Module.jsx';
 import { 
   CourseView, 
   EventView,

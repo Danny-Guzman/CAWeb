@@ -4,7 +4,7 @@ import {
   getCategoriesForPostType
 } from '@divi/module-utils';
 import { useSelect } from '@divi/data';
-import { get_address, get_google_map_place_link } from '../../Utils/index.js';
+import { get_address, get_google_map_place_link } from '../../Utils/Module.jsx';
 
 const JobView = ({attributes: jobs, content, showFeaturedImage, featuredImageAlignLeft}) => {
   let {

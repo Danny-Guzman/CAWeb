@@ -48,5 +48,18 @@ class SectionFooter extends CAWebModule {
 				);
 			}
 		);
+
+		add_filter(
+			'divi_conversion_deprecated_attribute',
+			function($should_deprecate, $attrName, $moduleName, $attrs ){
+				if( 'caweb/section-footer' === $moduleName ) {
+					// previously deprecated items, child module elements were indexed and should be deprecated
+					$should_deprecate = is_numeric( $attrName );
+				}
+				return $should_deprecate;
+			},
+			10,
+			4
+		);
 	}
 }

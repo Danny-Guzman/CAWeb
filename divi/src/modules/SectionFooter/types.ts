@@ -44,12 +44,6 @@ export interface ModuleAttrs extends InternalAttrs {
   };
 
   // Fields
-  section?: {
-    advanced?: FormatBreakpointStateAttr<{
-      color?: string;
-    }>;
-  };
-
   content?: {
     innerContent?: Element.Types.Content.Attributes;
   }

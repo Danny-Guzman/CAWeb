@@ -38,40 +38,17 @@ trait RenderCallbackTrait {
 	 * @return string HTML rendered of SectionFooterGroup module.
 	 */
 	public static function render_callback( $attrs, $content, $block, $elements ) {
-		$title_size = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['title']['advanced'] ?? $attrs,
-			'breakpoint' => 'desktop',
-			'state' => 'value',
-		))['size'] ?? '';	
-	
 		
-		// first we filter the attributes to only include those that start with 'link' 
-		$links = array_filter( $attrs, function ( $value, $key ) { 
-			if( str_starts_with( $key, 'link' ) ){
-				// get the 'show' attribute from the advanced settings of the link
-				$show = ModuleUtils::get_attr_value(array(
-					'attr' => $value['advanced'] ?? [],
-					'breakpoint' => 'desktop',
-					'state' => 'value',
-				))['show'] ?? '';
-
-				return 'on' === $show; // only include the link if 'show' is set to 'on'
-			}
-		}, ARRAY_FILTER_USE_BOTH );
-
+		
 		$inner_content = array(
 			$elements->render(array(
-				'attrName' => 'title',
-				'tagName' => $title_size,
+				'attrName' => 'title'
 			)),
-			HTMLUtility::render(array(
-				'tag' => 'ul',
-				'attributes' => [
-					'class' => 'list-unstyled p-0',
-				],
+			$elements->render(array(
+				'attrName' => 'content',
 				'childrenSanitizer' => [self::class, 'sanitize_html'],
-				'children' => self::groupListing( $links )
-			)),
+				'children' => self::groupListing( $attrs )
+			))
 		);
 
 		return Module::render(array(
@@ -99,8 +76,34 @@ trait RenderCallbackTrait {
 		
 	}
 
-	static function groupListing( $links ) {
-		$linkElements = array_map(function($value, $key) {
+	static function groupListing( $attrs ) {
+		$icon = ModuleUtils::get_attr_value(array(
+					'attr' => $attrs['icon']['innerContent'],
+					'breakpoint' => 'desktop',
+					'state' => 'value',
+				));
+
+		$showIcon = ModuleUtils::get_attr_value(array(
+					'attr' => $attrs['icon']['innerContent'],
+					'breakpoint' => 'desktop',
+					'state' => 'value',
+				))['show'];
+				
+		// first we filter the attributes to only include those that start with 'link' 
+		$links = array_filter( $attrs, function ( $value, $key ) { 
+			if( str_starts_with( $key, 'link' ) ){
+				// get the 'show' attribute from the advanced settings of the link
+				$show = ModuleUtils::get_attr_value(array(
+					'attr' => $value['advanced'] ?? [],
+					'breakpoint' => 'desktop',
+					'state' => 'value',
+				))['show'] ?? '';
+
+				return 'on' === $show; // only include the link if 'show' is set to 'on'
+			}
+		}, ARRAY_FILTER_USE_BOTH );
+
+		$linkElements = array_map(function($value, $key) use ($showIcon, $icon) {
 			$displayLink = ModuleUtils::get_attr_value(array(
 				'attr' => $value['advanced'] ?? [],
 				'breakpoint' => 'desktop',
@@ -125,7 +128,9 @@ trait RenderCallbackTrait {
 				'state' => 'value',
 			))['text'] ?? '';
 
-			return sprintf('<li class="mb-2"><a href="%1$s" target="_blank" title="Section Footer Group %3$s"%2$s>%4$s</a></li>', 
+			
+			return sprintf('<li class="mb-2">%1$s<a href="%2$s" target="_blank"%3$s title="Section Footer Group %4$s">%5$s</a></li>', 
+				'on' === $showIcon ? self::get_icon_span( $icon ) : '',
 				$linkUrl,
 				'on' === $displayLink ? ' class="btn btn-default btn-xs"' : '',
 				$title,

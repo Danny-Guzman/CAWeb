@@ -3,7 +3,7 @@
 import metadata from './module.json';
 import { ModuleEdit } from './edit.jsx';
 import { placeholderContent } from './placeholder-content.js';
-import defaultSettingsAttrs from './module-default-render-attributes.json';
+import defaultAttrs from './module-default-render-attributes.json';
 import { conversionOutline } from './conversion-outline.ts';
 import { SettingsContent } from './Settings/content.jsx';
 import { SettingsDesign } from './Settings/design.jsx';
@@ -13,7 +13,7 @@ export const CAWebModuleFullwidthServiceTilesItemMetadata = metadata;
 export const CAWebModuleFullwidthServiceTilesItem = {
   placeholderContent,
   conversionOutline,
-  defaultAttrs: defaultSettingsAttrs,
+  defaultAttrs,
   renderers: {
     edit: ModuleEdit,
   },

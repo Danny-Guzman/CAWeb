@@ -3,7 +3,7 @@ import {
   getModuleOrderClassName,
   getCategoriesForPostType
 } from '@divi/module-utils';
-import { get_google_map_place_link } from '../../Utils/index.js';
+import { get_google_map_place_link } from '../../Utils/Module.jsx';
 
 const CourseView = ({attributes: course, content}) => {
 

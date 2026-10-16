@@ -12,7 +12,6 @@ import {
 import { getAttrByMode } from '@divi/module-utils';
 
 // Local dependencies.
-import {ModuleAttrs} from "../types";
 
 export const SettingsDesign = ({
   attrs,
@@ -21,15 +20,14 @@ export const SettingsDesign = ({
 }) => {
 
   let { 
-      icon
-    } = attrs || {};
+    icon
+  } = attrs || {};
 
-  let { show } = (icon && getAttrByMode(icon?.advanced)) ?? getAttrByMode(defaultSettingsAttrs?.icon?.advanced);
+  let { show } = (icon && getAttrByMode(icon?.innerContent)) ?? getAttrByMode(defaultSettingsAttrs?.icon?.innerContent);
 
   // Toggle Icon Design group visibility based on layout
-  set(groupConfiguration, ['designStyle', 'component', 'props', 'fields', 'icon', 'render'], 'on' === show );
+  set(groupConfiguration, ['content-font', 'component', 'props', 'fields', 'icon', 'render'], 'on' === show );
   
-
   return (
     <ModuleGroups
       groups={groupConfiguration}

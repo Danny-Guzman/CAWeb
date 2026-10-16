@@ -1,0 +1,10 @@
+{
+  "active": false,
+  "name": "caweb/fullwidth-panel",
+  "d4Shortcode": "et_pb_ca_fullwidth_panel",
+  "title": "Fullwidth Panel",
+  "titles": "Fullwidth Panels",
+  "moduleClassName": "et_pb_ca_fullwidth_panel",
+  "moduleOrderClassName": "et_pb_ca_fullwidth_panel"
+}
+    

@@ -25,7 +25,7 @@ import { ModuleStyles } from './styles.jsx';
 import { moduleClassnames } from './module-classnames.js';
 import { ModuleScriptData } from './module-script-data.jsx';
 import { PostListModuleEditProps } from './types.ts';
-import { get_icon_span, get_google_map_place_link, RenderWordPressShortcode } from '../Utils/index.js';
+import { get_icon_span, get_google_map_place_link, RenderWordPressShortcode } from '../Utils/Module.jsx';
 
 /**
  * Divi 5 Module edit component of visual builder.

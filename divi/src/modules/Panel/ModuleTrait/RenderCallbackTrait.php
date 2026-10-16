@@ -18,7 +18,6 @@ use ET\Builder\Packages\Module\Module;
 use ET\Builder\Packages\ModuleUtils\ModuleUtils;
 use ET\Builder\Framework\Utility\HTMLUtility;
 use ET\Builder\Packages\Module\Layout\Components\ModuleElements\ModuleElements;
-use ET\Builder\Packages\IconLibrary\IconFont\Utils;
 
 trait RenderCallbackTrait {
 	use ModuleClassnamesTrait;
@@ -69,14 +68,7 @@ trait RenderCallbackTrait {
 			'state' => 'value'
 		))['show'];
 
-		$headerIcon = 'on' === $showIcon ? HTMLUtility::render(array(
-			'tag' => 'span',
-			'attributes' => array(
-				'class' => array( 'et-pb-icon', 'ca-gov-icon-'),
-			),
-			'childrenSanitizer' => [self::class, 'sanitize_html'],
-			'children' => Utils::process_font_icon( $icon ),
-		)) : '';
+		$headerIcon = 'on' === $showIcon ? self::get_icon_span( $icon ) : '';
 
 		$inner_content = array(
 			! empty( $title ) ? HTMLUtility::render(array(

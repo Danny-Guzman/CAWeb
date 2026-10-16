@@ -1,0 +1,9 @@
+{
+  "active": false,
+  "name": "caweb/fullwidth-section-footer-group",
+  "d4Shortcode": "et_pb_ca_section_fullwidth_footer_group",
+  "title": "Fullwidth Footer Group",
+  "titles": "Fullwidth Footer Groups",
+  "moduleClassName": "et_pb_ca_section_fullwidth_footer_group",
+  "moduleOrderClassName": "et_pb_ca_section_fullwidth_footer_group"
+}

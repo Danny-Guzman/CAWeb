@@ -1,13 +1,83 @@
 {
+  "_comment": "!!! THIS IS AN AUTOMATICALLY GENERATED FILE - DO NOT EDIT !!!",
+  "active": false,
   "name": "caweb/fullwidth-section-footer",
   "d4Shortcode": "et_pb_ca_fullwidth_section_footer",
   "title": "Fullwidth Section - Footer",
   "titles": "Fullwidth Section - Footers",
+  "moduleIcon": "caweb/module-logo",
   "moduleClassName": "et_pb_ca_fullwidth_section_footer",
   "moduleOrderClassName": "et_pb_ca_fullwidth_section_footer",
+  "category": "module",
   "childModuleName": "caweb/fullwidth-section-footer-group",
   "childModuleTitle": "Fullwidth Section Footer Group",
   "childrenName": [
     "caweb/fullwidth-section-footer-group"
-  ]
+  ],
+  "attributes": {
+    "module": {
+      "type": "object",
+      "selector": "{{selector}}",
+      "settings": {
+        "meta": {
+          "adminLabel": {}
+        },
+        "advanced": {
+          "link": {},
+          "text": {},
+          "htmlAttributes": {}
+        },
+        "decoration": {
+          "background": {
+            "panel": "design"
+          },
+          "bodyFont": {},
+          "sizing": {},
+          "spacing": {},
+          "border": {},
+          "boxShadow": {},
+          "filters": {},
+          "transform": {},
+          "animation": {},
+          "overflow": {},
+          "disabledOn": {},
+          "transition": {},
+          "position": {},
+          "zIndex": {},
+          "scroll": {},
+          "sticky": {}
+        }
+      }
+    },
+    "content": {
+      "type": "object",
+      "selector": "{{selector}}",
+      "childrenSanitizer": "et_core_esc_previously",
+      "allowHtml": true,
+      "settings": {
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+            "groupSlug": "body",
+            "render": true,
+            "attrName": "content.innerContent",
+            "label": "Content",
+            "description": "Here you can create the content that will be used within the panel.",
+            "features": {
+              "responsive": false
+            },
+            "component": {
+              "name": "divi/richtext",
+              "type": "field"
+            }
+          }
+        }
+      }
+    }
+  },
+  "settings": {
+    "content": "auto",
+    "design": "auto",
+    "advanced": "auto"
+  }
 }

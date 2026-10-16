@@ -41,8 +41,7 @@ trait RenderCallbackTrait {
 		$title = ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['title']['innerContent'] ?? $attrs,
 			'breakpoint' => 'desktop',
-			'state' => 'value',
-			'mode' => 'getAndInheritAll',
+			'state' => 'value'
 		));
 
 		$inner_content = array(

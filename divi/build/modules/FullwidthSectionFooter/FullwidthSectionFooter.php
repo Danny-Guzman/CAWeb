@@ -13,7 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use CAWeb\Modules\Utils\Module as CAWebModule;
-use CAWeb\Modules\FullwidthSectionFooter\ModuleTrait;
+
+// we use the standard modules traits
+use CAWeb\Modules\SectionFooter\ModuleTrait;
 
 use ET\Builder\Packages\ModuleLibrary\ModuleRegistration;
 

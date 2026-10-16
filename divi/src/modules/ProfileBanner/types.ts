@@ -44,13 +44,16 @@ export interface ModuleAttrs extends InternalAttrs {
   };
 
   // Fields
-  name?: Element.Types.Title.Attributes;
-  job?: Element.Types.Title.Attributes;
+  name?: {
+    innerContent?: FormatBreakpointStateAttr<string>;
+  };
+  
+  job?: {
+    innerContent?: FormatBreakpointStateAttr<string>;
+  };
+
   profile?: {
-      innerContent?: FormatBreakpointStateAttr<{
-        text?:string, 
-        url?:string
-      }>;
+      innerContent?: Element.Types.Button.InnerContent.Attributes;
   };
   portrait?: {
       innerContent?: Element.Types.Image.InnerContent.Attributes;

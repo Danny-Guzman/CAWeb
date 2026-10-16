@@ -15,7 +15,7 @@ import { SectionPrimaryModuleEditProps } from './types.ts';
 import { ModuleStyles } from './styles.jsx';
 import { moduleClassnames } from './module-classnames.js';
 import { ModuleScriptData } from './module-script-data.jsx';
-import { processColorPickerValue } from '../Utils/index.js';
+import { processColorPickerValue } from '../Utils/Module.jsx';
 
 
 /**

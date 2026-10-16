@@ -1,0 +1,44 @@
+{
+    "name": {
+        "innerContent": {
+            "desktop": {
+                "value": ""
+            }
+        }
+    },
+    "job": {
+        "innerContent": {
+            "desktop": {
+                "value": ""
+            }
+        }
+    },
+    "profile": {
+        "innerContent": {
+            "desktop": {
+                "value": {
+                    "text": "Link",
+                    "linkUrl": "#"
+                }
+            }
+        }
+    },
+    "portrait": {
+        "innerContent": {
+            "desktop": {
+                "value": {
+                    "src": "",
+                    "alt": ""
+                }
+            }
+        },
+        "advanced": {
+            "desktop": {
+                "value": {
+                    "rounded": "off",
+                    "vertical": "off"
+                }
+            }
+        }
+    }
+}

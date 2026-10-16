@@ -34,7 +34,16 @@ import { cssFields } from './custom-css';
           }
         },
       })}
-     
+     {
+      elements.style({
+        attrName: 'title',
+      })
+     }
+     {
+      elements.style({
+        attrName: 'content',
+      })
+     }
       <CssStyle
         selector={orderClass}
         attr={attrs?.css}

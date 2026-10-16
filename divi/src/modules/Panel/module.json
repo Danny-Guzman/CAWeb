@@ -105,7 +105,6 @@
     "title": {
       "type": "object",
       "elementType": "heading",
-      "inlineEditor": "plainText",
       "selector": "{{selector}} .card-header",
       "attributes": {
         "class": "card-title"
@@ -231,7 +230,7 @@
 
     "icon": {
       "type": "object",
-      "selector": "{{selector}} .card-icon",
+      "selector": "{{selector}} .card-header .card-title span",
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
         "innerContent": {
@@ -273,7 +272,7 @@
 
     "button": {
       "type": "object",
-      "selector": "{{selector}} .card-button",
+      "selector": "{{selector}} .card-header .options a",
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
         "innerContent": {
@@ -347,6 +346,8 @@
     "content": {
       "type": "object",
       "selector": "{{selector}} .card-body",
+      "inlineEditor": "richText",
+      "elementType": "content",
       "attributes": {
         "class": "card-body"
       },

@@ -4,7 +4,7 @@ import {
   getCategoriesForPostType
 } from '@divi/module-utils';
 import { useSelect } from '@divi/data';
-import { get_google_map_place_link } from '../../Utils/index.js';
+import { get_google_map_place_link } from '../../Utils/Module.jsx';
 
 const ProfileView = ({attributes: profile, content, showFeaturedImage, featuredImageAlignLeft}) => {
   let {

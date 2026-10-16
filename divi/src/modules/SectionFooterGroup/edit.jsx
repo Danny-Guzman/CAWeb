@@ -16,6 +16,8 @@ import { ModuleStyles } from './styles.jsx';
 import { moduleClassnames } from './module-classnames.js';
 import { ModuleScriptData } from './module-script-data.jsx';
 
+import { get_icon_span } from '../Utils/Module.jsx';
+
 /**
  * Divi 5 Module edit component of visual builder.
  *
@@ -33,10 +35,6 @@ const ModuleEdit = (props) => {
     elements,
     parentAttrs
   } = props;
-
-  let {
-    size: TitleSize
-  } = getAttrByMode(attrs?.title?.advanced);
 
   return (
     <ModuleContainer
@@ -56,8 +54,7 @@ const ModuleEdit = (props) => {
       }
       {
         elements.render({
-          attrName: 'title',
-          tagName: TitleSize
+          attrName: 'title'
         })
       }
       <ul className="list-unstyled p-0">
@@ -76,11 +73,13 @@ const groupListing = ( attrs ) => {
   );
 
   let {
-    color,
     displayLink
   } = getAttrByMode(attrs?.content?.advanced);
   
   let title = getAttrByMode(attrs?.title?.innerContent);
+
+  let icon = getAttrByMode(attrs?.icon?.innerContent);
+  let showIcon = getAttrByMode(attrs?.icon?.innerContent)?.show ?? 'off';
 
   let linkElements = Object.entries(links).map(([key, value]) => {
     let {
@@ -92,7 +91,7 @@ const groupListing = ( attrs ) => {
     if ('on' !== show) {
       return null;
     }else{
-      return <li key={key} className="mb-2"><a href={linkUrl} className={'on' === displayLink ? 'btn btn-default btn-xs' : ''} target="_blank" title={`Section Footer Group ${title}`}>{text}</a></li>
+      return <li key={key} className="mb-2">{ 'on' === showIcon && get_icon_span(icon) }<a href={linkUrl} className={'on' === displayLink ? 'btn btn-default btn-xs' : ''} target="_blank" title={`Section Footer Group ${title}`}>{text}</a></li>
     }
   })
 

@@ -8,7 +8,6 @@ import {
 import {
   getAttrByMode,
 } from '@divi/module-utils';
-import { processFontIcon, escapeFontIcon } from '@divi/icon-library';
 
 // Local Dependencies.
 import { ModuleStyles } from './styles.jsx';
@@ -16,7 +15,7 @@ import { moduleClassnames } from './module-classnames.js';
 import { ModuleScriptData } from './module-script-data.jsx';
 import { PanelModuleEditProps } from './types.ts';
 
-import { get_icon_span, get_google_map_place_link } from '../Utils/index.js';
+import { get_icon_span } from '../Utils/Module.jsx';
 
 /**
  * Divi 5 Module edit component of visual builder.
@@ -52,7 +51,7 @@ const ModuleEdit = ({
   let icon = getAttrByMode(attrs?.icon?.innerContent);
   let showIcon = getAttrByMode(attrs?.icon?.innerContent)?.show ?? 'off';
 
- let headerIcon = 'on' === showIcon ? <span className="et-pb-icon ca-gov-icon-">{processFontIcon(icon)}</span> : '';
+ let headerIcon = 'on' === showIcon ? get_icon_span(icon) : '';
   
   // create button element if button is set to show and button text is not empty.
   let buttonElement = null;

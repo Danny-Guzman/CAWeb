@@ -53,8 +53,8 @@ export const conversionOutline: ModuleConversionOutline = {
   module: {
     panel_layout: 'layout.innerContent.*',
     title: 'title.innerContent.*',
-    heading_align: 'title.decoration.font.font.*.headingLevel',
-    heading_size: 'title.decoration.font.font.*.size',
+    heading_align: 'title.decoration.font.font.*.textAlign',
+    heading_size: 'title.decoration.font.font.*.headingLevel',
     heading_text_color: 'title.decoration.font.font.*.color',
     use_icon: 'icon.innerContent.*.show',
     font_icon: 'icon.innerContent.*',
@@ -64,10 +64,6 @@ export const conversionOutline: ModuleConversionOutline = {
     button_link: 'button.innerContent.*.linkUrl',
     button_target: 'button.innerContent.*.linkTarget',
 
-    module_text_shadow_style: 'module.advanced.text.textShadow.*.style',
-    module_text_shadow_horizontal_length: 'module.advanced.text.textShadow.*.horizontal',
-    module_text_shadow_vertical_length: 'module.advanced.text.textShadow.*.vertical',
-    module_text_shadow_blur_strength: 'module.advanced.text.textShadow.*.blur'
   },
   valueExpansionFunctionMap: {
     font_icon: "CAWeb\\Modules\\Utils\\ValueExpansion::convertModuleIcon",

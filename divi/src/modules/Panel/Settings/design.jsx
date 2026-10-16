@@ -24,7 +24,7 @@ export const SettingsDesign = ({
     icon,
     layout
   } = attrs || {};
-  
+
   let { show: showIcon } = (icon && getAttrByMode(icon?.innerContent)) || getAttrByMode(defaultSettingsAttrs?.icon?.innerContent);
   
   layout = getAttrByMode(layout?.innerContent);

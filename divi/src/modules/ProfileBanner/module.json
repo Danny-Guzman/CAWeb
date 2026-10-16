@@ -100,16 +100,6 @@
       "tagName": "a",
       "elementType": "element",
       "childrenSanitizer": "et_core_esc_previously",
-      "default": {
-        "innerContent": {
-          "desktop": {
-            "value": {
-              "text": "Link",
-              "url": "#"
-            }
-          }
-        }
-      },
       "settings": {
         "innerContent": {
           "groupType": "group-items",
@@ -133,7 +123,7 @@
               "groupSlug": "profile",
               "render": true,
               "attrName": "profile.innerContent",
-              "subName": "url",
+              "subName": "linkUrl",
               "label": "URL",
               "description": "Input the website of the profile.",
               "features": {
@@ -154,42 +144,10 @@
       "childrenSanitizer": "et_core_esc_previously",
       "tagName": "img",  
       "elementType": "image",
-      "default": {
-        "innerContent": {
-          "desktop": {
-            "value": {
-              "rounded": "on"
-            }
-          }
-        }
-      },
       "settings": {
         "innerContent": {
           "groupType": "group-items",
           "items": {
-            "imgText": {
-              "groupSlug": "portrait",
-              "render": true,
-              "attrName": "portrait.innerContent",
-              "subName": "src",
-              "label": "Image URL",
-              "description": "Type in the URL to the image you would like to display, or upload your desired image below.",
-              "features": {
-                "responsive": false
-              },
-              "component": {
-                "name": "divi/text",
-                "type": "field",
-                "props": {
-                  "syncImageData": {
-                    "src": true,
-                    "id": true,
-                    "alt": true,
-                    "titleText": false
-                  }
-                }
-              }
-            },
             "img": {
               "groupSlug": "portrait",
               "render": true,
@@ -255,10 +213,7 @@
               },
               "component": {
                 "name": "divi/toggle",
-                "type": "field",
-                "props": {
-                  "defaultValue": "on"
-                }
+                "type": "field"
               }
             }
           }

@@ -1,8 +1,6 @@
 <?php
 namespace CAWeb\Modules\Utils;
 
-use ET\Builder\Packages\IconLibrary\IconFont\Utils;
-
 class ValueExpansion {
 
     const old_icon_list = array(
@@ -798,6 +796,13 @@ class ValueExpansion {
         return 'general-list' === $value ? $value : preg_replace('/([^s])-/', '$1s-', $value);
     }
 
+	/**
+	 * Previously we would overwrite Divi icons entirely with our own icons, which were in a positional array format.
+	 * This function converts an old positional icon reference to the new icon format, if possible.
+	 *
+	 * @param mixed $icon
+	 * @return array
+	 */
     public static function convertModuleIcon( $icon ) {
         global $wp_filesystem;
         
@@ -815,8 +820,6 @@ class ValueExpansion {
             // if its set and not dropped, we use the unicode value
             $unicode = isset( $caweb_icons[ $icon_name ] ) 
                 ? $caweb_icons[ $icon_name ] : null;
-            // $dropped = isset( $caweb_icons[ $icon_name ]['dropped'] ) 
-            //     ? $caweb_icons[ $icon_name ]['dropped'] : null;
             
             // if a unicode was found, we will try to find the corresponding symbol in the new icon list.
             if( $unicode ){

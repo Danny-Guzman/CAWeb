@@ -18,7 +18,6 @@ use ET\Builder\Packages\Module\Module;
 use ET\Builder\Packages\ModuleUtils\ModuleUtils;
 use ET\Builder\Framework\Utility\HTMLUtility;
 use ET\Builder\Packages\Module\Layout\Components\ModuleElements\ModuleElements;
-use ET\Builder\Packages\IconLibrary\IconFont\Utils;
 
 trait RenderCallbackTrait {
 	
@@ -44,56 +43,48 @@ trait RenderCallbackTrait {
 			'attr' => $attrs['layout']['innerContent'] ?? $attrs,
 			'breakpoint' => 'desktop',
 			'state' => 'value',
-			'mode' => 'getAndInheritAll',
 		));
 
 		$address = ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['address']['innerContent'] ?? $attrs,
 			'breakpoint' => 'desktop',
 			'state' => 'value',
-			'mode' => 'getAndInheritAll',
 		));
 
 		$contact = ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['contact']['innerContent'] ?? $attrs,
 			'breakpoint' => 'desktop',
 			'state' => 'value',
-			'mode' => 'getAndInheritAll',
 		));
 
 		$icon = ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['icon']['innerContent'] ?? $attrs,
 			'breakpoint' => 'desktop',
 			'state' => 'value',
-			'mode' => 'getAndInheritAll',
 		));
 
 		$link = ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['link']['innerContent'] ?? $attrs,
 			'breakpoint' => 'desktop',
 			'state' => 'value',
-			'mode' => 'getAndInheritAll',
 		));
 
 		$name = ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['name']['innerContent'] ?? $attrs,
 			'breakpoint' => 'desktop',
 			'state' => 'value',
-			'mode' => 'getAndInheritAll',
 		));
 
 		$image = ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['image']['innerContent'] ?? $attrs,
 			'breakpoint' => 'desktop',
 			'state' => 'value',
-			'mode' => 'getAndInheritAll',
 		));
 
 		$desc = ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['desc']['innerContent'] ?? $attrs,
 			'breakpoint' => 'desktop',
 			'state' => 'value',
-			'mode' => 'getAndInheritAll',
 		));
 
 		$body = '';
@@ -128,17 +119,7 @@ trait RenderCallbackTrait {
 				break;
 		}
 
-		$inner_content = HTMLUtility::render(array(
-			'tag'               => 'div',
-			'attributes'        => array(
-				'class' => array(
-					'location',
-					$layout
-				),
-			),
-			'childrenSanitizer' => 'et_core_esc_previously',
-			'children'          => array( $body ),
-			));
+		$inner_content = array( $body );
 
 		// $parent       = BlockParserStore::get_parent( $block->parsed_block['id'], $block->parsed_block['storeInstance'] );
 		// $parent_attrs = $parent->attrs ?? [];
@@ -243,7 +224,7 @@ trait RenderCallbackTrait {
 		$addressMapLink = self::render_address_map_link( $address );
 		
 		// If displaying an icon
-		$displayIcon   = 'on' === $icon['show'] ? sprintf('<div class="thumbnail"><span class="et-pb-icon ca-gov-icon-">%1$s</span></div>', Utils::process_font_icon( $icon )) : '';
+		$displayIcon   = 'on' === $icon['show'] ? sprintf('<div class="thumbnail"><span class="et-pb-icon ca-gov-icon-">%1$s</span></div>', self::get_icon_span( $icon )) : '';
 
 		// we wrap the name in a link if a link url is provided
 		$nameElement = ! empty( $link['name'] )  ?

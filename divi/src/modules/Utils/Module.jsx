@@ -4,6 +4,7 @@ import React, { ReactElement, CSSProperties, useEffect } from 'react';
 
 // Divi Dependencies.
 import { useFetch } from '@divi/rest';
+import { processFontIcon } from '@divi/icon-library';
 
 // WordPress Dependencies.
 import { addQueryArgs } from '@wordpress/url';
@@ -100,11 +101,21 @@ const get_google_map_place_link = (address, embed = false, target = '_blank', cl
  * @return string
  */
 const get_icon_span = (icon) => {
+    // return early if icon is empty
     if( "" === icon ){
         return;
     }
 
-    return(<span className={`ca-gov-icon-${icon}`}></span>);
+    // if the icon is a string
+    if( 'string' === typeof icon ){
+        // return a simple span with the icon class
+        return(<span className={`ca-gov-icon-${icon}`}></span>);
+    // if the icon is an object
+    } else if( 'object' === typeof icon ){
+        // we process the icon object using Divi
+        return(<span className="et-pb-icon ca-gov-icon-">{processFontIcon(icon)}</span>);
+    }
+
 };
 
 const RenderWordPressShortcode = ({shortcodeText}) => {

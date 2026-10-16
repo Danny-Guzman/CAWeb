@@ -27,7 +27,7 @@ export const SettingsContent = ({
   layout = layout ?? layoutDefault
 
   // Toggle Featured Image field visibility based on layout
-  set(groupConfiguration, ['style', 'component', 'props', 'fields', 'src', 'render'], 'banner' === layout );
+  set(groupConfiguration, ['style', 'component', 'props', 'fields', 'imageInnercontent', 'render'], 'banner' === layout );
 
   // Toggle Description field visibility based on layout
   set(groupConfiguration, ['location', 'component', 'props', 'fields', 'descInnercontent', 'render'], 'banner' === layout );
@@ -43,7 +43,7 @@ export const SettingsContent = ({
   set(groupConfiguration, ['location', 'component', 'props', 'fields', 'showLink', 'render'], 'mini' !== layout );
 
   // Toggle URL field visibility based on Show Button
-  set(groupConfiguration, ['location', 'component', 'props', 'fields', 'url', 'render'], 'on' === link?.show );
+  set(groupConfiguration, ['location', 'component', 'props', 'fields', 'url', 'render'], 'mini' !== layout && 'on' === link?.show );
 
   return (
     <ModuleGroups

@@ -42,14 +42,12 @@ trait RenderCallbackTrait {
 			'attr' => $attrs['portrait']['innerContent'] ?? $attrs,
 			'breakpoint' => 'desktop',
 			'state' => 'value',
-			'mode' => 'getAndInheritAll',
 		));
 
 		$portraitAdvanced = ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['portrait']['advanced'] ?? $attrs,
 			'breakpoint' => 'desktop',
 			'state' => 'value',
-			'mode' => 'getAndInheritAll',
 		));
 
 		$isVertical = isset($portraitAdvanced['vertical']) && "on" === $portraitAdvanced['vertical'];
@@ -70,7 +68,6 @@ trait RenderCallbackTrait {
 			'attr' => $attrs['profile']['innerContent'],
 			'breakpoint' => 'desktop',
 			'state' => 'value',
-			'mode' => 'getAndInheritAll',
 		));
 		
 		$body = HTMLUtility::render(array(
