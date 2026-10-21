@@ -52,15 +52,15 @@ export interface ModuleAttrs extends InternalAttrs {
 
   button?: {
     innerContent?: Element.Types.Button.Attributes;
-    advanced?: FormatBreakpointStateAttr<{
-      show?: OnOff;
-    }>;
+    advanced?: {
+      show?: FormatBreakpointStateAttr<OnOff>;
+    }
   };
   
   content?: {
-    advanced?: FormatBreakpointStateAttr<{
-      displayLink?: OnOff;
-    }>;
+    advanced?: {
+      displayLink?: FormatBreakpointStateAttr<OnOff>
+    },
     decoration?: Element.Decoration.PickedAttributes<'font'>;
   };
   
@@ -70,72 +70,72 @@ export interface ModuleAttrs extends InternalAttrs {
 
   link1?: {
     innerContent?: Element.Types.Button.Attributes;
-    advanced?: FormatBreakpointStateAttr<{
-      show?: OnOff;
-    }>;
+    advanced?: {
+      show?: FormatBreakpointStateAttr<OnOff>;
+    }
   };
 
   link2?: {
     innerContent?: Element.Types.Button.Attributes;
-    advanced?: FormatBreakpointStateAttr<{
-      show?: OnOff;
-    }>;
+    advanced?: {
+      show?: FormatBreakpointStateAttr<OnOff>;
+    }
   };
 
   link3?: {
     innerContent?: Element.Types.Button.Attributes;
-    advanced?: FormatBreakpointStateAttr<{
-      show?: OnOff;
-    }>;
+    advanced?: {
+      show?: FormatBreakpointStateAttr<OnOff>;
+    }
   };
 
   link4?: {
     innerContent?: Element.Types.Button.Attributes;
-    advanced?: FormatBreakpointStateAttr<{
-      show?: OnOff;
-    }>;
+    advanced?: {
+      show?: FormatBreakpointStateAttr<OnOff>;
+    }
   };
 
   link5?: {
     innerContent?: Element.Types.Button.Attributes;
-    advanced?: FormatBreakpointStateAttr<{
-      show?: OnOff;
-    }>;
+    advanced?: {
+      show?: FormatBreakpointStateAttr<OnOff>;
+    }
   };
 
   link6?: {
     innerContent?: Element.Types.Button.Attributes;
-    advanced?: FormatBreakpointStateAttr<{
-      show?: OnOff;
-    }>;
+    advanced?: {
+      show?: FormatBreakpointStateAttr<OnOff>;
+    }
   };
 
   link7?: {
     innerContent?: Element.Types.Button.Attributes;
-    advanced?: FormatBreakpointStateAttr<{
-      show?: OnOff;
-    }>;
+    advanced?: {
+      show?: FormatBreakpointStateAttr<OnOff>;
+    }
   };
 
   link8?: {
     innerContent?: Element.Types.Button.Attributes;
-    advanced?: FormatBreakpointStateAttr<{
-      show?: OnOff;
-    }>;
+    advanced?: {
+      show?: FormatBreakpointStateAttr<OnOff>;
+    }
   };
 
   link9?: {
     innerContent?: Element.Types.Button.Attributes;
-    advanced?: FormatBreakpointStateAttr<{
-      show?: OnOff;
-    }>;
+    advanced?: {
+      show?: FormatBreakpointStateAttr<OnOff>;
+    }
   };
 
   link10?: {
     innerContent?: Element.Types.Button.Attributes;
-    advanced?: FormatBreakpointStateAttr<{
-      show?: OnOff;
-    }>;
+    advanced?: {
+      show?: FormatBreakpointStateAttr<OnOff>;
+    }
   };
 }
 

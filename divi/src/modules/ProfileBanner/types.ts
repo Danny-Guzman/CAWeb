@@ -57,10 +57,10 @@ export interface ModuleAttrs extends InternalAttrs {
   };
   portrait?: {
       innerContent?: Element.Types.Image.InnerContent.Attributes;
-      advanced?: FormatBreakpointStateAttr<{
-        rounded?: OnOff;
-        vertical?: OnOff;
-      }>;
+      advanced?: {
+        rounded?: FormatBreakpointStateAttr<OnOff>;
+        vertical?: FormatBreakpointStateAttr<OnOff>;
+      }
   };
 
 }

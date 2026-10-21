@@ -39,25 +39,22 @@ trait RenderCallbackTrait {
 	public static function render_callback( $attrs, $content, $block, $elements ) {
 		// Portrait.
 		$portrait = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['portrait']['innerContent'] ?? $attrs,
+			'attr' => $attrs['portrait']['innerContent'],
 			'breakpoint' => 'desktop',
 			'state' => 'value',
 		));
 
-		$portraitAdvanced = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['portrait']['advanced'] ?? $attrs,
+		$isRounded = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['portrait']['advanced']['rounded'],
 			'breakpoint' => 'desktop',
 			'state' => 'value',
 		));
-
-		$isVertical = isset($portraitAdvanced['vertical']) && "on" === $portraitAdvanced['vertical'];
-		$isRounded = isset($portraitAdvanced['rounded']) && "on" === $portraitAdvanced['rounded'];
 
 		$portrait = HTMLUtility::render(array(
 			'tag' => 'img',
 			'attributes' => array(
 				'class' => array(
-					$isRounded ? 'rounded-circle' : '',
+					'on' === $isRounded ? 'rounded-circle' : '',
 				),
 				'src' => $portrait['src'] ?? '',
 				isset( $portrait['alt'] ) ? 'alt' : '' => $portrait['alt'] ?? '',
@@ -81,32 +78,22 @@ trait RenderCallbackTrait {
 			'children' => array(
 				$elements->render( [ 'attrName' => 'name' ] ),
 				$elements->render( [ 'attrName' => 'job' ] ),
-				isset( $profile['url'], $profile['text'] ) ?
+				isset( $profile['linkUrl'], $profile['text'] ) ?
 					HTMLUtility::render(array(
 						'tag' => 'a',
 						'attributes' => array(
-							'href' => esc_url( $profile['url'] ),
+							'href' => esc_url( $profile['linkUrl'] ),
 						),
 						'children' => esc_html( $profile['text'] ),
 					)) : '',
 			),
 		));
 
-		$inner_content = HTMLUtility::render(array(
-			'tag'               => 'figure',
-			'attributes'        => array(
-				'class' => array(
-					'executive-profile',
-					$isVertical ? 'vertical' : ''
-				),
-			),
-			'childrenSanitizer' => 'et_core_esc_previously',
-			'children'          => array(
-					$portrait,
-					$body
-				),
-			));
-
+		$inner_content = array(
+			$portrait,
+			$body
+		);
+			
 		$parent       = BlockParserStore::get_parent( $block->parsed_block['id'], $block->parsed_block['storeInstance'] );
 		$parent_attrs = $parent->attrs ?? [];
 
@@ -121,6 +108,7 @@ trait RenderCallbackTrait {
 				'name'                => $block->block_type->name,
 				'attrs'               => $attrs,
 				'elements'            => $elements,
+				'tag'                => 'figure',
 				'children'            =>  $inner_content,
 
 				'classnamesFunction'  => [ self::class, 'module_classnames' ],

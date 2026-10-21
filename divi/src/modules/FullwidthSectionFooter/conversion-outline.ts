@@ -57,8 +57,5 @@ export const conversionOutline: ModuleConversionOutline = {
     module_text_shadow_horizontal_length: 'module.advanced.text.textShadow.*.horizontal',
     module_text_shadow_vertical_length: 'module.advanced.text.textShadow.*.vertical',
     module_text_shadow_blur_strength: 'module.advanced.text.textShadow.*.blur'
- },
- deprecatedMap: [
-  '0'
- ]
+ }
 };

@@ -145,6 +145,42 @@
       "tagName": "img",  
       "elementType": "image",
       "settings": {
+        "advanced": {
+          "rounded": {
+            "groupType": "group-item",
+            "item": {
+              "groupSlug": "portraitDesign",
+              "render": true,
+              "attrName": "portrait.advanced.rounded",
+              "label": "Round Image",
+              "description": "Switch to yes if you want the profile banner image to be rounded.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            }
+          },
+          "vertical": {
+            "groupType": "group-item",
+            "item": {
+              "groupSlug": "portraitDesign",
+              "render": true,
+              "label": "Display Vertically",
+              "attrName": "portrait.advanced.vertical",
+              "description": "Switch to yes if you want the profile banner to display vertically.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            }
+          }
+        },
         "innerContent": {
           "groupType": "group-items",
           "items": {
@@ -186,35 +222,7 @@
                 "type": "field"
               }
             },
-            "rounded": {
-              "groupSlug": "portraitDesign",
-              "render": true,
-              "attrName": "portrait.advanced",
-              "subName": "rounded",
-              "label": "Round Image",
-              "description": "Switch to yes if you want the profile banner to display vertically.",
-              "features": {
-                "responsive": false
-              },
-              "component": {
-                "name": "divi/toggle",
-                "type": "field"
-              }
-            },
             "vertical": {
-              "groupSlug": "portraitDesign",
-              "render": true,
-              "label": "Display Vertically",
-              "attrName": "portrait.advanced",
-              "subName": "vertical",
-              "description": "Switch to yes if you want the profile banner to display vertically.",
-              "features": {
-                "responsive": false
-              },
-              "component": {
-                "name": "divi/toggle",
-                "type": "field"
-              }
             }
           }
         }

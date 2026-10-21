@@ -178,14 +178,13 @@
       "selector": "{{selector}}",
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
-        "innerContent": {
-          "groupType": "group-items",
-          "items": {
-            "showButton": {
+        "advanced": {
+          "show": {
+            "groupType": "group-item",
+            "item": {
               "groupSlug": "body",
               "render": true,
-              "attrName": "button.advanced",
-              "subName": "show",
+              "attrName": "button.advanced.show",
               "label": "Read More Button",
               "description": "Toggle to include or exclude a button in the group.",
               "features": {
@@ -195,7 +194,12 @@
                 "name": "divi/toggle",
                 "type": "field"
               }
-            },
+            }
+          }
+        },
+        "innerContent": {
+          "groupType": "group-items",
+          "items": {
             "url": {
               "groupSlug": "body",
               "render": true,
@@ -226,14 +230,14 @@
       },
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
-        "innerContent": {
-          "groupType": "group-item",
-          "item": {
+        "advanced": {
+          "displayLink": {
+            "groupType": "group-item",
+            "item": {
               "groupSlug": "body",
               "render": true,
               "priority": 1,
-              "attrName": "content.advanced",
-              "subName": "displayLink",
+              "attrName": "content.advanced.displayLink",
               "label": "Links as Button",
               "description": "Whether the links should display as buttons or not.",
               "features": {
@@ -244,12 +248,13 @@
                 "type": "field"
               }
             }
+          }
         },
         "decoration": {
           "font": {
             "component": {
                   "props": {
-                    "groupLabel": "Style",
+                    "groupLabel": "Links",
                     "fields": {
                       "headingLevel":{
                         "render": false
@@ -323,38 +328,51 @@
                             }
                           }
                         }
-                      },
-                      "showIcon": {
-                        "priority":100,
-                        "render": true,
-                        "attrName": "icon.innerContent",
-                        "subName": "show",
-                        "label": "Use Icon",
-                        "features": {
-                          "responsive": false
-                        },
-                        "component": {
-                          "name": "divi/toggle",
-                          "type": "field"
-                        }
-                      },
-                      "icon": {
-                        "priority": 101,
-                        "render": true,
-                        "attrName": "icon.innerContent",
-                        "label": "Group Icon",
-                        "description": "Define the icon for the group section.",
-                        "features": {
-                          "responsive": false
-                        },
-                        "component": {
-                          "name": "divi/icon-picker",
-                          "type": "field"
-                        }
                       }
                   }
                 }
               }
+          }
+        }
+      }
+    },
+
+    "icon": {
+      "type": "object",
+      "selector": "{{selector}}",
+      "childrenSanitizer": "et_core_esc_previously",
+      "settings": {
+        "innerContent": {
+          "groupType": "group-items",
+          "items": {
+            "showIcon": {
+              "groupSlug": "icon",
+              "render": true,
+              "attrName": "icon.innerContent",
+              "subName": "show",
+              "label": "Use Icon",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            },
+            "icon": {
+              "groupSlug": "icon",
+              "render": true,
+              "attrName": "icon.innerContent",
+              "label": "Group Icon",
+              "description": "Define the icon for the group section.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/icon-picker",
+                "type": "field"
+              }
+            }
           }
         }
       }
@@ -365,14 +383,13 @@
       "selector": "{{selector}}",
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
-        "innerContent": {
-          "groupType": "group-items",
-          "items": {
-            "link1ShowButton": {
+        "advanced": {
+          "show": {
+            "groupType": "group-item",
+            "item": {
               "groupSlug": "body",
               "render": true,
-              "attrName": "link1.advanced",
-              "subName": "show",
+              "attrName": "link1.advanced.show",
               "label": "Link 1",
               "features": {
                 "responsive": false
@@ -381,7 +398,12 @@
                 "name": "divi/toggle",
                 "type": "field"
               }
-            },
+            }
+          }
+        },
+        "innerContent": {
+          "groupType": "group-items",
+          "items": {
             "link1Text": {
               "groupSlug": "body",
               "render": true,
@@ -422,14 +444,13 @@
       "selector": "{{selector}}",
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
-        "innerContent": {
-          "groupType": "group-items",
-          "items": {
-            "link2ShowButton": {
+        "advanced": {
+          "show": {
+            "groupType": "group-item",
+            "item": {
               "groupSlug": "body",
               "render": true,
-              "attrName": "link2.advanced",
-              "subName": "show",
+              "attrName": "link2.advanced.show",
               "label": "Link 2",
               "features": {
                 "responsive": false
@@ -438,7 +459,12 @@
                 "name": "divi/toggle",
                 "type": "field"
               }
-            },
+            }
+          }
+        },
+        "innerContent": {
+          "groupType": "group-items",
+          "items": {
             "link2Text": {
               "groupSlug": "body",
               "render": true,
@@ -479,14 +505,13 @@
       "selector": "{{selector}}",
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
-        "innerContent": {
-          "groupType": "group-items",
-          "items": {
-            "link3ShowButton": {
+        "advanced": {
+          "show": {
+            "groupType": "group-item",
+            "item": {
               "groupSlug": "body",
               "render": true,
-              "attrName": "link3.advanced",
-              "subName": "show",
+              "attrName": "link3.advanced.show",
               "label": "Link 3",
               "features": {
                 "responsive": false
@@ -495,7 +520,12 @@
                 "name": "divi/toggle",
                 "type": "field"
               }
-            },
+            }
+          }
+        },
+        "innerContent": {
+          "groupType": "group-items",
+          "items": {
             "link3Text": {
               "groupSlug": "body",
               "render": true,
@@ -536,14 +566,13 @@
       "selector": "{{selector}}",
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
-        "innerContent": {
-          "groupType": "group-items",
-          "items": {
-            "link4ShowButton": {
+        "advanced": {
+          "show": {
+            "groupType": "group-item",
+            "item": {
               "groupSlug": "body",
               "render": true,
-              "attrName": "link4.advanced",
-              "subName": "show",
+              "attrName": "link4.advanced.show",
               "label": "Link 4",
               "features": {
                 "responsive": false
@@ -552,7 +581,12 @@
                 "name": "divi/toggle",
                 "type": "field"
               }
-            },
+            }
+          }
+        },
+        "innerContent": {
+          "groupType": "group-items",
+          "items": {
             "link4Text": {
               "groupSlug": "body",
               "render": true,
@@ -593,14 +627,13 @@
       "selector": "{{selector}}",
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
-        "innerContent": {
-          "groupType": "group-items",
-          "items": {
-            "link5ShowButton": {
+        "advanced": {
+          "show": {
+            "groupType": "group-item",
+            "item": {
               "groupSlug": "body",
               "render": true,
-              "attrName": "link5.advanced",
-              "subName": "show",
+              "attrName": "link5.advanced.show",
               "label": "Link 5",
               "features": {
                 "responsive": false
@@ -609,7 +642,12 @@
                 "name": "divi/toggle",
                 "type": "field"
               }
-            },
+            }
+          }
+        },
+        "innerContent": {
+          "groupType": "group-items",
+          "items": {
             "link5Text": {
               "groupSlug": "body",
               "render": true,
@@ -650,14 +688,13 @@
       "selector": "{{selector}}",
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
-        "innerContent": {
-          "groupType": "group-items",
-          "items": {
-            "link6ShowButton": {
+        "advanced": {
+          "show": {
+            "groupType": "group-item",
+            "item": {
               "groupSlug": "body",
               "render": true,
-              "attrName": "link6.advanced",
-              "subName": "show",
+              "attrName": "link6.advanced.show",
               "label": "Link 6",
               "features": {
                 "responsive": false
@@ -666,7 +703,12 @@
                 "name": "divi/toggle",
                 "type": "field"
               }
-            },
+            }
+          }
+        },
+        "innerContent": {
+          "groupType": "group-items",
+          "items": {
             "link6Text": {
               "groupSlug": "body",
               "render": true,
@@ -707,14 +749,13 @@
       "selector": "{{selector}}",
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
-        "innerContent": {
-          "groupType": "group-items",
-          "items": {
-            "link7ShowButton": {
+        "advanced": {
+          "show": {
+            "groupType": "group-item",
+            "item": {
               "groupSlug": "body",
               "render": true,
-              "attrName": "link7.advanced",
-              "subName": "show",
+              "attrName": "link7.advanced.show",
               "label": "Link 7",
               "features": {
                 "responsive": false
@@ -723,7 +764,12 @@
                 "name": "divi/toggle",
                 "type": "field"
               }
-            },
+            }
+          }
+        },
+        "innerContent": {
+          "groupType": "group-items",
+          "items": {
             "link7Text": {
               "groupSlug": "body",
               "render": true,
@@ -764,14 +810,13 @@
       "selector": "{{selector}}",
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
-        "innerContent": {
-          "groupType": "group-items",
-          "items": {
-            "link8ShowButton": {
+        "advanced": {
+          "show": {
+            "groupType": "group-item",
+            "item": {
               "groupSlug": "body",
               "render": true,
-              "attrName": "link8.advanced",
-              "subName": "show",
+              "attrName": "link8.advanced.show",
               "label": "Link 8",
               "features": {
                 "responsive": false
@@ -780,7 +825,12 @@
                 "name": "divi/toggle",
                 "type": "field"
               }
-            },
+            }
+          }
+        },
+        "innerContent": {
+          "groupType": "group-items",
+          "items": {
             "link8Text": {
               "groupSlug": "body",
               "render": true,
@@ -821,14 +871,13 @@
       "selector": "{{selector}}",
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
-        "innerContent": {
-          "groupType": "group-items",
-          "items": {
-            "link9ShowButton": {
+        "advanced": {
+          "show": {
+            "groupType": "group-item",
+            "item": {
               "groupSlug": "body",
               "render": true,
-              "attrName": "link9.advanced",
-              "subName": "show",
+              "attrName": "link9.advanced.show",
               "label": "Link 9",
               "features": {
                 "responsive": false
@@ -837,7 +886,12 @@
                 "name": "divi/toggle",
                 "type": "field"
               }
-            },
+            }
+          }
+        },
+        "innerContent": {
+          "groupType": "group-items",
+          "items": {
             "link9Text": {
               "groupSlug": "body",
               "render": true,
@@ -878,14 +932,13 @@
       "selector": "{{selector}}",
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
-        "innerContent": {
-          "groupType": "group-items",
-          "items": {
-            "link10ShowButton": {
+        "advanced": {
+          "show": {
+            "groupType": "group-item",
+            "item": {
               "groupSlug": "body",
               "render": true,
-              "attrName": "link10.advanced",
-              "subName": "show",
+              "attrName": "link10.advanced.show",
               "label": "Link 10",
               "features": {
                 "responsive": false
@@ -894,7 +947,12 @@
                 "name": "divi/toggle",
                 "type": "field"
               }
-            },
+            }
+          }
+        },
+        "innerContent": {
+          "groupType": "group-items",
+          "items": {
             "link10Text": {
               "groupSlug": "body",
               "render": true,
@@ -954,6 +1012,18 @@
             "name": "divi/composite",
             "props": {
               "groupLabel": "Body"
+            }
+          }
+      },
+      "icon": {
+        "panel": "design",
+        "priority": 1,
+        "groupName": "icon",
+        "multiElements": true,
+        "component": {
+            "name": "divi/composite",
+            "props": {
+              "groupLabel": "Icon"
             }
           }
       }

@@ -33,10 +33,14 @@
             }
         },
         "advanced": {
-            "desktop": {
-                "value": {
-                    "rounded": "off",
-                    "vertical": "off"
+            "rounded": {
+                "desktop": {
+                    "value": "off"
+                }
+            },
+            "vertical": {
+                "desktop": {
+                    "value": "off"
                 }
             }
         }

@@ -70,7 +70,7 @@ export interface ModuleAttrs extends InternalAttrs {
 
   button?: {
     innerContent?: Element.Types.Button.InnerContent.Attributes;
-   advanced?: {
+    advanced?: {
       show?: FormatBreakpointStateAttr<OnOff>
     };
   };

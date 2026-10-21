@@ -1,6 +1,6 @@
 // External dependencies.
 import React, { ReactElement } from 'react';
-import { set } from 'lodash';
+import { set, merge } from 'lodash';
 
 // WordPress dependencies
 import { __ } from '@wordpress/i18n';
@@ -19,11 +19,13 @@ export const SettingsContent = ({
   defaultSettingsAttrs,
   groupConfiguration,
 }) => {
+  let attributes = merge({}, defaultSettingsAttrs, attrs);
 
   let { 
     button,
-  } = attrs || {};
-  let { show: showButton } = (button && getAttrByMode(button?.advanced)) || getAttrByMode(defaultSettingsAttrs?.button?.advanced);
+  } = attributes;
+
+  let showButton = getAttrByMode(button?.advanced?.show);
 
   // Toggle Button field visibility based on if show button is on
   set(groupConfiguration, ['header', 'component', 'props', 'fields', 'text', 'render'], 'off' !== showButton );

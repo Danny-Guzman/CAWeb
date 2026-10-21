@@ -20,9 +20,9 @@
     },
     "content": {
         "advanced": {
-            "desktop": {
-                "value": {
-                    "displayLink": "off"
+            "displayLink": {
+                "desktop": {
+                    "value": "off"
                 }
             }
         },
@@ -48,9 +48,9 @@
             }
         },
         "advanced": {
-            "desktop": {
-                "value": {
-                    "show": "off"
+            "show": {
+                "desktop": {
+                    "value": "off"
                 }
             }
         }
@@ -74,9 +74,9 @@
             }
         },
         "advanced": {
-            "desktop": {
-                "value": {
-                    "show": "off"
+            "show": {
+                "desktop": {
+                    "value": "off"
                 }
             }
         }
@@ -91,9 +91,9 @@
             }
         },
         "advanced": {
-            "desktop": {
-                "value": {
-                    "show": "off"
+            "show": {
+                "desktop": {
+                    "value": "off"
                 }
             }
         }
@@ -108,9 +108,9 @@
             }
         },
         "advanced": {
-            "desktop": {
-                "value": {
-                    "show": "off"
+            "show": {
+                "desktop": {
+                    "value": "off"
                 }
             }
         }
@@ -125,9 +125,9 @@
             }
         },
         "advanced": {
-            "desktop": {
-                "value": {
-                    "show": "off"
+            "show": {
+                "desktop": {
+                    "value": "off"
                 }
             }
         }
@@ -142,9 +142,9 @@
             }
         },
         "advanced": {
-            "desktop": {
-                "value": {
-                    "show": "off"
+            "show": {
+                "desktop": {
+                    "value": "off"
                 }
             }
         }
@@ -159,9 +159,9 @@
             }
         },
         "advanced": {
-            "desktop": {
-                "value": {
-                    "show": "off"
+            "show": {
+                "desktop": {
+                    "value": "off"
                 }
             }
         }
@@ -176,9 +176,9 @@
             }
         },
         "advanced": {
-            "desktop": {
-                "value": {
-                    "show": "off"
+            "show": {
+                "desktop": {
+                    "value": "off"
                 }
             }
         }
@@ -193,9 +193,9 @@
             }
         },
         "advanced": {
-            "desktop": {
-                "value": {
-                    "show": "off"
+            "show": {
+                "desktop": {
+                    "value": "off"
                 }
             }
         }
@@ -210,9 +210,9 @@
             }
         },
         "advanced": {
-            "desktop": {
-                "value": {
-                    "show": "off"
+            "show": {
+                "desktop": {
+                    "value": "off"
                 }
             }
         }
@@ -227,9 +227,9 @@
             }
         },
         "advanced": {
-            "desktop": {
-                "value": {
-                    "show": "off"
+            "show": {
+                "desktop": {
+                    "value": "off"
                 }
             }
         }

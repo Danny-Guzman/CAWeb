@@ -21,7 +21,7 @@ export const moduleClassnames = ({
     portrait
   } = attrs;
       
-  let { vertical } = getAttrByMode(portrait?.advanced);
+  let vertical = getAttrByMode(portrait?.advanced?.vertical);
   
   classnamesInstance.add('executive-profile');
 

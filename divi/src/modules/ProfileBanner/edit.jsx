@@ -34,7 +34,7 @@ const ModuleEdit = ({
   }) => {
 
   let profile = getAttrByMode(attrs?.profile?.innerContent);
-  let portrait = getAttrByMode(attrs?.portrait?.advanced);
+  let roundedPortrait = getAttrByMode(attrs?.portrait?.advanced?.rounded);
   
   return (
     <ModuleContainer
@@ -56,7 +56,7 @@ const ModuleEdit = ({
           elements.render({
             attrName: 'portrait',
             attrSubName: 'src',
-            className: `${("on" === portrait?.rounded ? 'rounded-circle' : '')}` // rounded image
+            className: `${("on" === roundedPortrait ? 'rounded-circle' : '')}` // rounded image
           })
         }
         <div className="body">

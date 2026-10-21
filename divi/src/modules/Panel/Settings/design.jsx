@@ -1,6 +1,6 @@
 // External dependencies.
 import React, { ReactElement } from 'react';
-import { set } from 'lodash';
+import { set, merge } from 'lodash';
 
 // WordPress dependencies
 import { __ } from '@wordpress/i18n';
@@ -19,13 +19,14 @@ export const SettingsDesign = ({
   defaultSettingsAttrs,
   groupConfiguration,
 }) => {
+  let attributes = merge({}, defaultSettingsAttrs, attrs);
 
   let { 
     icon,
     layout
-  } = attrs || {};
+  } = attributes;
 
-  let { show: showIcon } = (icon && getAttrByMode(icon?.innerContent)) || getAttrByMode(defaultSettingsAttrs?.icon?.innerContent);
+  let { show: showIcon } = getAttrByMode(icon?.innerContent);
   
   layout = getAttrByMode(layout?.innerContent);
   

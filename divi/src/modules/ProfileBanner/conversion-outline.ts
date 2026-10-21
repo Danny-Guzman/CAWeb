@@ -57,8 +57,8 @@ export const conversionOutline: ModuleConversionOutline = {
     url:          'profile.innerContent.*.linkUrl',
     portrait_url: 'portrait.innerContent.*.src',
     portrait_alt: 'portrait.innerContent.*.alt',
-    round_image:  'portrait.advanced.*.rounded',
-    is_vertical:  'portrait.advanced.*.vertical',
+    round_image:  'portrait.advanced.rounded.*',
+    is_vertical:  'portrait.advanced.vertical.*',
    
   }
 };

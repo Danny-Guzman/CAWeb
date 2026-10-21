@@ -88,33 +88,35 @@ trait RenderCallbackTrait {
 					'breakpoint' => 'desktop',
 					'state' => 'value',
 				))['show'];
-				
+
+		$displayLink = ModuleUtils::get_attr_value(array(
+				'attr' => $attrs['content']['advanced']['displayLink'],
+				'breakpoint' => 'desktop',
+				'state' => 'value',
+			)) ?? '';
+			
+		$title = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['title']['innerContent'],
+			'breakpoint' => 'desktop',
+			'state' => 'value',
+		)) ?? '';
+		
+
 		// first we filter the attributes to only include those that start with 'link' 
 		$links = array_filter( $attrs, function ( $value, $key ) { 
 			if( str_starts_with( $key, 'link' ) ){
 				// get the 'show' attribute from the advanced settings of the link
 				$show = ModuleUtils::get_attr_value(array(
-					'attr' => $value['advanced'] ?? [],
+					'attr' => $value['advanced']['show'],
 					'breakpoint' => 'desktop',
 					'state' => 'value',
-				))['show'] ?? '';
+				)) ?? '';
 
 				return 'on' === $show; // only include the link if 'show' is set to 'on'
 			}
 		}, ARRAY_FILTER_USE_BOTH );
 
-		$linkElements = array_map(function($value, $key) use ($showIcon, $icon) {
-			$displayLink = ModuleUtils::get_attr_value(array(
-				'attr' => $value['advanced'] ?? [],
-				'breakpoint' => 'desktop',
-				'state' => 'value',
-			))['displayLink'] ?? '';
-
-			$title = ModuleUtils::get_attr_value(array(
-				'attr' => $value['innerContent'] ?? [],
-				'breakpoint' => 'desktop',
-				'state' => 'value',
-			))['title'] ?? '';
+		$linkElements = array_map(function($value, $key) use ($showIcon, $icon, $displayLink, $title) {
 
 			$linkUrl = ModuleUtils::get_attr_value(array(
 				'attr' => $value['innerContent'] ?? [],
@@ -132,7 +134,7 @@ trait RenderCallbackTrait {
 			return sprintf('<li class="mb-2">%1$s<a href="%2$s" target="_blank"%3$s title="Section Footer Group %4$s">%5$s</a></li>', 
 				'on' === $showIcon ? self::get_icon_span( $icon ) : '',
 				$linkUrl,
-				'on' === $displayLink ? ' class="btn btn-default btn-xs"' : '',
+				'on' === $displayLink ? ' class="btn btn-outline-primary btn-sm"' : '',
 				$title,
 				$text
 			); 

@@ -275,14 +275,13 @@
       "selector": "{{selector}} .card-header .options a",
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
-        "innerContent": {
-          "groupType": "group-items",
-          "items": {
-            "showButton": {
+        "advanced": {
+          "show": {
+            "groupType": "group-item",
+            "item": {
               "groupSlug": "header",
               "render": true,
-              "attrName": "button.advanced",
-              "subName": "show",
+              "attrName": "button.advanced.show",
               "label": "Read More Button",
               "description": "Toggle to include or exclude a button in the panel.",
               "features": {
@@ -292,7 +291,12 @@
                 "name": "divi/toggle",
                 "type": "field"
               }
-            },
+            }
+          }
+        },
+        "innerContent": {
+          "groupType": "group-items",
+          "items": {
             "text": {
               "groupSlug": "header",
               "render": true,

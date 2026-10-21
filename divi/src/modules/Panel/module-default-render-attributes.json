@@ -37,16 +37,16 @@
         "innerContent": {
             "desktop": {
                 "value": {
-                    "text": "Read More",
-                    "linkUrl": "#",
+                    "text": "",
+                    "linkUrl": "",
                     "linkTarget": "on"
                 }
             }
         },
         "advanced": {
-            "desktop": {
-                "value": {
-                    "show": "off"
+            "show": {
+                "desktop": {
+                    "value": "off"
                 }
             }
         }

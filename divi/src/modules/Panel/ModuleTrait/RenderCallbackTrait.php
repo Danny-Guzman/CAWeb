@@ -38,11 +38,11 @@ trait RenderCallbackTrait {
 	 */
 	public static function render_callback( $attrs, $content, $block, $elements ) {
 		// Retrieve the card layout from the block attributes
-		// $layout = ModuleUtils::get_attr_value(array(
-		// 	'attr' => $attrs['layout']['innerContent'],
-		// 	'breakpoint' => 'desktop',
-		// 	'state' => 'value'
-		// ));
+		$layout = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['layout']['innerContent'],
+			'breakpoint' => 'desktop',
+			'state' => 'value'
+		));
 
 		$title = ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['title']['innerContent'],
@@ -57,6 +57,17 @@ trait RenderCallbackTrait {
 			'state' => 'value'
 		))['textAlign'];
 
+		$button = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['button']['innerContent'],
+			'breakpoint' => 'desktop',
+			'state' => 'value'
+		));
+		$showButton = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['button']['advanced']['show'],
+			'breakpoint' => 'desktop',
+			'state' => 'value'
+		));
+
 		$icon = ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['icon']['innerContent'],
 			'breakpoint' => 'desktop',
@@ -69,6 +80,31 @@ trait RenderCallbackTrait {
 		))['show'];
 
 		$headerIcon = 'on' === $showIcon ? self::get_icon_span( $icon ) : '';
+		
+		// create button element if button is set to show and button text is not empty.
+  		$buttonElement = 'on' === $showButton && ! empty($button['linkUrl']) && ! empty($button['text'])  ? 
+			HTMLUtility::render(array(
+				'tag' => 'div',
+				'attributes' => array(
+					'class' => 'options'
+				),
+				'childrenSanitizer' => [self::class, 'sanitize_html'],
+				'children' => array(
+					HTMLUtility::render(array(
+						'tag' => 'a',
+						'attributes' => array(
+							'href' => $button['linkUrl'],
+							'target' => 'on' === $button['linkTarget'] ? '_blank' : '_self',
+							'class' => array(
+								'btn',
+								'btn-' . $layout
+							)
+						),
+						'childrenSanitizer' => [self::class, 'sanitize_html'],
+						'children' => $button['text']
+					))
+				)
+			)) : '';
 
 		$inner_content = array(
 			! empty( $title ) ? HTMLUtility::render(array(
@@ -86,7 +122,8 @@ trait RenderCallbackTrait {
 						'valueResolver' => function($value) use ($headerIcon) {
 							return "{$headerIcon}{$value}";
 						}
-					))
+					)),
+					$buttonElement
 				)
 			)) : '',
 			$elements->render(

@@ -13,6 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use ET\Builder\Packages\Module\Options\Text\TextClassnames;
+use ET\Builder\Packages\ModuleUtils\ModuleUtils;
 
 trait ModuleClassnamesTrait {
 
@@ -31,6 +32,19 @@ trait ModuleClassnamesTrait {
 	public static function module_classnames( $args ) {
 		$classnames_instance = $args['classnamesInstance'];
 		$attrs               = $args['attrs'];
+
+		$vertical = ModuleUtils::get_attr_value(
+			array(
+				'attr' => $attrs['portrait']['advanced']['vertical'],
+				'breakpoint' => 'desktop',
+				'state' => 'value',
+			)
+		);
+
+		$classnames_instance->add( 'executive-profile' );
+
+		// add vertical class if portrait is vertical
+		$classnames_instance->add( 'on' === $vertical ? 'vertical' : '' );
 
 		$text_options_classnames = TextClassnames::text_options_classnames( $attrs['module']['advanced']['text'] ?? [] );
 

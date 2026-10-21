@@ -38,9 +38,7 @@ const ModuleEdit = ({
   let header = getAttrByMode(attrs?.title?.innerContent);
   let { textAlign } = getAttrByMode(attrs?.title?.decoration?.font?.font);
 
-  let {
-    show: showButton
-  } = getAttrByMode(attrs?.button?.advanced);
+  let showButton = getAttrByMode(attrs?.button?.advanced?.show);
 
   let {
     linkUrl: buttonUrl,
@@ -51,11 +49,11 @@ const ModuleEdit = ({
   let icon = getAttrByMode(attrs?.icon?.innerContent);
   let showIcon = getAttrByMode(attrs?.icon?.innerContent)?.show ?? 'off';
 
- let headerIcon = 'on' === showIcon ? get_icon_span(icon) : '';
+  let headerIcon = 'on' === showIcon ? get_icon_span(icon) : '';
   
   // create button element if button is set to show and button text is not empty.
   let buttonElement = null;
-  if( 'on' === showButton && buttonUrl && buttonUrl.length > 0 ) {
+  if( 'on' === showButton && buttonUrl.length > 0 &&  buttonText.length > 0 ) {
     buttonElement = <div className="options">
       <a href={buttonUrl} target={ 'on' === buttonTarget ? '_blank' : '_self'} className={`btn btn-${layout}`}>{buttonText}</a>
     </div>;

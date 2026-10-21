@@ -72,26 +72,24 @@ const groupListing = ( attrs ) => {
     Object.entries(attrs).filter(([key, value]) => key.startsWith('link') && Object.hasOwn(value, 'innerContent') )
   );
 
-  let {
-    displayLink
-  } = getAttrByMode(attrs?.content?.advanced);
+  let displayLink = getAttrByMode(attrs?.content?.advanced?.displayLink);
   
   let title = getAttrByMode(attrs?.title?.innerContent);
 
   let icon = getAttrByMode(attrs?.icon?.innerContent);
-  let showIcon = getAttrByMode(attrs?.icon?.innerContent)?.show ?? 'off';
+  let showIcon = getAttrByMode(attrs?.icon?.innerContent)?.show;
 
   let linkElements = Object.entries(links).map(([key, value]) => {
     let {
       url: linkUrl,
       text
     } = getAttrByMode(value?.innerContent);
-    let { show } = getAttrByMode(value?.advanced);
+    let show = getAttrByMode(value?.advanced?.show);
     
     if ('on' !== show) {
       return null;
     }else{
-      return <li key={key} className="mb-2">{ 'on' === showIcon && get_icon_span(icon) }<a href={linkUrl} className={'on' === displayLink ? 'btn btn-default btn-xs' : ''} target="_blank" title={`Section Footer Group ${title}`}>{text}</a></li>
+      return <li key={key} className="mb-2">{ 'on' === showIcon && get_icon_span(icon) }<a href={linkUrl} className={'on' === displayLink ? 'btn btn-outline-primary btn-sm' : ''} target="_blank" title={`Section Footer Group ${title}`}>{text}</a></li>
     }
   })
 

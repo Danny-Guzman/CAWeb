@@ -59,7 +59,7 @@ export const conversionOutline: ModuleConversionOutline = {
     use_icon: 'icon.innerContent.*.show',
     font_icon: 'icon.innerContent.*',
     content: 'content.innerContent.*',
-    show_button: 'button.advanced.*.show',
+    show_button: 'button.advanced.show.*',
     button_text: 'button.innerContent.*.text',
     button_link: 'button.innerContent.*.linkUrl',
     button_target: 'button.innerContent.*.linkTarget',

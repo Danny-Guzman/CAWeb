@@ -1,6 +1,6 @@
 // External dependencies.
 import React, { ReactElement } from 'react';
-import { set } from 'lodash';
+import { set, merge } from 'lodash';
 
 // WordPress dependencies
 import { __ } from '@wordpress/i18n';
@@ -19,25 +19,29 @@ export const SettingsContent = ({
   defaultSettingsAttrs,
   groupConfiguration,
 }) => {
+  let attributes = merge({}, defaultSettingsAttrs, attrs);
+  
   let {
     button
-  } = attrs || {};
+  } = attributes;
+  let show = getAttrByMode( button?.advanced?.show );
+
+  console.log( 'attrs', attrs );
+  console.log( 'default', defaultSettingsAttrs );
 
   let links = {};
   
-  Object.entries(defaultSettingsAttrs).map(([key, value]) => {
+  Object.entries(attributes).map(([key, value]) => {
     // only if the key starts with 'link'
     if( key.startsWith('link')  ) {
-      // if the attrs exists, use that, otherwise use the defaultSettingsAttrs
-      links[key] = attrs?.[key] || value;
+      // if the attrs exists, use that
+      links[key] = value;
     }
   })
-
-  let { show } = (button && getAttrByMode( button?.advanced )) || getAttrByMode( defaultSettingsAttrs?.button?.advanced );
-
+  
   Object.entries(links).forEach(([key, value]) => {
-    let { show } = getAttrByMode(value?.advanced) ?? getAttrByMode( defaultSettingsAttrs?.[key]?.advanced );
-
+    let show = getAttrByMode(value?.advanced?.show);
+    
     // Toggle Link URL field visibility based on if show more button is on
     set(groupConfiguration, ['body', 'component', 'props', 'fields', `${key}Text`, 'render'], 'on' === show );
     set(groupConfiguration, ['body', 'component', 'props', 'fields', `${key}Url`, 'render'], 'on' === show );
