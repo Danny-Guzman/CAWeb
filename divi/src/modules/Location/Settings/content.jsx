@@ -1,6 +1,6 @@
 // External dependencies.
 import React, { ReactElement } from 'react';
-import { set } from 'lodash';
+import { set, merge } from 'lodash';
 
 // WordPress dependencies
 import { __ } from '@wordpress/i18n';
@@ -18,13 +18,12 @@ export const SettingsContent = ({
   defaultSettingsAttrs,
   groupConfiguration,
 }) => {
+  let attributes = merge({}, defaultSettingsAttrs, attrs);
 
-  let layout = getAttrByMode(attrs?.layout?.innerContent);
-  let layoutDefault = getAttrByMode(defaultSettingsAttrs?.layout?.innerContent);
-  let contact = getAttrByMode(attrs?.contact?.innerContent);
-  let link = getAttrByMode(attrs?.link?.innerContent);
+  let layout = getAttrByMode(attributes?.layout?.innerContent);
+  let showContact = getAttrByMode(attributes?.contact?.advanced?.show);
+  let showLink = getAttrByMode(attributes?.link?.advanced?.show);
   
-  layout = layout ?? layoutDefault
 
   // Toggle Featured Image field visibility based on layout
   set(groupConfiguration, ['style', 'component', 'props', 'fields', 'imageInnercontent', 'render'], 'banner' === layout );
@@ -36,14 +35,14 @@ export const SettingsContent = ({
   set(groupConfiguration, ['location', 'component', 'props', 'fields', 'showContact', 'render'], 'contact' === layout );
 
   // Toggle Phone/Fax fields visibility based on layout and Show Contact Button
-  set(groupConfiguration, ['location', 'component', 'props', 'fields', 'phone', 'render'], 'contact' === layout && 'on' === contact?.show );
-  set(groupConfiguration, ['location', 'component', 'props', 'fields', 'fax', 'render'], 'contact' === layout && 'on' === contact?.show );
+  set(groupConfiguration, ['location', 'component', 'props', 'fields', 'phone', 'render'], 'contact' === layout && 'on' === showContact );
+  set(groupConfiguration, ['location', 'component', 'props', 'fields', 'fax', 'render'], 'contact' === layout && 'on' === showContact );
 
   // Toggle Show Button field visibility based on layout
   set(groupConfiguration, ['location', 'component', 'props', 'fields', 'showLink', 'render'], 'mini' !== layout );
 
   // Toggle URL field visibility based on Show Button
-  set(groupConfiguration, ['location', 'component', 'props', 'fields', 'url', 'render'], 'mini' !== layout && 'on' === link?.show );
+  set(groupConfiguration, ['location', 'component', 'props', 'fields', 'linkInnercontent', 'render'], 'mini' !== layout && 'on' === showLink );
 
   return (
     <ModuleGroups

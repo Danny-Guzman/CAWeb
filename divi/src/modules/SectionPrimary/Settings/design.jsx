@@ -1,6 +1,6 @@
 // External dependencies.
-import React, { ReactElement } from 'react';
-import { set } from 'lodash';
+import React from 'react';
+import { merge, set } from 'lodash';
 
 // WordPress dependencies
 import { __ } from '@wordpress/i18n';
@@ -19,15 +19,14 @@ export const SettingsDesign = ({
   defaultSettingsAttrs,
   groupConfiguration,
 }) => {
-
-  // let layout = getAttrByMode(attrs?.layout?.innerContent);
-  // let layoutDefault = getAttrByMode(defaultSettingsAttrs?.layout?.innerContent);
+  let attributes = merge({}, defaultSettingsAttrs, attrs);
+  let { image } = attributes;
   
-  // layout = layout ?? layoutDefault;
-
-  // // Toggle Icon Design group visibility based on layout
-  // set(groupConfiguration, ['icon', 'render'], 'banner' !== layout );
-
+  let showImage = getAttrByMode(image?.advanced?.show);
+  
+  // Toggle Image field visibility based on if show image is on
+  set(groupConfiguration, ['image', 'render'], 'on' === showImage );
+  
   return (
     <ModuleGroups
       groups={groupConfiguration}

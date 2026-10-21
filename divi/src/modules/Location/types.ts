@@ -68,18 +68,19 @@ export interface ModuleAttrs extends InternalAttrs {
 
   contact?: {
       innerContent?: FormatBreakpointStateAttr<{
-        show?: OnOff;
         phone?:string, 
         fax?:string
       }>;
+      advanced?: {
+        show?: FormatBreakpointStateAttr<OnOff>;
+      };
   };
 
   link?: {
-      innerContent?: FormatBreakpointStateAttr<{
-        text?:string, 
-        url?:string
-        show?: OnOff;
-      }>;
+      innerContent?: Element.Types.Button.InnerContent.Attributes;
+      advanced?: {
+        show?: FormatBreakpointStateAttr<OnOff>;
+      };
   };
 
   icon?: {

@@ -48,18 +48,18 @@
   },
   "module": {
     "card_layout": "layout.innerContent.*",
-    "show_image": "image.advanced.*.show",
     "featured_image": "image.innerContent.*.src",
-    "include_header": "title.advanced.*.show",
+    "show_image": "image.advanced.show.*",
     "title": "title.innerContent.*",
+    "include_header": "title.advanced.show.*",
     "heading_size": "title.decoration.font.font.*.headingLevel",
     "text_color": "title.decoration.font.font.*.color",
     "content": "content.innerContent.*",
     "card_color": "content.decoration.background",
-    "show_button": "button.advanced.*.show",
+    "show_button": "button.advanced.show.*",
     "button_text": "button.innerContent.*.text",
     "button_link": "button.innerContent.*.linkUrl",
-    "include_footer": "footer.advanced.*.show",
+    "include_footer": "footer.advanced.show.*",
     "footer_text": "footer.innerContent.*",
     "footer_color": "footer.decoration.font.font.*.color"
   }

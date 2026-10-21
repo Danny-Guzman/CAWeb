@@ -38,29 +38,18 @@ trait RenderCallbackTrait {
 	 * @return string HTML rendered of SectionPrimary module.
 	 */
 	public static function render_callback( $attrs, $content, $block, $elements ) {
-		$title = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['title']['innerContent'] ?? $attrs,
-			'breakpoint' => 'desktop',
-			'state' => 'value',
-		));
-
-		$image = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['image']['innerContent'] ?? $attrs,
-			'breakpoint' => 'desktop',
-			'state' => 'value',
-		));
-		
-		$link = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['link']['innerContent'] ?? $attrs,
-			'breakpoint' => 'desktop',
-			'state' => 'value',
-		));
 
 		$inner_content = array(
-			self::render_image( $image, $elements ),
-			self::render_header( $title ),
-			$elements->render( array('attrName' => 'content') ),
-			self::render_button( array_merge($link, array('text' => $title['text'] ?? '')) )
+			self::render_image( $elements, $attrs ),
+			HTMLUtility::render(array(
+				'tag' => 'div',
+				'childrenSanitizer' => array( self::class, 'sanitize_html'),
+				'children' => array(
+					$elements->render( array('attrName' => 'title')),
+					$elements->render( array('attrName' => 'content') ),
+					self::render_button( $attrs )
+				)
+			))
 		);
 
 
@@ -89,41 +78,38 @@ trait RenderCallbackTrait {
 		
 	}
 
-
-	/**
-	 * Renders the Header
-	 *
-	 * @param array   $attrs Block attributes that were saved by VB.
-	 * @return string
-	 */
-	static function render_header( $attrs ){
-		$tag = ! empty( $attrs['level'] ) ? $attrs['level'] : 'h2';
-		$alignment = ! empty( $attrs['alignment'] ) ? $attrs['alignment'] : 'start';
-
-		$style = isset( $attrs['color'] ) && ! empty( $attrs['color'] ) ?
-			sprintf( ' style="color:%1$s;"', esc_attr( $attrs['color'] ) ) : '';
-
-		return "<{$tag} class='text-{$alignment}'>{$attrs['text']}</{$tag}>";
-	}
-
 	/**
 	 * Renders the Featured Image
 	 *
-	 * @param array   $attrs Block attributes that were saved by VB.
 	 * @param ModuleElements $elements ModuleElements instance.
+	 * @param array   $attrs Block attributes that were saved by VB.
 	 * @return string
 	 */
-	static function render_image( $attrs, $elements ){
+	static function render_image( $elements, $attrs ){
+		$advanced = $attrs['image']['advanced'];
+		$show = ModuleUtils::get_attr_value(array(
+			'attr' => $advanced['show'] ?? '',
+			'breakpoint' => 'desktop',
+			'state' => 'value',
+		));
+		$alignment = ModuleUtils::get_attr_value(array(
+			'attr' => $advanced['alignment'] ?? '',
+			'breakpoint' => 'desktop',
+			'state' => 'value',
+		));
+		$fade = ModuleUtils::get_attr_value(array(
+			'attr' => $advanced['fade'] ?? '',
+			'breakpoint' => 'desktop',
+			'state' => 'value',
+		));
 
-		if( isset( $attrs['show'] ) && 'off' === $attrs['show']  ){
+		if( 'off' === $show  ){
 			return;
 		}
 		
-		$class = 'col-4';
+		$class = "col-4 {$alignment}";
 
-		$class .= 'on' === $attrs['alignment'] ? ' ps-3 float-end' : ' pe-3 float-start';
-		$class .= 'on' === $attrs['fade'] ? ' animate__animated  animate__fadeInLeft' : '';
-
+		$class .= 'none' !== $fade ? " animate__animated  animate__{$fade}" : '';
 
 		return sprintf( '<div class="%1$s">%2$s</div>', $class, $elements->render( array('attrName' => 'image') ) );
 	}
@@ -136,12 +122,30 @@ trait RenderCallbackTrait {
 	 * @return string
 	 */
 	static function render_button( $attrs ){
-		if( (isset( $attrs['show'] ) && 'off' === $attrs['show']) || empty( $attrs['text'] ) ){
+		$show = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['link']['advanced']['show'] ?? '',
+			'breakpoint' => 'desktop',
+			'state' => 'value',
+		));
+		
+		$title = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['title']['innerContent'] ?? '',
+			'breakpoint' => 'desktop',
+			'state' => 'value',
+		));
+
+		$link = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['link']['innerContent'] ?? '',
+			'breakpoint' => 'desktop',
+			'state' => 'value',
+		));
+
+		if( 'off' === $show || empty( $link['linkUrl'] ) ){
 			return;
 		}
 
-		return sprintf('<div><a href="%1$s" class="btn btn-outline-dark" target="_blank">More Information</a></div>', 
-			esc_url( $attrs['url'] ), 
-			esc_html( $attrs['text']  ) );
+		return sprintf('<div><a href="%1$s" class="btn btn-outline-dark" target="_blank">More Information<span class="sr-only">More information about %2$s</span></a></div>', 
+			esc_url( $link['linkUrl'] ), 
+			esc_html( $title  ) );
 	}
 }

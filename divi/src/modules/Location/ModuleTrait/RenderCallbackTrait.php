@@ -45,77 +45,18 @@ trait RenderCallbackTrait {
 			'state' => 'value',
 		));
 
-		$address = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['address']['innerContent'] ?? $attrs,
-			'breakpoint' => 'desktop',
-			'state' => 'value',
-		));
-
-		$contact = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['contact']['innerContent'] ?? $attrs,
-			'breakpoint' => 'desktop',
-			'state' => 'value',
-		));
-
-		$icon = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['icon']['innerContent'] ?? $attrs,
-			'breakpoint' => 'desktop',
-			'state' => 'value',
-		));
-
-		$link = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['link']['innerContent'] ?? $attrs,
-			'breakpoint' => 'desktop',
-			'state' => 'value',
-		));
-
-		$name = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['name']['innerContent'] ?? $attrs,
-			'breakpoint' => 'desktop',
-			'state' => 'value',
-		));
-
-		$image = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['image']['innerContent'] ?? $attrs,
-			'breakpoint' => 'desktop',
-			'state' => 'value',
-		));
-
-		$desc = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['desc']['innerContent'] ?? $attrs,
-			'breakpoint' => 'desktop',
-			'state' => 'value',
-		));
-
 		$body = '';
 
 		switch( $layout ){
 			case 'mini':
-				$body = self::render_mini( array(
-					'address' => $address,
-					'icon'    => $icon,
-					'link'    => $link,
-					'name'    => $name,
-				), $elements );
+				$body = self::render_mini( $elements, $attrs );
 				break;
 			case 'banner':
-				$body = self::render_banner( array(
-					'address' => $address,
-					'image'    => $image,
-					'link'    => $link,
-					'desc'    => $desc,
-					'name'    => $name,
-				), $elements );
+				$body = self::render_banner( $elements, $attrs );
 				break;
 			case 'contact':
 			default:
-				$body = self::render_contact( array(
-					'address' => $address,
-					'contact'    => $contact,
-					'icon'    => $icon,
-					'link'    => $link,
-					'name'    => $name,
-				), $elements );
+				$body = self::render_contact( $elements, $attrs );
 				break;
 		}
 
@@ -154,40 +95,72 @@ trait RenderCallbackTrait {
 	 *
 	 * @since ??
 	 *
-	 * @param array          $attrs Block attributes that were saved by VB.
-	 * @param string         $content          Block content.
-	 * @param \WP_Block      $block            Parsed block object that being rendered.
 	 * @param ModuleElements $elements ModuleElements instance.
+	 * @param array          $attrs Block attributes that were saved by VB.
 	 *
 	 * @return string HTML rendered of Location module.
 	 */
-	static function render_contact( $attrs, $elements ) {
-		$address = $attrs['address'] ?? '';
-		$contact = $attrs['contact'] ?? '';
-		$icon = $attrs['icon'] ?? '';
-		$link = $attrs['link'] ?? '';
-		
+	static function render_contact( $elements, $attrs ) {
+		$address = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['address']['innerContent'],
+			'breakpoint' => 'desktop',
+			'state' => 'value',
+		));
+
+		$contact = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['contact']['innerContent'],
+			'breakpoint' => 'desktop',
+			'state' => 'value',
+		));
+		$showContact = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['contact']['advanced']['show'],
+			'breakpoint' => 'desktop',
+			'state' => 'value',
+		));
+
+		$icon = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['icon']['innerContent'],
+			'breakpoint' => 'desktop',
+			'state' => 'value',
+		));
+
+		$link = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['link']['innerContent'],
+			'breakpoint' => 'desktop',
+			'state' => 'value',
+		));
+		$showLink = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['link']['advanced']['show'],
+			'breakpoint' => 'desktop',
+			'state' => 'value',
+		));
+		$name = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['name']['innerContent'],
+			'breakpoint' => 'desktop',
+			'state' => 'value',
+		));
+
   		// get a map link if address info exists
 		$addressMapLink = self::render_address_map_link( $address );
 		
 		// If displaying an icon
-		// $displayIcon   = 'on' === icon?.show ? <div className="thumbnail">{get_icon_span(icon?.icon)}</div> : <></>;
+		$displayIcon   = 'on' === $icon['show'] ? sprintf('<div class="thumbnail">%1$s</div>', self::get_icon_span( $icon )) : '';
 
 		// show contact info if enabled
-		$displayOther = 'on' === $contact['show'] ? 
+		$displayOther = 'on' === $showContact ? 
 			sprintf('%1$s%2$s',
 				! empty( $contact['phone'] ) ? sprintf('<p>General Information: %1$s</p>', $contact['phone']) : '',
 				! empty( $contact['fax'] ) ? sprintf('<p>FAX: %1$s</p>', $contact['fax']) : ''
 			) : '';
 
 					
-		$linkElement = ! empty( $link['url'] )  && 'on' === $link['show'] ?
-			sprintf('<a href="%1$s" class="btn btn-outline-dark" target="_blank">More</a>', $link['url'])
+		$linkElement = ! empty( $link['linkUrl'] )  && 'on' === $showLink ?
+			sprintf('<a href="%1$s" class="btn btn-outline-dark" target="_blank">More</a>', $link['linkUrl'])
 			: '';
 			
 		 // we combine all contact info elements here
 		$contactInfo = ( 
-			! empty( $attrs['name'] )  ||
+			! empty( $name )  ||
 			! empty( $displayOther ) ||
 			! empty( $addressMapLink ) ||
 			! empty( $linkElement )
@@ -199,7 +172,7 @@ trait RenderCallbackTrait {
 			$linkElement
 		) : '';
 
-		return sprintf('%1$s',$contactInfo);
+		return sprintf('%1$s%2$s', $displayIcon, $contactInfo);
 	}
 	
 	/**
@@ -207,31 +180,49 @@ trait RenderCallbackTrait {
 	 *
 	 * @since ??
 	 *
-	 * @param array          $attrs Block attributes that were saved by VB.
-	 * @param string         $content          Block content.
-	 * @param \WP_Block      $block            Parsed block object that being rendered.
 	 * @param ModuleElements $elements ModuleElements instance.
+	 * @param array          $attrs Block attributes that were saved by VB.
 	 *
 	 * @return string HTML rendered of Location module.
 	 */
-	static function render_mini( $attrs, $elements  ) {
-		$address = $attrs['address'] ?? '';
-		$icon = $attrs['icon'] ?? '';
-		$link = $attrs['link'] ?? '';
-		$name = $attrs['name'] ?? '';
+	static function render_mini( $elements, $attrs  ) {
+		
+		$address = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['address']['innerContent'],
+			'breakpoint' => 'desktop',
+			'state' => 'value',
+		));
+
+		$icon = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['icon']['innerContent'] ?? $attrs,
+			'breakpoint' => 'desktop',
+			'state' => 'value',
+		));
+		
+		$link = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['link']['innerContent'] ?? $attrs,
+			'breakpoint' => 'desktop',
+			'state' => 'value',
+		));
+		
+		$name = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['name']['innerContent'] ?? $attrs,
+			'breakpoint' => 'desktop',
+			'state' => 'value',
+		));
 		
   		// get a map link if address info exists
 		$addressMapLink = self::render_address_map_link( $address );
 		
 		// If displaying an icon
-		$displayIcon   = 'on' === $icon['show'] ? sprintf('<div class="thumbnail"><span class="et-pb-icon ca-gov-icon-">%1$s</span></div>', self::get_icon_span( $icon )) : '';
+		$displayIcon   = 'on' === $icon['show'] ? sprintf('<div class="thumbnail">%1$s</div>', self::get_icon_span( $icon )) : '';
 
 		// we wrap the name in a link if a link url is provided
-		$nameElement = ! empty( $link['name'] )  ?
+		$nameElement = ! empty( $name )  ?
 			(
-				! empty( $link['url'] ) 
+				! empty( $link['linkUrl'] ) 
 				?
-				sprintf('<a href="%1$s" target="_blank">%2$s</a>', $link['url'], $link['name'])
+				sprintf('<a href="%1$s" target="_blank">%2$s</a>', $link['linkUrl'], $name )
 				:
 				$elements->render(array('attrName' => 'name'))
 			)
@@ -251,23 +242,46 @@ trait RenderCallbackTrait {
 	}
 
 	/**
-	 * Renders Location (mini).
+	 * Renders Location (banner).
 	 *
 	 * @since ??
 	 *
-	 * @param array          $attrs Block attributes that were saved by VB.
-	 * @param string         $content          Block content.
-	 * @param \WP_Block      $block            Parsed block object that being rendered.
 	 * @param ModuleElements $elements ModuleElements instance.
+	 * @param array          $attrs Block attributes that were saved by VB.
 	 *
 	 * @return string HTML rendered of Location module.
 	 */
-	static function render_banner( $attrs, $elements  ) {
-		$address = $attrs['address'] ?? '';
-		$link = $attrs['link'] ?? '';
-		$name = $attrs['name'] ?? '';
-		$desc = $attrs['desc'] ?? '';
-		$image = $attrs['image'] ?? '';
+	static function render_banner( $elements, $attrs  ) {
+		$address = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['address']['innerContent'] ?? $attrs,
+			'breakpoint' => 'desktop',
+			'state' => 'value',
+		));
+		$link = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['link']['innerContent'] ?? $attrs,
+			'breakpoint' => 'desktop',
+			'state' => 'value',
+		));
+		$showLink = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['link']['advanced']['show'] ?? $attrs,
+			'breakpoint' => 'desktop',
+			'state' => 'value',
+		));
+		$name = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['name']['innerContent'] ?? $attrs,
+			'breakpoint' => 'desktop',
+			'state' => 'value',
+		));
+		$desc = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['desc']['innerContent'] ?? $attrs,
+			'breakpoint' => 'desktop',
+			'state' => 'value',
+		));
+		$image = ModuleUtils::get_attr_value(array(
+			'attr' => $attrs['image']['innerContent'] ?? $attrs,
+			'breakpoint' => 'desktop',
+			'state' => 'value',
+		));
 		
 		$imageElement = ! empty( $image['src'] ) ?
     		sprintf('<div class="thumbnail">%1$s</div>', $elements->render(array('attrName' => 'image')))
@@ -281,13 +295,13 @@ trait RenderCallbackTrait {
 			sprintf('<strong>Description:</strong>%1$s', $elements->render(array('attrName' => 'desc')))
 			: '';
 
-		$linkElement = ! empty( $link['url'] )  && 'on' === $link['show'] ?
+		$linkElement = ! empty( $link['linkUrl'] )  && 'on' === $showLink ?
 			sprintf('<a href="%1$s" class="btn btn-outline-dark" target="_blank">View More Details</a>', $link['url'])
 			: '';
 						
 		// we combine all contact info elements here
 		$contactInfo = ( 
-			! empty( $attrs['name'] )  ||
+			! empty( $name )  ||
 			! empty( $addressMapLink ) 
 		) ? 
 		sprintf('<div class="contact">%1$s%2$s</div>', 

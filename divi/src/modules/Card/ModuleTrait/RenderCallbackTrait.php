@@ -47,10 +47,10 @@ trait RenderCallbackTrait {
 
 		// Retrieve the showImage and image attributes from the block attributes
 		$showImage = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['image']['advanced'],
+			'attr' => $attrs['image']['advanced']['show'],
 			'breakpoint' => 'desktop',
 			'state' => 'value'
-		))['show'] ?? 'off';
+		)) ?? 'off';
 
 		$image = ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['image']['innerContent'],
@@ -60,16 +60,16 @@ trait RenderCallbackTrait {
 
 		// Retrieve the titleAdvanced options and title attributes from the block attributes
 		$showHeader = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['title']['advanced'],
+			'attr' => $attrs['title']['advanced']['show'],
 			'breakpoint' => 'desktop',
 			'state' => 'value'
-		))['show'] ?? 'off';
+		)) ?? 'off';
 
 		$showButton = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['button']['advanced'],
+			'attr' => $attrs['button']['advanced']['show'],
 			'breakpoint' => 'desktop',
 			'state' => 'value'
-		))['show'] ?? 'off';
+		)) ?? 'off';
 
 		$button = ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['button']['innerContent'],
@@ -104,10 +104,10 @@ trait RenderCallbackTrait {
 
 		// Retrieve the footerAdvanced options and footer attributes from the block attributes
 		$showFooter = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['footer']['advanced'],
+			'attr' => $attrs['footer']['advanced']['show'],
 			'breakpoint' => 'desktop',
 			'state' => 'value'
-		))['show'] ?? 'off';
+		)) ?? 'off';
 		
 		// Create the image element if showImage is 'on' and image is not empty
 		$imgElement = 'on' === $showImage && ! empty( $image ) ? sprintf('<img src="%s" class="card-image-top img-responsive" />', $image) : '';

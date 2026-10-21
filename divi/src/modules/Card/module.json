@@ -53,6 +53,7 @@
           "item": {
             "groupSlug": "style",
             "render": true,
+            "priority": 1,
             "attrName": "layout.innerContent",
             "label": "Card Style",
             "description": "Here you can choose the style in which to display the card.",
@@ -103,50 +104,51 @@
       },
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
-        "innerContent": {
-          "groupType": "group-items",
-          "items": {
-            "showImage": {
+        "advanced": {
+          "show": {
+            "groupType": "group-item",
+            "item": {
               "groupSlug": "style",
               "render": true,
+              "priority": 2,
               "label": "Include Image",
-              "attrName": "image.advanced",
-              "subName": "show",
+              "attrName": "image.advanced.show",
               "description": "Toggle to include or exclude the image for this card.",
               "features": {
                 "responsive": false
               },
               "component": {
                 "name": "divi/toggle",
-                "type": "field",
-                "props": {
-                  "defaultValue": "off"
-                }
+                "type": "field"
               }
+            }
+          }
+        },
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+            "groupSlug": "style",
+            "render": true,
+            "priority": 3,
+            "attrName": "image.innerContent",
+            "subName": "src",
+            "label": "Featured Image",
+            "description": "This image will be used as the main image for this card.",
+            "features": {
+              "responsive": false
             },
-            "src": {
-              "groupSlug": "style",
-              "render": true,
-              "attrName": "image.innerContent",
-              "subName": "src",
-              "label": "Featured Image",
-              "description": "This image will be used as the main image for this card.",
-              "features": {
-                "responsive": false
-              },
-              "component": {
-                "name": "divi/upload",
-                "type": "field",
-                "props": {
-                  "syncImageData": {
-                    "src": true,
-                    "id": true,
-                    "alt": true,
-                    "titleText": false
-                  }
+            "component": {
+              "name": "divi/upload",
+              "type": "field",
+              "props": {
+                "syncImageData": {
+                  "src": true,
+                  "id": true,
+                  "alt": true,
+                  "titleText": false
                 }
               }
-            }            
+            }
           }
         }
       }
@@ -162,14 +164,14 @@
       },
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
-        "innerContent": {
-          "groupType": "group-items",
-          "items": {
-            "showHeader": {
+        "advanced": {
+          "show": {
+            "groupType": "group-item",
+            "item": {
               "groupSlug": "header",
               "render": true,
-              "attrName": "title.advanced",
-              "subName": "show",
+              "priority": 1,
+              "attrName": "title.advanced.show",
               "label": "Include Header",
               "description": "Toggle to include or exclude the header for this card.",
               "features": {
@@ -177,25 +179,26 @@
               },
               "component": {
                 "name": "divi/toggle",
-                "type": "field",
-                "props": {
-                  "defaultValue": "off"
-                }
-              }
-            },
-            "title": {
-              "groupSlug": "header",
-              "render": true,
-              "attrName": "title.innerContent",
-              "label": "Header Title",
-              "description": "Here you can enter a header title for the card.",
-              "features": {
-                "responsive": false
-              },
-              "component": {
-                "name": "divi/text",
                 "type": "field"
               }
+            }
+          }
+        },
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+            "groupSlug": "header",
+            "render": true,
+            "priority": 2,
+            "attrName": "title.innerContent",
+            "label": "Header Title",
+            "description": "Here you can enter a header title for the card.",
+            "features": {
+              "responsive": false
+            },
+            "component": {
+              "name": "divi/text",
+              "type": "field"
             }
           }
         },
@@ -296,6 +299,7 @@
           "item": {
             "groupSlug": "body",
             "render": true,
+            "priority": 1,
             "attrName": "content.innerContent",
             "label": "Content",
             "description": "Here you can create the content that will be used within the card.",
@@ -327,14 +331,14 @@
       "selector": "{{selector}} .card-button",
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
-        "innerContent": {
-          "groupType": "group-items",
-          "items": {
-            "showButton": {
+        "advanced": {
+          "show": {
+            "groupType": "group-item",
+            "item": {
               "groupSlug": "body",
               "render": true,
-              "attrName": "button.advanced",
-              "subName": "show",
+              "priority": 2,
+              "attrName": "button.advanced.show",
               "label": "Button",
               "description": "Toggle to include or exclude a button in the card.",
               "features": {
@@ -342,14 +346,17 @@
               },
               "component": {
                 "name": "divi/toggle",
-                "type": "field",
-                "props": {
-                  "defaultValue": "off"
-                }
+                "type": "field"
               }
-            },
+            }
+          }
+        },
+        "innerContent": {
+          "groupType": "group-items",
+          "items": {
             "text": {
               "groupSlug": "body",
+              "priority": 3,
               "render": true,
               "attrName": "button.innerContent",
               "subName": "text",
@@ -365,6 +372,7 @@
             },
             "url": {
               "groupSlug": "body",
+              "priority": 4,
               "render": true,
               "attrName": "button.innerContent",
               "subName": "linkUrl",
@@ -391,14 +399,14 @@
       },
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
-        "innerContent": {
-          "groupType": "group-items",
-          "items": {
-            "showFooter": {
+        "advanced": {
+          "show": {
+            "groupType": "group-item",
+            "item": {
               "groupSlug": "footer",
               "render": true,
-              "attrName": "footer.advanced",
-              "subName": "show",
+              "priority": 1,
+              "attrName": "footer.advanced.show",
               "label": "Include Footer",
               "description": "Toggle to include or exclude the footer for this card.",
               "features": {
@@ -406,25 +414,26 @@
               },
               "component": {
                 "name": "divi/toggle",
-                "type": "field",
-                "props": {
-                  "defaultValue": "off"
-                }
-              }
-            },
-            "footer": {
-              "groupSlug": "footer",
-              "render": true,
-              "attrName": "footer.innerContent",
-              "label": "Footer Title",
-              "description": "Here you can enter a footer title for the card.",
-              "features": {
-                "responsive": false
-              },
-              "component": {
-                "name": "divi/text",
                 "type": "field"
               }
+            }
+          }
+        },
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+            "groupSlug": "footer",
+            "render": true,
+            "priority": 2,
+            "attrName": "footer.innerContent",
+            "label": "Footer Title",
+            "description": "Here you can enter a footer title for the card.",
+            "features": {
+              "responsive": false
+            },
+            "component": {
+              "name": "divi/text",
+              "type": "field"
             }
           }
         },

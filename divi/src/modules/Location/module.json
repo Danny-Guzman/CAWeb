@@ -130,6 +130,7 @@
           "item": {
               "groupSlug": "location",
               "render": true,
+              "priority": 1,
               "attrName": "name.innerContent",
               "label": "Name",
               "description": "Here you can enter a name for the location.",
@@ -160,6 +161,7 @@
           "item": {
               "groupSlug": "location",
               "render": true,
+              "priority": 2,
               "attrName": "desc.innerContent",
               "label": "Description",
               "description": "Here you can enter a description for the location.",
@@ -185,6 +187,7 @@
             "addr": {
               "groupSlug": "location",
               "render": true,
+              "priority": 3,
               "attrName": "address.innerContent",
               "subName": "addr",
               "label": "Address",
@@ -201,6 +204,7 @@
             "city": {
               "groupSlug": "location",
               "render": true,
+              "priority": 4,
               "attrName": "address.innerContent",
               "subName": "city",
               "label": "City",
@@ -217,6 +221,7 @@
             "state": {
               "groupSlug": "location",
               "render": true,
+              "priority": 5,
               "attrName": "address.innerContent",
               "subName": "state",
               "label": "State",
@@ -233,6 +238,7 @@
             "zip": {
               "groupSlug": "location",
               "render": true,
+              "priority": 6,
               "attrName": "address.innerContent",
               "subName": "zip",
               "label": "Zip Code",
@@ -254,15 +260,15 @@
       "type": "object",
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
-        "innerContent": {
-          "groupType": "group-items",
-          "items": {
-            "showContact": {
+        "advanced": {
+          "show": {
+            "groupType": "group-item",
+            "item": {
               "groupSlug": "location",
               "render": true,
+              "priority": 6,
               "label": "Contact Information",
-              "attrName": "contact.innerContent",
-              "subName": "show",  
+              "attrName": "contact.advanced.show",
               "features": {
                 "responsive": false
               },
@@ -270,11 +276,16 @@
                 "name": "divi/toggle",
                 "type": "field"
               }
-            },
-            
+            }
+          }
+        },
+        "innerContent": {
+          "groupType": "group-items",
+          "items": {
             "phone": {
               "groupSlug": "location",
               "render": true,
+              "priority": 7,
               "attrName": "contact.innerContent",
               "subName": "phone",
               "label": "Phone",
@@ -291,6 +302,7 @@
             "fax": {
               "groupSlug": "location",
               "render": true,
+              "priority": 8,
               "attrName": "contact.innerContent",
               "subName": "fax",
               "label": "Fax",
@@ -312,15 +324,15 @@
       "type": "object",
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
-        "innerContent": {
-          "groupType": "group-items",
-          "items": {
-            "showLink": {
+        "advanced": {
+          "show": {
+            "groupType": "group-item",
+            "item": {
               "groupSlug": "location",
               "render": true,
+              "priority": 9,
               "label": "Button",
-              "attrName": "link.innerContent",
-              "subName": "show",
+              "attrName": "link.advanced.show",
               "features": {
                 "responsive": false
               },
@@ -328,22 +340,25 @@
                 "name": "divi/toggle",
                 "type": "field"
               }
+            }
+          }
+        },
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+            "groupSlug": "location",
+            "render": true,
+            "priority": 10,
+            "label": "URL",
+            "description": "Here you can enter the URL for the location.",
+            "attrName": "link.innerContent",
+            "subName": "linkUrl",
+            "features": {
+              "responsive": false
             },
-            
-            "url": {
-              "groupSlug": "location",
-              "render": true,
-              "label": "URL",
-              "description": "Here you can enter the URL for the location.",
-              "attrName": "link.innerContent",
-              "subName": "url",
-              "features": {
-                "responsive": false
-              },
-              "component": {
-                "name": "divi/text",
-                "type": "field"
-              }
+            "component": {
+              "name": "divi/text",
+              "type": "field"
             }
           }
         }

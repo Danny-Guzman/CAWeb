@@ -848,5 +848,27 @@ class ValueExpansion {
         }
 
         return $icon;
-    }   
+    }  
+	
+	/**
+	 * Replace the SectionPrimary alignment value with the corresponding CSS classes.
+	 *
+	 * @param mixed $value
+	 * @return string
+	 */
+
+	public static function replaceSectionPrimaryAlignment( $value ) {
+        return 'on' === $value ? 'ps-3 float-end' : 'pe-3 float-start';
+    }
+
+	/**
+	 * Replace the SectionPrimary fade value with the corresponding animation class.
+	 *
+	 * @param mixed $value
+	 * @return string
+	 */
+	public static function replaceSectionPrimaryFade( $value ) {
+        return 'on' === $value ? 'fadeInLeft' : 'none';
+    }
+
 }

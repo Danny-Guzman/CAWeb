@@ -51,23 +51,24 @@ export const conversionOutline: ModuleConversionOutline = {
     title:         'css.*.title',
   },
   module: {
-    section_heading:         'title.innerContent.*.text',
-    heading_text_color: 'title.innerContent.*.color',
-    heading_align: 'title.innerContent.*.alignment',
-    heading_size: 'title.innerContent.*.level',
+    section_heading: 'title.innerContent.*',
+    heading_text_color: 'title.decoration.font.font.*.color',
+    heading_align: 'title.decoration.font.font.*.textAlign',
+    heading_size: 'title.decoration.font.font.*.headingLevel',
+
     content:  'content.innerContent.*',
     section_background_color: 'module.decoration.background.*.color',
-    show_more_button: 'link.innerContent.*.show',
-    section_link:  'link.innerContent.*.url',
-    featured_image_button:    'image.innerContent.*.show',
-    left_right_button: 'image.innerContent.*.alignment',
+
+    section_link:  'link.innerContent.*.linkUrl',
+    show_more_button: 'link.advanced.show.*',
+
     section_image:          'image.innerContent.*.src',
-    slide_image_button: 'image.innerContent.*.fade',
-
-    module_text_shadow_style: 'module.advanced.text.textShadow.*.style',
-    module_text_shadow_horizontal_length: 'module.advanced.text.textShadow.*.horizontal',
-    module_text_shadow_vertical_length: 'module.advanced.text.textShadow.*.vertical',
-    module_text_shadow_blur_strength: 'module.advanced.text.textShadow.*.blur'
-
+    featured_image_button:    'image.advanced.show.*',
+    left_right_button: 'image.advanced.alignment.*',
+    slide_image_button: 'image.advanced.fade.*',
+  },
+  valueExpansionFunctionMap: {
+    left_right_button: "CAWeb\\Modules\\Utils\\ValueExpansion::replaceSectionPrimaryAlignment",
+    slide_image_button: "CAWeb\\Modules\\Utils\\ValueExpansion::replaceSectionPrimaryFade",
   }
 };

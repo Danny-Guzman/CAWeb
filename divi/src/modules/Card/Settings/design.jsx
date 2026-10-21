@@ -1,6 +1,6 @@
 // External dependencies.
 import React from 'react';
-import { set } from 'lodash';
+import { set, merge } from 'lodash';
 
 // WordPress dependencies
 import { __ } from '@wordpress/i18n';
@@ -18,16 +18,17 @@ export const SettingsDesign = ({
   defaultSettingsAttrs,
   groupConfiguration,
 }) => {
+  let attributes = merge({}, defaultSettingsAttrs, attrs);
 
   let { 
     layout,
     title,
     footer
-  } = attrs || {};
+  } = attributes;
 
-  let layoutStyle = (layout && getAttrByMode(layout?.innerContent)) || getAttrByMode(defaultSettingsAttrs?.layout?.innerContent);
-  let { show: showFooter } = (footer && getAttrByMode(footer?.advanced)) || getAttrByMode(defaultSettingsAttrs?.footer?.advanced);
-  let { show: showHeader } = (title && getAttrByMode(title?.advanced)) || getAttrByMode(defaultSettingsAttrs?.title?.advanced);
+  let layoutStyle = getAttrByMode(layout?.innerContent);
+  let showFooter = getAttrByMode(footer?.advanced?.show);
+  let showHeader = getAttrByMode(title?.advanced?.show);
   
   // Toggle Layout color field visibility based on if layout is custom
   set(groupConfiguration, ['content-background', 'render'], 'custom' === layoutStyle );

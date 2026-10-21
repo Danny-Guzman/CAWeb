@@ -36,9 +36,15 @@
         "innerContent": {
             "desktop": {
                 "value": {
-                    "show": "off",
                     "phone": "",
                     "fax": ""
+                }
+            }
+        },
+        "advanced": {
+            "show": {
+                "desktop": {
+                    "value": "off"
                 }
             }
         }
@@ -47,9 +53,15 @@
         "innerContent": {
             "desktop": {
                 "value": {
-                    "show": "off",
-                    "url": "#",
+                    "linkUrl": "",
                     "text": ""
+                }
+            }
+        },
+        "advanced": {
+            "show": {
+                "desktop": {
+                    "value": "off"
                 }
             }
         }

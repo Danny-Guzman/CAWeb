@@ -1,6 +1,6 @@
 // External dependencies.
 import React, { ReactElement } from 'react';
-import { set } from 'lodash';
+import { set, merge } from 'lodash';
 
 // WordPress dependencies
 import { __ } from '@wordpress/i18n';
@@ -18,11 +18,9 @@ export const SettingsDesign = ({
   defaultSettingsAttrs,
   groupConfiguration,
 }) => {
+  let attributes = merge({}, defaultSettingsAttrs, attrs);
 
-  let layout = getAttrByMode(attrs?.layout?.innerContent);
-  let layoutDefault = getAttrByMode(defaultSettingsAttrs?.layout?.innerContent);
-  
-  layout = layout ?? layoutDefault;
+  let layout = getAttrByMode(attributes?.layout?.innerContent);
 
   // Toggle Icon Design group visibility based on layout
   set(groupConfiguration, ['icon', 'render'], 'banner' !== layout );

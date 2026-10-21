@@ -50,16 +50,16 @@ export interface ModuleAttrs extends InternalAttrs {
 
   image?: {
     innerContent?: Element.Types.Image.InnerContent.Attributes;
-    advanced?: FormatBreakpointStateAttr<{
-      show?: OnOff;
-    }>;
+    advanced?: {
+      show?: FormatBreakpointStateAttr<OnOff>
+    };
   };
   
   title?: {
     innerContent?: FormatBreakpointStateAttr<string>;
-    advanced?: FormatBreakpointStateAttr<{
-      show?: OnOff
-    }>;
+    advanced?: {
+      show?: FormatBreakpointStateAttr<OnOff>
+    };
     decoration?: Element.Decoration.PickedAttributes<'font'>;
   };
 
@@ -70,16 +70,16 @@ export interface ModuleAttrs extends InternalAttrs {
 
   button?: {
     innerContent?: Element.Types.Button.InnerContent.Attributes;
-    advanced?: FormatBreakpointStateAttr<{
-      show?: OnOff;
-    }>;
+   advanced?: {
+      show?: FormatBreakpointStateAttr<OnOff>
+    };
   };
 
   footer?: {
     innerContent?: FormatBreakpointStateAttr<string>;
-    advanced?: FormatBreakpointStateAttr<{
-      show?: OnOff;
-    }>;
+    advanced?: {
+      show?: FormatBreakpointStateAttr<OnOff>
+    };
     decoration?: Element.Decoration.PickedAttributes<'font'>;
   }
 }

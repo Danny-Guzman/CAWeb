@@ -1,5 +1,5 @@
 // External dependencies.
-import { set } from 'lodash';
+import { set, merge } from 'lodash';
 
 // Divi dependencies.
 import {
@@ -15,31 +15,32 @@ export const SettingsContent = ({
   defaultSettingsAttrs,
   groupConfiguration,
 }) => {
+  let attributes = merge({}, defaultSettingsAttrs, attrs);
 
   let { 
     image,
     title,
     button,
     footer
-  } = attrs || {};
+  } = attributes;
   
-  let { show: showImage, } = (image && getAttrByMode(image?.advanced)) || getAttrByMode(defaultSettingsAttrs?.image?.advanced);
-  let { show: showHeader } = (title && getAttrByMode(title?.advanced)) || getAttrByMode(defaultSettingsAttrs?.title?.advanced);
-  let { show: showButton } = (button && getAttrByMode(button?.advanced)) || getAttrByMode(defaultSettingsAttrs?.button?.advanced);
-  let { show: showFooter } = (footer && getAttrByMode(footer?.advanced)) || getAttrByMode(defaultSettingsAttrs?.footer?.advanced);
+  let showImage = getAttrByMode(image?.advanced?.show);
+  let showHeader = getAttrByMode(title?.advanced?.show);
+  let showButton = getAttrByMode(button?.advanced?.show);
+  let showFooter = getAttrByMode(footer?.advanced?.show);
   
   // Toggle Featured Image field visibility based on if show image is on
-  set(groupConfiguration, ['style', 'component', 'props', 'fields', 'src', 'render'], 'off' !== showImage );
+  set(groupConfiguration, ['style', 'component', 'props', 'fields', 'imageInnercontent', 'render'], 'off' !== showImage );
 
   // Toggle Title field visibility based on if show header is on
-  set(groupConfiguration, ['header', 'component', 'props', 'fields', 'title', 'render'], 'off' !== showHeader );
+  set(groupConfiguration, ['header', 'component', 'props', 'fields', 'titleInnercontent', 'render'], 'off' !== showHeader );
 
   // Toggle Button field visibility based on if show button is on
   set(groupConfiguration, ['body', 'component', 'props', 'fields', 'text', 'render'], 'off' !== showButton );
   set(groupConfiguration, ['body', 'component', 'props', 'fields', 'url', 'render'], 'off' !== showButton );
 
   // Toggle Footer field visibility based on if show footer is on
-  set(groupConfiguration, ['footer', 'component', 'props', 'fields', 'footer', 'render'], 'off' !== showFooter );
+  set(groupConfiguration, ['footer', 'component', 'props', 'fields', 'footerInnercontent', 'render'], 'off' !== showFooter );
   
   return (
     <ModuleGroups

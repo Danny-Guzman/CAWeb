@@ -29,37 +29,30 @@ const SettingsContent = ({
   defaultSettingsAttrs,
   groupConfiguration
 }) => {
+  let attributes = (0,lodash__WEBPACK_IMPORTED_MODULE_0__.merge)({}, defaultSettingsAttrs, attrs);
   let {
     image,
     title,
     button,
     footer
-  } = attrs || {};
-  let {
-    show: showImage
-  } = image && (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(image?.advanced) || (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(defaultSettingsAttrs?.image?.advanced);
-  let {
-    show: showHeader
-  } = title && (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(title?.advanced) || (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(defaultSettingsAttrs?.title?.advanced);
-  let {
-    show: showButton
-  } = button && (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(button?.advanced) || (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(defaultSettingsAttrs?.button?.advanced);
-  let {
-    show: showFooter
-  } = footer && (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(footer?.advanced) || (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(defaultSettingsAttrs?.footer?.advanced);
+  } = attributes;
+  let showImage = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(image?.advanced?.show);
+  let showHeader = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(title?.advanced?.show);
+  let showButton = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(button?.advanced?.show);
+  let showFooter = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(footer?.advanced?.show);
 
   // Toggle Featured Image field visibility based on if show image is on
-  (0,lodash__WEBPACK_IMPORTED_MODULE_0__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'src', 'render'], 'off' !== showImage);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_0__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'imageInnercontent', 'render'], 'off' !== showImage);
 
   // Toggle Title field visibility based on if show header is on
-  (0,lodash__WEBPACK_IMPORTED_MODULE_0__.set)(groupConfiguration, ['header', 'component', 'props', 'fields', 'title', 'render'], 'off' !== showHeader);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_0__.set)(groupConfiguration, ['header', 'component', 'props', 'fields', 'titleInnercontent', 'render'], 'off' !== showHeader);
 
   // Toggle Button field visibility based on if show button is on
   (0,lodash__WEBPACK_IMPORTED_MODULE_0__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'text', 'render'], 'off' !== showButton);
   (0,lodash__WEBPACK_IMPORTED_MODULE_0__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'url', 'render'], 'off' !== showButton);
 
   // Toggle Footer field visibility based on if show footer is on
-  (0,lodash__WEBPACK_IMPORTED_MODULE_0__.set)(groupConfiguration, ['footer', 'component', 'props', 'fields', 'footer', 'render'], 'off' !== showFooter);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_0__.set)(groupConfiguration, ['footer', 'component', 'props', 'fields', 'footerInnercontent', 'render'], 'off' !== showFooter);
   return /*#__PURE__*/React.createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ModuleGroups, {
     groups: groupConfiguration
   });
@@ -103,18 +96,15 @@ const SettingsDesign = ({
   defaultSettingsAttrs,
   groupConfiguration
 }) => {
+  let attributes = (0,lodash__WEBPACK_IMPORTED_MODULE_1__.merge)({}, defaultSettingsAttrs, attrs);
   let {
     layout,
     title,
     footer
-  } = attrs || {};
-  let layoutStyle = layout && (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(layout?.innerContent) || (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(defaultSettingsAttrs?.layout?.innerContent);
-  let {
-    show: showFooter
-  } = footer && (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(footer?.advanced) || (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(defaultSettingsAttrs?.footer?.advanced);
-  let {
-    show: showHeader
-  } = title && (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(title?.advanced) || (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(defaultSettingsAttrs?.title?.advanced);
+  } = attributes;
+  let layoutStyle = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(layout?.innerContent);
+  let showFooter = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(footer?.advanced?.show);
+  let showHeader = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(title?.advanced?.show);
 
   // Toggle Layout color field visibility based on if layout is custom
   (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['content-background', 'render'], 'custom' === layoutStyle);
@@ -182,23 +172,15 @@ const ModuleEdit = ({
   let {
     src: imgSrc
   } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.image?.innerContent);
-  let {
-    show: showImage
-  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.image?.advanced);
-  let {
-    show: showHeader
-  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.title?.advanced);
-  let {
-    show: showButton
-  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.button?.advanced);
+  let showImage = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.image?.advanced?.show);
+  let showHeader = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.title?.advanced?.show);
+  let showButton = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.button?.advanced?.show);
   let {
     linkUrl: buttonUrl,
     text: buttonText
   } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.button?.innerContent);
   let buttonClass = 'light';
-  let {
-    show: showFooter
-  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.footer?.advanced);
+  let showFooter = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.footer?.advanced?.show);
   switch (layout) {
     case 'overstated':
       buttonClass = 'main';
@@ -210,7 +192,7 @@ const ModuleEdit = ({
       buttonClass = 'standout';
       break;
   }
-  let buttonComponent = 'on' === showButton ? `<a href="${buttonUrl}" class="btn btn-${buttonClass}" target="_blank">${buttonText}</a>` : '';
+  let buttonComponent = 'on' === showButton && "" !== buttonUrl && "" !== buttonText ? `<a href="${buttonUrl}" class="btn btn-${buttonClass}" target="_blank">${buttonText}</a>` : '';
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ModuleContainer, {
     attrs: attrs,
     elements: elements,
@@ -231,7 +213,7 @@ const ModuleEdit = ({
     className: ['pb-0', 'mb-0', 'border-bottom-0']
   })) : null, elements.render({
     attrName: 'content',
-    valueResolver: value => [value, buttonComponent]
+    valueResolver: value => `${value}${buttonComponent}`
   }), 'on' === showFooter ? elements.render({
     attrName: 'footer'
   }) : null);
@@ -1132,11 +1114,10 @@ const SettingsContent = ({
   defaultSettingsAttrs,
   groupConfiguration
 }) => {
-  let layout = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(attrs?.layout?.innerContent);
-  let layoutDefault = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(defaultSettingsAttrs?.layout?.innerContent);
-  let contact = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(attrs?.contact?.innerContent);
-  let link = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(attrs?.link?.innerContent);
-  layout = layout ?? layoutDefault;
+  let attributes = (0,lodash__WEBPACK_IMPORTED_MODULE_1__.merge)({}, defaultSettingsAttrs, attrs);
+  let layout = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(attributes?.layout?.innerContent);
+  let showContact = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(attributes?.contact?.advanced?.show);
+  let showLink = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(attributes?.link?.advanced?.show);
 
   // Toggle Featured Image field visibility based on layout
   (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'imageInnercontent', 'render'], 'banner' === layout);
@@ -1148,14 +1129,14 @@ const SettingsContent = ({
   (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'showContact', 'render'], 'contact' === layout);
 
   // Toggle Phone/Fax fields visibility based on layout and Show Contact Button
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'phone', 'render'], 'contact' === layout && 'on' === contact?.show);
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'fax', 'render'], 'contact' === layout && 'on' === contact?.show);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'phone', 'render'], 'contact' === layout && 'on' === showContact);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'fax', 'render'], 'contact' === layout && 'on' === showContact);
 
   // Toggle Show Button field visibility based on layout
   (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'showLink', 'render'], 'mini' !== layout);
 
   // Toggle URL field visibility based on Show Button
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'url', 'render'], 'mini' !== layout && 'on' === link?.show);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'linkInnercontent', 'render'], 'mini' !== layout && 'on' === showLink);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
     groups: groupConfiguration
   });
@@ -1199,9 +1180,8 @@ const SettingsDesign = ({
   defaultSettingsAttrs,
   groupConfiguration
 }) => {
-  let layout = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(attrs?.layout?.innerContent);
-  let layoutDefault = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(defaultSettingsAttrs?.layout?.innerContent);
-  layout = layout ?? layoutDefault;
+  let attributes = (0,lodash__WEBPACK_IMPORTED_MODULE_1__.merge)({}, defaultSettingsAttrs, attrs);
+  let layout = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(attributes?.layout?.innerContent);
 
   // Toggle Icon Design group visibility based on layout
   (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['icon', 'render'], 'banner' !== layout);
@@ -1253,12 +1233,18 @@ __webpack_require__.r(__webpack_exports__);
  */
 const contactLocation = ({
   elements,
-  address,
-  contact,
-  icon,
-  link,
-  name
+  attrs
 }) => {
+  let layout = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.layout?.innerContent);
+  let address = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.address?.innerContent);
+  let icon = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.icon?.innerContent);
+  let contact = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.contact?.innerContent);
+  let showContact = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.contact?.advanced?.show);
+  let link = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.link?.innerContent);
+  let showLink = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.link?.advanced?.show);
+  let name = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.name?.innerContent);
+  if ('contact' !== layout) return null;
+
   // get a map link if address info exists
   let addressMapLink = (0,_Utils_Module_jsx__WEBPACK_IMPORTED_MODULE_7__.get_google_map_place_link)([address?.addr, address?.city, address?.state, address?.zip]);
 
@@ -1268,9 +1254,9 @@ const contactLocation = ({
   }, (0,_Utils_Module_jsx__WEBPACK_IMPORTED_MODULE_7__.get_icon_span)(icon)) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null);
 
   // show contact info if enabled
-  let displayOther = 'on' === contact?.show ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, ['' !== contact?.phone ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "General Information: ", contact?.phone) : null, '' !== contact?.fax ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "FAX: ", contact?.fax) : null]) : null;
-  let linkElement = '' !== link?.url && 'on' === link?.show ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: link?.url,
+  let displayOther = 'on' === showContact ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, ['' !== contact?.phone ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "General Information: ", contact?.phone) : null, '' !== contact?.fax ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "FAX: ", contact?.fax) : null]) : null;
+  let linkElement = '' !== link?.linkUrl && 'on' === showLink ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    href: link?.linkUrl,
     className: "btn btn-outline-dark",
     target: "_blank"
   }, "More") : null;
@@ -1287,15 +1273,19 @@ const contactLocation = ({
 /**
  * Renders Location (mini)
  *
- * @return ReactElement
+ * @return {ReactElement}
  */
 const miniLocation = ({
   elements,
-  address,
-  icon,
-  link,
-  name
+  attrs
 }) => {
+  let layout = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.layout?.innerContent);
+  let address = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.address?.innerContent);
+  let icon = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.icon?.innerContent);
+  let name = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.name?.innerContent);
+  let link = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.link?.innerContent);
+  if (layout && 'mini' !== layout) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null);
+
   // get a map link if address info exists
   let addressMapLink = (0,_Utils_Module_jsx__WEBPACK_IMPORTED_MODULE_7__.get_google_map_place_link)([address?.addr, address?.city, address?.state, address?.zip]);
 
@@ -1305,8 +1295,8 @@ const miniLocation = ({
   }, (0,_Utils_Module_jsx__WEBPACK_IMPORTED_MODULE_7__.get_icon_span)(icon)) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null);
 
   // we wrap the name in a link if a link url is provided
-  let nameElement = '' !== name ? '' !== link?.url ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: link?.url,
+  let nameElement = '' !== name ? '' !== link?.linkUrl ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    href: link?.linkUrl,
     target: "_blank"
   }, name) : elements.render({
     'attrName': 'name'
@@ -1326,12 +1316,16 @@ const miniLocation = ({
  */
 const bannerLocation = ({
   elements,
-  address,
-  link,
-  name,
-  image,
-  desc
+  attrs
 }) => {
+  let layout = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.layout?.innerContent);
+  let image = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.image?.innerContent);
+  let address = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.address?.innerContent);
+  let desc = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.desc?.innerContent);
+  let link = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.link?.innerContent);
+  let showLink = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.link?.advanced?.show);
+  let name = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.name?.innerContent);
+  if ('banner' !== layout) return null;
   let imageElement = '' !== image?.src ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "thumbnail"
   }, elements.render({
@@ -1345,8 +1339,8 @@ const bannerLocation = ({
   let descElement = '' !== desc ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, "Description:"), elements.render({
     attrName: 'desc'
   })) : null;
-  let linkElement = '' !== link?.url && 'on' === link?.show ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: link?.url,
+  let linkElement = '' !== link?.linkUrl && 'on' === showLink ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    href: link?.linkUrl,
     target: "_blank",
     className: "btn btn-outline-dark"
   }, "View More Details") : null;
@@ -1376,53 +1370,13 @@ const bannerLocation = ({
  *
  * @returns {ReactElement}
  */
-const ModuleEdit = ({
-  attrs,
-  id,
-  name,
-  elements
-}) => {
-  let layout = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.layout?.innerContent);
-  let address = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.address?.innerContent);
-  let contact = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.contact?.innerContent);
-  let icon = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.icon?.innerContent);
-  let link = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.link?.innerContent);
-  let locationName = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.name?.innerContent);
-  let image = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.image?.innerContent);
-  let desc = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.desc?.innerContent);
-  let output = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null);
-  switch (layout) {
-    case 'mini':
-      output = miniLocation({
-        elements,
-        address,
-        icon,
-        link,
-        name: locationName
-      });
-      break;
-    case 'banner':
-      output = bannerLocation({
-        elements,
-        address,
-        image,
-        link,
-        desc,
-        name: locationName
-      });
-      break;
-    case 'contact':
-    default:
-      output = contactLocation({
-        elements,
-        address,
-        contact,
-        icon,
-        link,
-        name: locationName
-      });
-      break;
-  }
+const ModuleEdit = props => {
+  const {
+    attrs,
+    id,
+    name,
+    elements
+  } = props;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ModuleContainer, {
     attrs: attrs,
     elements: elements,
@@ -1433,7 +1387,16 @@ const ModuleEdit = ({
     scriptDataComponent: _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_5__.ModuleScriptData
   }, elements.styleComponents({
     attrName: 'module'
-  }), output);
+  }), contactLocation({
+    elements,
+    attrs
+  }), miniLocation({
+    elements,
+    attrs
+  }), bannerLocation({
+    elements,
+    attrs
+  }));
 };
 
 
@@ -5165,16 +5128,72 @@ const SettingsContent = ({
   defaultSettingsAttrs,
   groupConfiguration
 }) => {
-  let image = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(attrs?.image?.innerContent);
-  let link = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(attrs?.link?.innerContent);
+  let attributes = (0,lodash__WEBPACK_IMPORTED_MODULE_1__.merge)({}, defaultSettingsAttrs, attrs);
+  let {
+    image,
+    link
+  } = attributes;
+  let showImage = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(image?.advanced?.show);
+  let showLink = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(link?.advanced?.show);
 
   // Toggle Featured Image Image Position, Fade From Left and Src field visibility based on if show image is on
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'position', 'render'], 'off' !== image?.show);
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'fade', 'render'], 'off' !== image?.show);
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'src', 'render'], 'off' !== image?.show);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'imageInnercontent', 'render'], 'on' === showImage);
 
   // Toggle Link URL field visibility based on if show more button is on
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'url', 'render'], 'off' !== link?.show);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'linkInnercontent', 'render'], 'on' === showLink);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
+    groups: groupConfiguration
+  });
+};
+
+/***/ },
+
+/***/ "./src/modules/SectionPrimary/Settings/design.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SettingsDesign: () => (/* binding */ SettingsDesign)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/SectionPrimary/types.ts");
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_types__WEBPACK_IMPORTED_MODULE_5__);
+// External dependencies.
+
+
+
+// WordPress dependencies
+
+
+// Divi dependencies.
+
+
+
+// Local dependencies.
+
+const SettingsDesign = ({
+  attrs,
+  defaultSettingsAttrs,
+  groupConfiguration
+}) => {
+  let attributes = (0,lodash__WEBPACK_IMPORTED_MODULE_1__.merge)({}, defaultSettingsAttrs, attrs);
+  let {
+    image
+  } = attributes;
+  let showImage = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(image?.advanced?.show);
+
+  // Toggle Image field visibility based on if show image is on
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['image', 'render'], 'on' === showImage);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
     groups: groupConfiguration
   });
@@ -5217,33 +5236,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /**
- * Renders the Header
- *
- * @param {{
- *       text?: string;
- *       color?: string;
- *       alignment?: 'start' | 'center' | 'end';
- *       level?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
- * }} props 
- * @returns {ReactElement} 
- */
-const renderHeader = ({
-  text,
-  color,
-  alignment,
-  level: Tag
-}) => {
-  let style = {};
-  if (color) {
-    style = Object.assign(style, (0,_Utils_Module_jsx__WEBPACK_IMPORTED_MODULE_7__.processColorPickerValue)(color));
-  }
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Tag, {
-    className: `text-${alignment}`,
-    style: style
-  }, text);
-};
-
-/**
  * Renders the Featured Image
  *
  * @param {{
@@ -5261,21 +5253,21 @@ const renderHeader = ({
  */
 const renderImage = ({
   elements,
-  image: {
-    src,
-    alt,
-    title,
-    show,
-    alignment,
-    fade
-  }
+  attrs
 }) => {
-  if ('off' === show) {
+  let {
+    alignment,
+    fade,
+    show
+  } = attrs?.image?.advanced;
+  let showImage = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(show);
+  let imgAlign = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(alignment);
+  let fadeAnim = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(fade);
+  if ('off' === showImage) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null);
   }
-  let classes = 'col-4';
-  classes += 'on' === alignment ? ' ps-3 float-end' : ' pe-3 float-start';
-  classes += 'on' === fade ? ' animate__animated  animate__fadeInLeft' : '';
+  let classes = `col-4 ${imgAlign}`;
+  classes += 'none' !== fadeAnim ? ` animate__animated  animate__${fadeAnim}` : '';
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: classes
   }, elements.render({
@@ -5295,18 +5287,20 @@ const renderImage = ({
  * }} props 
  * @returns {ReactElement} 
  */
-const renderButton = ({
-  text,
-  link: {
-    url,
+const renderButton = attrs => {
+  let {
     show
-  }
-}) => {
-  if ('off' === show || !url) {
+  } = attrs?.link?.advanced;
+  let showLink = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(show);
+  let {
+    linkUrl
+  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.link?.innerContent);
+  let text = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.title?.innerContent);
+  if ('off' === showLink || !linkUrl) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null);
   }
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: url,
+    href: linkUrl,
     className: "btn btn-outline-dark",
     target: "_blank"
   }, "More Information", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
@@ -5330,9 +5324,6 @@ const ModuleEdit = props => {
     name,
     elements
   } = props;
-  let title = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.title?.innerContent);
-  let image = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.image?.innerContent);
-  let link = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.link?.innerContent);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ModuleContainer, {
     attrs: attrs,
     elements: elements,
@@ -5345,13 +5336,12 @@ const ModuleEdit = props => {
     attrName: 'module'
   }), renderImage({
     elements,
-    image
-  }), renderHeader(title), elements.render({
+    attrs
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, elements.render({
+    attrName: 'title'
+  }), elements.render({
     attrName: 'content'
-  }), renderButton({
-    text: title?.text,
-    link
-  }));
+  }), renderButton(attrs)));
 };
 
 
@@ -5712,18 +5702,18 @@ const conversionOutline = {
   },
   module: {
     card_layout: 'layout.innerContent.*',
-    show_image: 'image.advanced.*.show',
     featured_image: 'image.innerContent.*.src',
-    include_header: 'title.advanced.*.show',
+    show_image: 'image.advanced.show.*',
     title: 'title.innerContent.*',
+    include_header: 'title.advanced.show.*',
     heading_size: 'title.decoration.font.font.*.headingLevel',
     text_color: 'title.decoration.font.font.*.color',
     content: 'content.innerContent.*',
     card_color: 'content.decoration.background',
-    show_button: 'button.advanced.*.show',
+    show_button: 'button.advanced.show.*',
     button_text: 'button.innerContent.*.text',
     button_link: 'button.innerContent.*.linkUrl',
-    include_footer: 'footer.advanced.*.show',
+    include_footer: 'footer.advanced.show.*',
     footer_text: 'footer.innerContent.*',
     footer_color: 'footer.decoration.font.font.*.color'
   }
@@ -6046,10 +6036,10 @@ const conversionOutline = {
     city: 'address.innerContent.*.city',
     state: 'address.innerContent.*.state',
     zip: 'address.innerContent.*.zip',
-    show_contact: 'contact.innerContent.*.show',
+    show_contact: 'contact.advanced.show.*',
     phone: 'contact.innerContent.*.phone',
     fax: 'contact.innerContent.*.fax',
-    show_button: 'link.innerContent.*.show',
+    show_button: 'link.advanced.show.*',
     location_link: 'link.innerContent.*.url',
     show_icon: 'icon.innerContent.*.show',
     font_icon: 'icon.innerContent.*',
@@ -6888,22 +6878,22 @@ const conversionOutline = {
     title: 'css.*.title'
   },
   module: {
-    section_heading: 'title.innerContent.*.text',
-    heading_text_color: 'title.innerContent.*.color',
-    heading_align: 'title.innerContent.*.alignment',
-    heading_size: 'title.innerContent.*.level',
+    section_heading: 'title.innerContent.*',
+    heading_text_color: 'title.decoration.font.font.*.color',
+    heading_align: 'title.decoration.font.font.*.textAlign',
+    heading_size: 'title.decoration.font.font.*.headingLevel',
     content: 'content.innerContent.*',
     section_background_color: 'module.decoration.background.*.color',
-    show_more_button: 'link.innerContent.*.show',
-    section_link: 'link.innerContent.*.url',
-    featured_image_button: 'image.innerContent.*.show',
-    left_right_button: 'image.innerContent.*.alignment',
+    section_link: 'link.innerContent.*.linkUrl',
+    show_more_button: 'link.advanced.show.*',
     section_image: 'image.innerContent.*.src',
-    slide_image_button: 'image.innerContent.*.fade',
-    module_text_shadow_style: 'module.advanced.text.textShadow.*.style',
-    module_text_shadow_horizontal_length: 'module.advanced.text.textShadow.*.horizontal',
-    module_text_shadow_vertical_length: 'module.advanced.text.textShadow.*.vertical',
-    module_text_shadow_blur_strength: 'module.advanced.text.textShadow.*.blur'
+    featured_image_button: 'image.advanced.show.*',
+    left_right_button: 'image.advanced.alignment.*',
+    slide_image_button: 'image.advanced.fade.*'
+  },
+  valueExpansionFunctionMap: {
+    left_right_button: "CAWeb\\Modules\\Utils\\ValueExpansion::replaceSectionPrimaryAlignment",
+    slide_image_button: "CAWeb\\Modules\\Utils\\ValueExpansion::replaceSectionPrimaryFade"
   }
 };
 
@@ -7725,10 +7715,7 @@ __webpack_require__.r(__webpack_exports__);
 // Local dependencies.
 
 
-const CAWebModuleFullwidthSectionPrimaryMetadata = {
-  ..._SectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_0__.CAWebModuleSectionPrimaryMetadata,
-  ..._module_json__WEBPACK_IMPORTED_MODULE_1__
-};
+const CAWebModuleFullwidthSectionPrimaryMetadata = _module_json__WEBPACK_IMPORTED_MODULE_1__;
 const CAWebModuleFullwidthSectionPrimary = _SectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_0__.CAWebModuleSectionPrimary;
 
 /***/ },
@@ -9091,7 +9078,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _module_default_render_attributes_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/SectionPrimary/module-default-render-attributes.json");
 /* harmony import */ var _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/SectionPrimary/conversion-outline.ts");
 /* harmony import */ var _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/SectionPrimary/Settings/content.jsx");
+/* harmony import */ var _Settings_design_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/SectionPrimary/Settings/design.jsx");
 // Local dependencies.
+
 
 
 
@@ -9107,7 +9096,8 @@ const CAWebModuleSectionPrimary = {
   },
   defaultAttrs: _module_default_render_attributes_json__WEBPACK_IMPORTED_MODULE_3__,
   settings: {
-    content: _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_5__.SettingsContent
+    content: _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_5__.SettingsContent,
+    design: _Settings_design_jsx__WEBPACK_IMPORTED_MODULE_6__.SettingsDesign
   }
 };
 
@@ -9153,20 +9143,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   placeholderContent: () => (/* binding */ placeholderContent)
 /* harmony export */ });
-const placeholderContent = {
-  title: {
-    innerContent: {
-      desktop: {
-        value: {
-          text: '',
-          level: 'h2',
-          color: '',
-          alignment: 'start'
-        }
-      }
-    }
-  }
-};
+const placeholderContent = {};
 
 /***/ },
 
@@ -9362,7 +9339,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"searchTerms":"caweb","unicode":"&#xc
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"layout":{"innerContent":{"desktop":{"value":"default"}}},"image":{"innerContent":{"desktop":{"value":{"src":""}}},"advanced":{"desktop":{"value":{"show":"off"}}}},"title":{"advanced":{"desktop":{"value":{"show":"off"}}},"decoration":{"font":{"font":{"desktop":{"value":{"headingLevel":"h4","color":""}}}}}},"content":{"innerContent":{"desktop":{"value":""}}},"button":{"innerContent":{"desktop":{"value":{"linkUrl":"#","text":""}}},"advanced":{"desktop":{"value":{"show":"off"}}}},"footer":{"advanced":{"desktop":{"value":{"show":"off"}}},"decoration":{"font":{"font":{"desktop":{"value":{"color":""}}}}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"layout":{"innerContent":{"desktop":{"value":"default"}}},"image":{"innerContent":{"desktop":{"value":{"src":""}}},"advanced":{"show":{"desktop":{"value":"off"}}}},"title":{"advanced":{"show":{"desktop":{"value":"off"}}},"decoration":{"font":{"font":{"desktop":{"value":{"headingLevel":"h4","color":""}}}}}},"content":{"innerContent":{"desktop":{"value":""}}},"button":{"innerContent":{"desktop":{"value":{"linkUrl":"#","text":""}}},"advanced":{"show":{"desktop":{"value":"off"}}}},"footer":{"advanced":{"show":{"desktop":{"value":"off"}}},"decoration":{"font":{"font":{"desktop":{"value":{"color":""}}}}}}}');
 
 /***/ },
 
@@ -9370,7 +9347,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"layout":{"innerContent":{"desktop":{
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/card","d4Shortcode":"et_pb_ca_card","title":"Card","titles":"Cards","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_card","moduleOrderClassName":"et_pb_ca_card","category":"module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"layout":{"type":"object","inlineEditor":"plainText","selector":"{{selector}} .card-layout","elementType":"heading","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"style","render":true,"attrName":"layout.innerContent","label":"Card Style","description":"Here you can choose the style in which to display the card.","features":{"responsive":false,"dynamicContent":false},"component":{"name":"divi/select","type":"field","props":{"options":{"default":{"label":"Default","value":"default"},"standout":{"label":"Standout","value":"standout"},"overstated":{"label":"Overstated","value":"overstated"},"understated":{"label":"Understated","value":"understated"},"custom":{"label":"Custom","value":"custom"}}}}}}}},"image":{"type":"object","elementType":"image","selector":"{{selector}} .card-image-top","tagName":"img","attributes":{"class":"card-image-top img-responsive"},"childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"showImage":{"groupSlug":"style","render":true,"label":"Include Image","attrName":"image.advanced","subName":"show","description":"Toggle to include or exclude the image for this card.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"off"}}},"src":{"groupSlug":"style","render":true,"attrName":"image.innerContent","subName":"src","label":"Featured Image","description":"This image will be used as the main image for this card.","features":{"responsive":false},"component":{"name":"divi/upload","type":"field","props":{"syncImageData":{"src":true,"id":true,"alt":true,"titleText":false}}}}}}}},"title":{"type":"object","elementType":"heading","inlineEditor":"plainText","selector":"{{selector}} .card-title","attributes":{"class":"card-title"},"childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"showHeader":{"groupSlug":"header","render":true,"attrName":"title.advanced","subName":"show","label":"Include Header","description":"Toggle to include or exclude the header for this card.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"off"}}},"title":{"groupSlug":"header","render":true,"attrName":"title.innerContent","label":"Header Title","description":"Here you can enter a header title for the card.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}},"decoration":{"font":{"priority":1,"component":{"props":{"fieldLabel":"","groupLabel":"Header","fields":{"family":{"render":false},"weight":{"render":false},"weightFineTune":{"render":false},"variationSettings":{"render":false},"style":{"render":false},"capitalization":{"render":false},"textAlign":{"render":false},"textWrap":{"render":false},"writingMode":{"render":false},"hyphens":{"render":false},"columnCount":{"render":false},"size":{"render":false},"lineHeight":{"render":false},"letterSpacing":{"render":false},"textShadowGroup":{"component":{"props":{"fields":{"style":{"render":false}}}}},"textEffectsGroup":{"component":{"props":{"fields":{"fillType":{"render":false},"strokeWidth":{"render":false}}}}}}}}}}}},"content":{"type":"object","selector":"{{selector}} .card-body","attributes":{"class":"card-body"},"childrenSanitizer":"et_core_esc_previously","allowHtml":true,"settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"content.innerContent","label":"Content","description":"Here you can create the content that will be used within the card.","features":{"responsive":false},"component":{"name":"divi/richtext","type":"field"}}},"decoration":{"background":{"priority":5,"panel":"design","component":{"props":{"groupLabel":"Body Background"}}}}}},"button":{"type":"object","selector":"{{selector}} .card-button","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"showButton":{"groupSlug":"body","render":true,"attrName":"button.advanced","subName":"show","label":"Button","description":"Toggle to include or exclude a button in the card.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"off"}}},"text":{"groupSlug":"body","render":true,"attrName":"button.innerContent","subName":"text","label":"Button Text","description":"Here you can enter the text that will be used for the button.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"url":{"groupSlug":"body","render":true,"attrName":"button.innerContent","subName":"linkUrl","label":"Button URL","description":"Here you can enter the URL that the button will link to.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"footer":{"type":"object","selector":"{{selector}} .card-footer","attributes":{"class":"card-footer"},"childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"showFooter":{"groupSlug":"footer","render":true,"attrName":"footer.advanced","subName":"show","label":"Include Footer","description":"Toggle to include or exclude the footer for this card.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"off"}}},"footer":{"groupSlug":"footer","render":true,"attrName":"footer.innerContent","label":"Footer Title","description":"Here you can enter a footer title for the card.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}},"decoration":{"font":{"priority":1,"component":{"props":{"fieldLabel":"","groupLabel":"Footer","fields":{"headingLevel":{"render":false},"family":{"render":false},"weight":{"render":false},"weightFineTune":{"render":false},"variationSettings":{"render":false},"style":{"render":false},"capitalization":{"render":false},"textAlign":{"render":false},"textWrap":{"render":false},"writingMode":{"render":false},"hyphens":{"render":false},"columnCount":{"render":false},"size":{"render":false},"lineHeight":{"render":false},"letterSpacing":{"render":false},"textShadowGroup":{"component":{"props":{"fields":{"style":{"render":false}}}}},"textEffectsGroup":{"component":{"props":{"fields":{"fillType":{"render":false},"strokeWidth":{"render":false}}}}}}}}}}}}},"settings":{"advanced":"auto","groups":{"style":{"panel":"content","priority":1,"groupName":"style","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Style"}}},"header":{"panel":"content","priority":2,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"body":{"panel":"content","priority":3,"groupName":"body","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Body"}}},"footer":{"panel":"content","priority":4,"groupName":"footer","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Footer"}}}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/card","d4Shortcode":"et_pb_ca_card","title":"Card","titles":"Cards","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_card","moduleOrderClassName":"et_pb_ca_card","category":"module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"layout":{"type":"object","inlineEditor":"plainText","selector":"{{selector}} .card-layout","elementType":"heading","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"style","render":true,"priority":1,"attrName":"layout.innerContent","label":"Card Style","description":"Here you can choose the style in which to display the card.","features":{"responsive":false,"dynamicContent":false},"component":{"name":"divi/select","type":"field","props":{"options":{"default":{"label":"Default","value":"default"},"standout":{"label":"Standout","value":"standout"},"overstated":{"label":"Overstated","value":"overstated"},"understated":{"label":"Understated","value":"understated"},"custom":{"label":"Custom","value":"custom"}}}}}}}},"image":{"type":"object","elementType":"image","selector":"{{selector}} .card-image-top","tagName":"img","attributes":{"class":"card-image-top img-responsive"},"childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"style","render":true,"priority":2,"label":"Include Image","attrName":"image.advanced.show","description":"Toggle to include or exclude the image for this card.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-item","item":{"groupSlug":"style","render":true,"priority":3,"attrName":"image.innerContent","subName":"src","label":"Featured Image","description":"This image will be used as the main image for this card.","features":{"responsive":false},"component":{"name":"divi/upload","type":"field","props":{"syncImageData":{"src":true,"id":true,"alt":true,"titleText":false}}}}}}},"title":{"type":"object","elementType":"heading","inlineEditor":"plainText","selector":"{{selector}} .card-title","attributes":{"class":"card-title"},"childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"priority":1,"attrName":"title.advanced.show","label":"Include Header","description":"Toggle to include or exclude the header for this card.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"priority":2,"attrName":"title.innerContent","label":"Header Title","description":"Here you can enter a header title for the card.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}},"decoration":{"font":{"priority":1,"component":{"props":{"fieldLabel":"","groupLabel":"Header","fields":{"family":{"render":false},"weight":{"render":false},"weightFineTune":{"render":false},"variationSettings":{"render":false},"style":{"render":false},"capitalization":{"render":false},"textAlign":{"render":false},"textWrap":{"render":false},"writingMode":{"render":false},"hyphens":{"render":false},"columnCount":{"render":false},"size":{"render":false},"lineHeight":{"render":false},"letterSpacing":{"render":false},"textShadowGroup":{"component":{"props":{"fields":{"style":{"render":false}}}}},"textEffectsGroup":{"component":{"props":{"fields":{"fillType":{"render":false},"strokeWidth":{"render":false}}}}}}}}}}}},"content":{"type":"object","selector":"{{selector}} .card-body","attributes":{"class":"card-body"},"childrenSanitizer":"et_core_esc_previously","allowHtml":true,"settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"priority":1,"attrName":"content.innerContent","label":"Content","description":"Here you can create the content that will be used within the card.","features":{"responsive":false},"component":{"name":"divi/richtext","type":"field"}}},"decoration":{"background":{"priority":5,"panel":"design","component":{"props":{"groupLabel":"Body Background"}}}}}},"button":{"type":"object","selector":"{{selector}} .card-button","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"priority":2,"attrName":"button.advanced.show","label":"Button","description":"Toggle to include or exclude a button in the card.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"text":{"groupSlug":"body","priority":3,"render":true,"attrName":"button.innerContent","subName":"text","label":"Button Text","description":"Here you can enter the text that will be used for the button.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"url":{"groupSlug":"body","priority":4,"render":true,"attrName":"button.innerContent","subName":"linkUrl","label":"Button URL","description":"Here you can enter the URL that the button will link to.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"footer":{"type":"object","selector":"{{selector}} .card-footer","attributes":{"class":"card-footer"},"childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"footer","render":true,"priority":1,"attrName":"footer.advanced.show","label":"Include Footer","description":"Toggle to include or exclude the footer for this card.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-item","item":{"groupSlug":"footer","render":true,"priority":2,"attrName":"footer.innerContent","label":"Footer Title","description":"Here you can enter a footer title for the card.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}},"decoration":{"font":{"priority":1,"component":{"props":{"fieldLabel":"","groupLabel":"Footer","fields":{"headingLevel":{"render":false},"family":{"render":false},"weight":{"render":false},"weightFineTune":{"render":false},"variationSettings":{"render":false},"style":{"render":false},"capitalization":{"render":false},"textAlign":{"render":false},"textWrap":{"render":false},"writingMode":{"render":false},"hyphens":{"render":false},"columnCount":{"render":false},"size":{"render":false},"lineHeight":{"render":false},"letterSpacing":{"render":false},"textShadowGroup":{"component":{"props":{"fields":{"style":{"render":false}}}}},"textEffectsGroup":{"component":{"props":{"fields":{"fillType":{"render":false},"strokeWidth":{"render":false}}}}}}}}}}}}},"settings":{"advanced":"auto","groups":{"style":{"panel":"content","priority":1,"groupName":"style","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Style"}}},"header":{"panel":"content","priority":2,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"body":{"panel":"content","priority":3,"groupName":"body","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Body"}}},"footer":{"panel":"content","priority":4,"groupName":"footer","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Footer"}}}}}}');
 
 /***/ },
 
@@ -9418,7 +9395,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"_comment":"!!! THIS IS AN AUTOMATICA
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/fullwidth-section-primary","d4Shortcode":"et_pb_ca_fullwidth_section_primary","title":"Fullwidth Section Primary","titles":"Fullwidth Section Primaries","moduleClassName":"et_pb_ca_fullwidth_section_primary","moduleOrderClassName":"et_pb_ca_fullwidth_section_primary"}');
+module.exports = /*#__PURE__*/JSON.parse('{"_comment":"!!! THIS IS AN AUTOMATICALLY GENERATED FILE - DO NOT EDIT !!!","active":false,"name":"caweb/fullwidth-section-primary","d4Shortcode":"et_pb_ca_fullwidth_section_primary","title":"Fullwidth Section Primary","titles":"Fullwidth Section Primaries","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_fullwidth_section_primary","moduleOrderClassName":"et_pb_ca_fullwidth_section_primary","category":"module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{"panel":"design"},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"title":{"type":"object","inlineEditor":"plainText","elementType":"heading","selector":"{{selector}} .title","attributes":{"class":"title"},"childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"title.innerContent","label":"Title","description":"Define the title for the section.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}},"decoration":{"font":{"component":{"props":{"fieldLabel":"","groupLabel":"Header","fields":{"headingLevel":{"label":"Heading Level","options":{"h1":{"icon":"divi/h1","label":"H1"},"h2":{"icon":"divi/h2","label":"H2"},"h3":{"icon":"divi/h3","label":"H3"},"h4":{"icon":"divi/h4","label":"H4"},"h5":{"icon":"divi/h5","label":"H5"}}},"family":{"render":false},"weight":{"render":false},"weightFineTune":{"render":false},"variationSettings":{"render":false},"style":{"render":false},"capitalization":{"render":false},"textWrap":{"render":false},"writingMode":{"render":false},"hyphens":{"render":false},"columnCount":{"render":false},"size":{"render":false},"lineHeight":{"render":false},"letterSpacing":{"render":false},"color":{"label":"Heading Color"},"textAlign":{"label":"Heading Alignment","options":{"left":{"icon":"divi/text-align-left","label":"Left"},"center":{"icon":"divi/text-align-center","label":"Center"},"right":{"icon":"divi/text-align-right","label":"Right"}}},"textShadowGroup":{"component":{"props":{"fields":{"style":{"render":false}}}}},"textEffectsGroup":{"component":{"props":{"fields":{"fillType":{"render":false},"strokeWidth":{"render":false}}}}}}}}}}}},"image":{"type":"object","elementType":"image","tagName":"img","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"position":{"groupType":"group-item","item":{"groupSlug":"image","render":true,"label":"Position","attrName":"image.advanced.alignment","features":{"responsive":false},"component":{"name":"divi/button-options","type":"field","props":{"options":{"pe-3 float-start":{"icon":"divi/text-align-left","label":"Left"},"ps-3 float-end":{"icon":"divi/text-align-right","label":"Right"}}}}}},"fade":{"groupType":"group-item","item":{"groupSlug":"image","render":true,"label":"Animation","attrName":"image.advanced.fade","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"options":{"none":{"label":"None"},"fadeInLeft":{"label":"Fade In Left"},"fadeInRight":{"label":"Fade In Right"}}}}}},"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"priority":1,"label":"Featured Image","attrName":"image.advanced.show","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"on"}}}}},"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"priority":2,"attrName":"image.innerContent","subName":"src","label":"Image","description":"If defined, this image will be used as the background for this module.","features":{"responsive":false},"component":{"name":"divi/upload","type":"field","props":{"syncImageData":{"src":true,"id":true,"alt":true,"titleText":false}}}}}}},"link":{"type":"object","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","attrName":"link.advanced.show","render":true,"priority":3,"label":"More Information Button","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"priority":4,"label":"Link URL","description":"URL destination for the button","attrName":"link.innerContent","subName":"linkUrl","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}},"content":{"type":"object","elementType":"content","inlineEditor":"richtext","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","attrName":"content.innerContent","label":"Content","priority":5,"description":"Here you can create the content that will be used within the module.","render":true,"features":{"responsive":false},"component":{"type":"field","name":"divi/richtext"}}}}}},"settings":{"advanced":"auto","groups":{"header":{"panel":"content","priority":2,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"body":{"panel":"content","priority":2,"groupName":"body","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Body"}}},"headerDesign":{"panel":"design","priority":2,"groupName":"headerDesign","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"image":{"panel":"design","priority":2,"groupName":"image","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Image"}}}}}}');
 
 /***/ },
 
@@ -9466,7 +9443,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/github","d4Shortcode":"
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"layout":{"innerContent":{"desktop":{"value":"contact"}}},"name":{"innerContent":{"desktop":{"value":""}}},"desc":{"innerContent":{"desktop":{"value":""}}},"address":{"innerContent":{"desktop":{"value":{"addr":"","city":"","state":"","zip":""}}}},"contact":{"innerContent":{"desktop":{"value":{"show":"off","phone":"","fax":""}}}},"link":{"innerContent":{"desktop":{"value":{"show":"off","url":"#","text":""}}}},"icon":{"innerContent":{"desktop":{"value":{"show":"off"}}}},"image":{"innerContent":{"desktop":{"value":{"src":"","url":"","alt":"","tilte":""}}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"layout":{"innerContent":{"desktop":{"value":"contact"}}},"name":{"innerContent":{"desktop":{"value":""}}},"desc":{"innerContent":{"desktop":{"value":""}}},"address":{"innerContent":{"desktop":{"value":{"addr":"","city":"","state":"","zip":""}}}},"contact":{"innerContent":{"desktop":{"value":{"phone":"","fax":""}}},"advanced":{"show":{"desktop":{"value":"off"}}}},"link":{"innerContent":{"desktop":{"value":{"linkUrl":"","text":""}}},"advanced":{"show":{"desktop":{"value":"off"}}}},"icon":{"innerContent":{"desktop":{"value":{"show":"off"}}}},"image":{"innerContent":{"desktop":{"value":{"src":"","url":"","alt":"","tilte":""}}}}}');
 
 /***/ },
 
@@ -9474,7 +9451,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"layout":{"innerContent":{"desktop":{
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/location","d4Shortcode":"et_pb_ca_location_widget","title":"Location","titles":"Locations","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_location_widget","moduleOrderClassName":"et_pb_ca_location_widget","category":"module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"layout":{"type":"object","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"style","render":true,"attrName":"layout.innerContent","label":"Style","description":"Here you can choose the style in which to display the location.","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"options":{"contact":{"label":"Contact","value":"contact"},"mini":{"label":"Mini","value":"mini"},"banner":{"label":"Banner","value":"banner"}}}}}}}},"image":{"type":"object","elementType":"image","tagName":"img","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"style","render":true,"attrName":"image.innerContent","subName":"src","label":"Set Featured Image","description":"This image will be used as the main image for this location.","features":{"responsive":false},"component":{"name":"divi/upload","type":"field","props":{"syncImageData":{"src":true,"id":true,"alt":true,"titleText":false}}}}}}},"name":{"type":"object","inlineEditor":"plainText","elementType":"element","tagName":"strong","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"location","render":true,"attrName":"name.innerContent","label":"Name","description":"Here you can enter a name for the location.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}},"desc":{"type":"object","inlineEditor":"richText","elementType":"element","tagName":"div","attributes":{"class":"description"},"childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"location","render":true,"attrName":"desc.innerContent","label":"Description","description":"Here you can enter a description for the location.","features":{"responsive":false},"component":{"name":"divi/textarea","type":"field"}}}}},"address":{"type":"object","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"addr":{"groupSlug":"location","render":true,"attrName":"address.innerContent","subName":"addr","label":"Address","description":"Enter an address.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"city":{"groupSlug":"location","render":true,"attrName":"address.innerContent","subName":"city","label":"City","description":"Enter a city.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"state":{"groupSlug":"location","render":true,"attrName":"address.innerContent","subName":"state","label":"State","description":"Enter a state.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"zip":{"groupSlug":"location","render":true,"attrName":"address.innerContent","subName":"zip","label":"Zip Code","description":"Enter a zip code.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"contact":{"type":"object","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"showContact":{"groupSlug":"location","render":true,"label":"Contact Information","attrName":"contact.innerContent","subName":"show","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"phone":{"groupSlug":"location","render":true,"attrName":"contact.innerContent","subName":"phone","label":"Phone","description":"Enter a phone number.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"fax":{"groupSlug":"location","render":true,"attrName":"contact.innerContent","subName":"fax","label":"Fax","description":"Enter a fax number.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link":{"type":"object","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"showLink":{"groupSlug":"location","render":true,"label":"Button","attrName":"link.innerContent","subName":"show","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"url":{"groupSlug":"location","render":true,"label":"URL","description":"Here you can enter the URL for the location.","attrName":"link.innerContent","subName":"url","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"icon":{"type":"object","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"showIcon":{"groupSlug":"icon","render":true,"label":"Use Icon","attrName":"icon.innerContent","subName":"show","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"icon":{"groupSlug":"icon","render":true,"label":"Icon","description":"Select an icon.","attrName":"icon.innerContent","features":{"responsive":false},"component":{"name":"divi/icon-picker","type":"field"}}}}}}},"settings":{"advanced":"auto","groups":{"style":{"panel":"content","priority":2,"groupName":"style","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Style"}}},"location":{"panel":"content","priority":2,"groupName":"location","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Location"}}},"icon":{"panel":"design","priority":2,"groupName":"icon","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Icon"}}}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/location","d4Shortcode":"et_pb_ca_location_widget","title":"Location","titles":"Locations","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_location_widget","moduleOrderClassName":"et_pb_ca_location_widget","category":"module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"layout":{"type":"object","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"style","render":true,"attrName":"layout.innerContent","label":"Style","description":"Here you can choose the style in which to display the location.","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"options":{"contact":{"label":"Contact","value":"contact"},"mini":{"label":"Mini","value":"mini"},"banner":{"label":"Banner","value":"banner"}}}}}}}},"image":{"type":"object","elementType":"image","tagName":"img","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"style","render":true,"attrName":"image.innerContent","subName":"src","label":"Set Featured Image","description":"This image will be used as the main image for this location.","features":{"responsive":false},"component":{"name":"divi/upload","type":"field","props":{"syncImageData":{"src":true,"id":true,"alt":true,"titleText":false}}}}}}},"name":{"type":"object","inlineEditor":"plainText","elementType":"element","tagName":"strong","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"location","render":true,"priority":1,"attrName":"name.innerContent","label":"Name","description":"Here you can enter a name for the location.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}},"desc":{"type":"object","inlineEditor":"richText","elementType":"element","tagName":"div","attributes":{"class":"description"},"childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"location","render":true,"priority":2,"attrName":"desc.innerContent","label":"Description","description":"Here you can enter a description for the location.","features":{"responsive":false},"component":{"name":"divi/textarea","type":"field"}}}}},"address":{"type":"object","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"addr":{"groupSlug":"location","render":true,"priority":3,"attrName":"address.innerContent","subName":"addr","label":"Address","description":"Enter an address.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"city":{"groupSlug":"location","render":true,"priority":4,"attrName":"address.innerContent","subName":"city","label":"City","description":"Enter a city.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"state":{"groupSlug":"location","render":true,"priority":5,"attrName":"address.innerContent","subName":"state","label":"State","description":"Enter a state.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"zip":{"groupSlug":"location","render":true,"priority":6,"attrName":"address.innerContent","subName":"zip","label":"Zip Code","description":"Enter a zip code.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"contact":{"type":"object","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"location","render":true,"priority":6,"label":"Contact Information","attrName":"contact.advanced.show","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"phone":{"groupSlug":"location","render":true,"priority":7,"attrName":"contact.innerContent","subName":"phone","label":"Phone","description":"Enter a phone number.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"fax":{"groupSlug":"location","render":true,"priority":8,"attrName":"contact.innerContent","subName":"fax","label":"Fax","description":"Enter a fax number.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link":{"type":"object","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"location","render":true,"priority":9,"label":"Button","attrName":"link.advanced.show","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-item","item":{"groupSlug":"location","render":true,"priority":10,"label":"URL","description":"Here you can enter the URL for the location.","attrName":"link.innerContent","subName":"linkUrl","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}},"icon":{"type":"object","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"showIcon":{"groupSlug":"icon","render":true,"label":"Use Icon","attrName":"icon.innerContent","subName":"show","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"icon":{"groupSlug":"icon","render":true,"label":"Icon","description":"Select an icon.","attrName":"icon.innerContent","features":{"responsive":false},"component":{"name":"divi/icon-picker","type":"field"}}}}}}},"settings":{"advanced":"auto","groups":{"style":{"panel":"content","priority":2,"groupName":"style","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Style"}}},"location":{"panel":"content","priority":2,"groupName":"location","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Location"}}},"icon":{"panel":"design","priority":2,"groupName":"icon","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Icon"}}}}}}');
 
 /***/ },
 
@@ -9610,7 +9587,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/section-footer-group","
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"title":{"innerContent":{"desktop":{"value":{"level":"h2"}}}},"link":{"innerContent":{"desktop":{"value":{"show":"off"}}}},"image":{"innerContent":{"desktop":{"value":{"show":"on"}}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"title":{"innerContent":{"desktop":{"value":""}},"decoration":{"font":{"font":{"desktop":{"value":{"color":"","textAlign":"left","headingLevel":"h2"}}}}}},"content":{"innerContent":{"desktop":{"value":""}}},"link":{"innerContent":{"desktop":{"value":{"linkUrl":""}}},"advanced":{"show":{"desktop":{"value":"off"}}}},"image":{"innerContent":{"desktop":{"value":{"src":""}}},"advanced":{"alignment":{"desktop":{"value":"pe-3 float-start"}},"fade":{"desktop":{"value":"none"}},"show":{"desktop":{"value":"off"}}}}}');
 
 /***/ },
 
@@ -9618,7 +9595,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"title":{"innerContent":{"desktop":{"
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/section-primary","d4Shortcode":"et_pb_ca_section_primary","title":"Section Primary","titles":"Section Primaries","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_section_primary","moduleOrderClassName":"et_pb_ca_section_primary","category":"module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}},"innerContent":{"groupType":"group-item","item":{"groupSlug":"style","render":true,"attrName":"module.decoration.background","subName":"color","label":"Background Color","description":"Here you can define a custom background color for the section.","features":{"responsive":false},"component":{"type":"field","name":"divi/color-picker"}}}}},"title":{"type":"object","inlineEditor":"plainText","elementType":"heading","selector":"{{selector}} .title","childrenSanitizer":"et_core_esc_previously","default":{"innerContent":{"desktop":{"value":{"text":"","level":"h2","color":"","alignment":"start"}}}},"settings":{"innerContent":{"groupType":"group-items","items":{"text":{"groupSlug":"header","render":true,"attrName":"title.innerContent","subName":"text","label":"Title","description":"Define the title for the section.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"level":{"groupSlug":"headerDesign","render":true,"attrName":"title.innerContent","subName":"level","label":"Size","description":"Here you can choose the size for the panel header.","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"defaultValue":"h2","options":{"h1":{"label":"H1","value":"h1"},"h2":{"label":"H2","value":"h2"},"h3":{"label":"H3","value":"h3"},"h4":{"label":"H4","value":"h4"},"h5":{"label":"H5","value":"h5"}}}}},"alignment":{"groupSlug":"headerDesign","render":true,"attrName":"title.innerContent","subName":"alignment","label":"Alignment","description":"Here you can choose the alignment for the panel header.","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"defaultValue":"start","options":{"start":{"label":"Left","value":"start"},"center":{"label":"Center","value":"center"},"end":{"label":"Right","value":"end"}}}}},"color":{"groupSlug":"headerDesign","render":true,"attrName":"title.innerContent","subName":"color","label":"Color","description":"Here you can define a custom heading color for the title.","features":{"responsive":false},"component":{"type":"field","name":"divi/color-picker"}}}}}},"content":{"type":"object","elementType":"content","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","attrName":"content.innerContent","label":"Content","description":"Here you can create the content that will be used within the module.","render":true,"features":{"responsive":false},"component":{"type":"field","name":"divi/richtext"}}}}},"image":{"type":"object","elementType":"image","tagName":"img","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"show":{"groupSlug":"body","render":true,"label":"Feautured Image","attrName":"image.innerContent","subName":"show","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"on"}}},"position":{"groupSlug":"body","render":true,"label":"Image Position","attrName":"image.innerContent","subName":"alignment","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"on"}}},"fade":{"groupSlug":"body","render":true,"label":"Fade Image from Left","attrName":"image.innerContent","subName":"fade","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"off"}}},"src":{"groupSlug":"body","render":true,"attrName":"image.innerContent","subName":"src","label":"Image","description":"If defined, this image will be used as the background for this module.","features":{"responsive":false},"component":{"name":"divi/upload","type":"field","props":{"syncImageData":{"src":true,"id":true,"alt":true,"titleText":false}}}}}}}},"link":{"type":"object","elementType":"heading","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"showButton":{"groupSlug":"body","render":true,"label":"More Information Button","attrName":"link.innerContent","subName":"show","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"off"}}},"url":{"groupSlug":"body","render":true,"label":"Link URL","description":"URL destination for the button","attrName":"link.innerContent","subName":"url","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}}},"settings":{"design":"auto","advanced":"auto","groups":{"header":{"panel":"content","priority":2,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"body":{"panel":"content","priority":2,"groupName":"body","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Body"}}},"headerDesign":{"panel":"design","priority":2,"groupName":"headerDesign","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"style":{"panel":"design","priority":2,"groupName":"style","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Style"}}}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/section-primary","d4Shortcode":"et_pb_ca_section_primary","title":"Section Primary","titles":"Section Primaries","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_section_primary","moduleOrderClassName":"et_pb_ca_section_primary","category":"module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{"panel":"design"},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"title":{"type":"object","inlineEditor":"plainText","elementType":"heading","selector":"{{selector}} .title","attributes":{"class":"title"},"childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"title.innerContent","label":"Title","description":"Define the title for the section.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}},"decoration":{"font":{"component":{"props":{"fieldLabel":"","groupLabel":"Header","fields":{"headingLevel":{"label":"Heading Level","options":{"h1":{"icon":"divi/h1","label":"H1"},"h2":{"icon":"divi/h2","label":"H2"},"h3":{"icon":"divi/h3","label":"H3"},"h4":{"icon":"divi/h4","label":"H4"},"h5":{"icon":"divi/h5","label":"H5"}}},"family":{"render":false},"weight":{"render":false},"weightFineTune":{"render":false},"variationSettings":{"render":false},"style":{"render":false},"capitalization":{"render":false},"textWrap":{"render":false},"writingMode":{"render":false},"hyphens":{"render":false},"columnCount":{"render":false},"size":{"render":false},"lineHeight":{"render":false},"letterSpacing":{"render":false},"color":{"label":"Heading Color"},"textAlign":{"label":"Heading Alignment","options":{"left":{"icon":"divi/text-align-left","label":"Left"},"center":{"icon":"divi/text-align-center","label":"Center"},"right":{"icon":"divi/text-align-right","label":"Right"}}},"textShadowGroup":{"component":{"props":{"fields":{"style":{"render":false}}}}},"textEffectsGroup":{"component":{"props":{"fields":{"fillType":{"render":false},"strokeWidth":{"render":false}}}}}}}}}}}},"image":{"type":"object","elementType":"image","tagName":"img","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"position":{"groupType":"group-item","item":{"groupSlug":"image","render":true,"label":"Position","attrName":"image.advanced.alignment","features":{"responsive":false},"component":{"name":"divi/button-options","type":"field","props":{"options":{"pe-3 float-start":{"icon":"divi/text-align-left","label":"Left"},"ps-3 float-end":{"icon":"divi/text-align-right","label":"Right"}}}}}},"fade":{"groupType":"group-item","item":{"groupSlug":"image","render":true,"label":"Animation","attrName":"image.advanced.fade","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"options":{"none":{"label":"None"},"fadeInLeft":{"label":"Fade In Left"},"fadeInRight":{"label":"Fade In Right"}}}}}},"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"priority":1,"label":"Featured Image","attrName":"image.advanced.show","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"on"}}}}},"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"priority":2,"attrName":"image.innerContent","subName":"src","label":"Image","description":"If defined, this image will be used as the background for this module.","features":{"responsive":false},"component":{"name":"divi/upload","type":"field","props":{"syncImageData":{"src":true,"id":true,"alt":true,"titleText":false}}}}}}},"link":{"type":"object","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","attrName":"link.advanced.show","render":true,"priority":3,"label":"More Information Button","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"priority":4,"label":"Link URL","description":"URL destination for the button","attrName":"link.innerContent","subName":"linkUrl","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}},"content":{"type":"object","elementType":"content","inlineEditor":"richtext","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","attrName":"content.innerContent","label":"Content","priority":5,"description":"Here you can create the content that will be used within the module.","render":true,"features":{"responsive":false},"component":{"type":"field","name":"divi/richtext"}}}}}},"settings":{"advanced":"auto","groups":{"header":{"panel":"content","priority":2,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"body":{"panel":"content","priority":2,"groupName":"body","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Body"}}},"headerDesign":{"panel":"design","priority":2,"groupName":"headerDesign","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"image":{"panel":"design","priority":2,"groupName":"image","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Image"}}}}}}');
 
 /***/ }
 

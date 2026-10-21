@@ -24,20 +24,27 @@ import { get_icon_span, get_google_map_place_link } from '../Utils/Module.jsx';
  */
 const contactLocation = ({
   elements,
-  address,
-  contact,
-  icon,
-  link,
-  name
+  attrs
 }) => {
-// get a map link if address info exists
+  let layout = getAttrByMode(attrs?.layout?.innerContent);
+  let address = getAttrByMode(attrs?.address?.innerContent);
+  let icon = getAttrByMode(attrs?.icon?.innerContent);
+  let contact = getAttrByMode(attrs?.contact?.innerContent);
+  let showContact = getAttrByMode(attrs?.contact?.advanced?.show);
+  let link = getAttrByMode(attrs?.link?.innerContent);
+  let showLink = getAttrByMode(attrs?.link?.advanced?.show);
+  let name = getAttrByMode(attrs?.name?.innerContent);
+
+  if ( 'contact' !== layout ) return null;
+
+  // get a map link if address info exists
   let addressMapLink = get_google_map_place_link( [ address?.addr, address?.city, address?.state, address?.zip ] );
  
   // If displaying an icon
 	let displayIcon   = 'on' === icon?.show ? <div className="thumbnail">{get_icon_span(icon)}</div> : <></>;
 
   // show contact info if enabled
-  let displayOther = 'on' === contact?.show ? <Fragment>
+  let displayOther = 'on' === showContact ? <Fragment>
       {
         [
           '' !== contact?.phone ? <p>General Information: {contact?.phone}</p> : null,
@@ -46,8 +53,8 @@ const contactLocation = ({
       }
     </Fragment> : null;
   
-  let linkElement = '' !== link?.url && 'on' === link?.show ?
-      <a href={ link?.url } className='btn btn-outline-dark' target='_blank'>More</a>
+  let linkElement = '' !== link?.linkUrl && 'on' === showLink ?
+      <a href={ link?.linkUrl } className='btn btn-outline-dark' target='_blank'>More</a>
       : null;
 
   // we combine all contact info elements here
@@ -73,15 +80,19 @@ const contactLocation = ({
 /**
  * Renders Location (mini)
  *
- * @return ReactElement
+ * @return {ReactElement}
  */
 const miniLocation = ({
   elements,
-  address,
-  icon,
-  link,
-  name
+  attrs
 }) => {
+  let layout = getAttrByMode(attrs?.layout?.innerContent);
+  let address = getAttrByMode(attrs?.address?.innerContent);
+  let icon = getAttrByMode(attrs?.icon?.innerContent);
+  let name = getAttrByMode(attrs?.name?.innerContent);
+  let link = getAttrByMode(attrs?.link?.innerContent);
+  
+  if ( layout && 'mini' !== layout ) return <></>;
 
   // get a map link if address info exists
   let addressMapLink = get_google_map_place_link( [ address?.addr, address?.city, address?.state, address?.zip ] );
@@ -91,8 +102,8 @@ const miniLocation = ({
 
   // we wrap the name in a link if a link url is provided
   let nameElement = '' !== name ?
-    '' !== link?.url ? 
-      <a href={link?.url} target="_blank">{ name }</a>
+    '' !== link?.linkUrl ? 
+      <a href={link?.linkUrl} target="_blank">{ name }</a>
       :
     elements.render({'attrName': 'name' })
      : null;
@@ -120,13 +131,19 @@ const miniLocation = ({
  */
 const bannerLocation = ({
   elements,
-  address,
-  link,
-  name,
-  image,
-  desc
+  attrs
 }) => {
 
+  let layout = getAttrByMode(attrs?.layout?.innerContent);
+  let image = getAttrByMode(attrs?.image?.innerContent);
+  let address = getAttrByMode(attrs?.address?.innerContent);
+  let desc = getAttrByMode(attrs?.desc?.innerContent);
+  let link = getAttrByMode(attrs?.link?.innerContent);
+  let showLink = getAttrByMode(attrs?.link?.advanced?.show);
+  let name = getAttrByMode(attrs?.name?.innerContent);
+
+  if ( 'banner' !== layout ) return null;
+  
   let imageElement = '' !== image?.src ?
     <div className='thumbnail'>
       {
@@ -150,8 +167,8 @@ const bannerLocation = ({
         }
       </Fragment> : null
 
-  let linkElement = '' !== link?.url && 'on' === link?.show ?
-        <a href={ link?.url } target="_blank" className="btn btn-outline-dark">View More Details</a>
+  let linkElement = '' !== link?.linkUrl && 'on' === showLink ?
+        <a href={ link?.linkUrl } target="_blank" className="btn btn-outline-dark">View More Details</a>
         : null;
 
   // we combine all contact info elements here
@@ -197,58 +214,14 @@ const bannerLocation = ({
  *
  * @returns {ReactElement}
  */
-const ModuleEdit = ({
+const ModuleEdit = (props) => {
+  const {
     attrs,
     id,
     name,
     elements,
-  }) => {
+  } = props;
 
-  let layout = getAttrByMode(attrs?.layout?.innerContent);
-  
-  let address = getAttrByMode(attrs?.address?.innerContent);
-  let contact = getAttrByMode(attrs?.contact?.innerContent);
-  let icon = getAttrByMode(attrs?.icon?.innerContent);
-  let link = getAttrByMode(attrs?.link?.innerContent);
-  let locationName = getAttrByMode(attrs?.name?.innerContent);
-  let image = getAttrByMode(attrs?.image?.innerContent);
-  let desc = getAttrByMode(attrs?.desc?.innerContent);
-
-  let output = <></>;
- 
-  switch ( layout ) {
-    case 'mini':
-      output = miniLocation( {
-        elements,
-        address, 
-        icon, 
-        link,
-        name: locationName
-      } );
-      break;
-      
-    case 'banner':
-        output = bannerLocation( {
-        elements,
-        address, 
-        image,
-        link,
-        desc,
-        name: locationName
-      } );
-        break;
-    case 'contact':
-    default:
-      output = contactLocation( {
-        elements,
-        address, 
-        contact, 
-        icon, 
-        link,
-        name: locationName
-      } );
-      break;
-  }
   return (
     <ModuleContainer
       attrs={attrs}
@@ -264,10 +237,9 @@ const ModuleEdit = ({
           attrName: 'module',
         })
       }
-      {
-        output
-      }
-      
+      { contactLocation({elements, attrs}) }
+      { miniLocation({elements, attrs}) }
+      { bannerLocation({elements, attrs}) }
     </ModuleContainer>
   );
 }

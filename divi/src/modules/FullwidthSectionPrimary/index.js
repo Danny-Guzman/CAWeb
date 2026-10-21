@@ -3,9 +3,6 @@ import { CAWebModuleSectionPrimary, CAWebModuleSectionPrimaryMetadata } from '..
 
 import metadata from './module.json';
 
-export const CAWebModuleFullwidthSectionPrimaryMetadata = {
-  ...CAWebModuleSectionPrimaryMetadata,
-  ...metadata,
-};
+export const CAWebModuleFullwidthSectionPrimaryMetadata = metadata;
 
 export const CAWebModuleFullwidthSectionPrimary = CAWebModuleSectionPrimary;

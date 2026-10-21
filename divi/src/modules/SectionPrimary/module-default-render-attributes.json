@@ -2,9 +2,27 @@
     "title": {
         "innerContent": {
             "desktop": {
-                "value": {
-                    "level": "h2"
+                "value": ""
+            }
+        },
+        "decoration": {
+            "font": {
+                "font": {
+                    "desktop": {
+                        "value": {
+                            "color": "",
+                            "textAlign": "left",
+                            "headingLevel": "h2"
+                        }
+                    }
                 }
+            }
+        }
+    },
+    "content": {
+        "innerContent": {
+            "desktop": {
+                "value": ""
             }
         }
     },
@@ -12,7 +30,14 @@
         "innerContent": {
             "desktop": {
                 "value": {
-                    "show": "off"
+                    "linkUrl": ""
+                }
+            }
+        },
+        "advanced": {
+            "show": {
+                "desktop": {
+                    "value": "off"
                 }
             }
         }
@@ -21,7 +46,24 @@
         "innerContent": {
             "desktop": {
                 "value": {
-                    "show": "on"
+                    "src": ""
+                }
+            }
+        },
+        "advanced": {
+            "alignment": {
+                "desktop": {
+                    "value": "pe-3 float-start"
+                }
+            },
+            "fade": {
+                "desktop": {
+                    "value": "none"
+                }
+            },
+            "show": {
+                "desktop": {
+                    "value": "off"
                 }
             }
         }

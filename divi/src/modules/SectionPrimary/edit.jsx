@@ -19,33 +19,6 @@ import { processColorPickerValue } from '../Utils/Module.jsx';
 
 
 /**
- * Renders the Header
- *
- * @param {{
- *       text?: string;
- *       color?: string;
- *       alignment?: 'start' | 'center' | 'end';
- *       level?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
- * }} props 
- * @returns {ReactElement} 
- */
-const renderHeader = ({
-      text,
-      color,
-      alignment,
-      level: Tag,
-}) => {
-
-  let style = {};
-  
-  if( color ){
-      style = Object.assign( style, processColorPickerValue(color) );
-  }
-
-  return <Tag className={ `text-${alignment}`} style={style}>{text}</Tag>
-}
-
-/**
  * Renders the Featured Image
  *
  * @param {{
@@ -63,24 +36,21 @@ const renderHeader = ({
  */
 const renderImage = ({
     elements,
-    image: {
-      src,
-      alt,
-      title,
-      show,
-      alignment,
-      fade
-    }
+    attrs
 }) => {
 
-  if( 'off' === show ){
+  let {alignment, fade, show} = attrs?.image?.advanced;
+  let showImage = getAttrByMode(show);
+  let imgAlign = getAttrByMode(alignment);
+  let fadeAnim = getAttrByMode(fade);
+  
+  if( 'off' === showImage ){
     return <></>;
   }
 
-  let classes = 'col-4';
+  let classes = `col-4 ${imgAlign}`;
 
-  classes += ( 'on' === alignment ) ? ' ps-3 float-end' : ' pe-3 float-start';
-  classes += ( 'on' === fade ) ? ' animate__animated  animate__fadeInLeft' : '';
+  classes += 'none' !== fadeAnim ? ` animate__animated  animate__${fadeAnim}` : '';
 
   return <div className={ classes }>
     {
@@ -103,20 +73,18 @@ const renderImage = ({
  * }} props 
  * @returns {ReactElement} 
  */
-const renderButton = ({
-    text,
-    link: {
-      url,
-      show,
-    }
-}) => {
+const renderButton = (attrs) => {
+  let { show } = attrs?.link?.advanced;
+  let showLink = getAttrByMode(show);
+  let { linkUrl } = getAttrByMode(attrs?.link?.innerContent);
+  let text = getAttrByMode(attrs?.title?.innerContent);
 
-  if( 'off' === show || !url ){
+  if( 'off' === showLink || !linkUrl ){
     return <></>;
   }
 
   return <div>
-    <a href={ url } className="btn btn-outline-dark" target="_blank">
+    <a href={ linkUrl } className="btn btn-outline-dark" target="_blank">
       More Information
       <span className="sr-only">More information about { text } </span></a>
     </div>
@@ -138,10 +106,6 @@ const ModuleEdit = (props) => {
     name,
     elements,
   } = props;
-
-  let title = getAttrByMode(attrs?.title?.innerContent);
-  let image = getAttrByMode(attrs?.image?.innerContent);
-  let link = getAttrByMode(attrs?.link?.innerContent);
   
   return (
     <ModuleContainer
@@ -159,10 +123,13 @@ const ModuleEdit = (props) => {
         })
       }
       {
-        renderImage({ elements, image } )
+        renderImage({ elements, attrs } )
       }
+      <div>
       {
-        renderHeader(title)
+        elements.render({
+          attrName: 'title',
+        })
       }
       {
         elements.render({
@@ -170,8 +137,10 @@ const ModuleEdit = (props) => {
         })
       }
       {
-        renderButton({ text: title?.text, link})
-      }
+        renderButton(attrs)
+      } 
+      </div>
+
     </ModuleContainer>
   );
 }

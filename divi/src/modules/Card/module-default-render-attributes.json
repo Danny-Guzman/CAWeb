@@ -15,18 +15,18 @@
             }
         },
         "advanced": {
-            "desktop": {
-                "value": {
-                    "show": "off"
+            "show": {
+                "desktop": {
+                    "value": "off"
                 }
             }
         }
     },
     "title": {
         "advanced": {
-            "desktop": {
-                "value": {
-                    "show": "off"
+            "show": {
+                "desktop": {
+                    "value": "off"
                 }
             }
         },
@@ -60,18 +60,18 @@
             }
         },
         "advanced": {
-            "desktop": {
-                "value": {
-                    "show": "off"
+            "show": {
+                "desktop": {
+                    "value": "off"
                 }
             }
         }
     },
     "footer": {
         "advanced": {
-            "desktop": {
-                "value": {
-                    "show": "off"
+            "show": {
+                "desktop": {
+                    "value": "off"
                 }
             }
         },

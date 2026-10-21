@@ -1,6 +1,6 @@
 // External dependencies.
 import React, { ReactElement } from 'react';
-import { set } from 'lodash';
+import { merge, set } from 'lodash';
 
 // WordPress dependencies
 import { __ } from '@wordpress/i18n';
@@ -19,17 +19,17 @@ export const SettingsContent = ({
   defaultSettingsAttrs,
   groupConfiguration,
 }) => {
+  let attributes = merge({}, defaultSettingsAttrs, attrs);
+  let { image, link } = attributes;
 
-  let image = getAttrByMode(attrs?.image?.innerContent);
-  let link = getAttrByMode(attrs?.link?.innerContent);
+  let showImage = getAttrByMode(image?.advanced?.show);
+  let showLink = getAttrByMode(link?.advanced?.show);
 
   // Toggle Featured Image Image Position, Fade From Left and Src field visibility based on if show image is on
-  set(groupConfiguration, ['body', 'component', 'props', 'fields', 'position', 'render'], 'off' !== image?.show );
-  set(groupConfiguration, ['body', 'component', 'props', 'fields', 'fade', 'render'], 'off' !== image?.show );
-  set(groupConfiguration, ['body', 'component', 'props', 'fields', 'src', 'render'], 'off' !== image?.show );
-
+  set(groupConfiguration, ['body', 'component', 'props', 'fields', 'imageInnercontent', 'render'], 'on' === showImage );
+  
   // Toggle Link URL field visibility based on if show more button is on
-  set(groupConfiguration, ['body', 'component', 'props', 'fields', 'url', 'render'], 'off' !== link?.show );
+  set(groupConfiguration, ['body', 'component', 'props', 'fields', 'linkInnercontent', 'render'], 'on' === showLink );
   
   return (
     <ModuleGroups

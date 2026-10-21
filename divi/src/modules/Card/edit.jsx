@@ -35,24 +35,18 @@ const ModuleEdit = ({
   let layout = getAttrByMode(attrs?.layout?.innerContent);
   
   let { src: imgSrc } = getAttrByMode(attrs?.image?.innerContent);
-  let { show: showImage } = getAttrByMode(attrs?.image?.advanced);
+  let showImage = getAttrByMode(attrs?.image?.advanced?.show);
 
-  let { 
-    show: showHeader,
-  } = getAttrByMode(attrs?.title?.advanced);
+  let showHeader = getAttrByMode(attrs?.title?.advanced?.show);
 
-  let {
-    show: showButton
-  } = getAttrByMode(attrs?.button?.advanced);
+  let showButton = getAttrByMode(attrs?.button?.advanced?.show);
   let {
     linkUrl: buttonUrl,
     text: buttonText,
   } = getAttrByMode(attrs?.button?.innerContent);
   let buttonClass = 'light';
 
-  let { 
-    show: showFooter,
-  } = getAttrByMode(attrs?.footer?.advanced);
+  let showFooter = getAttrByMode(attrs?.footer?.advanced?.show);
 
   switch( layout ) {
     case 'overstated':
@@ -67,7 +61,7 @@ const ModuleEdit = ({
 
   }
 
-  let buttonComponent = 'on' === showButton ? `<a href="${ buttonUrl }" class="btn btn-${buttonClass}" target="_blank">${buttonText}</a>` : '';
+  let buttonComponent = 'on' === showButton && "" !== buttonUrl && "" !== buttonText ? `<a href="${ buttonUrl }" class="btn btn-${buttonClass}" target="_blank">${buttonText}</a>` : '';
   
   return (
     <ModuleContainer
@@ -105,7 +99,7 @@ const ModuleEdit = ({
       {
         elements.render({
           attrName: 'content',
-          valueResolver: value => [value, buttonComponent]
+          valueResolver: value => `${value}${buttonComponent}`
         })
       }
       {
