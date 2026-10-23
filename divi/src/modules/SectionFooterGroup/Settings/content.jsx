@@ -26,9 +26,6 @@ export const SettingsContent = ({
   } = attributes;
   let show = getAttrByMode( button?.advanced?.show );
 
-  console.log( 'attrs', attrs );
-  console.log( 'default', defaultSettingsAttrs );
-
   let links = {};
   
   Object.entries(attributes).map(([key, value]) => {
@@ -43,12 +40,12 @@ export const SettingsContent = ({
     let show = getAttrByMode(value?.advanced?.show);
     
     // Toggle Link URL field visibility based on if show more button is on
-    set(groupConfiguration, ['body', 'component', 'props', 'fields', `${key}Text`, 'render'], 'on' === show );
-    set(groupConfiguration, ['body', 'component', 'props', 'fields', `${key}Url`, 'render'], 'on' === show );
+    set(groupConfiguration, ['body', 'component', 'props', 'fields', `${key}Text`, 'visible'], 'on' === show );
+    set(groupConfiguration, ['body', 'component', 'props', 'fields', `${key}Url`, 'visible'], 'on' === show );
   })
 
   // Toggle Button URL field visibility based on if show more button is on
-  set(groupConfiguration, ['body', 'component', 'props', 'fields', 'url', 'render'], 'on' === show );
+  set(groupConfiguration, ['body', 'component', 'props', 'fields', 'url', 'visible'], 'on' === show );
   
   return (
     <ModuleGroups

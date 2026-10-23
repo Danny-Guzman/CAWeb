@@ -61,6 +61,11 @@ const get_address = (address) => {
        return;
    }else if( 'string' === typeof address ){
        address = address.split( ',' );
+   } else if ( 'object' === typeof address ){
+       // remove the 'show' key from the address object as it is not part of the actual address
+       delete address['show'];
+       
+       address = Object.values(address);
    }
 
    return address.map( (part) => part?.trim() ).filter(Boolean).join(', ');
@@ -76,7 +81,6 @@ const get_address = (address) => {
  * @return string
  */
 const get_google_map_place_link = (address, embed = false, target = '_blank', classes = '') => {
-    
     let addr = get_address(address);
 
     if( ! addr ){

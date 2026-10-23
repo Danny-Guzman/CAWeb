@@ -9,20 +9,15 @@ import { get_google_map_place_link } from '../../Utils/Module.jsx';
 const NewsView = ({attributes: news, content, showFeaturedImage}) => {
   let {
     author,
-    publish_date,
-    publish_date_custom_format,
+    published,
     location
   } = getAttrByMode( news?.innerContent );
 
-  let {
-     custom_format, 
-  } = getAttrByMode( news?.advanced );
-  
   let { postImageUrl } = useSelect(select => select('divi/page-settings')?.getSettings());
 
   let header = [
     author && <> Author: { author }</>,
-    publish_date && <>Published: { new Date(publish_date).toLocaleDateString('en-US', {month: 'short', day: '2-digit', year: 'numeric', timeZone: 'UTC'}) }</>,
+    published.date && <>Published: { new Date(published.date).toLocaleDateString('en-US', {month: 'short', day: '2-digit', year: 'numeric', timeZone: 'UTC'}) }</>,
     location && <>{ location }</>
   ].filter(Boolean);
 

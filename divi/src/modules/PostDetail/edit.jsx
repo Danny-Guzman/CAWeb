@@ -67,10 +67,11 @@ const ModuleEdit = ({
       tags,
     } = attrs || {};
 
+    
     let selectedLayout = getAttrByMode(layout?.innerContent);
     let postContent = getAttrByMode(content?.innerContent);
-    let showFeaturedImage = 'on' === getAttrByMode(image?.innerContent);
-    let featuredImageAlignLeft = "on" !== getAttrByMode(image?.advanced)?.align ;
+    let showFeaturedImage = 'on' === getAttrByMode(image?.advanced?.show) && [ 'exam', 'news', 'profile' ].includes(selectedLayout);
+    let featuredImageAlignment = getAttrByMode(image?.advanced?.alignment) ;
     let showCategories = 'on' === getAttrByMode(categories?.innerContent);
     let showTags = 'on' === getAttrByMode(tags?.innerContent);
 
@@ -113,9 +114,10 @@ const ModuleEdit = ({
     if( 'function' === typeof Action ){
       output.push( <Action
         attributes={data} 
+        elements={elements} 
         content={postContent} 
         showFeaturedImage={showFeaturedImage}
-        featuredImageAlignLeft={featuredImageAlignLeft}
+        featuredImageAlignment={featuredImageAlignment}
       />)
     }
 

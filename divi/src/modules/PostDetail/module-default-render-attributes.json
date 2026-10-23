@@ -7,15 +7,15 @@
         }
     },
     "image": {
-        "innerContent": {
-            "desktop": {
-                "value": "on"
-            }
-        },
         "advanced": {
-            "desktop": {
-                "value": {
-                    "align": "off"
+            "show": {
+                "desktop": {
+                    "value": "on"
+                }
+            },
+            "alignment": {
+                "desktop": {
+                    "value": "float-start me-3"
                 }
             }
         }
@@ -45,30 +45,32 @@
         "innerContent": {
             "desktop": {
                 "value": {
-                    "presenter_name": "",
-                    "presenter_image": "",
-                    "presenter_bio": "",
-                    "start_date": "",
-                    "start_date_custom_format": "D, n/j/Y g:i a",
-                    "end_date": "",
-                    "end_date_custom_format": "D, n/j/Y g:i a",
-                    "address": "",
-                    "city": "",
-                    "state": "",
-                    "zip": "",
+                    "presenter": {
+                        "show": "off",
+                        "name": "",
+                        "image": "",
+                        "bio": ""
+                    },
+                    "start": {
+                        "date": "",
+                        "custom": "off",
+                        "pattern": "D, n/j/Y g:i a"
+                    },
+                    "end": {
+                        "date": "",
+                        "custom": "off",
+                        "pattern": "D, n/j/Y g:i a"
+                    },
+                    "address": {
+                        "show": "off",
+                        "address": "",
+                        "city": "",
+                        "state": "",
+                        "zip": ""
+                    },
+                    "show_map": "off",
                     "registration_type": "",
                     "cost": ""
-                }
-            }
-        },
-        "advanced": {
-            "desktop": {
-                "value": {
-                    "show_presenter": "off",
-                    "start_date_custom_format": "off",
-                    "end_date_custom_format": "off",
-                    "show_address": "off",
-                    "show_map": "off"
                 }
             }
         }
@@ -78,29 +80,33 @@
             "desktop": {
                 "value": {
                     "organizer": "",
-                    "presenter_name": "",
-                    "presenter_image": "",
-                    "presenter_bio": "",
-                    "start_date": "",
-                    "start_date_custom_format": "D, n/j/Y g:i a",
-                    "end_date": "",
-                    "end_date_custom_format": "D, n/j/Y g:i a",
-                    "address": "",
-                    "city": "",
-                    "state": "",
-                    "zip": "",
+                    "presenter": {
+                        "show": "off",
+                        "name": "",
+                        "image": {
+                            "src": ""
+                        },
+                        "bio": ""
+                    },
+                    "start": {
+                        "date": "",
+                        "custom": "off",
+                        "pattern": "D, n/j/Y g:i a"
+                    },
+                    "end": {
+                        "date": "",
+                        "custom": "off",
+                        "pattern": "D, n/j/Y g:i a"
+                    },
+                    "address": {
+                        "show": "off",
+                        "address": "",
+                        "city": "",
+                        "state": "",
+                        "zip": ""
+                    },
                     "registration_type": "",
                     "cost": ""
-                }
-            }
-        },
-        "advanced": {
-            "desktop": {
-                "value": {
-                    "show_presenter": "off",
-                    "start_date_custom_format": "off",
-                    "end_date_custom_format": "off",
-                    "show_address": "off"
                 }
             }
         }
@@ -110,16 +116,12 @@
             "desktop": {
                 "value": {
                     "author": "",
-                    "publish_date": "",
-                    "publish_date_custom_format": "D, n/j/Y g:i a",
+                    "published": {
+                        "date": "",
+                        "custom": "off",
+                        "pattern": "D, n/j/Y g:i a"
+                    },
                     "location": ""
-                }
-            }
-        },
-        "advanced": {
-            "desktop": {
-                "value": {
-                    "custom_format": "off"
                 }
             }
         }
@@ -131,26 +133,26 @@
                     "id": "",
                     "class": "",
                     "status": "open",
-                    "published_date": "",
-                    "published_date_custom_format": "D, n/j/Y g:i a",
-                    "final_filing_date": "",
-                    "final_filing_date_picker": "",
-                    "final_filing_date_custom_format": "D, n/j/Y g:i a",
+                    "published": {
+                        "date": "",
+                        "custom": "off",
+                        "pattern": "D, n/j/Y g:i a"
+                    },
+                    "filing": {
+                        "date": "",
+                        "custom": "off",
+                        "pattern": "D, n/j/Y g:i a",
+                        "chooser": "off",
+                        "picker": ""
+                    },
                     "type": "web",
                     "url": "",
-                    "address": "",
-                    "city": "",
-                    "state": "",
-                    "zip": ""
-                }
-            }
-        },
-        "advanced": {
-            "desktop": {
-                "value": {
-                    "published_date_custom_format": "off",
-                    "date_chooser": "off",
-                    "final_filing_date_custom_format": "off"
+                    "address": {
+                        "address": "",
+                        "city": "",
+                        "state": "",
+                        "zip": ""
+                    }
                 }
             }
         }
@@ -161,19 +163,17 @@
                 "value": {
                     "prefix": "",
                     "name": "",
-                    "career_title": "",
-                    "career_position": "",
-                    "career_line_1": "",
-                    "career_line_2": "",
-                    "career_line_3": ""
-                }
-            }
-        },
-        "advanced": {
-            "desktop": {
-                "value": {
-                    "career": "off",
-                    "additional_fields": "off"
+                    "career": {
+                        "show": "off",
+                        "title": "",
+                        "position": ""
+                    },
+                    "fields": {
+                        "show": "off",
+                        "line1": "",
+                        "line2": "",
+                        "line3": ""
+                    }
                 }
             }
         }
@@ -182,45 +182,55 @@
         "innerContent": {
             "desktop": {
                 "value": {
-                    "agency_name": "",
-                    "agency_address": "",
-                    "agency_city": "",
-                    "agency_state": "",
-                    "agency_zip": "",
-                    "agency_about": "",
+                    "agency": {
+                        "show": "off",
+                        "name": "",
+                        "about": "",
+                        "address": {
+                            "address": "",
+                            "city": "",
+                            "state": "",
+                            "zip": ""
+                        }
+                    },
                     "hours": "",
-                    "salary_min": "",
-                    "salary_max": "",
-                    "posted_date": "",
-                    "posted_date_custom_format": "M d, Y",
+                    "salary": {
+                        "show": "off",
+                        "min": "",
+                        "max": ""
+                    },
+                    "posted": {
+                        "date": "",
+                        "custom": "off",
+                        "pattern": "M d, Y"
+                    },
                     "position_number": "",
                     "rpa_number": "",
                     "ds_url": "",
-                    "final_filing_date": "Until Filled",
-                    "final_filing_date_picker": "",
-                    "final_filing_date_custom_format": "D, n/j/Y g:i a",
-                    "apply_to_dept": "",
-                    "apply_to_name": "",
-                    "apply_to_address": "",
-                    "apply_to_city": "",
-                    "apply_to_state": "",
-                    "apply_to_zip": "",
-                    "questions_name": "",
-                    "questions_email": "",
-                    "questions_phone": ""
-                }
-            }
-        },
-        "advanced": {
-            "desktop": {
-                "value": {
-                    "show_about_agency": "off",
-                    "show_salary": "off",
-                    "posted_date_custom_format": "off",
-                    "final_filing_date_chooser": "on",
-                    "final_filing_date_custom_format": "off",
-                    "show_apply_to": "off",
-                    "show_questions": "off"
+                    "filing": {
+                        "date": "Until Filled",
+                        "custom": "off",
+                        "pattern": "D, n/j/Y g:i a",
+                        "chooser": "on",
+                        "picker": ""
+                    },
+                    "apply": {
+                        "show": "off",
+                        "dept": "",
+                        "name": "",
+                        "address": {
+                            "address": "",
+                            "city": "",
+                            "state": "",
+                            "zip": ""
+                        }
+                    },
+                    "questions": {
+                        "show": "off",
+                        "name": "",
+                        "email": "",
+                        "phone": ""
+                    }
                 }
             }
         }

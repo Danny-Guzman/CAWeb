@@ -19,7 +19,10 @@ abstract class Module implements DepInterface {
 	 * @return string
 	 */
     public static function get_address( $addr ){
-        if ( empty( $addr ) ) {
+		// we remove the 'show' key from the address array as it is not part of the actual address
+		unset( $addr['show'] );
+
+		if ( empty( $addr ) ) {
 			return;
 		} elseif ( is_string( $addr ) ) {
 			$addr = preg_split( '/,/', $addr );

@@ -26,10 +26,10 @@ export const SettingsContent = ({
   let showLink = getAttrByMode(link?.advanced?.show);
 
   // Toggle Featured Image Image Position, Fade From Left and Src field visibility based on if show image is on
-  set(groupConfiguration, ['body', 'component', 'props', 'fields', 'imageInnercontent', 'render'], 'on' === showImage );
+  set(groupConfiguration, ['body', 'component', 'props', 'fields', 'imageInnercontent', 'visible'], 'on' === showImage );
   
   // Toggle Link URL field visibility based on if show more button is on
-  set(groupConfiguration, ['body', 'component', 'props', 'fields', 'linkInnercontent', 'render'], 'on' === showLink );
+  set(groupConfiguration, ['body', 'component', 'props', 'fields', 'linkInnercontent', 'visible'], 'on' === showLink );
   
   return (
     <ModuleGroups

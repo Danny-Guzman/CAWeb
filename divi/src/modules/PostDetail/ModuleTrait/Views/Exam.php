@@ -37,12 +37,6 @@ trait Exam {
 			'state' => 'value'
 		));
 
-		$advanced = ModuleUtils::get_attr_value(array(
-			'attr' => $args['advanced'],
-			'breakpoint' => 'desktop',
-			'state' => 'value'
-		));
-
 		$exam_info = array_filter(array(
 			// render exam class and id information
 			implode(' - ', array_filter(array(
@@ -50,34 +44,29 @@ trait Exam {
 				! empty( $attrs['id'] ?? '') ? "Exam Code: {$attrs['id']}" : ''
 			))),
 			// render published date information
-			! empty( $attrs['published_date'] ?? '' ) ? 
+			! empty( $attrs['published']['date'] ) ? 
 				sprintf('Published Date: %1$s', 
 					gmdate(
-						$attrs['published_date_custom_format'] ?? 'D, n/j/Y g:i a', 
-						strtotime( $attrs['published_date'] ?? '' )
+						$attrs['published']['pattern'], 
+						strtotime( $attrs['published']['date'] )
 					) 
 				) : '',
 			// render final filing date information
-			'off' === ($attrs['final_filing_date_chooser'] ?? 'off') ? "Final Filing Date: {$attrs['final_filing_date']}" : 
+			'off' === $attrs['filing']['chooser'] ? "Final Filing Date: {$attrs['filing']['date']}" : 
 				sprintf('Final Filing Date: %1$s', 
 					gmdate(
-						$attrs['final_filing_date_custom_format'] ?? 'D, n/j/Y g:i a', 
-						strtotime( $attrs['final_filing_date_picker'] ?? '' )
+						$attrs['filing']['pattern'], 
+						strtotime( $attrs['filing']['picker'])
 					) 
 				),
 			// render exam type info
 			'web' === ( $attrs['type'] ?? '' ) ? 
 			sprintf('Exam Url: <a href="%1$s">%1$s</a>', $attrs['url'] ?? '') : 
-			sprintf('Exam Address: %1$s', self::render_address_map_link(array(
-				$attrs['address'] ?? '',
-				$attrs['city'] ?? '',
-				$attrs['state'] ?? '',
-				$attrs['zip'] ?? '',
-			))),
+			sprintf('Exam Address: %1$s', self::render_address_map_link($attrs['address'])),
 		));
 
 		return array_filter( array(
-			self::get_the_post_thumbnail( null, array(300, 80), array( 'class' => 'mb-3 me-3' ) ),
+			$showFeaturedImage ? self::get_the_post_thumbnail( null, array(300, 80), array( 'class' => 'mb-3 me-3' ) ) : '',
 			! empty($exam_info) ? HTMLUtility::render(array(
 				'tag' => 'p',
 				'childrenSanitizer' => [self::class, 'sanitize_html'],	

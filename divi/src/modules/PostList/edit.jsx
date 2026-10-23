@@ -1,5 +1,5 @@
 // External Dependencies.
-import React, { ReactElement, useEffect, useRef } from 'react';
+import React, { ReactElement, useEffect, useRef, Fragment } from 'react';
 import { get, map } from 'lodash';
 import { select } from '@divi/data';
 
@@ -42,8 +42,6 @@ const ModuleEdit = ({
     elements,
   }) => {
     let { 
-      module,
-      title,
       style,
       posts,
       orderby,
@@ -54,20 +52,34 @@ const ModuleEdit = ({
     } = attrs || {};
 
     let selectedStyle = getAttrByMode(style?.innerContent);
-    let {faq: faqStyle} = getAttrByMode(style?.advanced);
-    let {size: titleSize} = getAttrByMode(title?.advanced);
+    let faqStyle = getAttrByMode(style?.advanced?.faq);
     let postNumber = getAttrByMode(posts?.innerContent);
-    let { all: showAllCategories } = getAttrByMode(categories?.advanced);
-    let { all: showAllTags } = getAttrByMode(tags?.advanced);
-    let categoryList = 'on' === showAllCategories ? [] : getAttrByMode(categories?.innerContent);
-    let tagsList = 'on' === showAllTags ? [] : getAttrByMode(tags?.innerContent);
+    let showAllCategories = getAttrByMode(categories?.advanced?.all);
+    let categoryList = getAttrByMode(categories?.innerContent);
+    let showAllTags = getAttrByMode(tags?.advanced?.all);
+    let tagsList = getAttrByMode(tags?.innerContent);
     let orderBy = getAttrByMode(orderby?.innerContent);
     let order = '';
     let displayExcerpt = getAttrByMode(excerpt?.innerContent);
     let displayImage = getAttrByMode(image?.innerContent);
 
-    let ModuleWrapper = React.Fragment;
+    if( 'on' === showAllTags) {
+      tagsList = [];
+    }
 
+    if( 'on' === showAllCategories) {
+      categoryList = [];
+    }
+    
+    let wrap = false;
+
+    const ModuleWrapper = ({output, wrap}) => {
+      if( wrap ){
+        return <ul className="accordion-list list-overstated" role="tablist">{output}</ul>;
+      } else {
+        return <Fragment>{output}</Fragment>
+      }
+    };
 
     // get the appropriate order by properties from the orderBy string
     if( orderBy.includes('_') ){
@@ -120,16 +132,25 @@ const ModuleEdit = ({
         method:    'GET',
       })
       .then((data) => {
-        
         // now that we have the category ids, we can fetch the posts
+        let postArgs = {
+          per_page: postNumber,
+          orderby: orderBy,
+          order,
+          categories: data.map(category => category.id).join(','),
+
+        };
+
+        if( data ){
+          postArgs.categories = data.map(category => category.id).join(',');
+        }
+
+        if( tagsList.length ){
+          postArgs.tags = tagsList.join(',')
+        }
+
         fetch({
-          restRoute: addQueryArgs('/wp/v2/posts', {
-            per_page: postNumber,
-            orderby: orderBy,
-            order,
-            categories: data.map(category => category.id),
-            tags: tagsList,
-          }),
+          restRoute: addQueryArgs('/wp/v2/posts', postArgs ),
           method: 'GET',
         })
         .then((posts) => {
@@ -340,9 +361,7 @@ const ModuleEdit = ({
             case 'faqs-list':
               if( 'faqs' === post_type_layout ){
                 if( 'toggle' === faqStyle ){
-                  ModuleWrapper = (a) => {
-                    return <ul className="accordion-list list-overstated" role="tablist">{output}</ul>;
-                  };
+                  wrap = true;
 
                   output.push(
                     <li>
@@ -583,15 +602,12 @@ const ModuleEdit = ({
         }
         {
           elements.render({
-            attrName: 'title',
-            tagName: titleSize,
+            attrName: 'title'
           })
         }
         {
           ! isLoading && (
-            <ModuleWrapper>
-              { output }
-            </ModuleWrapper>
+            <ModuleWrapper output={output} wrap={wrap}></ModuleWrapper>
           )
         }
         {

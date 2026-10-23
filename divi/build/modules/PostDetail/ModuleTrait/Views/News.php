@@ -37,17 +37,11 @@ trait News {
 			'state' => 'value'
 		));
 
-		$advanced = ModuleUtils::get_attr_value(array(
-			'attr' => $args['advanced'],
-			'breakpoint' => 'desktop',
-			'state' => 'value'
-		));
-
 		$header = array_filter(array(
 			! empty( $attrs['author'] ) ? "Author: {$attrs['author']}" : '',
-			! empty( $attrs['publish_date'] ) ? sprintf( 'Published: %s', gmdate(
-				$attrs['publish_date_custom_format'] ?? 'D, n/j/Y g:i a',
-				strtotime( $attrs['publish_date'] )
+			! empty( $attrs['published']['date'] ) ? sprintf( 'Published: %s', gmdate(
+				$attrs['published']['pattern'],
+				strtotime( $attrs['published']['date'] )
 			) ) : '',
 			! empty( $attrs['location'] ) ? $attrs['location'] : ''
 		));

@@ -38,13 +38,8 @@ trait Course {
 			'state' => 'value'
 		));
 
-		$advanced = ModuleUtils::get_attr_value(array(
-			'attr' => $args['advanced'],
-			'breakpoint' => 'desktop',
-			'state' => 'value'
-		));
 
-		$presenter = 'on' === ( $advanced['show_presenter'] ?? 'off' ) ? 
+		$presenter = 'on' === ( $attrs['presenter']['show'] ) ? 
 			HTMLUtility::render(array(
 				'tag' => 'div',
 				'attributes' => array(
@@ -68,7 +63,7 @@ trait Course {
 							HTMLUtility::render(array(
 								'tag' => 'strong',
 								'childrenSanitizer' => [self::class, 'sanitize_html'],	
-								'children' => $attrs['presenter_name'] ?? ''
+								'children' => $attrs['presenter']['name']
 							))
 						)
 					)),
@@ -77,10 +72,10 @@ trait Course {
 						'childrenSanitizer' => [self::class, 'sanitize_html'],	
 						'children' => array(
 							// render presenter image
-							! empty( $attrs['presenter_image'] ?? '' ) ? HTMLUtility::render(array(
+							! empty( $attrs['presenter']['image']['src'] ) ? HTMLUtility::render(array(
 								'tag' => 'img',
 								'attributes' => array(
-									'src' => $attrs['presenter_image'],
+									'src' => $attrs['presenter']['image']['src'],
 									'class' => 'me-3',
 									'style' => 'height: 75px; width: 75px;'
 								),
@@ -88,7 +83,7 @@ trait Course {
 								'children' => ''
 							)) : '',
 							// render presenter bio
-							$attrs['presenter_bio'] ?? ''
+							$attrs['presenter']['bio']
 						)
 					))
 				)
@@ -111,20 +106,15 @@ trait Course {
 					// render start and end date
 					array(
 						implode( ' - ',array_filter( array(
-							! empty( $attrs['start_date'] ) ? gmdate($attrs['start_date_custom_format'], strtotime($attrs['start_date'])) : '',
-							! empty( $attrs['end_date'] ) ? gmdate($attrs['end_date_custom_format'], strtotime($attrs['end_date'])) : ''
+							! empty( $attrs['start']['date'] ) ? gmdate($attrs['start']['pattern'], strtotime($attrs['start']['date'])) : '',
+							! empty( $attrs['end']['date'] ) ? gmdate($attrs['end']['pattern'], strtotime($attrs['end']['date'])) : ''
 						)))
 					),
 					// render address link
-					'on' === ( $advanced['show_address'] ?? 'off' ) ? array(
+					'on' === ( $attrs['address']['show'] ) ? array(
 						'<br />',
 						'<span class="ca-gov-icon-road-pin"></span>',
-						self::render_address_map_link(array(
-							'address' => $attrs['address'] ?? '',
-							'city' => $attrs['city'] ?? '',
-							'state' => $attrs['state'] ?? '',
-							'zip' => $attrs['zip'] ?? ''
-						))
+						self::render_address_map_link($attrs['address'])
 					) : array()
 				)
 			)),
@@ -167,18 +157,13 @@ trait Course {
 						'children' => $organizer
 					)),
 					// render map
-					'on' === ( $advanced['show_map'] ?? 'off' ) ? HTMLUtility::render(array(
+					'on' === ( $attrs['show_map'] ) ? HTMLUtility::render(array(
 						'tag' => 'div',
 						'attributes' => array(
 							'class' => 'col-3'
 						),
 						'childrenSanitizer' => [self::class, 'sanitize_html'],	
-						'children' => self::render_address_map_link(array(
-							'address' => $attrs['address'] ?? '',
-							'city' => $attrs['city'] ?? '',
-							'state' => $attrs['state'] ?? '',
-							'zip' => $attrs['zip'] ?? ''
-						), true)
+						'children' => self::render_address_map_link($attrs['address'], true)
 					)) : '' 
 				)
 			))

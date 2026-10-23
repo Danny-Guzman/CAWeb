@@ -41,24 +41,11 @@ trait Job {
 			'state' => 'value'
 		));
 
-		$advanced = ModuleUtils::get_attr_value(array(
-			'attr' => $args['advanced'],
-			'breakpoint' => 'desktop',
-			'state' => 'value'
-		));
-
-		$address = array_filter(array(
-			$attrs['agency_address'] ?? '',
-			$attrs['agency_city'] ?? '',
-			$attrs['agency_state'] ?? '',
-			$attrs['agency_zip'] ?? '',
-		));
-
 		$posted_date = '';
 
 		if( ! empty( $attrs['posted_date'] ) ){
-			$d1              = date_create( gmdate( 'm/d/Y', strtotime( $attrs['posted_date'] ) ) );
-			$d2              = date_create_from_format( 'm/d/Y', ( new DateTime( 'NOW' ) )->format( 'm/d/Y' ) );
+			$d1              = date_create( gmdate( $attrs['posted']['pattern'], strtotime( $attrs['posted']['date'] ) ) );
+			$d2              = date_create_from_format( $attrs['posted']['pattern'], ( new DateTime( 'NOW' ) )->format( $attrs['posted']['pattern'] ) );
 			$tmp             = $d1->diff( $d2 )->format( '%a' );
 			$days_passed     = 0 !== (int) $tmp ? sprintf( '&mdash;<span class="fuzzy-date"> %1$s days ago</span>', $tmp ) : '';
 	
@@ -73,7 +60,7 @@ trait Job {
 					HTMLUtility::render(array(
 						'tag' => 'time',
 						'childrenSanitizer' => [self::class, 'sanitize_html'],	
-						'children' => gmdate( $attrs['posted_date_custom_format'], strtotime( $attrs['posted_date'] ) )
+						'children' => gmdate( $attrs['posted']['pattern'], strtotime( $attrs['posted']['date'] ) )
 					)),
 					$days_passed
 				)
@@ -87,7 +74,7 @@ trait Job {
 			),
 			'childrenSanitizer' => [self::class, 'sanitize_html'],	
 			'children' => array_filter( array(
-				'on' === ($advanced['show_about_agency'] ?? 'off') ? HTMLUtility::render(array(
+				'on' === ($attrs['agency']['show']) ? HTMLUtility::render(array(
 					'tag' => 'div',
 					'attributes' => array(
 						'class' => 'entity'
@@ -97,10 +84,10 @@ trait Job {
 						HTMLUtility::render(array(
 							'tag' => 'strong',
 							'childrenSanitizer' => [self::class, 'sanitize_html'],	
-							'children' => $attrs['agency_name'] ?? ''
+							'children' => $attrs['agency']['name'] 
 						)),
-						! empty( $address ) ? 
-							sprintf(' <span class="ca-gov-icon-road-pin"></span>%1$s', self::render_address_map_link( $address )) : 
+						! empty( array_filter( $attrs['agency']['address'] ) ) ? 
+							sprintf(' <span class="ca-gov-icon-road-pin"></span>%1$s', self::render_address_map_link( $attrs['agency']['address']  )) : 
 							''
 					)
 				)) : '',
@@ -141,7 +128,7 @@ trait Job {
 									'children' => $attrs['hours']
 								)) : '',
 							// render salary
-							'on' === ( $advanced['show_salary'] ?? 'off' ) ? 
+							'on' === ( $attrs['salary']['show'] ) ? 
 								HTMLUtility::render(array(
 									'tag' => 'span',
 									'attributes' => array(
@@ -151,8 +138,8 @@ trait Job {
 									'children' => array(
 										'Salary Range: ',
 										implode(' &mdash; ', array_filter(array(
-											! empty( $attrs['salary_min'] ) ? sprintf( '$%1$s', number_format( $attrs['salary_min'], 2) ) : '',
-											! empty( $attrs['salary_max'] ) ? sprintf( '$%1$s', number_format( $attrs['salary_max'], 2) ) : ''
+											! empty( $attrs['salary']['min'] ) ? sprintf( '$%1$s', number_format( $attrs['salary']['min'], 2) ) : '',
+											! empty( $attrs['salary']['max'] ) ? sprintf( '$%1$s', number_format( $attrs['salary']['max'], 2) ) : ''
 										)))
 									)
 								)) : '',
@@ -191,7 +178,7 @@ trait Job {
 									)
 								)) : '',
 							// final filing date
-							'on' === ( $advanced['final_filing_date_chooser'] ?? 'on' ) ? 
+							'on' === ( $attrs['filing']['chooser'] ?? 'on' ) ? 
 								HTMLUtility::render(array(
 									'tag' => 'span',
 									'attributes' => array(
@@ -204,8 +191,8 @@ trait Job {
 											'tag' => 'time',
 											'childrenSanitizer' => [self::class, 'sanitize_html'],	
 											'children' => gmdate(
-												$attrs['final_filing_date_custom_format'],
-												strtotime( $attrs['final_filing_date_picker'] )
+												$attrs['filing']['pattern'],
+												strtotime( $attrs['filing']['picker'] )
 											)
 										))
 									)
@@ -218,7 +205,7 @@ trait Job {
 									'childrenSanitizer' => [self::class, 'sanitize_html'],	
 									'children' => array(
 										'Final Filing Date: ',
-										$attrs['final_filing_date']
+										$attrs['filing']['date']
 									)
 								)),
 
@@ -229,7 +216,7 @@ trait Job {
 		));
 
 		$apply_info = array_filter( array(
-			'on' === ( $advanced['show_apply_to'] ?? 'off' ) ?  HTMLUtility::render(array(
+			'on' === ( $attrs['apply']['show'] ) ?  HTMLUtility::render(array(
 				'tag' => 'p',
 				'childrenSanitizer' => [self::class, 'sanitize_html'],	
 				'children' => array_filter( array(
@@ -238,15 +225,15 @@ trait Job {
 						'childrenSanitizer' => [self::class, 'sanitize_html'],	
 						'children' => 'Apply To:'
 					)),
-					! empty( $attrs['apply_to_dept'] ) ? HTMLUtility::render(array(
+					! empty( $attrs['apply']['dept'] ) ? HTMLUtility::render(array(
 						'tag' => 'span',
 						'attributes' => array(
 							'class' => 'd-block'
 						),
 						'childrenSanitizer' => [self::class, 'sanitize_html'],	
-						'children' => $attrs['apply_to_dept']
+						'children' => $attrs['apply']['dept']
 					)) : '',
-					! empty( $attrs['apply_to_name'] ) ? HTMLUtility::render(array(
+					! empty( $attrs['apply']['name'] ) ? HTMLUtility::render(array(
 						'tag' => 'span',
 						'attributes' => array(
 							'class' => 'd-block'
@@ -254,12 +241,12 @@ trait Job {
 						'childrenSanitizer' => [self::class, 'sanitize_html'],	
 						'children' => array(
 							'Attn: ',
-							$attrs['apply_to_name']
+							$attrs['apply']['name']
 						)
 					)) : ''
 				))
 			)) : '',
-			'on' === ( $advanced['show_questions'] ?? 'off' ) ? HTMLUtility::render(array(
+			'on' === ( $attrs['questions']['show'] ) ? HTMLUtility::render(array(
 				'tag' => 'p',
 				'childrenSanitizer' => [self::class, 'sanitize_html'],	
 				'children' => array(
@@ -272,15 +259,15 @@ trait Job {
 						'tag' => 'span',
 						'childrenSanitizer' => [self::class, 'sanitize_html'],	
 						'children' => array_filter( array(
-							! empty( $attrs['questions_name'] ) ? " {$attrs['questions_name']} at " : ' Contact ',
-							$attrs['questions_phone'],
-							! empty( $attrs['questions_email'] ) ? HTMLUtility::render(array(
+							! empty( $attrs['questions']['name'] ) ? " {$attrs['questions']['name']} at " : ' Contact ',
+							$attrs['questions']['phone'],
+							! empty( $attrs['questions']['email'] ) ? HTMLUtility::render(array(
 								'tag' => 'a',
 								'attributes' => array(
-									'href' => "mailto:{$attrs['questions_email']}"
+									'href' => "mailto:{$attrs['questions']['email']}"
 								),
 								'childrenSanitizer' => [self::class, 'sanitize_html'],	
-								'children' => $attrs['questions_email']
+								'children' => $attrs['questions']['email']
 							)) : '',
 						))
 					))
@@ -323,7 +310,7 @@ trait Job {
 			),
 		));
 
-		$about = 'on' === ( $advanced['show_about_agency'] ?? 'off' ) ? HTMLUtility::render(array(
+		$about = 'on' === $attrs['agency']['show'] ? HTMLUtility::render(array(
 			'tag' => 'div',
 			'attributes' => array(
 				'class' => 'card card-understated about-department'
@@ -353,7 +340,7 @@ trait Job {
 					'children' => HTMLUtility::render(array(
 						'tag' => 'p',
 						'childrenSanitizer' => [self::class, 'sanitize_html'],	
-						'children' => $attrs['agency_about']
+						'children' => $attrs['agency']['about']
 					))
 				))
 			)

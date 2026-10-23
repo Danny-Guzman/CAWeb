@@ -6,43 +6,28 @@ import {
 import { useSelect } from '@divi/data';
 import { get_google_map_place_link } from '../../Utils/Module.jsx';
 
-const EventView = ({attributes: event, content}) => {
+const EventView = ({attributes: event, content, elements}) => {
   let {
     organizer,
-    presenter_name,
-    presenter_image,
-    presenter_bio,
-    start_date,
-    start_date_custom_format,
-    end_date,
-    end_date_custom_format,
+    presenter,
+    start,
+    end,
     address,
-    city,
-    state,
-    zip,
     registration_type,
     cost
   } = getAttrByMode(event?.innerContent);
-
-  let {
-    show_presenter,
-    start_date_custom_format: start_date_custom_format_enabled,
-    end_date_custom_format: end_date_custom_format_enabled,
-    show_address
-  } = getAttrByMode(event?.advanced);
-
   
   let { postImageUrl } = useSelect(select => select('divi/page-settings')?.getSettings());
 
-  let presenter = 'on' === show_presenter ? 
+  let presenterElement = 'on' === presenter?.show ? 
     <div className="presenter">
       <p>
         <strong>Presenter:</strong><br />
-        <strong class="presenter-name">{presenter_name}</strong>
+        <strong className="presenter-name">{presenter?.name}</strong>
       </p>
       <p>
-        { presenter_image && <img src={presenter_image} className="me-3" style={{height: '75px',width: '75px'}} /> }
-        { presenter_bio }
+        { presenter?.image?.src && <img src={presenter?.image?.src} className="me-3" style={{height: '75px',width: '75px'}} /> }
+        { presenter?.bio }
       </p>
     </div>
    : '';
@@ -52,16 +37,16 @@ const EventView = ({attributes: event, content}) => {
     <p className="date-time">
       {
         [
-          start_date && new Date(start_date).toLocaleDateString('en-US', {weekday: 'short', month: 'numeric', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit'}),
-          end_date && new Date(end_date).toLocaleDateString('en-US', {weekday: 'short', month: 'numeric', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit'})
+          start.date && new Date(start.date).toLocaleDateString('en-US', {weekday: 'short', month: 'numeric', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit'}),
+          end.date && new Date(end.date).toLocaleDateString('en-US', {weekday: 'short', month: 'numeric', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit'})
         ].filter(Boolean).join(' - ') 
       }
       <br />
       {
-        'on' === show_address && (
+        'on' === address?.show && (
           <>
           <span className="ca-gov-icon-road-pin"></span>
-          { get_google_map_place_link([address, city, state, zip]) }
+          { get_google_map_place_link(address) }
           </>
         )
       }
@@ -81,7 +66,7 @@ const EventView = ({attributes: event, content}) => {
         postImageUrl && <img src={ postImageUrl } className="float-start mb-3 me-3" style={{width: '150px', height: '150px'}} />
       }
       <div className="description clearfix" dangerouslySetInnerHTML={{ __html: content }}></div>
-      {presenter}
+      {presenterElement}
       <div className="row">
         <div className="col-9">
           { organizerElement }

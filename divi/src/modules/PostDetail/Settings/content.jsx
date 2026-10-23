@@ -26,8 +26,9 @@ export const SettingsContent = ({
   let { layout } = attributes;
 
   let selectedLayout = getAttrByMode(layout?.innerContent);
-  let taxonomy = getAttrByMode(attributes[selectedLayout]?.advanced);
-  
+
+  let taxonomy = getAttrByMode(attributes[selectedLayout]?.innerContent);
+
   // toggle group configuration based on selected layout
   set( groupConfiguration, ['course', 'render'], 'course' === selectedLayout );
   set( groupConfiguration, ['event', 'render'], 'event' === selectedLayout );
@@ -35,170 +36,169 @@ export const SettingsContent = ({
   set( groupConfiguration, ['jobs', 'render'], 'jobs' === selectedLayout );
   set( groupConfiguration, ['news', 'render'], 'news' === selectedLayout );
   set( groupConfiguration, ['profile', 'render'], 'profile' === selectedLayout );
-
+  
+  // Featured Image is only available for 'news' or 'profile' layouts.
+  set( groupConfiguration, ['style', 'component', 'props', 'fields', 'imageAdvancedShow', 'visible'], ['exam', 'news', 'profile'].includes(selectedLayout) );
+  
   // toggle body group if not general
   set( groupConfiguration, ['body', 'render'], 'general' !== selectedLayout );
 
-  // Featured Image is only available for 'news' or 'profile' layouts.
-  set( groupConfiguration, ['style', 'component', 'props', 'fields', 'imageInnercontent', 'render'], 'news' === selectedLayout || 'profile' === selectedLayout );
-
-  // Content, Tags, Categories are available for all layouts except 'general'
-  set( groupConfiguration, ['content', 'render'], 'general' !== selectedLayout  );
-  set( groupConfiguration, ['style', 'component', 'props', 'fields','tagsInnercontent', 'render'], 'general' !== selectedLayout  );
-  set( groupConfiguration, ['style', 'component', 'props', 'fields','categoriesInnercontent', 'render'], 'general' !== selectedLayout  );
-      
-  switch( selectedLayout ){
+  switch(selectedLayout){
     // Course Options Only
     case 'course':
-
-      let { 
-        show_presenter: showCoursePresenter,
-        start_date_custom_format: courseStartDateCustomFormat,
-        end_date_custom_format: courseEndDateCustomFormat,
-        show_address: courseShowAddress,
-      } = taxonomy
-
-
-      // if presenter is enabled, show the relevant fields
-      set( groupConfiguration, ['course', 'component', 'props', 'fields', 'name', 'render'], "on" === showCoursePresenter );
-      set( groupConfiguration, ['course', 'component', 'props', 'fields', 'image', 'render'], "on" === showCoursePresenter );
-      set( groupConfiguration, ['course', 'component', 'props', 'fields', 'bio', 'render'], "on" === showCoursePresenter );
-
-      // if start date custom format is provided, show the relevant field
-      set( groupConfiguration, ['course', 'component', 'props', 'fields', 'customStartDateCustomFormat', 'render'], 'on' === courseStartDateCustomFormat );
-
-      // if end date custom format is provided, show the relevant field
-      set( groupConfiguration, ['course', 'component', 'props', 'fields', 'customEndDateCustomFormat', 'render'], 'on' === courseEndDateCustomFormat );
-
-      // if show address is enabled, show the relevant field
-      set( groupConfiguration, ['course', 'component', 'props', 'fields', 'address', 'render'], "on" === courseShowAddress );
-      set( groupConfiguration, ['course', 'component', 'props', 'fields', 'city', 'render'], "on" === courseShowAddress );
-      set( groupConfiguration, ['course', 'component', 'props', 'fields', 'state', 'render'], "on" === courseShowAddress );
-      set( groupConfiguration, ['course', 'component', 'props', 'fields', 'zip', 'render'], "on" === courseShowAddress );
-
-      break;
-    // Event Options Only
-    case 'event':
       let {
-        show_presenter: showEventPresenter,
-        start_date_custom_format: eventStartDateCustomFormat,
-        end_date_custom_format: eventEndDateCustomFormat,
-        show_address: eventShowAddress
+        presenter: { show: showPresenter},
+        start: { custom: startCustom },
+        end: { custom: endCustom },
+        address: { show: showAddress },
       } = taxonomy;
 
       // if presenter is enabled, show the relevant fields
-      set( groupConfiguration, ['event', 'component', 'props', 'fields', 'name', 'render'], "on" === showEventPresenter );
-      set( groupConfiguration, ['event', 'component', 'props', 'fields', 'image', 'render'], "on" === showEventPresenter );
-      set( groupConfiguration, ['event', 'component', 'props', 'fields', 'bio', 'render'], "on" === showEventPresenter );
+      set( groupConfiguration, ['course', 'component', 'props', 'fields', 'presenter.name', 'visible'], "on" === showPresenter );
+      set( groupConfiguration, ['course', 'component', 'props', 'fields', 'presenter.image', 'visible'], "on" === showPresenter );
+      set( groupConfiguration, ['course', 'component', 'props', 'fields', 'presenter.bio', 'visible'], "on" === showPresenter );
 
       // if start date custom format is provided, show the relevant field
-      set( groupConfiguration, ['event', 'component', 'props', 'fields', 'customStartDateCustomFormat', 'render'], 'on' === eventStartDateCustomFormat );
+      set( groupConfiguration, ['course', 'component', 'props', 'fields', 'start.pattern', 'visible'], 'on' === startCustom );
 
       // if end date custom format is provided, show the relevant field
-      set( groupConfiguration, ['event', 'component', 'props', 'fields', 'customEndDateCustomFormat', 'render'], 'on' === eventEndDateCustomFormat );
+      set( groupConfiguration, ['course', 'component', 'props', 'fields', 'end.pattern', 'visible'], 'on' === endCustom );
 
       // if show address is enabled, show the relevant field
-      set( groupConfiguration, ['event', 'component', 'props', 'fields', 'address', 'render'], "on" === eventShowAddress );
-      set( groupConfiguration, ['event', 'component', 'props', 'fields', 'city', 'render'], "on" === eventShowAddress );
-      set( groupConfiguration, ['event', 'component', 'props', 'fields', 'state', 'render'], "on" === eventShowAddress );
-      set( groupConfiguration, ['event', 'component', 'props', 'fields', 'zip', 'render'], "on" === eventShowAddress );
+      set( groupConfiguration, ['course', 'component', 'props', 'fields', 'address.address', 'visible'], "on" === showAddress );
+      set( groupConfiguration, ['course', 'component', 'props', 'fields', 'address.city', 'visible'], "on" === showAddress );
+      set( groupConfiguration, ['course', 'component', 'props', 'fields', 'address.state', 'visible'], "on" === showAddress );
+      set( groupConfiguration, ['course', 'component', 'props', 'fields', 'address.zip', 'visible'], "on" === showAddress );
+
+      break;
+
+    // Event Options Only
+    case 'event':
+      let {
+        presenter: { show: showEventPresenter},
+        start: { custom: eventStartDateCustomFormat },
+        end: { custom: eventEndDateCustomFormat },
+        address: { show: eventShowAddress }
+      } = taxonomy;
+
+      // if presenter is enabled, show the relevant fields
+      set( groupConfiguration, ['event', 'component', 'props', 'fields', 'presenter.name', 'visible'], "on" === showEventPresenter );
+      set( groupConfiguration, ['event', 'component', 'props', 'fields', 'presenter.image', 'visible'], "on" === showEventPresenter );
+      set( groupConfiguration, ['event', 'component', 'props', 'fields', 'presenter.bio', 'visible'], "on" === showEventPresenter );
+
+      // if start date custom format is provided, show the relevant field
+      set( groupConfiguration, ['event', 'component', 'props', 'fields', 'start.pattern', 'visible'], 'on' === eventStartDateCustomFormat );
+
+      // if end date custom format is provided, show the relevant field
+      set( groupConfiguration, ['event', 'component', 'props', 'fields', 'end.pattern', 'visible'], 'on' === eventEndDateCustomFormat );
+
+      // if show address is enabled, show the relevant field
+      set( groupConfiguration, ['event', 'component', 'props', 'fields', 'address.address', 'visible'], "on" === eventShowAddress );
+      set( groupConfiguration, ['event', 'component', 'props', 'fields', 'address.city', 'visible'], "on" === eventShowAddress );
+      set( groupConfiguration, ['event', 'component', 'props', 'fields', 'address.state', 'visible'], "on" === eventShowAddress );
+      set( groupConfiguration, ['event', 'component', 'props', 'fields', 'address.zip', 'visible'], "on" === eventShowAddress );
 
       break;
 
     // Exam Options Only
     case 'exam':
-        let {
-        published_date_custom_format: examPublishedDateCustomFormat,
-        date_chooser,
-        final_filing_date_custom_format: examFinalFilingDateCustomFormat
+      let { 
+        type, 
+        filing: {chooser: examFilingChooser, custom: examFilingCustom },  
+        published: { custom: examPublishedCustom } 
       } = taxonomy;
 
       // if published date custom format is provided, show the relevant field
-      set( groupConfiguration, ['exam', 'component', 'props', 'fields', 'customPublishedDateFormat', 'render'], 'on' === examPublishedDateCustomFormat );
+      set( groupConfiguration, ['exam', 'component', 'props', 'fields', 'published.pattern', 'visible'], 'on' === examPublishedCustom );
 
       // if final filing date picker is provided, show the relevant fields
-      set( groupConfiguration, ['exam', 'component', 'props', 'fields', 'datePicker', 'render'], 'on' === date_chooser );
-      set( groupConfiguration, ['exam', 'component', 'props', 'fields', 'finalFilingDate', 'render'], 'off' === date_chooser );
+      set( groupConfiguration, ['exam', 'component', 'props', 'fields', 'filing.picker', 'visible'], 'on' === examFilingChooser );
+      set( groupConfiguration, ['exam', 'component', 'props', 'fields', 'filing.date', 'visible'], 'off' === examFilingChooser );
 
       // if final filing date custom format is provided, show the relevant field
-      set( groupConfiguration, ['exam', 'component', 'props', 'fields', 'customFilingDateCustomFormat', 'render'], 'on' === examFinalFilingDateCustomFormat );
+      set( groupConfiguration, ['exam', 'component', 'props', 'fields', 'filing.pattern', 'visible'], 'on' === examFilingCustom );
 
+      // show relevant exam type field
+      set( groupConfiguration, ['exam', 'component', 'props', 'fields', 'url', 'visible'], 'web' === type );
+      set( groupConfiguration, ['exam', 'component', 'props', 'fields', 'address.address', 'visible'], 'location' === type );
+      set( groupConfiguration, ['exam', 'component', 'props', 'fields', 'address.city', 'visible'], 'location' === type );
+      set( groupConfiguration, ['exam', 'component', 'props', 'fields', 'address.state', 'visible'], 'location' === type );
+      set( groupConfiguration, ['exam', 'component', 'props', 'fields', 'address.zip', 'visible'], 'location' === type );
       break;
-
+      
     // Jobs Options Only
     case 'jobs':
       let {
-        show_about_agency: showAboutAgency,
-        show_salary: showSalary,
-        posted_date_custom_format: postedDateCustomFormat,
-        final_filing_date_chooser: finalFilingDateChooser,
-        final_filing_date_custom_format: finalFilingDateCustomFormat,
-        show_apply_to: showApplyTo,
-        show_questions: showQuestions,
+        agency: { show: showAboutAgency },
+        salary: { show: showSalary },
+        posted: { custom:postedCustom },
+        filing: { chooser: jobsFilingChooser, custom: jobsFilingCustom },
+        apply: { show: showApplyTo },
+        questions: { show: showQuestions },
       } = taxonomy;
 
       // if show about agency is provided, show the relevant field
-      set( groupConfiguration, ['job', 'component', 'props', 'fields', 'name', 'render'], 'on' === showAboutAgency );
-      set( groupConfiguration, ['job', 'component', 'props', 'fields', 'address', 'render'], 'on' === showAboutAgency );
-      set( groupConfiguration, ['job', 'component', 'props', 'fields', 'city', 'render'], 'on' === showAboutAgency );
-      set( groupConfiguration, ['job', 'component', 'props', 'fields', 'state', 'render'], 'on' === showAboutAgency );
-      set( groupConfiguration, ['job', 'component', 'props', 'fields', 'zip', 'render'], 'on' === showAboutAgency );
-      set( groupConfiguration, ['job', 'component', 'props', 'fields', 'about', 'render'], 'on' === showAboutAgency );
+      set( groupConfiguration, ['jobs', 'component', 'props', 'fields', 'agency.name', 'visible'], 'on' === showAboutAgency );
+      set( groupConfiguration, ['jobs', 'component', 'props', 'fields', 'agency.about', 'visible'], 'on' === showAboutAgency );
+      set( groupConfiguration, ['jobs', 'component', 'props', 'fields', 'agency.address', 'visible'], 'on' === showAboutAgency );
+      set( groupConfiguration, ['jobs', 'component', 'props', 'fields', 'agency.city', 'visible'], 'on' === showAboutAgency );
+      set( groupConfiguration, ['jobs', 'component', 'props', 'fields', 'agency.state', 'visible'], 'on' === showAboutAgency );
+      set( groupConfiguration, ['jobs', 'component', 'props', 'fields', 'agency.zip', 'visible'], 'on' === showAboutAgency );
 
       // if show salary is provided, show the relevant field
-      set( groupConfiguration, ['job', 'component', 'props', 'fields', 'minSalary', 'render'], 'on' === showSalary );
-      set( groupConfiguration, ['job', 'component', 'props', 'fields', 'maxSalary', 'render'], 'on' === showSalary );
+      set( groupConfiguration, ['jobs', 'component', 'props', 'fields', 'salary.min', 'visible'], 'on' === showSalary );
+      set( groupConfiguration, ['jobs', 'component', 'props', 'fields', 'salary.max', 'visible'], 'on' === showSalary );
 
       // if posted date custom format is provided, show the relevant field
-      set( groupConfiguration, ['job', 'component', 'props', 'fields', 'customPostedDateCustomFormat', 'render'], 'on' === postedDateCustomFormat );
+      set( groupConfiguration, ['jobs', 'component', 'props', 'fields', 'posted.pattern', 'visible'], 'on' === postedCustom );
 
       // if final filing date chooser is provided, show the relevant fields
-      set( groupConfiguration, ['job', 'component', 'props', 'fields', 'finalFilingDatePicker', 'render'], 'on' === finalFilingDateChooser );
-      set( groupConfiguration, ['job', 'component', 'props', 'fields', 'finalFilingDate', 'render'], 'off' === finalFilingDateChooser );
+      set( groupConfiguration, ['jobs', 'component', 'props', 'fields', 'filing.picker', 'visible'], 'on' === jobsFilingChooser );
+      set( groupConfiguration, ['jobs', 'component', 'props', 'fields', 'filing.date', 'visible'], 'off' === jobsFilingChooser );
 
       // if final filing date custom format is provided, show the relevant field
-      set( groupConfiguration, ['job', 'component', 'props', 'fields', 'customFinalFilingDateCustomFormat', 'render'], 'on' === finalFilingDateCustomFormat );
+      set( groupConfiguration, ['jobs', 'component', 'props', 'fields', 'filing.pattern', 'visible'], 'on' === jobsFilingCustom );
 
       // if show apply to is provided, show the relevant field
-      set( groupConfiguration, ['job', 'component', 'props', 'fields', 'applyToDept', 'render'], 'on' === showApplyTo );
-      set( groupConfiguration, ['job', 'component', 'props', 'fields', 'applyToName', 'render'], 'on' === showApplyTo );
-      set( groupConfiguration, ['job', 'component', 'props', 'fields', 'applyToAddr', 'render'], 'on' === showApplyTo );
-      set( groupConfiguration, ['job', 'component', 'props', 'fields', 'applyToCity', 'render'], 'on' === showApplyTo );
-      set( groupConfiguration, ['job', 'component', 'props', 'fields', 'applyToState', 'render'], 'on' === showApplyTo );
-      set( groupConfiguration, ['job', 'component', 'props', 'fields', 'applyToZip', 'render'], 'on' === showApplyTo );
+      set( groupConfiguration, ['jobs', 'component', 'props', 'fields', 'apply.dept', 'visible'], 'on' === showApplyTo );
+      set( groupConfiguration, ['jobs', 'component', 'props', 'fields', 'apply.name', 'visible'], 'on' === showApplyTo );
+      set( groupConfiguration, ['jobs', 'component', 'props', 'fields', 'apply.address', 'visible'], 'on' === showApplyTo );
+      set( groupConfiguration, ['jobs', 'component', 'props', 'fields', 'apply.city', 'visible'], 'on' === showApplyTo );
+      set( groupConfiguration, ['jobs', 'component', 'props', 'fields', 'apply.state', 'visible'], 'on' === showApplyTo );
+      set( groupConfiguration, ['jobs', 'component', 'props', 'fields', 'apply.zip', 'visible'], 'on' === showApplyTo );
 
       // if show questions is provided, show the relevant field
-      set( groupConfiguration, ['job', 'component', 'props', 'fields', 'questionName', 'render'], 'on' === showQuestions );
-      set( groupConfiguration, ['job', 'component', 'props', 'fields', 'phone', 'render'], 'on' === showQuestions );
-      set( groupConfiguration, ['job', 'component', 'props', 'fields', 'email', 'render'], 'on' === showQuestions );
+      set( groupConfiguration, ['jobs', 'component', 'props', 'fields', 'questions.name', 'visible'], 'on' === showQuestions );
+      set( groupConfiguration, ['jobs', 'component', 'props', 'fields', 'questions.phone', 'visible'], 'on' === showQuestions );
+      set( groupConfiguration, ['jobs', 'component', 'props', 'fields', 'questions.email', 'visible'], 'on' === showQuestions );
 
       break;
 
     // News Options Only
     case 'news':
-      let { custom_format: newsCustomFormat } = taxonomy;
+      let {published: { custom: newsPublishedCustom }} = taxonomy;
 
       // if custom format is provided, show the relevant field
-      set( groupConfiguration, ['news', 'component', 'props', 'fields', 'customPublishDateCustomFormat', 'render'], 'on' === newsCustomFormat );
+      set( groupConfiguration, ['news', 'component', 'props', 'fields', 'published.pattern', 'visible'], 'on' === newsPublishedCustom );
 
       break;
-
+      
     // Profile Options Only
     case 'profile':
-      let { career, additional_fields } = taxonomy;
+      let { career: { show: showCareer }, fields: { show: showFields } } = taxonomy;
 
       // if career is provided, show the relevant field
-      set( groupConfiguration, ['profile', 'component', 'props', 'fields', 'title', 'render'], 'on' === career );
-      set( groupConfiguration, ['profile', 'component', 'props', 'fields', 'position', 'render'], 'on' === career );
+      set( groupConfiguration, ['profile', 'component', 'props', 'fields', 'career.title', 'visible'], 'on' === showCareer );
+      set( groupConfiguration, ['profile', 'component', 'props', 'fields', 'career.position', 'visible'], 'on' === showCareer );
 
       // if additional fields are provided, show the relevant field
-      set( groupConfiguration, ['profile', 'component', 'props', 'fields', 'line1', 'render'], 'on' === additional_fields );
-      set( groupConfiguration, ['profile', 'component', 'props', 'fields', 'line2', 'render'], 'on' === additional_fields );
-      set( groupConfiguration, ['profile', 'component', 'props', 'fields', 'line3', 'render'], 'on' === additional_fields );
+      set( groupConfiguration, ['profile', 'component', 'props', 'fields', 'fields.line1', 'visible'], 'on' === showFields );
+      set( groupConfiguration, ['profile', 'component', 'props', 'fields', 'fields.line2', 'visible'], 'on' === showFields );
+      set( groupConfiguration, ['profile', 'component', 'props', 'fields', 'fields.line3', 'visible'], 'on' === showFields );
 
       break;
   }
-  
+
   return (
     <ModuleGroups
       groups={groupConfiguration}

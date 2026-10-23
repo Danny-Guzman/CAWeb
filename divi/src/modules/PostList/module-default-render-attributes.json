@@ -5,10 +5,14 @@
                 "value": ""
             }
         },
-        "advanced": {
-            "desktop": {
-                "value": {
-                    "size": "h1"
+        "decoration": {
+            "font": {
+                "font": {
+                    "desktop": {
+                        "value": {
+                            "headingLevel": "h1"
+                        }
+                    }
                 }
             }
         }
@@ -20,9 +24,9 @@
             }
         },
         "advanced": {
-            "desktop": {
-                "value": {
-                    "faq": "accordion"
+            "faq": {
+                "desktop": {
+                    "value": "accordion"
                 }
             }
         }
@@ -30,7 +34,7 @@
     "posts": {
         "innerContent": {
             "desktop": {
-                "value": "-1"
+                "value": "100"
             }
         }
     },
@@ -48,9 +52,9 @@
             }
         },
         "advanced": {
-            "desktop": {
-                "value": {
-                    "all": "on"
+            "all": {
+                "desktop": {
+                    "value": "on"
                 }
             }
         }
@@ -62,9 +66,9 @@
             }
         },
         "advanced": {
-            "desktop": {
-                "value": {
-                    "all": "on"
+            "all": {
+                "desktop": {
+                    "value": "on"
                 }
             }
         }

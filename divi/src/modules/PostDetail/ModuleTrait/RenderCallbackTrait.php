@@ -101,28 +101,28 @@ trait RenderCallbackTrait {
 		));
 
 		$showFeaturedImage = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['image']['innerContent'],
+			'attr' => $attrs['image']['advanced']['show'],
 			'breakpoint' => 'desktop',
 			'state' => 'value'
-		)) ?? 'on';
+		));
 
 		$featuredImageAlignment = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['image']['advanced'],
+			'attr' => $attrs['image']['advanced']['alignment'],
 			'breakpoint' => 'desktop',
 			'state' => 'value'
-		))['align'] ?? 'off';
+		));
  
 		$showCategories = ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['categories']['innerContent'],
 			'breakpoint' => 'desktop',
 			'state' => 'value'
-		)) ?? 'on';
+		));
 
 		$showTags = ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['tags']['innerContent'],
 			'breakpoint' => 'desktop',
 			'state' => 'value'
-		)) ?? 'on';
+		));
 
 		$inner_content = array();
 
@@ -135,7 +135,7 @@ trait RenderCallbackTrait {
 				$attrs[$layout] ?? array(),
 				$content,
 				'on' === $showFeaturedImage,
-				'off' === $featuredImageAlignment
+				$featuredImageAlignment
 			);
 		}
 		

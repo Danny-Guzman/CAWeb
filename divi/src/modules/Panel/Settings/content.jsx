@@ -28,9 +28,9 @@ export const SettingsContent = ({
   let showButton = getAttrByMode(button?.advanced?.show);
 
   // Toggle Button field visibility based on if show button is on
-  set(groupConfiguration, ['header', 'component', 'props', 'fields', 'text', 'render'], 'off' !== showButton );
-  set(groupConfiguration, ['header', 'component', 'props', 'fields', 'url', 'render'], 'off' !== showButton );
-  set(groupConfiguration, ['header', 'component', 'props', 'fields', 'target', 'render'], 'off' !== showButton );
+  set(groupConfiguration, ['header', 'component', 'props', 'fields', 'text', 'visible'], 'on' === showButton );
+  set(groupConfiguration, ['header', 'component', 'props', 'fields', 'url', 'visible'], 'on' === showButton );
+  set(groupConfiguration, ['header', 'component', 'props', 'fields', 'target', 'visible'], 'on' === showButton );
 
   return (
     <ModuleGroups

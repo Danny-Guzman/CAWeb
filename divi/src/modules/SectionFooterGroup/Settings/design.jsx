@@ -28,7 +28,7 @@ export const SettingsDesign = ({
   let { show } = getAttrByMode(icon?.innerContent);
 
   // Toggle Icon Design group visibility based on layout
-  set(groupConfiguration, ['icon', 'component', 'props', 'fields', 'icon', 'render'], 'on' === show );
+  set(groupConfiguration, ['icon', 'component', 'props', 'fields', 'icon', 'visible'], 'on' === show );
   
   return (
     <ModuleGroups

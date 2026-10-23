@@ -30,17 +30,17 @@ export const SettingsContent = ({
   let showFooter = getAttrByMode(footer?.advanced?.show);
   
   // Toggle Featured Image field visibility based on if show image is on
-  set(groupConfiguration, ['style', 'component', 'props', 'fields', 'imageInnercontent', 'render'], 'off' !== showImage );
+  set(groupConfiguration, ['style', 'component', 'props', 'fields', 'imageInnercontent', 'visible'], 'on' === showImage );
 
   // Toggle Title field visibility based on if show header is on
-  set(groupConfiguration, ['header', 'component', 'props', 'fields', 'titleInnercontent', 'render'], 'off' !== showHeader );
+  set(groupConfiguration, ['header', 'component', 'props', 'fields', 'titleInnercontent', 'visible'], 'on' === showHeader );
 
   // Toggle Button field visibility based on if show button is on
-  set(groupConfiguration, ['body', 'component', 'props', 'fields', 'text', 'render'], 'off' !== showButton );
-  set(groupConfiguration, ['body', 'component', 'props', 'fields', 'url', 'render'], 'off' !== showButton );
+  set(groupConfiguration, ['body', 'component', 'props', 'fields', 'text', 'visible'], 'on' === showButton );
+  set(groupConfiguration, ['body', 'component', 'props', 'fields', 'url', 'visible'], 'on' === showButton );
 
   // Toggle Footer field visibility based on if show footer is on
-  set(groupConfiguration, ['footer', 'component', 'props', 'fields', 'footerInnercontent', 'render'], 'off' !== showFooter );
+  set(groupConfiguration, ['footer', 'component', 'props', 'fields', 'footerInnercontent', 'visible'], 'on' === showFooter );
   
   return (
     <ModuleGroups

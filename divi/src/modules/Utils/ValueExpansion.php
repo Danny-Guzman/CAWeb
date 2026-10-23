@@ -871,4 +871,14 @@ class ValueExpansion {
         return 'on' === $value ? 'fadeInLeft' : 'none';
     }
 
+	/**
+	 * Replace the PostDetail profile alignment value with the corresponding CSS classes.
+	 *
+	 * @param string $value
+	 * @return string
+	 */
+	public static function replacePostDetailProfileAlignment( $value ) {
+        return 'off' === $value ? 'float-start me-3' : 'float-end ms-3';
+    }
+
 }

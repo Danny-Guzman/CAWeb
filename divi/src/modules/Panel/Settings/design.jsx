@@ -31,10 +31,10 @@ export const SettingsDesign = ({
   layout = getAttrByMode(layout?.innerContent);
   
   // Title Font Color field is only visible when a 'none' layout is selected.
-  set(groupConfiguration, ['title-font', 'component', 'props', 'fields', 'color', 'render'], 'none' === layout );
+  set(groupConfiguration, ['title-font', 'component', 'props', 'fields', 'color', 'visible'], 'none' === layout );
 
   // Toggle Heading icon and color field visibility based on if show icon is on
-  set(groupConfiguration, ['icon', 'component', 'props', 'fields', 'icon', 'render'], 'off' !== showIcon );
+  set(groupConfiguration, ['icon', 'component', 'props', 'fields', 'icon', 'visible'], 'on' === showIcon );
   
   return (
     <ModuleGroups

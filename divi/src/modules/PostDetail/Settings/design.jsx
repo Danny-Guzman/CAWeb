@@ -1,6 +1,6 @@
 // External dependencies.
 import React, { ReactElement, useMemo, useState } from 'react';
-import { set } from 'lodash';
+import { set, merge } from 'lodash';
 
 // WordPress dependencies
 import { __ } from '@wordpress/i18n';
@@ -21,12 +21,13 @@ export const SettingsDesign = ({
   defaultSettingsAttrs,
   groupConfiguration,
 }) => {
+  let attributes = merge({}, defaultSettingsAttrs, attrs);
 
   let { 
     layout,
-  } = attrs || {};
+  } = attributes;
 
-  let selectedLayout = (layout?.innerContent && getAttrByMode(layout?.innerContent)) || getAttrByMode(defaultSettingsAttrs?.layout?.innerContent);
+  let selectedLayout = getAttrByMode(layout?.innerContent);
   
   // Profile Only options
   set( groupConfiguration, ['profileDesign', 'render'], 'profile' === selectedLayout );

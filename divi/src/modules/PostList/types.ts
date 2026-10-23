@@ -46,16 +46,14 @@ export interface ModuleAttrs extends InternalAttrs {
   // Fields
   title?: {
     innerContent?: FormatBreakpointStateAttr<string>;
-    advanced?: FormatBreakpointStateAttr<{
-      size?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | undefined;
-    }>;
+    decoration?: Element.Decoration.PickedAttributes<'font'>;
   };
 
   style?: {
     innerContent?: FormatBreakpointStateAttr<string>;
-    advanced?: FormatBreakpointStateAttr<{
-      faq?: 'accordion' | 'toggle';
-    }>;
+    advanced?: {
+      faq?: FormatBreakpointStateAttr<'accordion' | 'toggle'>
+    };
   };
 
   posts?: {
@@ -68,16 +66,16 @@ export interface ModuleAttrs extends InternalAttrs {
 
   categories?: {
     innerContent?: FormatBreakpointStateAttr<string[]>;
-    advanced?: FormatBreakpointStateAttr<{
-      all?: OnOff;
-    }>;
+    advanced?: {
+      all?: FormatBreakpointStateAttr<OnOff>;
+    };
   };
   
   tags?: {
     innerContent?: FormatBreakpointStateAttr<string[]>;
-    advanced?: FormatBreakpointStateAttr<{
-      all?: OnOff;
-    }>;
+    advanced?: {
+      all?: FormatBreakpointStateAttr<OnOff>;
+    };
   };
   
   orderby?: {

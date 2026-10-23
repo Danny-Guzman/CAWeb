@@ -106,44 +106,52 @@
 
     "image": {
       "type": "object",
-      "elementType": "heading",
+      "elementType": "image",
       "selector": "{{selector}}",
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
-        "innerContent": {
-          "groupType": "into-multiple-groups",
-          "groups": {
-            "profile": {
-              "groupType": "group-item",
-              "item": {
-                "groupSlug": "style",
-                "render": true,
-                "attrName": "image.innerContent",
-                "label": "Display Featured Image",
-                "features": {
-                  "responsive": false
-                },
-                "component": {
-                  "name": "divi/toggle",
-                  "type": "field"
-                }
+        "advanced": {
+          "show": {
+            "groupType": "group-item",
+            "item": {
+              "groupSlug": "style",
+              "render": true,
+              "attrName": "image.advanced.show",
+              "label": "Display Featured Image",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
               }
-            },
-            "profileDesign": {
-              "groupType": "group-item",
-              "item": {
-                "groupSlug": "profileDesign",
-                "render": true,
-                "attrName": "image.advanced",
-                "subName": "align",
-                "label": "Image Alignment",
-                "description": "Alignment for the featured profile image.",
-                "features": {
-                  "responsive": false
-                },
-                "component": {
-                  "name": "divi/toggle",
-                  "type": "field"
+            }
+          },
+          "alignment": {
+            "groupType": "group-item",
+            "item": {
+              "groupSlug": "profileDesign",
+              "render": true,
+              "attrName": "image.advanced.alignment",
+              "label": "Image Alignment",
+              "description": "Alignment for the featured profile image.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/select",
+                "type": "field",
+                "props": {
+                  "options": {
+                    "float-start me-3": {
+                      "label": "Left",
+                      "value": "left"
+                    },
+                    "float-end ms-3": {
+                      "label": "Right",
+                      "value": "right"
+                    }
+                  }
                 }
               }
             }
@@ -187,7 +195,7 @@
         "innerContent": {
           "groupType": "group-item",
           "item": {
-              "groupSlug": "style",
+              "groupSlug": "body",
               "render": true,
               "attrName": "tags.innerContent",
               "label": "Tags",
@@ -212,7 +220,7 @@
         "innerContent": {
           "groupType": "group-item",
           "item": {
-              "groupSlug": "style",
+              "groupSlug": "body",
               "render": true,
               "attrName": "categories.innerContent",
               "label": "Categories",
@@ -237,11 +245,11 @@
         "innerContent": {
           "groupType": "group-items",
           "items": {
-            "showPresenter": {
+            "presenter.show": {
               "groupSlug": "course",
               "render": true,
-              "attrName": "course.advanced",
-              "subName": "show_presenter",
+              "attrName": "course.innerContent",
+              "subName": "presenter.show",
               "label": "Presenter",
               "features": {
                 "responsive": false
@@ -251,11 +259,11 @@
                 "type": "field"
               }
             },
-            "name": {
+            "presenter.name": {
               "groupSlug": "course",
               "render": true,
               "attrName": "course.innerContent",
-              "subName": "presenter_name",
+              "subName": "presenter.name",
               "label": "Name",
               "features": {
                 "responsive": false
@@ -265,11 +273,11 @@
                 "type": "field"
               }
             },
-            "image": {
+            "presenter.image": {
               "groupSlug": "course",
               "render": true,
               "attrName": "course.innerContent",
-              "subName": "presenter_image",
+              "subName": "presenter.image",
               "label": "Image",
               "features": {
                 "responsive": false
@@ -279,11 +287,11 @@
                 "type": "field"
               }
             },
-            "bio": {
+            "presenter.bio": {
               "groupSlug": "course",
               "render": true,
               "attrName": "course.innerContent",
-              "subName": "presenter_bio",
+              "subName": "presenter.bio",
               "label": "Short Bio",
               "features": {
                 "responsive": false
@@ -293,11 +301,11 @@
                 "type": "field"
               }
             },
-            "startDate": {
+            "start.date": {
               "groupSlug": "course",
               "render": true,
               "attrName": "course.innerContent",
-              "subName": "start_date",
+              "subName": "start.date",
               "label": "Start Date",
               "description": "Enter start date for this course item.",
               "features": {
@@ -308,11 +316,11 @@
                 "type": "field"
               }
             },
-            "customStartDate": {
+            "start.custom": {
               "groupSlug": "course",
               "render": true,
-              "attrName": "course.advanced",
-              "subName": "start_date_custom_format",
+              "attrName": "course.innerContent",
+              "subName": "start.custom",
               "label": "Custom Date Format",
               "features": {
                 "responsive": false
@@ -322,11 +330,11 @@
                 "type": "field"
               }
             },
-            "customStartDateCustomFormat": {
+            "start.pattern": {
               "groupSlug": "course",
               "render": true,
               "attrName": "course.innerContent",
-              "subName": "start_date_custom_format",
+              "subName": "start.pattern",
               "label": "Pattern",
               "description": "Coming Soon",
               "features": {
@@ -334,17 +342,14 @@
               },
               "component": {
                 "name": "divi/text",
-                "type": "field",
-                "props": {
-                  "defaultValue": "D, n/j/Y g:i a"
-                }
+                "type": "field"
               }
             },
-            "endDate": {
+            "end.date": {
               "groupSlug": "course",
               "render": true,
               "attrName": "course.innerContent",
-              "subName": "end_date",
+              "subName": "end.date",
               "label": "End Date",
               "description": "Enter end date for this course item.",
               "features": {
@@ -355,11 +360,11 @@
                 "type": "field"
               }
             },
-            "customEndDate": {
+            "end.custom": {
               "groupSlug": "course",
               "render": true,
-              "attrName": "course.advanced",
-              "subName": "end_date_custom_format",
+              "attrName": "course.innerContent",
+              "subName": "end.custom",
               "label": "Custom Date Format",
               "features": {
                 "responsive": false
@@ -369,11 +374,11 @@
                 "type": "field"
               }
             },
-            "customEndDateCustomFormat": {
+            "end.pattern": {
               "groupSlug": "course",
               "render": true,
               "attrName": "course.innerContent",
-              "subName": "end_date_custom_format",
+              "subName": "end.pattern",
               "label": "Pattern",
               "description": "Coming Soon",
               "features": {
@@ -381,18 +386,15 @@
               },
               "component": {
                 "name": "divi/text",
-                "type": "field",
-                "props": {
-                  "defaultValue": "D, n/j/Y g:i a"
-                }
+                "type": "field"
               }
             },
-            "showAddress": {
+            "address.show": {
               "groupSlug": "course",
               "render": true,
-              "attrName": "course.advanced",
-              "subName": "show_address",
-              "label": "Course Location",
+              "attrName": "course.innerContent",
+              "subName": "address.show",
+              "label": "Location",
               "features": {
                 "responsive": false
               },
@@ -401,11 +403,11 @@
                 "type": "field"
               }
             },
-            "address": {
+            "address.address": {
               "groupSlug": "course",
               "render": true,
               "attrName": "course.innerContent",
-              "subName": "address",
+              "subName": "address.address",
               "label": "Address",
               "description": "Enter Course address for this course item.",
               "features": {
@@ -416,11 +418,11 @@
                 "type": "field"
               }
             },
-            "city": {
+            "address.city": {
               "groupSlug": "course",
               "render": true,
               "attrName": "course.innerContent",
-              "subName": "city",
+              "subName": "address.city",
               "label": "City",
               "description": "Enter Course city for this course item.",
               "features": {
@@ -431,11 +433,11 @@
                 "type": "field"
               }
             },
-            "state": {
+            "address.state": {
               "groupSlug": "course",
               "render": true,
               "attrName": "course.innerContent",
-              "subName": "state",
+              "subName": "address.state",
               "label": "State",
               "description": "Enter Course state for this course item.",
               "features": {
@@ -446,11 +448,11 @@
                 "type": "field"
               }
             },
-            "zip": {
+            "address.zip": {
               "groupSlug": "course",
               "render": true,
               "attrName": "course.innerContent",
-              "subName": "zip",
+              "subName": "address.zip",
               "label": "Zip",
               "description": "Enter Course zip for this course item.",
               "features": {
@@ -494,9 +496,9 @@
             "showMap": {
               "groupSlug": "course",
               "render": true,
-              "attrName": "course.advanced",
+              "attrName": "course.innerContent",
               "subName": "show_map",
-              "label": "Course Map",
+              "label": "Show Map",
               "features": {
                 "responsive": false
               },
@@ -512,7 +514,6 @@
 
     "event": {
       "type": "object",
-      "elementType": "heading",
       "selector": "{{selector}}",
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
@@ -534,11 +535,11 @@
                 "type": "field"
               }
             },
-            "showPresenter": {
+            "presenter.show": {
               "groupSlug": "event",
               "render": true,
-              "attrName": "event.advanced",
-              "subName": "show_presenter",
+              "attrName": "event.innerContent",
+              "subName": "presenter.show",
               "label": "Presenter",
               "features": {
                 "responsive": false
@@ -548,11 +549,11 @@
                 "type": "field"
               }
             },
-            "name": {
+            "presenter.name": {
               "groupSlug": "event",
               "render": true,
               "attrName": "event.innerContent",
-              "subName": "presenter_name",
+              "subName": "presenter.name",
               "label": "Name",
               "features": {
                 "responsive": false
@@ -562,11 +563,11 @@
                 "type": "field"
               }
             },
-            "image": {
+            "presenter.image": {
               "groupSlug": "event",
               "render": true,
               "attrName": "event.innerContent",
-              "subName": "presenter_image",
+              "subName": "presenter.image",
               "label": "Image",
               "features": {
                 "responsive": false
@@ -576,11 +577,11 @@
                 "type": "field"
               }
             },
-            "bio": {
+            "presenter.bio": {
               "groupSlug": "event",
               "render": true,
               "attrName": "event.innerContent",
-              "subName": "presenter_bio",
+              "subName": "presenter.bio",
               "label": "Short Bio",
               "features": {
                 "responsive": false
@@ -590,11 +591,11 @@
                 "type": "field"
               }
             },
-            "startDate": {
+            "start.date": {
               "groupSlug": "event",
               "render": true,
               "attrName": "event.innerContent",
-              "subName": "start_date",
+              "subName": "start.date",
               "label": "Start Date",
               "description": "Enter start date for this event item.",
               "features": {
@@ -605,11 +606,11 @@
                 "type": "field"
               }
             },
-            "customStartDate": {
+            "start.custom": {
               "groupSlug": "event",
               "render": true,
-              "attrName": "event.advanced",
-              "subName": "start_date_custom_format",
+              "attrName": "event.innerContent",
+              "subName": "start.custom",
               "label": "Custom Date Format",
               "features": {
                 "responsive": false
@@ -619,11 +620,11 @@
                 "type": "field"
               }
             },
-            "customStartDateCustomFormat": {
+            "start.pattern": {
               "groupSlug": "event",
               "render": true,
               "attrName": "event.innerContent",
-              "subName": "start_date_custom_format",
+              "subName": "start.pattern",
               "label": "Pattern",
               "description": "Coming Soon",
               "features": {
@@ -631,17 +632,14 @@
               },
               "component": {
                 "name": "divi/text",
-                "type": "field",
-                "props": {
-                  "defaultValue": "D, n/j/Y g:i a"
-                }
+                "type": "field"
               }
             },
-            "endDate": {
+            "end.date": {
               "groupSlug": "event",
               "render": true,
               "attrName": "event.innerContent",
-              "subName": "end_date",
+              "subName": "end.date",
               "label": "End Date",
               "description": "Enter end date for this event item.",
               "features": {
@@ -652,11 +650,11 @@
                 "type": "field"
               }
             },
-            "customEndDate": {
+            "end.custom": {
               "groupSlug": "event",
               "render": true,
-              "attrName": "event.advanced",
-              "subName": "end_date_custom_format",
+              "attrName": "event.innerContent",
+              "subName": "end.custom",
               "label": "Custom Date Format",
               "features": {
                 "responsive": false
@@ -666,11 +664,11 @@
                 "type": "field"
               }
             },
-            "customEndDateCustomFormat": {
+            "end.pattern": {
               "groupSlug": "event",
               "render": true,
               "attrName": "event.innerContent",
-              "subName": "end_date_custom_format",
+              "subName": "end.pattern",
               "label": "Pattern",
               "description": "Coming Soon",
               "features": {
@@ -678,18 +676,15 @@
               },
               "component": {
                 "name": "divi/text",
-                "type": "field",
-                "props": {
-                  "defaultValue": "D, n/j/Y g:i a"
-                }
+                "type": "field"
               }
             },
-            "showAddress": {
+            "address.show": {
               "groupSlug": "event",
               "render": true,
-              "attrName": "event.advanced",
-              "subName": "show_address",
-              "label": "Event Location",
+              "attrName": "event.innerContent",
+              "subName": "address.show",
+              "label": "Location",
               "features": {
                 "responsive": false
               },
@@ -698,11 +693,11 @@
                 "type": "field"
               }
             },
-            "address": {
+            "address.address": {
               "groupSlug": "event",
               "render": true,
               "attrName": "event.innerContent",
-              "subName": "address",
+              "subName": "address.address",
               "label": "Address",
               "description": "Enter Event address for this event item.",
               "features": {
@@ -713,7 +708,7 @@
                 "type": "field"
               }
             },
-            "city": {
+            "address.city": {
               "groupSlug": "event",
               "render": true,
               "attrName": "event.innerContent",
@@ -728,11 +723,11 @@
                 "type": "field"
               }
             },
-            "state": {
+            "address.state": {
               "groupSlug": "event",
               "render": true,
               "attrName": "event.innerContent",
-              "subName": "state",
+              "subName": "address.state",
               "label": "State",
               "description": "Enter Event state for this event item.",
               "features": {
@@ -743,11 +738,11 @@
                 "type": "field"
               }
             },
-            "zip": {
+            "address.zip": {
               "groupSlug": "event",
               "render": true,
               "attrName": "event.innerContent",
-              "subName": "zip",
+              "subName": "address.zip",
               "label": "Zip",
               "description": "Enter Event zip for this event item.",
               "features": {
@@ -859,11 +854,11 @@
                 }
               }
             },
-            "publishedDate": {
+            "published.date": {
               "groupSlug": "exam",
               "render": true,
               "attrName": "exam.innerContent",
-              "subName": "published_date",
+              "subName": "published.date",
               "label": "Published Date",
               "description": "Enter the published date for this exam item.",
               "features": {
@@ -874,11 +869,11 @@
                 "type": "field"
               }
             },
-            "enableCustomPublishedDate": {
+            "published.custom": {
               "groupSlug": "exam",
               "render": true,
-              "attrName": "exam.advanced",
-              "subName": "published_date_custom_format",
+              "attrName": "exam.innerContent",
+              "subName": "published.custom",
               "label": "Custom Date Format",
               "features": {
                 "responsive": false
@@ -888,11 +883,11 @@
                 "type": "field"
               }
             },
-            "customPublishedDateFormat": {
+            "published.pattern": {
               "groupSlug": "exam",
               "render": true,
               "attrName": "exam.innerContent",
-              "subName": "published_date_custom_format",
+              "subName": "published.pattern",
               "label": "Pattern",
               "description": "Coming Soon",
               "features": {
@@ -900,17 +895,14 @@
               },
               "component": {
                 "name": "divi/text",
-                "type": "field",
-                "props": {
-                  "defaultValue": "D, n/j/Y g:i a"
-                }
+                "type": "field"
               }
             },
-            "dateChooser": {
+            "filing.chooser": {
               "groupSlug": "exam",
               "render": true,
-              "attrName": "exam.advanced",
-              "subName": "date_chooser",
+              "attrName": "exam.innerContent",
+              "subName": "filing.chooser",
               "label": "Use Date Picker for Final Filing Date",
               "features": {
                 "responsive": false
@@ -920,11 +912,11 @@
                 "type": "field"
               }
             },
-            "finalFilingDate": {
+            "filing.date": {
               "groupSlug": "exam",
               "render": true,
               "attrName": "exam.innerContent",
-              "subName": "final_filing_date",
+              "subName": "filing.date",
               "label": "Final Filing Date",
               "features": {
                 "responsive": false
@@ -934,11 +926,11 @@
                 "type": "field"
               }
             },
-            "datePicker": {
+            "filing.picker": {
               "groupSlug": "exam",
               "render": true,
               "attrName": "exam.innerContent",
-              "subName": "final_filing_date_picker",
+              "subName": "filing.picker",
               "label": "Final Filing Date",
               "description": "Enter final filing date for this exam item.",
               "features": {
@@ -949,11 +941,11 @@
                 "type": "field"
               }
             },
-            "customFilingDate": {
+            "filing.custom": {
               "groupSlug": "exam",
               "render": true,
-              "attrName": "exam.advanced",
-              "subName": "final_filing_date_custom_format",
+              "attrName": "exam.innerContent",
+              "subName": "filing.custom",
               "label": "Custom Date Format",
               "features": {
                 "responsive": false
@@ -963,11 +955,11 @@
                 "type": "field"
               }
             },
-            "customFilingDateCustomFormat": {
+            "filing.pattern": {
               "groupSlug": "exam",
               "render": true,
               "attrName": "exam.innerContent",
-              "subName": "final_filing_date_custom_format",
+              "subName": "filing.pattern",
               "label": "Pattern",
               "description": "Coming Soon",
               "features": {
@@ -975,10 +967,7 @@
               },
               "component": {
                 "name": "divi/text",
-                "type": "field",
-                "props": {
-                  "defaultValue": "D, n/j/Y g:i a"
-                }
+                "type": "field"
               }
             },
             "type": {
@@ -1022,13 +1011,13 @@
                 "type": "field"
               }
             },
-            "address": {
+            "address.address": {
               "groupSlug": "exam",
               "render": true,
               "attrName": "exam.innerContent",
-              "subName": "address",
+              "subName": "address.address",
               "label": "Address",
-              "description": "Enter Event address for this event item.",
+              "description": "Enter Exam address for this exam item.",
               "features": {
                 "responsive": false
               },
@@ -1037,13 +1026,13 @@
                 "type": "field"
               }
             },
-            "city": {
+            "address.city": {
               "groupSlug": "exam",
               "render": true,
               "attrName": "exam.innerContent",
-              "subName": "city",
+              "subName": "address.city",
               "label": "City",
-              "description": "Enter Event city for this event item.",
+              "description": "Enter Exam city for this exam item.",
               "features": {
                 "responsive": false
               },
@@ -1052,13 +1041,13 @@
                 "type": "field"
               }
             },
-            "state": {
+            "address.state": {
               "groupSlug": "exam",
               "render": true,
               "attrName": "exam.innerContent",
-              "subName": "state",
+              "subName": "address.state",
               "label": "State",
-              "description": "Enter Event state for this event item.",
+              "description": "Enter Exam state for this exam item.",
               "features": {
                 "responsive": false
               },
@@ -1067,13 +1056,13 @@
                 "type": "field"
               }
             },
-            "zip": {
+            "address.zip": {
               "groupSlug": "exam",
               "render": true,
               "attrName": "exam.innerContent",
-              "subName": "zip",
+              "subName": "address.zip",
               "label": "Zip",
-              "description": "Enter Event zip for this event item.",
+              "description": "Enter Exam zip for this exam item.",
               "features": {
                 "responsive": false
               },
@@ -1096,11 +1085,11 @@
         "innerContent": {
           "groupType": "group-items",
           "items": {
-            "showAgency": {
+            "agency.show": {
               "groupSlug": "jobs",
               "render": true,
-              "attrName": "jobs.advanced",
-              "subName": "show_about_agency",
+              "attrName": "jobs.innerContent",
+              "subName": "agency.show",
               "label": "Agency",
               "features": {
                 "responsive": false
@@ -1110,12 +1099,12 @@
                 "type": "field"
               }
             },
-            "name": {
+            "agency.name": {
               "groupSlug": "jobs",
               "render": true,
               "attrName": "jobs.innerContent",
-              "subName": "agency_name",
-              "label": "Agency Name",
+              "subName": "agency.name",
+              "label": "Name",
               "description": "Enter the name of the agency for this job item.",
               "features": {
                 "responsive": false
@@ -1125,11 +1114,11 @@
                 "type": "field"
               }
             },
-            "address": {
+            "agency.address": {
               "groupSlug": "jobs",
               "render": true,
               "attrName": "jobs.innerContent",
-              "subName": "agency_address",
+              "subName": "agency.address.address",
               "label": "Address",
               "description": "Enter the address of the agency for this job item.",
               "features": {
@@ -1140,11 +1129,11 @@
                 "type": "field"
               }
             },
-            "city": {
+            "agency.city": {
               "groupSlug": "jobs",
               "render": true,
               "attrName": "jobs.innerContent",
-              "subName": "city",
+              "subName": "agency.address.city",
               "label": "City",
               "description": "Enter the city of the agency for this job item.",
               "features": {
@@ -1155,11 +1144,11 @@
                 "type": "field"
               }
             },
-            "state": {
+            "agency.state": {
               "groupSlug": "jobs",
               "render": true,
               "attrName": "jobs.innerContent",
-              "subName": "state",
+              "subName": "agency.address.state",
               "label": "State",
               "description": "Enter the state of the agency for this job item.",
               "features": {
@@ -1170,11 +1159,11 @@
                 "type": "field"
               }
             },
-            "zip": {
+            "agency.zip": {
               "groupSlug": "jobs",
               "render": true,
               "attrName": "jobs.innerContent",
-              "subName": "zip",
+              "subName": "agency.address.zip",
               "label": "Zip",
               "description": "Enter the zip code of the agency for this job item.",
               "features": {
@@ -1185,12 +1174,12 @@
                 "type": "field"
               }
             },
-            "about": {
+            "agency.about": {
               "groupSlug": "jobs",
               "render": true,
               "attrName": "jobs.innerContent",
-              "subName": "agency_about",
-              "label": "About Agency",
+              "subName": "agency.about",
+              "label": "Agency",
               "description": "Enter information about the Agency for this job item.",
               "features": {
                 "responsive": false
@@ -1215,11 +1204,11 @@
                 "type": "field"
               }
             },
-            "showSalary": {
+            "salary.show": {
               "groupSlug": "jobs",
               "render": true,
-              "attrName": "jobs.advanced",
-              "subName": "show_salary",
+              "attrName": "jobs.innerContent",
+              "subName": "salary.show",
               "label": "Salary",
               "features": {
                 "responsive": false
@@ -1229,12 +1218,12 @@
                 "type": "field"
               }
             },
-            "minSalary": {
+            "salary.min": {
               "groupSlug": "jobs",
               "render": true,
               "attrName": "jobs.innerContent",
-              "subName": "salary_min",
-              "label": "Minimum Salary",
+              "subName": "salary.min",
+              "label": "Minimum",
               "description": "Enter the minimum salary for this job item.",
               "features": {
                 "responsive": false
@@ -1244,12 +1233,12 @@
                 "type": "field"
               }
             },
-            "maxSalary": {
+            "salary.max": {
               "groupSlug": "jobs",
               "render": true,
               "attrName": "jobs.innerContent",
-              "subName": "salary_max",
-              "label": "Maximum Salary",
+              "subName": "salary.max",
+              "label": "Maximum",
               "description": "Enter the maximum salary for this job item.",
               "features": {
                 "responsive": false
@@ -1259,11 +1248,11 @@
                 "type": "field"
               }
             },
-            "postedDate": {
+            "posted.date": {
               "groupSlug": "jobs",
               "render": true,
               "attrName": "jobs.innerContent",
-              "subName": "posted_date",
+              "subName": "posted.date",
               "label": "Date Posted",
               "description": "Enter the posted date for this job item.",
               "features": {
@@ -1274,11 +1263,11 @@
                 "type": "field"
               }
             },
-            "customPostedDate": {
+            "posted.custom": {
               "groupSlug": "jobs",
               "render": true,
-              "attrName": "jobs.advanced",
-              "subName": "posted_date_custom_format",
+              "attrName": "jobs.innerContent",
+              "subName": "posted.custom",
               "label": "Custom Date Format",
               "features": {
                 "responsive": false
@@ -1288,11 +1277,11 @@
                 "type": "field"
               }
             },
-            "customPostedDateCustomFormat": {
+            "posted.pattern": {
               "groupSlug": "jobs",
               "render": true,
               "attrName": "jobs.innerContent",
-              "subName": "posted_date_custom_format",
+              "subName": "posted.pattern",
               "label": "Pattern",
               "description": "Coming Soon",
               "features": {
@@ -1348,11 +1337,11 @@
                 "type": "field"
               }
             },
-            "dateChooser": {
+            "filing.chooser": {
               "groupSlug": "jobs",
               "render": true,
-              "attrName": "jobs.advanced",
-              "subName": "final_filing_date_chooser",
+              "attrName": "jobs.innerContent",
+              "subName": "filing.chooser",
               "label": "Use Date Picker for Final Filing Date",
               "description": "Toggle to use a date picker for the final filing date for this job item.",
               "features": {
@@ -1363,11 +1352,11 @@
                 "type": "field"
               }
             },
-            "finalFilingDate": {
+            "filing.date": {
               "groupSlug": "jobs",
               "render": true,
               "attrName": "jobs.innerContent",
-              "subName": "final_filing_date",
+              "subName": "filing.date",
               "label": "Final Filing Date",
               "features": {
                 "responsive": false
@@ -1377,11 +1366,11 @@
                 "type": "field"
               }
             },
-            "finalFilingDatePicker": {
+            "filing.picker": {
               "groupSlug": "jobs",
               "render": true,
               "attrName": "jobs.innerContent",
-              "subName": "final_filing_date_picker",
+              "subName": "filing.picker",
               "label": "Final Filing Date",
               "features": {
                 "responsive": false
@@ -1391,11 +1380,11 @@
                 "type": "field"
               }
             },
-            "customFinalFilingDate": {
+            "filing.custom": {
               "groupSlug": "jobs",
               "render": true,
-              "attrName": "jobs.advanced",
-              "subName": "final_filing_date_custom_format",
+              "attrName": "jobs.innerContent",
+              "subName": "filing.custom",
               "label": "Custom Date Format",
               "features": {
                 "responsive": false
@@ -1405,11 +1394,11 @@
                 "type": "field"
               }
             },
-            "customFinalFilingDateCustomFormat": {
+            "filing.pattern": {
               "groupSlug": "jobs",
               "render": true,
               "attrName": "jobs.innerContent",
-              "subName": "final_filing_date_custom_format",
+              "subName": "filing.pattern",
               "label": "Pattern",
               "features": {
                 "responsive": false
@@ -1419,11 +1408,11 @@
                 "type": "field"
               }
             },
-            "showApply": {
+            "apply.show": {
               "groupSlug": "jobs",
               "render": true,
-              "attrName": "jobs.advanced",
-              "subName": "show_apply_to",
+              "attrName": "jobs.innerContent",
+              "subName": "apply.show",
               "label": "Apply to",
               "description": "Toggle to show the apply section for this job item.",
               "features": {
@@ -1434,11 +1423,11 @@
                 "type": "field"
               }
             },
-            "applyToDept": {
+            "apply.dept": {
               "groupSlug": "jobs",
               "render": true,
               "attrName": "jobs.innerContent",
-              "subName": "apply_to_dept",
+              "subName": "apply.dept",
               "label": "Department",
               "description": "Enter the department for this job item.",
               "features": {
@@ -1449,11 +1438,11 @@
                 "type": "field"
               }
             },
-            "applyToName": {
+            "apply.name": {
               "groupSlug": "jobs",
               "render": true,
               "attrName": "jobs.innerContent",
-              "subName": "apply_to_name",
+              "subName": "apply.name",
               "label": "Contact Name",
               "description": "Enter the contact name for this job item.",
               "features": {
@@ -1464,11 +1453,11 @@
                 "type": "field"
               }
             },
-            "applyToAddr": {
+            "apply.address": {
               "groupSlug": "jobs",
               "render": true,
               "attrName": "jobs.innerContent",
-              "subName": "apply_to_address",
+              "subName": "apply.address.address",
               "label": "Address",
               "description": "Enter the address for this job item.",
               "features": {
@@ -1479,11 +1468,11 @@
                 "type": "field"
               }
             },
-            "applyToCity": {
+            "apply.city": {
               "groupSlug": "jobs",
               "render": true,
               "attrName": "jobs.innerContent",
-              "subName": "apply_to_city",
+              "subName": "apply.address.city",
               "label": "City",
               "description": "Enter the city for this job item.",
               "features": {
@@ -1494,11 +1483,11 @@
                 "type": "field"
               }
             },
-            "applyToState": {
+            "apply.state": {
               "groupSlug": "jobs",
               "render": true,
               "attrName": "jobs.innerContent",
-              "subName": "apply_to_state",
+              "subName": "apply.address.state",
               "label": "State",
               "description": "Enter the state for this job item.",
               "features": {
@@ -1509,11 +1498,11 @@
                 "type": "field"
               }
             },
-            "applyToZip": {
+            "apply.zip": {
               "groupSlug": "jobs",
               "render": true,
               "attrName": "jobs.innerContent",
-              "subName": "apply_to_zip",
+              "subName": "apply.address.zip",
               "label": "Zip",
               "description": "Enter the zip code for this job item.",
               "features": {
@@ -1524,11 +1513,11 @@
                 "type": "field"
               }
             },
-            "showQuestions": {
+            "questions.show": {
               "groupSlug": "jobs",
               "render": true,
-              "attrName": "jobs.advanced",
-              "subName": "show_questions",
+              "attrName": "jobs.innerContent",
+              "subName": "questions.show",
               "label": "Questions",
               "features": {
                 "responsive": false
@@ -1538,11 +1527,11 @@
                 "type": "field"
               }
             },
-            "questionName": {
+            "questions.name": {
               "groupSlug": "jobs",
               "render": true,
               "attrName": "jobs.innerContent",
-              "subName": "questions_name",
+              "subName": "questions.name",
               "label": "Name",
               "description": "Enter the name for this job item.",
               "features": {
@@ -1553,11 +1542,11 @@
                 "type": "field"
               }
             },
-            "phone": {
+            "questions.phone": {
               "groupSlug": "jobs",
               "render": true,
               "attrName": "jobs.innerContent",
-              "subName": "questions_phone",
+              "subName": "questions.phone",
               "label": "Phone Number",
               "description": "Enter the phone number for this job item.",
               "features": {
@@ -1568,11 +1557,11 @@
                 "type": "field"
               }
             },
-            "email": {
+            "questions.email": {
               "groupSlug": "jobs",
               "render": true,
               "attrName": "jobs.innerContent",
-              "subName": "questions_email",
+              "subName": "questions.email",
               "label": "Email",
               "description": "Enter the email for this job item.",
               "features": {
@@ -1600,6 +1589,7 @@
             "author": {
               "groupSlug": "news",
               "render": true,
+              "priority": 1,
               "attrName": "news.innerContent",
               "subName": "author",
               "label": "Author",
@@ -1612,11 +1602,12 @@
                 "type": "field"
               }
             },
-            "publishDate": {
+            "published.date": {
               "groupSlug": "news",
               "render": true,
+              "priority": 2,
               "attrName": "news.innerContent",
-              "subName": "publish_date",
+              "subName": "published.date",
               "label": "Publish Date",
               "description": "Enter the publish date for this news item.",
               "features": {
@@ -1627,11 +1618,12 @@
                 "type": "field"
               }
             },
-            "customFormat": {
+            "published.custom": {
               "groupSlug": "news",
               "render": true,
-              "attrName": "news.advanced",
-              "subName": "custom_format",
+              "priority": 3,
+              "attrName": "news.innerContent",
+              "subName": "published.custom",
               "label": "Custom Date Format",
               "features": {
                 "responsive": false
@@ -1641,11 +1633,12 @@
                 "type": "field"
               }
             },
-            "customPublishDateCustomFormat": {
+            "published.pattern": {
               "groupSlug": "news",
               "render": true,
+              "priority": 4,
               "attrName": "news.innerContent",
-              "subName": "publish_date_custom_format",
+              "subName": "published.pattern",
               "label": "Pattern",
               "description": "Coming Soon",
               "features": {
@@ -1653,15 +1646,13 @@
               },
               "component": {
                 "name": "divi/text",
-                "type": "field",
-                "props": {
-                  "defaultValue": "D, n/j/Y g:i a"
-                }
+                "type": "field"
               }
             },
             "location": {
               "groupSlug": "news",
               "render": true,
+              "priority": 5,
               "attrName": "news.innerContent",
               "subName": "location",
               "label": "Location",
@@ -1691,6 +1682,7 @@
             "prefix": {
               "groupSlug": "profile",
               "render": true,
+              "priority": 1,
               "attrName": "profile.innerContent",
               "subName": "prefix",
               "label": "Name Prefix",
@@ -1706,6 +1698,7 @@
             "name": {
               "groupSlug": "profile",
               "render": true,
+              "priority": 2,
               "attrName": "profile.innerContent",
               "subName": "name",
               "label": "Name",
@@ -1718,11 +1711,12 @@
                 "type": "field"
               }
             },
-            "career": {
+            "career.show": {
               "groupSlug": "profile",
               "render": true,
-              "attrName": "profile.advanced",
-              "subName": "career",
+              "priority": 3,
+              "attrName": "profile.innerContent",
+              "subName": "career.show",
               "label": "Career",
               "features": {
                 "responsive": false
@@ -1732,11 +1726,12 @@
                 "type": "field"
               }
             },
-            "title": {
+            "career.title": {
               "groupSlug": "profile",
               "render": true,
+              "priority": 4,
               "attrName": "profile.innerContent",
-              "subName": "career_title",
+              "subName": "career.itle",
               "label": "Title",
               "features": {
                 "responsive": false
@@ -1746,11 +1741,12 @@
                 "type": "field"
               }
             },
-            "position": {
+            "career.position": {
               "groupSlug": "profile",
               "render": true,
+              "priority": 5,
               "attrName": "profile.innerContent",
-              "subName": "career_position",
+              "subName": "career.position",
               "label": "Position",
               "features": {
                 "responsive": false
@@ -1760,11 +1756,12 @@
                 "type": "field"
               }
             },
-            "addtlFields": {
+            "fields.show": {
               "groupSlug": "profile",
               "render": true,
-              "attrName": "profile.advanced",
-              "subName": "additional_fields",
+              "priority": 6,
+              "attrName": "profile.innerContent",
+              "subName": "fields.show",
               "label": "Additional List Fields",
               "features": {
                 "responsive": false
@@ -1774,11 +1771,12 @@
                 "type": "field"
               }
             },
-            "line1": {
+            "fields.line1": {
               "groupSlug": "profile",
               "render": true,
+              "priority": 7,
               "attrName": "profile.innerContent",
-              "subName": "career_line_1",
+              "subName": "fields.line1",
               "label": "Line 1",
               "features": {
                 "responsive": false
@@ -1788,11 +1786,12 @@
                 "type": "field"
               }
             },
-            "line2": {
+            "fields.line2": {
               "groupSlug": "profile",
               "render": true,
+              "priority": 8,
               "attrName": "profile.innerContent",
-              "subName": "career_line_2",
+              "subName": "fields.line2",
               "label": "Line 2",
               "features": {
                 "responsive": false
@@ -1802,11 +1801,12 @@
                 "type": "field"
               }
             },
-            "line3": {
+            "fields.line3": {
               "groupSlug": "profile",
               "render": true,
+              "priority": 9,
               "attrName": "profile.innerContent",
-              "subName": "career_line_3",
+              "subName": "fields.line3",
               "label": "Line 3",
               "features": {
                 "responsive": false

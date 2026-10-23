@@ -26,23 +26,23 @@ export const SettingsContent = ({
   
 
   // Toggle Featured Image field visibility based on layout
-  set(groupConfiguration, ['style', 'component', 'props', 'fields', 'imageInnercontent', 'render'], 'banner' === layout );
+  set(groupConfiguration, ['style', 'component', 'props', 'fields', 'imageInnercontent', 'visible'], 'banner' === layout );
 
   // Toggle Description field visibility based on layout
-  set(groupConfiguration, ['location', 'component', 'props', 'fields', 'descInnercontent', 'render'], 'banner' === layout );
+  set(groupConfiguration, ['location', 'component', 'props', 'fields', 'descInnercontent', 'visible'], 'banner' === layout );
 
   // Toggle Show Contact Button field visibility based on layout
-  set(groupConfiguration, ['location', 'component', 'props', 'fields', 'showContact', 'render'], 'contact' === layout );
+  set(groupConfiguration, ['location', 'component', 'props', 'fields', 'showContact', 'visible'], 'contact' === layout );
 
   // Toggle Phone/Fax fields visibility based on layout and Show Contact Button
-  set(groupConfiguration, ['location', 'component', 'props', 'fields', 'phone', 'render'], 'contact' === layout && 'on' === showContact );
-  set(groupConfiguration, ['location', 'component', 'props', 'fields', 'fax', 'render'], 'contact' === layout && 'on' === showContact );
+  set(groupConfiguration, ['location', 'component', 'props', 'fields', 'phone', 'visible'], 'contact' === layout && 'on' === showContact );
+  set(groupConfiguration, ['location', 'component', 'props', 'fields', 'fax', 'visible'], 'contact' === layout && 'on' === showContact );
 
   // Toggle Show Button field visibility based on layout
-  set(groupConfiguration, ['location', 'component', 'props', 'fields', 'showLink', 'render'], 'mini' !== layout );
+  set(groupConfiguration, ['location', 'component', 'props', 'fields', 'showLink', 'visible'], 'mini' !== layout );
 
   // Toggle URL field visibility based on Show Button
-  set(groupConfiguration, ['location', 'component', 'props', 'fields', 'linkInnercontent', 'render'], 'mini' !== layout && 'on' === showLink );
+  set(groupConfiguration, ['location', 'component', 'props', 'fields', 'linkInnercontent', 'visible'], 'mini' !== layout && 'on' === showLink );
 
   return (
     <ModuleGroups

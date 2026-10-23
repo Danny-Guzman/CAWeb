@@ -97,52 +97,52 @@ trait RenderCallbackTrait {
 		));
 
 		$faqStyle = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['style']['advanced'],
+			'attr' => $attrs['style']['advanced']['faq'],
 			'breakpoint' => 'desktop',
 			'state' => 'value'
-		))['faq'] ?? 'accordion';
+		));
 
 		$showAllCategories = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['categories']['advanced'],
+			'attr' => $attrs['categories']['advanced']['all'],
 			'breakpoint' => 'desktop',
 			'state' => 'value'
-		))['all'] ?? 'on';
+		));
  
 		$selectedCategories = 'on' === $showAllCategories ? array() : ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['categories']['innerContent'],
 			'breakpoint' => 'desktop',
 			'state' => 'value'
-		)) ?? array();
+		));
 
 		$showAllTags = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['tags']['advanced'],
+			'attr' => $attrs['tags']['advanced']['all'],
 			'breakpoint' => 'desktop',
 			'state' => 'value'
-		))['all'] ?? 'on';
+		));
 
 		$tags = 'on' === $showAllTags ? array() : ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['tags']['innerContent'],
 			'breakpoint' => 'desktop',
 			'state' => 'value'
-		)) ?? array();
+		));
 
 		$postsNumber = ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['posts']['innerContent'],
 			'breakpoint' => 'desktop',
 			'state' => 'value'
-		)) ?? -1;
+		));
 
 		$displayExcerpt = ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['excerpt']['innerContent'],
 			'breakpoint' => 'desktop',
 			'state' => 'value'
-		)) ?? 'on';
+		));
 
 		$displayImage  = ModuleUtils::get_attr_value(array(
 			'attr' => $attrs['image']['innerContent'],
 			'breakpoint' => 'desktop',
 			'state' => 'value'
-		)) ?? 'on';
+		));
 
 		$slug = str_replace('-list', '', $style);
 
@@ -154,7 +154,7 @@ trait RenderCallbackTrait {
 			'attr' => $attrs['orderby']['innerContent'],
 			'breakpoint' => 'desktop',
 			'state' => 'value'
-		)) ?? 'rand';
+		));
 
 		$order = '';
 
@@ -174,17 +174,9 @@ trait RenderCallbackTrait {
 
 		setlocale( LC_MONETARY, 'en_US.UTF-8' );
 
-		// Retrieve the titleSize from the block attributes
-		$titleSize = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['title']['advanced'],
-			'breakpoint' => 'desktop',
-			'state' => 'value'
-		))['size'] ?? 'h1';
-
 		$inner_content = array(
 			$elements->render(array(
-				'attrName' => 'title',
-				'tagName' => $titleSize,
+				'attrName' => 'title'
 			))
 		);
 		
@@ -211,7 +203,7 @@ trait RenderCallbackTrait {
 					$data['post']['title'] = $p->post_title;
 
 					// store the handlers attributes
-					$data['shortcode'] = shortcode_parse_atts( $matches[0][3] );					// $inner_content[] = $style;
+					$data['shortcode'] = shortcode_parse_atts( $matches[0][3] );
 					$data['shortcode']['content'] = isset($matches[0][5]) ? $matches[0][5] : '';
 					
 					// determine the view type based on the slug

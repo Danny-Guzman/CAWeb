@@ -1,6 +1,6 @@
 // External dependencies.
-import React, { ReactElement, useMemo, useState } from 'react';
-import { set } from 'lodash';
+import React from 'react';
+import { set, merge } from 'lodash';
 
 // WordPress dependencies
 import { __ } from '@wordpress/i18n';
@@ -9,7 +9,6 @@ import { __ } from '@wordpress/i18n';
 import {
   ModuleGroups,
 } from '@divi/module';
-// import { BlogAttrs, FieldLibrary, Module } from '@divi/types';
 import { useSelect, select } from '@divi/data';
 import { getCategoriesForPostType, transformTaxonomiesToCheckboxOptions } from '@divi/module-utils';
 import { getAttrByMode } from '@divi/module-utils';
@@ -21,37 +20,38 @@ export const SettingsContent = ({
   defaultSettingsAttrs,
   groupConfiguration,
 }) => {
+  let attributes = merge({}, defaultSettingsAttrs, attrs);
 
   let { 
     style,
     categories,
     tags,
-  } = attrs || {};
+  } = attributes;
 
-  let selectedStyle = (style?.innerContent && getAttrByMode(style?.innerContent)) || getAttrByMode(defaultSettingsAttrs?.style?.innerContent);
-  let {all: showAllCategories} = (categories && getAttrByMode(categories?.advanced)) || getAttrByMode(defaultSettingsAttrs?.categories?.advanced);
-  let selectedCategories = (categories?.innerContent && getAttrByMode(categories?.innerContent)) || getAttrByMode(defaultSettingsAttrs?.categories?.innerContent);
-  let {all: showAllTags} = (tags && getAttrByMode(tags?.advanced)) || getAttrByMode(defaultSettingsAttrs?.tags?.advanced);
-  let selectedTags = (tags?.innerContent && getAttrByMode(tags?.innerContent)) || getAttrByMode(defaultSettingsAttrs?.tags?.innerContent);
+  let selectedStyle = getAttrByMode(style?.innerContent);
+  let showAllCategories = getAttrByMode(categories?.advanced?.all);
+  let selectedCategories = getAttrByMode(categories?.innerContent);
+  let showAllTags = getAttrByMode(tags?.advanced?.all);
+  let selectedTags = getAttrByMode(tags?.innerContent);
   let isGeneralListStyle = 'general-list' === selectedStyle;
   let isFaqsListStyle = 'faqs-list' === selectedStyle;
-  
+
   // Categories and tags are only visible if the selected style is not a 'faqs-list'
-  set( groupConfiguration, ['style', 'component', 'props', 'fields', 'allCats', 'render'], isGeneralListStyle );
-  set( groupConfiguration, ['style', 'component', 'props', 'fields', 'allTags', 'render'], isGeneralListStyle );
+  set( groupConfiguration, ['style', 'component', 'props', 'fields', 'categoriesAdvancedAll', 'visible'], isGeneralListStyle );
+  set( groupConfiguration, ['style', 'component', 'props', 'fields', 'tagsAdvancedAll', 'visible'], isGeneralListStyle );
   
   // Toggle the visibility of the category and tag fields
-  set( groupConfiguration, ['style', 'component', 'props', 'fields', 'cats', 'render'], 'off' === showAllCategories );
-  set( groupConfiguration, ['style', 'component', 'props', 'fields', 'tags', 'render'], 'off' === showAllTags );
+  set( groupConfiguration, ['style', 'component', 'props', 'fields', 'categoriesInnercontent', 'visible'], isGeneralListStyle && 'off' === showAllCategories );
+  set( groupConfiguration, ['style', 'component', 'props', 'fields', 'tagsInnercontent', 'visible'], isGeneralListStyle && 'off' === showAllTags );
  
   // Accordion style is only visible if the selected style is a 'faqs-list'
-  set( groupConfiguration, ['style', 'component', 'props', 'fields', 'faq', 'render'], isFaqsListStyle );
+  set( groupConfiguration, ['style', 'component', 'props', 'fields', 'styleAdvancedFaq', 'visible'], isFaqsListStyle );
   
   // Featured image field is only visible if the selected style is a 'general-list'
-  set( groupConfiguration, ['style', 'component', 'props', 'fields', 'imageInnercontent', 'render'], ! isFaqsListStyle );
+  set( groupConfiguration, ['style', 'component', 'props', 'fields', 'imageInnercontent', 'visible'], ! isFaqsListStyle );
   
   // Excerpt is only visible if the selected style is a 'general-list'
-  set( groupConfiguration, ['style', 'component', 'props', 'fields', 'excerptInnercontent', 'render'], 
+  set( groupConfiguration, ['style', 'component', 'props', 'fields', 'excerptInnercontent', 'visible'], 
     [
       'course-list',
       'events-list',
@@ -69,16 +69,16 @@ export const SettingsContent = ({
     const tagCheckboxes = transformTaxonomiesToCheckboxOptions(allTags);
 
     // Add all categories to the category field options if options is empty 
-    if( groupConfiguration.style?.component?.props?.fields?.cats?.component?.props?.options.length === 0 ) {
-      groupConfiguration.style?.component?.props?.fields?.cats?.component?.props?.options.push(...categoryCheckboxes);
+    if( groupConfiguration.style?.component?.props?.fields?.categoriesInnercontent?.component?.props?.options.length === 0 ) {
+      groupConfiguration.style?.component?.props?.fields?.categoriesInnercontent?.component?.props?.options.push(...categoryCheckboxes);
     }
-    if( groupConfiguration.style?.component?.props?.fields?.tags?.component?.props?.options.length === 0 ) {
-      groupConfiguration.style?.component?.props?.fields?.tags?.component?.props?.options.push(...tagCheckboxes);
+    if( groupConfiguration.style?.component?.props?.fields?.tagsInnercontent?.component?.props?.options.length === 0 ) {
+      groupConfiguration.style?.component?.props?.fields?.tagsInnercontent?.component?.props?.options.push(...tagCheckboxes);
     }
     
     // Set the selected categories and tags in the group configuration
-    set( groupConfiguration, ['style', 'component', 'props', 'fields', 'cats', 'defaultAttr', 'desktop', 'value'], selectedCategories );
-    set( groupConfiguration, ['style', 'component', 'props', 'fields', 'tags', 'defaultAttr', 'desktop', 'value'], selectedTags );
+    set( groupConfiguration, ['style', 'component', 'props', 'fields', 'categoriesInnercontent', 'defaultAttr', 'desktop', 'value'], selectedCategories );
+    set( groupConfiguration, ['style', 'component', 'props', 'fields', 'tagsInnercontent', 'defaultAttr', 'desktop', 'value'], selectedTags );
   
   }
 

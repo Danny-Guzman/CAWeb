@@ -37,16 +37,10 @@ trait Profile {
 			'state' => 'value'
 		));
 
-		$advanced = ModuleUtils::get_attr_value(array(
-			'attr' => $args['advanced'],
-			'breakpoint' => 'desktop',
-			'state' => 'value'
-		));
-
 		$title = array_filter( array(
 			! empty( $attrs['prefix'] ) ? "{$attrs['prefix']} " : '',
 			$attrs['name'],
-			! empty( $attrs['career_title'] ) ? ", {$attrs['career_title']}" : '',
+			! empty( $attrs['career']['title'] ) ? ", {$attrs['career']['title']}" : '',
 
 		));
 
@@ -59,7 +53,7 @@ trait Profile {
 			$showFeaturedImage ? self::get_the_post_thumbnail( 
 				null, 
 				array(150,100), 
-				array( 'class' => sprintf('mb-3 %1$s', $featuredImageAlignment ? 'float-start me-3' : 'float-end ms-3') ) 
+				array( 'class' => "mb-3 $featuredImageAlignment" )
 			) : '',
 			HTMLUtility::render(array(
 				'tag' => 'div',

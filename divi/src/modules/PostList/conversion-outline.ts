@@ -52,20 +52,20 @@ export const conversionOutline: ModuleConversionOutline = {
   },
   module: {
     title: 'title.innerContent.*',
-    title_size: 'title.advanced.*.size',
+    title_size: 'title.decoration.font.font.*.headingLevel',
 
     style: 'style.innerContent.*',
-    faq_style: 'style.advanced.*.faq',
+    faq_style: 'style.advanced.faq.*',
     
     posts_number: 'posts.innerContent.*',
 
     view_featured_image: 'image.innerContent.*',
 
     include_categories: 'categories.innerContent.*',
-    all_categories_button: 'categories.advanced.*.all',
+    all_categories_button: 'categories.advanced.all.*',
 
     include_tags: 'tags.innerContent.*',
-    all_tags_button: 'tags.advanced.*.all',
+    all_tags_button: 'tags.advanced.all.*',
 
     orderby: 'orderby.innerContent.*',
     display_excerpt: 'excerpt.innerContent.*'

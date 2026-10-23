@@ -5,41 +5,27 @@ import {
 } from '@divi/module-utils';
 import { get_google_map_place_link } from '../../Utils/Module.jsx';
 
-const CourseView = ({attributes: course, content}) => {
+const CourseView = ({attributes: course, content, elements}) => {
 
   let {
-    presenter_name,
-    presenter_image,
-    presenter_bio,
-    start_date,
-    start_date_custom_format,
-    end_date,
-    end_date_custom_format,
+    presenter,
+    start,
+    end,
     address,
-    city,
-    state,
-    zip,
     registration_type,
-    cost
+    cost,
+    show_map
   } = getAttrByMode(course?.innerContent);
 
-  let {
-    show_presenter,
-    start_date_custom_format: start_date_custom_format_enabled,
-    end_date_custom_format: end_date_custom_format_enabled,
-    show_address,
-    show_map
-  } = getAttrByMode(course?.advanced);
-
-  let presenter = 'on' === show_presenter ? 
+  let presenterElement = 'on' === presenter?.show ? 
     <div className="presenter">
       <p>
         <strong>Presenter:</strong><br />
-        <strong className="presenter-name">{presenter_name}</strong>
+        <strong className="presenter-name">{presenter?.name}</strong>
       </p>
       <p>
-        { presenter_image && <img src={presenter_image} className="me-3" style={{height: '75px',width: '75px'}} /> }
-        { presenter_bio }
+        { presenter?.image?.src && <img src={presenter?.image?.src} className="me-3" style={{height: '75px',width: '75px'}} /> }
+        { presenter?.bio }
       </p>
     </div>
    : '';
@@ -49,16 +35,16 @@ const CourseView = ({attributes: course, content}) => {
     <p className="date-time">
       {
         [
-          start_date && new Date(start_date).toLocaleDateString('en-US', {weekday: 'short', month: 'numeric', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit'}),
-          end_date && new Date(end_date).toLocaleDateString('en-US', {weekday: 'short', month: 'numeric', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit'})
+          start.date && new Date(start.date).toLocaleDateString('en-US', {weekday: 'short', month: 'numeric', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit'}),
+          end.date && new Date(end.date).toLocaleDateString('en-US', {weekday: 'short', month: 'numeric', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit'})
         ].filter(Boolean).join(' - ') 
       }
       <br />
       {
-        'on' === show_address && (
+        'on' === address.show && (
           <>
           <span className="ca-gov-icon-road-pin"></span>
-          { get_google_map_place_link([address, city, state, zip]) }
+          { get_google_map_place_link(address) }
           </>
         )
       }
@@ -75,7 +61,7 @@ const CourseView = ({attributes: course, content}) => {
   return (
     <>
       <div className="description" dangerouslySetInnerHTML={{ __html: content }}></div>
-      {presenter}
+      {presenterElement}
       <div className="row">
         <div className="col-9">
           { organizer }
@@ -84,7 +70,7 @@ const CourseView = ({attributes: course, content}) => {
           'on' === show_map && (
             <div className="col-3">
               {
-                get_google_map_place_link([address, city, state, zip], true)
+                get_google_map_place_link(address, true)
               }
             </div>
           )

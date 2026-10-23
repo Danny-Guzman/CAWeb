@@ -42,17 +42,17 @@ const SettingsContent = ({
   let showFooter = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(footer?.advanced?.show);
 
   // Toggle Featured Image field visibility based on if show image is on
-  (0,lodash__WEBPACK_IMPORTED_MODULE_0__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'imageInnercontent', 'render'], 'off' !== showImage);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_0__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'imageInnercontent', 'visible'], 'on' === showImage);
 
   // Toggle Title field visibility based on if show header is on
-  (0,lodash__WEBPACK_IMPORTED_MODULE_0__.set)(groupConfiguration, ['header', 'component', 'props', 'fields', 'titleInnercontent', 'render'], 'off' !== showHeader);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_0__.set)(groupConfiguration, ['header', 'component', 'props', 'fields', 'titleInnercontent', 'visible'], 'on' === showHeader);
 
   // Toggle Button field visibility based on if show button is on
-  (0,lodash__WEBPACK_IMPORTED_MODULE_0__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'text', 'render'], 'off' !== showButton);
-  (0,lodash__WEBPACK_IMPORTED_MODULE_0__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'url', 'render'], 'off' !== showButton);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_0__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'text', 'visible'], 'on' === showButton);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_0__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'url', 'visible'], 'on' === showButton);
 
   // Toggle Footer field visibility based on if show footer is on
-  (0,lodash__WEBPACK_IMPORTED_MODULE_0__.set)(groupConfiguration, ['footer', 'component', 'props', 'fields', 'footerInnercontent', 'render'], 'off' !== showFooter);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_0__.set)(groupConfiguration, ['footer', 'component', 'props', 'fields', 'footerInnercontent', 'visible'], 'on' === showFooter);
   return /*#__PURE__*/React.createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ModuleGroups, {
     groups: groupConfiguration
   });
@@ -1120,23 +1120,23 @@ const SettingsContent = ({
   let showLink = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(attributes?.link?.advanced?.show);
 
   // Toggle Featured Image field visibility based on layout
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'imageInnercontent', 'render'], 'banner' === layout);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'imageInnercontent', 'visible'], 'banner' === layout);
 
   // Toggle Description field visibility based on layout
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'descInnercontent', 'render'], 'banner' === layout);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'descInnercontent', 'visible'], 'banner' === layout);
 
   // Toggle Show Contact Button field visibility based on layout
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'showContact', 'render'], 'contact' === layout);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'showContact', 'visible'], 'contact' === layout);
 
   // Toggle Phone/Fax fields visibility based on layout and Show Contact Button
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'phone', 'render'], 'contact' === layout && 'on' === showContact);
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'fax', 'render'], 'contact' === layout && 'on' === showContact);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'phone', 'visible'], 'contact' === layout && 'on' === showContact);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'fax', 'visible'], 'contact' === layout && 'on' === showContact);
 
   // Toggle Show Button field visibility based on layout
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'showLink', 'render'], 'mini' !== layout);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'showLink', 'visible'], 'mini' !== layout);
 
   // Toggle URL field visibility based on Show Button
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'linkInnercontent', 'render'], 'mini' !== layout && 'on' === showLink);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['location', 'component', 'props', 'fields', 'linkInnercontent', 'visible'], 'mini' !== layout && 'on' === showLink);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
     groups: groupConfiguration
   });
@@ -1541,9 +1541,9 @@ const SettingsContent = ({
   let showButton = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(button?.advanced?.show);
 
   // Toggle Button field visibility based on if show button is on
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['header', 'component', 'props', 'fields', 'text', 'render'], 'off' !== showButton);
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['header', 'component', 'props', 'fields', 'url', 'render'], 'off' !== showButton);
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['header', 'component', 'props', 'fields', 'target', 'render'], 'off' !== showButton);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['header', 'component', 'props', 'fields', 'text', 'visible'], 'on' === showButton);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['header', 'component', 'props', 'fields', 'url', 'visible'], 'on' === showButton);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['header', 'component', 'props', 'fields', 'target', 'visible'], 'on' === showButton);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
     groups: groupConfiguration
   });
@@ -1598,10 +1598,10 @@ const SettingsDesign = ({
   layout = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(layout?.innerContent);
 
   // Title Font Color field is only visible when a 'none' layout is selected.
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['title-font', 'component', 'props', 'fields', 'color', 'render'], 'none' === layout);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['title-font', 'component', 'props', 'fields', 'color', 'visible'], 'none' === layout);
 
   // Toggle Heading icon and color field visibility based on if show icon is on
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['icon', 'component', 'props', 'fields', 'icon', 'render'], 'off' !== showIcon);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['icon', 'component', 'props', 'fields', 'icon', 'visible'], 'on' === showIcon);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
     groups: groupConfiguration
   });
@@ -1868,7 +1868,7 @@ const SettingsContent = ({
     layout
   } = attributes;
   let selectedLayout = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_5__.getAttrByMode)(layout?.innerContent);
-  let taxonomy = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_5__.getAttrByMode)(attributes[selectedLayout]?.advanced);
+  let taxonomy = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_5__.getAttrByMode)(attributes[selectedLayout]?.innerContent);
 
   // toggle group configuration based on selected layout
   (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['course', 'render'], 'course' === selectedLayout);
@@ -1878,162 +1878,204 @@ const SettingsContent = ({
   (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['news', 'render'], 'news' === selectedLayout);
   (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['profile', 'render'], 'profile' === selectedLayout);
 
+  // Featured Image is only available for 'news' or 'profile' layouts.
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'imageAdvancedShow', 'visible'], ['exam', 'news', 'profile'].includes(selectedLayout));
+
   // toggle body group if not general
   (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'render'], 'general' !== selectedLayout);
-
-  // Featured Image is only available for 'news' or 'profile' layouts.
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'imageInnercontent', 'render'], 'news' === selectedLayout || 'profile' === selectedLayout);
-
-  // Content, Tags, Categories are available for all layouts except 'general'
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['content', 'render'], 'general' !== selectedLayout);
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'tagsInnercontent', 'render'], 'general' !== selectedLayout);
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'categoriesInnercontent', 'render'], 'general' !== selectedLayout);
   switch (selectedLayout) {
     // Course Options Only
     case 'course':
       let {
-        show_presenter: showCoursePresenter,
-        start_date_custom_format: courseStartDateCustomFormat,
-        end_date_custom_format: courseEndDateCustomFormat,
-        show_address: courseShowAddress
+        presenter: {
+          show: showPresenter
+        },
+        start: {
+          custom: startCustom
+        },
+        end: {
+          custom: endCustom
+        },
+        address: {
+          show: showAddress
+        }
       } = taxonomy;
 
       // if presenter is enabled, show the relevant fields
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['course', 'component', 'props', 'fields', 'name', 'render'], "on" === showCoursePresenter);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['course', 'component', 'props', 'fields', 'image', 'render'], "on" === showCoursePresenter);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['course', 'component', 'props', 'fields', 'bio', 'render'], "on" === showCoursePresenter);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['course', 'component', 'props', 'fields', 'presenter.name', 'visible'], "on" === showPresenter);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['course', 'component', 'props', 'fields', 'presenter.image', 'visible'], "on" === showPresenter);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['course', 'component', 'props', 'fields', 'presenter.bio', 'visible'], "on" === showPresenter);
 
       // if start date custom format is provided, show the relevant field
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['course', 'component', 'props', 'fields', 'customStartDateCustomFormat', 'render'], 'on' === courseStartDateCustomFormat);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['course', 'component', 'props', 'fields', 'start.pattern', 'visible'], 'on' === startCustom);
 
       // if end date custom format is provided, show the relevant field
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['course', 'component', 'props', 'fields', 'customEndDateCustomFormat', 'render'], 'on' === courseEndDateCustomFormat);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['course', 'component', 'props', 'fields', 'end.pattern', 'visible'], 'on' === endCustom);
 
       // if show address is enabled, show the relevant field
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['course', 'component', 'props', 'fields', 'address', 'render'], "on" === courseShowAddress);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['course', 'component', 'props', 'fields', 'city', 'render'], "on" === courseShowAddress);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['course', 'component', 'props', 'fields', 'state', 'render'], "on" === courseShowAddress);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['course', 'component', 'props', 'fields', 'zip', 'render'], "on" === courseShowAddress);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['course', 'component', 'props', 'fields', 'address.address', 'visible'], "on" === showAddress);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['course', 'component', 'props', 'fields', 'address.city', 'visible'], "on" === showAddress);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['course', 'component', 'props', 'fields', 'address.state', 'visible'], "on" === showAddress);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['course', 'component', 'props', 'fields', 'address.zip', 'visible'], "on" === showAddress);
       break;
+
     // Event Options Only
     case 'event':
       let {
-        show_presenter: showEventPresenter,
-        start_date_custom_format: eventStartDateCustomFormat,
-        end_date_custom_format: eventEndDateCustomFormat,
-        show_address: eventShowAddress
+        presenter: {
+          show: showEventPresenter
+        },
+        start: {
+          custom: eventStartDateCustomFormat
+        },
+        end: {
+          custom: eventEndDateCustomFormat
+        },
+        address: {
+          show: eventShowAddress
+        }
       } = taxonomy;
 
       // if presenter is enabled, show the relevant fields
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['event', 'component', 'props', 'fields', 'name', 'render'], "on" === showEventPresenter);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['event', 'component', 'props', 'fields', 'image', 'render'], "on" === showEventPresenter);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['event', 'component', 'props', 'fields', 'bio', 'render'], "on" === showEventPresenter);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['event', 'component', 'props', 'fields', 'presenter.name', 'visible'], "on" === showEventPresenter);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['event', 'component', 'props', 'fields', 'presenter.image', 'visible'], "on" === showEventPresenter);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['event', 'component', 'props', 'fields', 'presenter.bio', 'visible'], "on" === showEventPresenter);
 
       // if start date custom format is provided, show the relevant field
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['event', 'component', 'props', 'fields', 'customStartDateCustomFormat', 'render'], 'on' === eventStartDateCustomFormat);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['event', 'component', 'props', 'fields', 'start.pattern', 'visible'], 'on' === eventStartDateCustomFormat);
 
       // if end date custom format is provided, show the relevant field
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['event', 'component', 'props', 'fields', 'customEndDateCustomFormat', 'render'], 'on' === eventEndDateCustomFormat);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['event', 'component', 'props', 'fields', 'end.pattern', 'visible'], 'on' === eventEndDateCustomFormat);
 
       // if show address is enabled, show the relevant field
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['event', 'component', 'props', 'fields', 'address', 'render'], "on" === eventShowAddress);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['event', 'component', 'props', 'fields', 'city', 'render'], "on" === eventShowAddress);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['event', 'component', 'props', 'fields', 'state', 'render'], "on" === eventShowAddress);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['event', 'component', 'props', 'fields', 'zip', 'render'], "on" === eventShowAddress);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['event', 'component', 'props', 'fields', 'address.address', 'visible'], "on" === eventShowAddress);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['event', 'component', 'props', 'fields', 'address.city', 'visible'], "on" === eventShowAddress);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['event', 'component', 'props', 'fields', 'address.state', 'visible'], "on" === eventShowAddress);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['event', 'component', 'props', 'fields', 'address.zip', 'visible'], "on" === eventShowAddress);
       break;
 
     // Exam Options Only
     case 'exam':
       let {
-        published_date_custom_format: examPublishedDateCustomFormat,
-        date_chooser,
-        final_filing_date_custom_format: examFinalFilingDateCustomFormat
+        type,
+        filing: {
+          chooser: examFilingChooser,
+          custom: examFilingCustom
+        },
+        published: {
+          custom: examPublishedCustom
+        }
       } = taxonomy;
 
       // if published date custom format is provided, show the relevant field
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['exam', 'component', 'props', 'fields', 'customPublishedDateFormat', 'render'], 'on' === examPublishedDateCustomFormat);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['exam', 'component', 'props', 'fields', 'published.pattern', 'visible'], 'on' === examPublishedCustom);
 
       // if final filing date picker is provided, show the relevant fields
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['exam', 'component', 'props', 'fields', 'datePicker', 'render'], 'on' === date_chooser);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['exam', 'component', 'props', 'fields', 'finalFilingDate', 'render'], 'off' === date_chooser);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['exam', 'component', 'props', 'fields', 'filing.picker', 'visible'], 'on' === examFilingChooser);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['exam', 'component', 'props', 'fields', 'filing.date', 'visible'], 'off' === examFilingChooser);
 
       // if final filing date custom format is provided, show the relevant field
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['exam', 'component', 'props', 'fields', 'customFilingDateCustomFormat', 'render'], 'on' === examFinalFilingDateCustomFormat);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['exam', 'component', 'props', 'fields', 'filing.pattern', 'visible'], 'on' === examFilingCustom);
+
+      // show relevant exam type field
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['exam', 'component', 'props', 'fields', 'url', 'visible'], 'web' === type);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['exam', 'component', 'props', 'fields', 'address.address', 'visible'], 'location' === type);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['exam', 'component', 'props', 'fields', 'address.city', 'visible'], 'location' === type);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['exam', 'component', 'props', 'fields', 'address.state', 'visible'], 'location' === type);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['exam', 'component', 'props', 'fields', 'address.zip', 'visible'], 'location' === type);
       break;
 
     // Jobs Options Only
     case 'jobs':
       let {
-        show_about_agency: showAboutAgency,
-        show_salary: showSalary,
-        posted_date_custom_format: postedDateCustomFormat,
-        final_filing_date_chooser: finalFilingDateChooser,
-        final_filing_date_custom_format: finalFilingDateCustomFormat,
-        show_apply_to: showApplyTo,
-        show_questions: showQuestions
+        agency: {
+          show: showAboutAgency
+        },
+        salary: {
+          show: showSalary
+        },
+        posted: {
+          custom: postedCustom
+        },
+        filing: {
+          chooser: jobsFilingChooser,
+          custom: jobsFilingCustom
+        },
+        apply: {
+          show: showApplyTo
+        },
+        questions: {
+          show: showQuestions
+        }
       } = taxonomy;
 
       // if show about agency is provided, show the relevant field
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['job', 'component', 'props', 'fields', 'name', 'render'], 'on' === showAboutAgency);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['job', 'component', 'props', 'fields', 'address', 'render'], 'on' === showAboutAgency);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['job', 'component', 'props', 'fields', 'city', 'render'], 'on' === showAboutAgency);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['job', 'component', 'props', 'fields', 'state', 'render'], 'on' === showAboutAgency);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['job', 'component', 'props', 'fields', 'zip', 'render'], 'on' === showAboutAgency);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['job', 'component', 'props', 'fields', 'about', 'render'], 'on' === showAboutAgency);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['jobs', 'component', 'props', 'fields', 'agency.name', 'visible'], 'on' === showAboutAgency);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['jobs', 'component', 'props', 'fields', 'agency.about', 'visible'], 'on' === showAboutAgency);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['jobs', 'component', 'props', 'fields', 'agency.address', 'visible'], 'on' === showAboutAgency);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['jobs', 'component', 'props', 'fields', 'agency.city', 'visible'], 'on' === showAboutAgency);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['jobs', 'component', 'props', 'fields', 'agency.state', 'visible'], 'on' === showAboutAgency);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['jobs', 'component', 'props', 'fields', 'agency.zip', 'visible'], 'on' === showAboutAgency);
 
       // if show salary is provided, show the relevant field
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['job', 'component', 'props', 'fields', 'minSalary', 'render'], 'on' === showSalary);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['job', 'component', 'props', 'fields', 'maxSalary', 'render'], 'on' === showSalary);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['jobs', 'component', 'props', 'fields', 'salary.min', 'visible'], 'on' === showSalary);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['jobs', 'component', 'props', 'fields', 'salary.max', 'visible'], 'on' === showSalary);
 
       // if posted date custom format is provided, show the relevant field
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['job', 'component', 'props', 'fields', 'customPostedDateCustomFormat', 'render'], 'on' === postedDateCustomFormat);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['jobs', 'component', 'props', 'fields', 'posted.pattern', 'visible'], 'on' === postedCustom);
 
       // if final filing date chooser is provided, show the relevant fields
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['job', 'component', 'props', 'fields', 'finalFilingDatePicker', 'render'], 'on' === finalFilingDateChooser);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['job', 'component', 'props', 'fields', 'finalFilingDate', 'render'], 'off' === finalFilingDateChooser);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['jobs', 'component', 'props', 'fields', 'filing.picker', 'visible'], 'on' === jobsFilingChooser);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['jobs', 'component', 'props', 'fields', 'filing.date', 'visible'], 'off' === jobsFilingChooser);
 
       // if final filing date custom format is provided, show the relevant field
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['job', 'component', 'props', 'fields', 'customFinalFilingDateCustomFormat', 'render'], 'on' === finalFilingDateCustomFormat);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['jobs', 'component', 'props', 'fields', 'filing.pattern', 'visible'], 'on' === jobsFilingCustom);
 
       // if show apply to is provided, show the relevant field
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['job', 'component', 'props', 'fields', 'applyToDept', 'render'], 'on' === showApplyTo);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['job', 'component', 'props', 'fields', 'applyToName', 'render'], 'on' === showApplyTo);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['job', 'component', 'props', 'fields', 'applyToAddr', 'render'], 'on' === showApplyTo);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['job', 'component', 'props', 'fields', 'applyToCity', 'render'], 'on' === showApplyTo);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['job', 'component', 'props', 'fields', 'applyToState', 'render'], 'on' === showApplyTo);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['job', 'component', 'props', 'fields', 'applyToZip', 'render'], 'on' === showApplyTo);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['jobs', 'component', 'props', 'fields', 'apply.dept', 'visible'], 'on' === showApplyTo);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['jobs', 'component', 'props', 'fields', 'apply.name', 'visible'], 'on' === showApplyTo);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['jobs', 'component', 'props', 'fields', 'apply.address', 'visible'], 'on' === showApplyTo);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['jobs', 'component', 'props', 'fields', 'apply.city', 'visible'], 'on' === showApplyTo);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['jobs', 'component', 'props', 'fields', 'apply.state', 'visible'], 'on' === showApplyTo);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['jobs', 'component', 'props', 'fields', 'apply.zip', 'visible'], 'on' === showApplyTo);
 
       // if show questions is provided, show the relevant field
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['job', 'component', 'props', 'fields', 'questionName', 'render'], 'on' === showQuestions);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['job', 'component', 'props', 'fields', 'phone', 'render'], 'on' === showQuestions);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['job', 'component', 'props', 'fields', 'email', 'render'], 'on' === showQuestions);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['jobs', 'component', 'props', 'fields', 'questions.name', 'visible'], 'on' === showQuestions);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['jobs', 'component', 'props', 'fields', 'questions.phone', 'visible'], 'on' === showQuestions);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['jobs', 'component', 'props', 'fields', 'questions.email', 'visible'], 'on' === showQuestions);
       break;
 
     // News Options Only
     case 'news':
       let {
-        custom_format: newsCustomFormat
+        published: {
+          custom: newsPublishedCustom
+        }
       } = taxonomy;
 
       // if custom format is provided, show the relevant field
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['news', 'component', 'props', 'fields', 'customPublishDateCustomFormat', 'render'], 'on' === newsCustomFormat);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['news', 'component', 'props', 'fields', 'published.pattern', 'visible'], 'on' === newsPublishedCustom);
       break;
 
     // Profile Options Only
     case 'profile':
       let {
-        career,
-        additional_fields
+        career: {
+          show: showCareer
+        },
+        fields: {
+          show: showFields
+        }
       } = taxonomy;
 
       // if career is provided, show the relevant field
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['profile', 'component', 'props', 'fields', 'title', 'render'], 'on' === career);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['profile', 'component', 'props', 'fields', 'position', 'render'], 'on' === career);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['profile', 'component', 'props', 'fields', 'career.title', 'visible'], 'on' === showCareer);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['profile', 'component', 'props', 'fields', 'career.position', 'visible'], 'on' === showCareer);
 
       // if additional fields are provided, show the relevant field
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['profile', 'component', 'props', 'fields', 'line1', 'render'], 'on' === additional_fields);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['profile', 'component', 'props', 'fields', 'line2', 'render'], 'on' === additional_fields);
-      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['profile', 'component', 'props', 'fields', 'line3', 'render'], 'on' === additional_fields);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['profile', 'component', 'props', 'fields', 'fields.line1', 'visible'], 'on' === showFields);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['profile', 'component', 'props', 'fields', 'fields.line2', 'visible'], 'on' === showFields);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['profile', 'component', 'props', 'fields', 'fields.line3', 'visible'], 'on' === showFields);
       break;
   }
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
@@ -2084,10 +2126,11 @@ const SettingsDesign = ({
   defaultSettingsAttrs,
   groupConfiguration
 }) => {
+  let attributes = (0,lodash__WEBPACK_IMPORTED_MODULE_1__.merge)({}, defaultSettingsAttrs, attrs);
   let {
     layout
-  } = attrs || {};
-  let selectedLayout = layout?.innerContent && (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_5__.getAttrByMode)(layout?.innerContent) || (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_5__.getAttrByMode)(defaultSettingsAttrs?.layout?.innerContent);
+  } = attributes;
+  let selectedLayout = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_5__.getAttrByMode)(layout?.innerContent);
 
   // Profile Only options
   (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['profileDesign', 'render'], 'profile' === selectedLayout);
@@ -2113,73 +2156,61 @@ __webpack_require__.r(__webpack_exports__);
 
 const CourseView = ({
   attributes: course,
-  content
+  content,
+  elements
 }) => {
   let {
-    presenter_name,
-    presenter_image,
-    presenter_bio,
-    start_date,
-    start_date_custom_format,
-    end_date,
-    end_date_custom_format,
+    presenter,
+    start,
+    end,
     address,
-    city,
-    state,
-    zip,
     registration_type,
-    cost
-  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_0__.getAttrByMode)(course?.innerContent);
-  let {
-    show_presenter,
-    start_date_custom_format: start_date_custom_format_enabled,
-    end_date_custom_format: end_date_custom_format_enabled,
-    show_address,
+    cost,
     show_map
-  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_0__.getAttrByMode)(course?.advanced);
-  let presenter = 'on' === show_presenter ? /*#__PURE__*/React.createElement("div", {
+  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_0__.getAttrByMode)(course?.innerContent);
+  let presenterElement = 'on' === presenter?.show ? /*#__PURE__*/React.createElement("div", {
     className: "presenter"
   }, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, "Presenter:"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("strong", {
     className: "presenter-name"
-  }, presenter_name)), /*#__PURE__*/React.createElement("p", null, presenter_image && /*#__PURE__*/React.createElement("img", {
-    src: presenter_image,
+  }, presenter?.name)), /*#__PURE__*/React.createElement("p", null, presenter?.image?.src && /*#__PURE__*/React.createElement("img", {
+    src: presenter?.image?.src,
     className: "me-3",
     style: {
       height: '75px',
       width: '75px'
     }
-  }), presenter_bio)) : '';
+  }), presenter?.bio)) : '';
   let organizer = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("strong", null, "Organizer"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("p", {
     className: "date-time"
-  }, [start_date && new Date(start_date).toLocaleDateString('en-US', {
+  }, [start.date && new Date(start.date).toLocaleDateString('en-US', {
     weekday: 'short',
     month: 'numeric',
     day: 'numeric',
     year: 'numeric',
     hour: '2-digit',
     minute: '2-digit'
-  }), end_date && new Date(end_date).toLocaleDateString('en-US', {
+  }), end.date && new Date(end.date).toLocaleDateString('en-US', {
     weekday: 'short',
     month: 'numeric',
     day: 'numeric',
     year: 'numeric',
     hour: '2-digit',
     minute: '2-digit'
-  })].filter(Boolean).join(' - '), /*#__PURE__*/React.createElement("br", null), 'on' === show_address && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+  })].filter(Boolean).join(' - '), /*#__PURE__*/React.createElement("br", null), 'on' === address.show && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
     className: "ca-gov-icon-road-pin"
-  }), (0,_Utils_Module_jsx__WEBPACK_IMPORTED_MODULE_1__.get_google_map_place_link)([address, city, state, zip]))), 0 < [registration_type, cost].filter(Boolean).length && /*#__PURE__*/React.createElement("p", null, [registration_type, cost].map((item, i) => item ? `Registration ${i ? 'Cost' : 'Type'}: ${item}` : '').filter(Boolean).join('<br />')));
+  }), (0,_Utils_Module_jsx__WEBPACK_IMPORTED_MODULE_1__.get_google_map_place_link)(address))), 0 < [registration_type, cost].filter(Boolean).length && /*#__PURE__*/React.createElement("p", null, [registration_type, cost].map((item, i) => item ? `Registration ${i ? 'Cost' : 'Type'}: ${item}` : '').filter(Boolean).join('<br />')));
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: "description",
     dangerouslySetInnerHTML: {
       __html: content
     }
-  }), presenter, /*#__PURE__*/React.createElement("div", {
+  }), presenterElement, /*#__PURE__*/React.createElement("div", {
     className: "row"
   }, /*#__PURE__*/React.createElement("div", {
     className: "col-9"
   }, organizer), 'on' === show_map && /*#__PURE__*/React.createElement("div", {
     className: "col-3"
-  }, (0,_Utils_Module_jsx__WEBPACK_IMPORTED_MODULE_1__.get_google_map_place_link)([address, city, state, zip], true))));
+  }, (0,_Utils_Module_jsx__WEBPACK_IMPORTED_MODULE_1__.get_google_map_place_link)(address, true))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CourseView);
 
@@ -2203,64 +2234,52 @@ __webpack_require__.r(__webpack_exports__);
 
 const EventView = ({
   attributes: event,
-  content
+  content,
+  elements
 }) => {
   let {
     organizer,
-    presenter_name,
-    presenter_image,
-    presenter_bio,
-    start_date,
-    start_date_custom_format,
-    end_date,
-    end_date_custom_format,
+    presenter,
+    start,
+    end,
     address,
-    city,
-    state,
-    zip,
     registration_type,
     cost
   } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_0__.getAttrByMode)(event?.innerContent);
   let {
-    show_presenter,
-    start_date_custom_format: start_date_custom_format_enabled,
-    end_date_custom_format: end_date_custom_format_enabled,
-    show_address
-  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_0__.getAttrByMode)(event?.advanced);
-  let {
     postImageUrl
   } = (0,_divi_data__WEBPACK_IMPORTED_MODULE_1__.useSelect)(select => select('divi/page-settings')?.getSettings());
-  let presenter = 'on' === show_presenter ? /*#__PURE__*/React.createElement("div", {
+  let presenterElement = 'on' === presenter?.show ? /*#__PURE__*/React.createElement("div", {
     className: "presenter"
   }, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, "Presenter:"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("strong", {
-    class: "presenter-name"
-  }, presenter_name)), /*#__PURE__*/React.createElement("p", null, presenter_image && /*#__PURE__*/React.createElement("img", {
-    src: presenter_image,
+    className: "presenter-name"
+  }, presenter?.name)), /*#__PURE__*/React.createElement("p", null, presenter?.image?.src && /*#__PURE__*/React.createElement("img", {
+    src: presenter?.image?.src,
     className: "me-3",
     style: {
       height: '75px',
       width: '75px'
     }
-  }), presenter_bio)) : '';
+  }), presenter?.bio)) : '';
   let organizerElement = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("strong", null, organizer), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("p", {
     className: "date-time"
-  }, [start_date && new Date(start_date).toLocaleDateString('en-US', {
+  }, [start.date && new Date(start.date).toLocaleDateString('en-US', {
     weekday: 'short',
     month: 'numeric',
     day: 'numeric',
     year: 'numeric',
     hour: '2-digit',
     minute: '2-digit'
-  }), end_date && new Date(end_date).toLocaleDateString('en-US', {
+  }), end.date && new Date(end.date).toLocaleDateString('en-US', {
     weekday: 'short',
     month: 'numeric',
     day: 'numeric',
     year: 'numeric',
     hour: '2-digit',
     minute: '2-digit'
-  })].filter(Boolean).join(' - '), /*#__PURE__*/React.createElement("br", null), 'on' === show_address && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+  })].filter(Boolean).join(' - '), /*#__PURE__*/React.createElement("br", null), 'on' === address?.show && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
     className: "ca-gov-icon-road-pin"
-  }), (0,_Utils_Module_jsx__WEBPACK_IMPORTED_MODULE_2__.get_google_map_place_link)([address, city, state, zip]))), 0 < [registration_type, cost].filter(Boolean).length && /*#__PURE__*/React.createElement("p", null, [registration_type, cost].map((item, i) => item ? `Registration ${i ? 'Cost' : 'Type'}: ${item}` : '').filter(Boolean).join('<br />')));
+  }), (0,_Utils_Module_jsx__WEBPACK_IMPORTED_MODULE_2__.get_google_map_place_link)(address))), 0 < [registration_type, cost].filter(Boolean).length && /*#__PURE__*/React.createElement("p", null, [registration_type, cost].map((item, i) => item ? `Registration ${i ? 'Cost' : 'Type'}: ${item}` : '').filter(Boolean).join('<br />')));
   return /*#__PURE__*/React.createElement(React.Fragment, null, postImageUrl && /*#__PURE__*/React.createElement("img", {
     src: postImageUrl,
     className: "float-start mb-3 me-3",
@@ -2273,7 +2292,7 @@ const EventView = ({
     dangerouslySetInnerHTML: {
       __html: content
     }
-  }), presenter, /*#__PURE__*/React.createElement("div", {
+  }), presenterElement, /*#__PURE__*/React.createElement("div", {
     className: "row"
   }, /*#__PURE__*/React.createElement("div", {
     className: "col-9"
@@ -2301,40 +2320,31 @@ __webpack_require__.r(__webpack_exports__);
 
 const ExamView = ({
   attributes: exam,
-  content
+  content,
+  elements,
+  showFeaturedImage
 }) => {
   let {
     id,
     class: examClass,
     status,
-    published_date,
-    published_date_custom_format,
-    final_filing_date,
-    final_filing_date_picker,
-    final_filing_date_custom_format,
+    published,
+    filing,
     type,
     url,
-    address,
-    city,
-    state,
-    zip
+    address
   } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_0__.getAttrByMode)(exam?.innerContent);
-  let {
-    published_date_custom_format: enabledPublishedDateCustomFormat,
-    date_chooser,
-    final_filing_date_custom_format: enabledFinalFilingDateCustomFormat
-  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_0__.getAttrByMode)(exam?.advanced);
   let {
     postImageUrl
   } = (0,_divi_data__WEBPACK_IMPORTED_MODULE_1__.useSelect)(select => select('divi/page-settings')?.getSettings());
-  let examInfo = [[examClass ? `Class Code: ${examClass}` : '', id ? `Exam Code: ${id}` : ''].filter(Boolean).join(' - '), published_date ? `Published Date: ${new Date(published_date).toLocaleDateString('en-US', {
+  let examInfo = [[examClass ? `Class Code: ${examClass}` : '', id ? `Exam Code: ${id}` : ''].filter(Boolean).join(' - '), published.date ? `Published Date: ${new Date(published.date).toLocaleDateString('en-US', {
     weekday: 'short',
     month: 'numeric',
     day: 'numeric',
     year: 'numeric',
     hour: '2-digit',
     minute: '2-digit'
-  })}` : '', 'off' === date_chooser ? `Final Filing Date: ${final_filing_date}` : `Final Filing Date: ${new Date(final_filing_date_picker).toLocaleDateString('en-US', {
+  })}` : '', 'off' === filing.chooser ? `Final Filing Date: ${filing.date}` : `Final Filing Date: ${new Date(filing.picker).toLocaleDateString('en-US', {
     weekday: 'short',
     month: 'numeric',
     day: 'numeric',
@@ -2343,8 +2353,8 @@ const ExamView = ({
     minute: '2-digit'
   })}`, 'web' === type ? /*#__PURE__*/React.createElement(React.Fragment, null, "Exam Url: ", /*#__PURE__*/React.createElement("a", {
     href: url
-  }, url)) : /*#__PURE__*/React.createElement(React.Fragment, null, "Exam Address: ", (0,_Utils_Module_jsx__WEBPACK_IMPORTED_MODULE_2__.get_google_map_place_link)([address, city, state, zip]))].filter(Boolean);
-  return /*#__PURE__*/React.createElement(React.Fragment, null, postImageUrl && /*#__PURE__*/React.createElement("img", {
+  }, url)) : /*#__PURE__*/React.createElement(React.Fragment, null, "Exam Address: ", (0,_Utils_Module_jsx__WEBPACK_IMPORTED_MODULE_2__.get_google_map_place_link)(address))].filter(Boolean);
+  return /*#__PURE__*/React.createElement(React.Fragment, null, showFeaturedImage && postImageUrl && /*#__PURE__*/React.createElement("img", {
     src: postImageUrl,
     className: "me-3 mb-3",
     style: {
@@ -2507,67 +2517,42 @@ const JobView = ({
   featuredImageAlignLeft
 }) => {
   let {
-    agency_name,
-    agency_address,
-    agency_city,
-    agency_state,
-    agency_zip,
-    agency_about,
+    agency,
     hours,
-    salary_min,
-    salary_max,
-    posted_date,
-    posted_date_custom_format,
+    salary,
+    posted,
     position_number,
     rpa_number,
     ds_url,
-    final_filing_date,
-    final_filing_date_picker,
-    final_filing_date_custom_format,
-    apply_to_dept,
-    apply_to_name,
-    apply_to_address,
-    apply_to_city,
-    apply_to_state,
-    apply_to_zip,
-    questions_name,
-    questions_email,
-    questions_phone
+    filing,
+    apply,
+    questions
   } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_0__.getAttrByMode)(jobs?.innerContent);
-  let {
-    show_about_agency,
-    show_salary,
-    posted_date_custom_format: enablePostedDateCustomFormat,
-    final_filing_date_chooser,
-    final_filing_date_custom_format: enableFinalFilingDateCustomFormat,
-    show_apply_to,
-    show_questions
-  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_0__.getAttrByMode)(jobs?.advanced);
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD'
   });
-  let agencyAddr = [agency_address, agency_city, agency_state, agency_zip].filter(Boolean);
+  let agencyAddr = Object.values(agency?.address).filter(Boolean);
   let postedDate = '';
   let daysPassed = 0;
-  if (posted_date) {
+  if (posted?.date) {
     // subtracting today from the posted date returns today days passed in milliseconds
     // convert the milliseconds to days 
     let today = new Date();
-    posted_date = new Date(posted_date);
+    let tmp = new Date(posted?.date);
     // convert the milliseconds to days 
-    daysPassed = Math.floor((today - posted_date) / (1000 * 60 * 60 * 24));
-    postedDate = posted_date.toLocaleDateString('en-US', {
+    daysPassed = Math.floor((today - tmp) / (1000 * 60 * 60 * 24));
+    postedDate = tmp.toLocaleDateString('en-US', {
       month: 'short',
       day: '2-digit',
       year: 'numeric',
       timeZone: 'UTC'
     });
   }
-  let header = ['on' === show_about_agency && /*#__PURE__*/React.createElement("div", {
+  let header = ['on' === agency?.show && /*#__PURE__*/React.createElement("div", {
     className: "entity",
     key: "entity"
-  }, /*#__PURE__*/React.createElement("strong", null, agency_name), agencyAddr.length > 0 && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/React.createElement("strong", null, agency?.name), agencyAddr.length > 0 && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
     className: "ca-gov-icon-road-pin"
   }), (0,_Utils_Module_jsx__WEBPACK_IMPORTED_MODULE_2__.get_google_map_place_link)(agencyAddr))), postedDate && /*#__PURE__*/React.createElement("div", {
     className: "published text-secondary",
@@ -2579,10 +2564,10 @@ const JobView = ({
   let body = [hours && /*#__PURE__*/React.createElement("span", {
     className: "d-block",
     key: "hours"
-  }, hours), 'on' === show_salary && /*#__PURE__*/React.createElement("span", {
+  }, hours), 'on' === salary?.show && /*#__PURE__*/React.createElement("span", {
     className: "d-block",
     key: "salaryRange"
-  }, "Salaray Range: ", [formatter.format(salary_min), formatter.format(salary_max)].filter(Boolean).join(' - ')), jobPosition && /*#__PURE__*/React.createElement("span", {
+  }, "Salaray Range: ", [formatter.format(salary?.min), formatter.format(salary?.max)].filter(Boolean).join(' - ')), jobPosition && /*#__PURE__*/React.createElement("span", {
     className: "d-block",
     key: "jobPosition"
   }, jobPosition), ds_url && /*#__PURE__*/React.createElement("span", {
@@ -2590,10 +2575,10 @@ const JobView = ({
     key: "ds_url"
   }, "Duty Statement (", /*#__PURE__*/React.createElement("a", {
     href: ds_url
-  }, "PDF"), ")"), 'on' === final_filing_date_chooser ? /*#__PURE__*/React.createElement("span", {
+  }, "PDF"), ")"), 'on' === filing?.chooser ? /*#__PURE__*/React.createElement("span", {
     className: "d-block",
     key: "finalFilingDate"
-  }, "Final Filing Date: ", /*#__PURE__*/React.createElement("time", null, new Date(final_filing_date_picker).toLocaleDateString('en-US', {
+  }, "Final Filing Date: ", /*#__PURE__*/React.createElement("time", null, new Date(filing?.picker).toLocaleDateString('en-US', {
     weekday: 'short',
     month: 'numeric',
     day: 'numeric',
@@ -2603,18 +2588,18 @@ const JobView = ({
   }))) : /*#__PURE__*/React.createElement("span", {
     className: "d-block",
     key: "finalFilingDate"
-  }, "Final Filing Date: ", final_filing_date)].filter(Boolean);
-  let applyInfo = ['on' === show_apply_to && /*#__PURE__*/React.createElement("p", {
+  }, "Final Filing Date: ", filing?.date)].filter(Boolean);
+  let applyInfo = ['on' === apply?.show && /*#__PURE__*/React.createElement("p", {
     key: "applyTo"
-  }, /*#__PURE__*/React.createElement("strong", null, "Apply To:"), apply_to_dept && /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/React.createElement("strong", null, "Apply To:"), apply?.dept && /*#__PURE__*/React.createElement("span", {
     className: "d-block"
-  }, apply_to_dept), apply_to_name && /*#__PURE__*/React.createElement("span", {
+  }, apply?.dept), apply?.name && /*#__PURE__*/React.createElement("span", {
     className: "d-block"
-  }, "Attn: ", apply_to_name), (0,_Utils_Module_jsx__WEBPACK_IMPORTED_MODULE_2__.get_address)([apply_to_address, apply_to_city, apply_to_state, apply_to_zip])), 'on' === show_questions && /*#__PURE__*/React.createElement("p", {
+  }, "Attn: ", apply?.name), (0,_Utils_Module_jsx__WEBPACK_IMPORTED_MODULE_2__.get_address)(apply?.address)), 'on' === questions?.show && /*#__PURE__*/React.createElement("p", {
     key: "questions"
-  }, /*#__PURE__*/React.createElement("strong", null, "Questions"), /*#__PURE__*/React.createElement("span", null, questions_name ? ` ${questions_name} at ` : ' Contact ', [questions_phone, questions_email && /*#__PURE__*/React.createElement("a", {
-    href: `mailto:${questions_email}`
-  }, questions_email)].filter(Boolean).map((item, index) => /*#__PURE__*/React.createElement(React.Fragment, null, item, " "))))].filter(Boolean);
+  }, /*#__PURE__*/React.createElement("strong", null, "Questions"), /*#__PURE__*/React.createElement("span", null, questions?.name ? ` ${questions?.name} at ` : ' Contact ', [questions?.phone, questions?.email && /*#__PURE__*/React.createElement("a", {
+    href: `mailto:${questions?.email}`
+  }, questions?.email)].filter(Boolean).map((item, index) => /*#__PURE__*/React.createElement(React.Fragment, null, item, " "))))].filter(Boolean);
   return /*#__PURE__*/React.createElement(React.Fragment, null, 0 < header.length && /*#__PURE__*/React.createElement("div", {
     className: "sub-header mb-4"
   }, header), /*#__PURE__*/React.createElement("div", {
@@ -2631,13 +2616,13 @@ const JobView = ({
     className: "well"
   }, /*#__PURE__*/React.createElement("div", {
     className: "well-body"
-  }, applyInfo)))), 'on' === show_about_agency && agency_about && /*#__PURE__*/React.createElement("div", {
+  }, applyInfo)))), 'on' === agency?.show && agency?.about && /*#__PURE__*/React.createElement("div", {
     className: "card card-understated about-department"
   }, /*#__PURE__*/React.createElement("div", {
     className: "card-header"
   }, /*#__PURE__*/React.createElement("h4", null, "About this Department")), /*#__PURE__*/React.createElement("div", {
     className: "card-body"
-  }, /*#__PURE__*/React.createElement("p", null, agency_about))), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("p", null, agency?.about))), /*#__PURE__*/React.createElement("div", {
     className: "clearfix",
     dangerouslySetInnerHTML: {
       __html: content
@@ -2671,17 +2656,13 @@ const NewsView = ({
 }) => {
   let {
     author,
-    publish_date,
-    publish_date_custom_format,
+    published,
     location
   } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_0__.getAttrByMode)(news?.innerContent);
   let {
-    custom_format
-  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_0__.getAttrByMode)(news?.advanced);
-  let {
     postImageUrl
   } = (0,_divi_data__WEBPACK_IMPORTED_MODULE_1__.useSelect)(select => select('divi/page-settings')?.getSettings());
-  let header = [author && /*#__PURE__*/React.createElement(React.Fragment, null, " Author: ", author), publish_date && /*#__PURE__*/React.createElement(React.Fragment, null, "Published: ", new Date(publish_date).toLocaleDateString('en-US', {
+  let header = [author && /*#__PURE__*/React.createElement(React.Fragment, null, " Author: ", author), published.date && /*#__PURE__*/React.createElement(React.Fragment, null, "Published: ", new Date(published.date).toLocaleDateString('en-US', {
     month: 'short',
     day: '2-digit',
     year: 'numeric',
@@ -2732,28 +2713,21 @@ const ProfileView = ({
   attributes: profile,
   content,
   showFeaturedImage,
-  featuredImageAlignLeft
+  featuredImageAlignment
 }) => {
   let {
     prefix,
     name,
-    career_title,
-    career_position,
-    career_line_1,
-    career_line_2,
-    career_line_3
-  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_0__.getAttrByMode)(profile?.innerContent);
-  let {
     career,
-    additional_fields
-  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_0__.getAttrByMode)(profile?.advanced);
+    fields
+  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_0__.getAttrByMode)(profile?.innerContent);
   let {
     postImageUrl
   } = (0,_divi_data__WEBPACK_IMPORTED_MODULE_1__.useSelect)(select => select('divi/page-settings')?.getSettings());
-  let title = [prefix ? `${prefix} ` : '', name, career_title ? `, ${career_title}` : ''].filter(Boolean).join('');
+  let title = [prefix ? `${prefix} ` : '', name, career?.title ? `, ${career.title}` : ''].filter(Boolean).join('');
   return /*#__PURE__*/React.createElement(React.Fragment, null, title && /*#__PURE__*/React.createElement("h1", null, title), postImageUrl && showFeaturedImage && /*#__PURE__*/React.createElement("img", {
     src: postImageUrl,
-    className: `mb-3 ${featuredImageAlignLeft ? 'float-start me-3' : 'float-end ms-3'}`,
+    className: `mb-3 ${featuredImageAlignment}`,
     style: {
       width: '150px',
       height: '100px'
@@ -2887,8 +2861,8 @@ const ModuleEdit = ({
   } = attrs || {};
   let selectedLayout = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(layout?.innerContent);
   let postContent = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(content?.innerContent);
-  let showFeaturedImage = 'on' === (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(image?.innerContent);
-  let featuredImageAlignLeft = "on" !== (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(image?.advanced)?.align;
+  let showFeaturedImage = 'on' === (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(image?.advanced?.show) && ['exam', 'news', 'profile'].includes(selectedLayout);
+  let featuredImageAlignment = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(image?.advanced?.alignment);
   let showCategories = 'on' === (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(categories?.innerContent);
   let showTags = 'on' === (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(tags?.innerContent);
   let output = [];
@@ -2928,9 +2902,10 @@ const ModuleEdit = ({
   if ('function' === typeof Action) {
     output.push(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Action, {
       attributes: data,
+      elements: elements,
       content: postContent,
       showFeaturedImage: showFeaturedImage,
-      featuredImageAlignLeft: featuredImageAlignLeft
+      featuredImageAlignment: featuredImageAlignment
     }));
   }
   if ('general' !== selectedLayout && (showCategories || showTags)) {
@@ -3084,7 +3059,6 @@ __webpack_require__.r(__webpack_exports__);
 
 // Divi dependencies.
 
-// import { BlogAttrs, FieldLibrary, Module } from '@divi/types';
 
 
 
@@ -3096,39 +3070,36 @@ const SettingsContent = ({
   defaultSettingsAttrs,
   groupConfiguration
 }) => {
+  let attributes = (0,lodash__WEBPACK_IMPORTED_MODULE_1__.merge)({}, defaultSettingsAttrs, attrs);
   let {
     style,
     categories,
     tags
-  } = attrs || {};
-  let selectedStyle = style?.innerContent && (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_5__.getAttrByMode)(style?.innerContent) || (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_5__.getAttrByMode)(defaultSettingsAttrs?.style?.innerContent);
-  let {
-    all: showAllCategories
-  } = categories && (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_5__.getAttrByMode)(categories?.advanced) || (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_5__.getAttrByMode)(defaultSettingsAttrs?.categories?.advanced);
-  let selectedCategories = categories?.innerContent && (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_5__.getAttrByMode)(categories?.innerContent) || (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_5__.getAttrByMode)(defaultSettingsAttrs?.categories?.innerContent);
-  let {
-    all: showAllTags
-  } = tags && (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_5__.getAttrByMode)(tags?.advanced) || (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_5__.getAttrByMode)(defaultSettingsAttrs?.tags?.advanced);
-  let selectedTags = tags?.innerContent && (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_5__.getAttrByMode)(tags?.innerContent) || (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_5__.getAttrByMode)(defaultSettingsAttrs?.tags?.innerContent);
+  } = attributes;
+  let selectedStyle = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_5__.getAttrByMode)(style?.innerContent);
+  let showAllCategories = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_5__.getAttrByMode)(categories?.advanced?.all);
+  let selectedCategories = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_5__.getAttrByMode)(categories?.innerContent);
+  let showAllTags = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_5__.getAttrByMode)(tags?.advanced?.all);
+  let selectedTags = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_5__.getAttrByMode)(tags?.innerContent);
   let isGeneralListStyle = 'general-list' === selectedStyle;
   let isFaqsListStyle = 'faqs-list' === selectedStyle;
 
   // Categories and tags are only visible if the selected style is not a 'faqs-list'
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'allCats', 'render'], isGeneralListStyle);
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'allTags', 'render'], isGeneralListStyle);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'categoriesAdvancedAll', 'visible'], isGeneralListStyle);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'tagsAdvancedAll', 'visible'], isGeneralListStyle);
 
   // Toggle the visibility of the category and tag fields
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'cats', 'render'], 'off' === showAllCategories);
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'tags', 'render'], 'off' === showAllTags);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'categoriesInnercontent', 'visible'], isGeneralListStyle && 'off' === showAllCategories);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'tagsInnercontent', 'visible'], isGeneralListStyle && 'off' === showAllTags);
 
   // Accordion style is only visible if the selected style is a 'faqs-list'
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'faq', 'render'], isFaqsListStyle);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'styleAdvancedFaq', 'visible'], isFaqsListStyle);
 
   // Featured image field is only visible if the selected style is a 'general-list'
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'imageInnercontent', 'render'], !isFaqsListStyle);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'imageInnercontent', 'visible'], !isFaqsListStyle);
 
   // Excerpt is only visible if the selected style is a 'general-list'
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'excerptInnercontent', 'render'], ['course-list', 'events-list', 'general-list', 'news-list'].includes(selectedStyle));
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'excerptInnercontent', 'visible'], ['course-list', 'events-list', 'general-list', 'news-list'].includes(selectedStyle));
 
   // If the selected style is a 'general-list', we need to set the selected categories and tags in the group configuration
   if (isGeneralListStyle) {
@@ -3138,16 +3109,16 @@ const SettingsContent = ({
     const tagCheckboxes = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_5__.transformTaxonomiesToCheckboxOptions)(allTags);
 
     // Add all categories to the category field options if options is empty 
-    if (groupConfiguration.style?.component?.props?.fields?.cats?.component?.props?.options.length === 0) {
-      groupConfiguration.style?.component?.props?.fields?.cats?.component?.props?.options.push(...categoryCheckboxes);
+    if (groupConfiguration.style?.component?.props?.fields?.categoriesInnercontent?.component?.props?.options.length === 0) {
+      groupConfiguration.style?.component?.props?.fields?.categoriesInnercontent?.component?.props?.options.push(...categoryCheckboxes);
     }
-    if (groupConfiguration.style?.component?.props?.fields?.tags?.component?.props?.options.length === 0) {
-      groupConfiguration.style?.component?.props?.fields?.tags?.component?.props?.options.push(...tagCheckboxes);
+    if (groupConfiguration.style?.component?.props?.fields?.tagsInnercontent?.component?.props?.options.length === 0) {
+      groupConfiguration.style?.component?.props?.fields?.tagsInnercontent?.component?.props?.options.push(...tagCheckboxes);
     }
 
     // Set the selected categories and tags in the group configuration
-    ;(0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'cats', 'defaultAttr', 'desktop', 'value'], selectedCategories);
-    (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'tags', 'defaultAttr', 'desktop', 'value'], selectedTags);
+    ;(0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'categoriesInnercontent', 'defaultAttr', 'desktop', 'value'], selectedCategories);
+    (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'tagsInnercontent', 'defaultAttr', 'desktop', 'value'], selectedTags);
   }
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
     groups: groupConfiguration
@@ -3223,8 +3194,6 @@ const ModuleEdit = ({
   elements
 }) => {
   let {
-    module,
-    title,
     style,
     posts,
     orderby,
@@ -3234,26 +3203,36 @@ const ModuleEdit = ({
     image
   } = attrs || {};
   let selectedStyle = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(style?.innerContent);
-  let {
-    faq: faqStyle
-  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(style?.advanced);
-  let {
-    size: titleSize
-  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(title?.advanced);
+  let faqStyle = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(style?.advanced?.faq);
   let postNumber = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(posts?.innerContent);
-  let {
-    all: showAllCategories
-  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(categories?.advanced);
-  let {
-    all: showAllTags
-  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(tags?.advanced);
-  let categoryList = 'on' === showAllCategories ? [] : (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(categories?.innerContent);
-  let tagsList = 'on' === showAllTags ? [] : (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(tags?.innerContent);
+  let showAllCategories = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(categories?.advanced?.all);
+  let categoryList = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(categories?.innerContent);
+  let showAllTags = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(tags?.advanced?.all);
+  let tagsList = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(tags?.innerContent);
   let orderBy = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(orderby?.innerContent);
   let order = '';
   let displayExcerpt = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(excerpt?.innerContent);
   let displayImage = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(image?.innerContent);
-  let ModuleWrapper = (react__WEBPACK_IMPORTED_MODULE_0___default().Fragment);
+  if ('on' === showAllTags) {
+    tagsList = [];
+  }
+  if ('on' === showAllCategories) {
+    categoryList = [];
+  }
+  let wrap = false;
+  const ModuleWrapper = ({
+    output,
+    wrap
+  }) => {
+    if (wrap) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", {
+        className: "accordion-list list-overstated",
+        role: "tablist"
+      }, output);
+    } else {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, output);
+    }
+  };
 
   // get the appropriate order by properties from the orderBy string
   if (orderBy.includes('_')) {
@@ -3300,14 +3279,20 @@ const ModuleEdit = ({
       method: 'GET'
     }).then(data => {
       // now that we have the category ids, we can fetch the posts
+      let postArgs = {
+        per_page: postNumber,
+        orderby: orderBy,
+        order,
+        categories: data.map(category => category.id).join(',')
+      };
+      if (data) {
+        postArgs.categories = data.map(category => category.id).join(',');
+      }
+      if (tagsList.length) {
+        postArgs.tags = tagsList.join(',');
+      }
       fetch({
-        restRoute: (0,_wordpress_url__WEBPACK_IMPORTED_MODULE_7__.addQueryArgs)('/wp/v2/posts', {
-          per_page: postNumber,
-          orderby: orderBy,
-          order,
-          categories: data.map(category => category.id),
-          tags: tagsList
-        }),
+        restRoute: (0,_wordpress_url__WEBPACK_IMPORTED_MODULE_7__.addQueryArgs)('/wp/v2/posts', postArgs),
         method: 'GET'
       }).then(posts => {
         if (displayImage) {
@@ -3546,12 +3531,7 @@ const ModuleEdit = ({
           case 'faqs-list':
             if ('faqs' === post_type_layout) {
               if ('toggle' === faqStyle) {
-                ModuleWrapper = a => {
-                  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", {
-                    className: "accordion-list list-overstated",
-                    role: "tablist"
-                  }, output);
-                };
+                wrap = true;
                 output.push(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
                   "data-bs-target": `.${(0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getModuleOrderClassName)(id)} #accordion${i}`,
                   "data-bs-toggle": "collapse",
@@ -3758,9 +3738,11 @@ const ModuleEdit = ({
   }, elements.styleComponents({
     attrName: 'module'
   }), elements.render({
-    attrName: 'title',
-    tagName: titleSize
-  }), !isLoading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ModuleWrapper, null, output), !isLoading && response.length < 1 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "No post found."));
+    attrName: 'title'
+  }), !isLoading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ModuleWrapper, {
+    output: output,
+    wrap: wrap
+  }), !isLoading && response.length < 1 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "No post found."));
 };
 
 
@@ -4808,8 +4790,6 @@ const SettingsContent = ({
     button
   } = attributes;
   let show = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(button?.advanced?.show);
-  console.log('attrs', attrs);
-  console.log('default', defaultSettingsAttrs);
   let links = {};
   Object.entries(attributes).map(([key, value]) => {
     // only if the key starts with 'link'
@@ -4822,12 +4802,12 @@ const SettingsContent = ({
     let show = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(value?.advanced?.show);
 
     // Toggle Link URL field visibility based on if show more button is on
-    (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', `${key}Text`, 'render'], 'on' === show);
-    (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', `${key}Url`, 'render'], 'on' === show);
+    (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', `${key}Text`, 'visible'], 'on' === show);
+    (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', `${key}Url`, 'visible'], 'on' === show);
   });
 
   // Toggle Button URL field visibility based on if show more button is on
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'url', 'render'], 'on' === show);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'url', 'visible'], 'on' === show);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
     groups: groupConfiguration
   });
@@ -4880,7 +4860,7 @@ const SettingsDesign = ({
   } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(icon?.innerContent);
 
   // Toggle Icon Design group visibility based on layout
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['icon', 'component', 'props', 'fields', 'icon', 'render'], 'on' === show);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['icon', 'component', 'props', 'fields', 'icon', 'visible'], 'on' === show);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
     groups: groupConfiguration
   });
@@ -5131,10 +5111,10 @@ const SettingsContent = ({
   let showLink = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(link?.advanced?.show);
 
   // Toggle Featured Image Image Position, Fade From Left and Src field visibility based on if show image is on
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'imageInnercontent', 'render'], 'on' === showImage);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'imageInnercontent', 'visible'], 'on' === showImage);
 
   // Toggle Link URL field visibility based on if show more button is on
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'linkInnercontent', 'render'], 'on' === showLink);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'linkInnercontent', 'visible'], 'on' === showLink);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
     groups: groupConfiguration
   });
@@ -5516,6 +5496,10 @@ const get_address = address => {
     return;
   } else if ('string' === typeof address) {
     address = address.split(',');
+  } else if ('object' === typeof address) {
+    // remove the 'show' key from the address object as it is not part of the actual address
+    delete address['show'];
+    address = Object.values(address);
   }
   return address.map(part => part?.trim()).filter(Boolean).join(', ');
 };
@@ -6198,110 +6182,112 @@ const conversionOutline = {
     content: 'content.innerContent.*',
     show_tags_button: 'tags.innerContent.*',
     show_categories_button: 'categories.innerContent.*',
-    show_featured_image: 'image.innerContent.*',
-    profile_image_align: 'image.advanced.*.align',
+    show_featured_image: 'image.advanced.show.*',
+    profile_image_align: 'image.advanced.alignment.*',
     news_author: 'news.innerContent.*.author',
-    news_publish_date: 'news.innerContent.*.publish_date',
-    news_publish_date_custom_format: 'news.innerContent.*.publish_date_custom_format',
+    news_publish_date: 'news.innerContent.*.publish.date',
+    news_publish_date_custom_format: 'news.innerContent.*.publish.pattern',
+    news_publish_date_format: 'news.innerContent.*.publish.custom',
     news_city: 'news.innerContent.*.location',
-    news_publish_date_format: 'news.advanced.*.custom_format',
     profile_name_prefix: 'profile.innerContent.*.prefix',
     profile_name: 'profile.innerContent.*.name',
-    profile_career_title: 'profile.innerContent.*.career_title',
-    profile_career_position: 'profile.innerContent.*.career_position',
-    profile_career_line_1: 'profile.innerContent.*.career_line_1',
-    profile_career_line_2: 'profile.innerContent.*.career_line_2',
-    profile_career_line_3: 'profile.innerContent.*.career_line_3',
-    profile_career: 'profile.advanced.*.career',
-    profile_additional_fields: 'profile.advanced.*.additional_fields',
+    profile_career: 'profile.innerContent.*.career.show',
+    profile_career_title: 'profile.innerContent.*.career.title',
+    profile_career_position: 'profile.innerContent.*.career.position',
+    profile_additional_fields: 'profile.innerContent.*.fields.show',
+    profile_career_line_1: 'profile.innerContent.*.fields.line1',
+    profile_career_line_2: 'profile.innerContent.*.fields.line2',
+    profile_career_line_3: 'profile.innerContent.*.fields.line3',
     exam_id: 'exam.innerContent.*.id',
     exam_class: 'exam.innerContent.*.class',
     exam_status: 'exam.innerContent.*.status',
-    exam_published_date: 'exam.innerContent.*.published_date',
-    exam_published_date_custom_format: 'exam.innerContent.*.published_date_custom_format',
-    exam_final_filing_date: 'exam.innerContent.*.final_filing_date',
-    exam_final_filing_date_picker: 'exam.innerContent.*.final_filing_date_picker',
-    exam_final_filing_date_custom_format: 'exam.innerContent.*.final_filing_date_custom_format',
+    exam_published_date: 'exam.innerContent.*.published.date',
+    exam_published_date_custom_format: 'exam.innerContent.*.published.custom',
+    exam_published_date_format: 'exam.innerContent.*.published.pattern',
+    exam_final_filing_date: 'exam.innerContent.*.filing.date',
+    exam_final_filing_date_chooser: 'exam.innerContent.*.filing.chooser',
+    exam_final_filing_date_picker: 'exam.innerContent.*.filing.picker',
+    exam_final_filing_date_custom_format: 'exam.innerContent.*.filing.custom',
+    exam_final_filing_date_format: 'exam.innerContent.*.filing.pattern',
     exam_type: 'exam.innerContent.*.type',
     exam_url: 'exam.innerContent.*.url',
-    exam_address: 'exam.innerContent.*.address',
-    exam_city: 'exam.innerContent.*.city',
-    exam_state: 'exam.innerContent.*.state',
-    exam_zip: 'exam.innerContent.*.zip',
-    exam_published_date_format: 'exam.advanced.*.published_date_custom_format',
-    exam_final_filing_date_chooser: 'exam.advanced.*.date_chooser',
-    exam_final_filing_date_format: 'exam.advanced.*.final_filing_date_custom_format',
-    course_presenter_name: 'course.innerContent.*.presenter_name',
-    course_presenter_image: 'course.innerContent.*.presenter_image',
-    course_presenter_bio: 'course.innerContent.*.presenter_bio',
-    course_start_date: 'course.innerContent.*.start_date',
-    course_start_date_custom_format: 'course.innerContent.*.start_date_custom_format',
-    course_end_date: 'course.innerContent.*.end_date',
-    course_end_date_custom_format: 'course.innerContent.*.end_date_custom_format',
-    course_address: 'course.innerContent.*.address',
-    course_city: 'course.innerContent.*.city',
-    course_state: 'course.innerContent.*.state',
-    course_zip: 'course.innerContent.*.zip',
+    exam_address: 'exam.innerContent.*.address.address',
+    exam_city: 'exam.innerContent.*.address.city',
+    exam_state: 'exam.innerContent.*.address.state',
+    exam_zip: 'exam.innerContent.*.address.zip',
+    show_course_presenter: 'course.innerContent.*.presenter.show',
+    course_presenter_name: 'course.innerContent.*.presenter.name',
+    course_presenter_image: 'course.innerContent.*.presenter.image',
+    course_presenter_bio: 'course.innerContent.*.presenter.bio',
+    course_start_date: 'course.innerContent.*.start.date',
+    course_start_date_format: 'course.innerContent.*.start.custom',
+    course_start_date_custom_format: 'course.innerContent.*.start.pattern',
+    course_end_date: 'course.innerContent.*.end.date',
+    course_end_date_format: 'course.innerContent.*.end.custom',
+    course_end_date_custom_format: 'course.innerContent.*.end.pattern',
+    show_course_address: 'course.innerContent.*.address.show',
+    course_address: 'course.innerContent.*.address.address',
+    course_city: 'course.innerContent.*.address.city',
+    course_state: 'course.innerContent.*.address.state',
+    course_zip: 'course.innerContent.*.address.zip',
+    show_course_map: 'course.innerContent.*.show_map',
     course_registration_type: 'course.innerContent.*.registration_type',
     course_cost: 'course.innerContent.*.cost',
-    show_course_presenter: 'course.advanced.*.show_presenter',
-    course_start_date_format: 'course.advanced.*.start_date_custom_format',
-    course_end_date_format: 'course.advanced.*.end_date_custom_format',
-    show_course_address: 'course.advanced.*.show_address',
-    show_course_map: 'course.advanced.*.show_map',
     event_organizer: 'event.innerContent.*.organizer',
-    event_presenter_name: 'event.innerContent.*.presenter_name',
-    event_presenter_image: 'event.innerContent.*.presenter_image',
-    event_presenter_bio: 'event.innerContent.*.presenter_bio',
-    event_start_date: 'event.innerContent.*.start_date',
-    event_start_date_custom_format: 'event.innerContent.*.start_date_custom_format',
-    event_end_date: 'event.innerContent.*.end_date',
-    event_end_date_custom_format: 'event.innerContent.*.end_date_custom_format',
-    event_address: 'event.innerContent.*.address',
-    event_city: 'event.innerContent.*.city',
-    event_state: 'event.innerContent.*.state',
-    event_zip: 'event.innerContent.*.zip',
+    show_event_presenter: 'event.innerContent.*.presenter.show',
+    event_presenter_name: 'event.innerContent.*.presenter.name',
+    event_presenter_image: 'event.innerContent.*.presenter.image.src',
+    event_presenter_bio: 'event.innerContent.*.presenter.bio',
+    event_start_date: 'event.innerContent.*.start.date',
+    event_start_date_format: 'event.innerContent.*.start.custom',
+    event_start_date_custom_format: 'event.innerContent.*.start.pattern',
+    event_end_date: 'event.innerContent.*.end.date',
+    event_end_date_format: 'event.innerContent.*.end.custom',
+    event_end_date_custom_format: 'event.innerContent.*.end.pattern',
+    show_event_address: 'event.innerContent.*.address.show',
+    event_address: 'event.innerContent.*.address.address',
+    event_city: 'event.innerContent.*.address.city',
+    event_state: 'event.innerContent.*.address.state',
+    event_zip: 'event.innerContent.*.address.zip',
     event_registration_type: 'event.innerContent.*.registration_type',
     event_cost: 'event.innerContent.*.cost',
-    show_event_presenter: 'event.advanced.*.show_presenter',
-    event_start_date_format: 'event.advanced.*.start_date_custom_format',
-    event_end_date_format: 'event.advanced.*.end_date_custom_format',
-    show_event_address: 'event.advanced.*.show_address',
-    job_agency_name: 'jobs.innerContent.*.agency_name',
-    job_agency_address: 'jobs.innerContent.*.agency_address',
-    job_agency_city: 'jobs.innerContent.*.agency_city',
-    job_agency_state: 'jobs.innerContent.*.agency_state',
-    job_agency_zip: 'jobs.innerContent.*.agency_zip',
-    job_agency_about: 'jobs.innerContent.*.agency_about',
+    show_about_agency: 'jobs.innerContent.*.agency.show',
+    job_agency_name: 'jobs.innerContent.*.agency.name',
+    job_agency_address: 'jobs.innerContent.*.agency.address.address',
+    job_agency_city: 'jobs.innerContent.*.agency.address.city',
+    job_agency_state: 'jobs.innerContent.*.agency.address.state',
+    job_agency_zip: 'jobs.innerContent.*.agency.address.zip',
+    job_agency_about: 'jobs.innerContent.*.agency.about',
     job_hours: 'jobs.innerContent.*.hours',
-    job_salary_min: 'jobs.innerContent.*.salary_min',
-    job_salary_max: 'jobs.innerContent.*.salary_max',
-    job_posted_date: 'jobs.innerContent.*.posted_date',
-    job_posted_date_custom_format: 'jobs.innerContent.*.posted_date_custom_format',
+    show_job_salary: 'jobs.innerContent.*.salary.show',
+    job_salary_min: 'jobs.innerContent.*.salary.min',
+    job_salary_max: 'jobs.innerContent.*.salary.max',
+    job_posted_date: 'jobs.innerContent.*.posted.date',
+    job_posted_date_format: 'jobs.innerContent.*.posted.custom',
+    job_posted_date_custom_format: 'jobs.innerContent.*.posted.pattern',
     job_position_number: 'jobs.innerContent.*.position_number',
     job_rpa_number: 'jobs.innerContent.*.rpa_number',
     job_ds_url: 'jobs.innerContent.*.ds_url',
-    job_final_filing_date: 'jobs.innerContent.*.final_filing_date',
-    job_final_filing_date_picker: 'jobs.innerContent.*.final_filing_date_picker',
-    job_final_filing_date_custom_format: 'jobs.innerContent.*.final_filing_date_custom_format',
-    job_apply_to_dept: 'jobs.innerContent.*.apply_to_dept',
-    job_apply_to_name: 'jobs.innerContent.*.apply_to_name',
-    job_apply_to_address: 'jobs.innerContent.*.apply_to_address',
-    job_apply_to_city: 'jobs.innerContent.*.apply_to_city',
-    job_apply_to_state: 'jobs.innerContent.*.apply_to_state',
-    job_apply_to_zip: 'jobs.innerContent.*.apply_to_zip',
-    job_questions_name: 'jobs.innerContent.*.questions_name',
-    job_questions_email: 'jobs.innerContent.*.questions_email',
-    job_questions_phone: 'jobs.innerContent.*.questions_phone',
-    show_about_agency: 'jobs.advanced.*.show_about_agency',
-    show_job_salary: 'jobs.advanced.*.show_salary',
-    job_posted_date_format: 'jobs.advanced.*.posted_date_custom_format',
-    job_final_filing_date_chooser: 'jobs.advanced.*.final_filing_date_chooser',
-    job_final_filing_date_format: 'jobs.advanced.*.final_filing_date_custom_format',
-    show_job_apply_to: 'jobs.advanced.*.show_apply_to',
-    show_job_questions: 'jobs.advanced.*.show_questions'
+    job_final_filing_date: 'jobs.innerContent.*.filing.date',
+    job_final_filing_date_format: 'jobs.innerContent.*.filing.custom',
+    job_final_filing_date_custom_format: 'jobs.innerContent.*.filing.pattern',
+    job_final_filing_date_chooser: 'jobs.innerContent.*.filing.chooser',
+    job_final_filing_date_picker: 'jobs.innerContent.*.filing.picker',
+    show_job_apply_to: 'jobs.innerContent.*.apply.show',
+    job_apply_to_dept: 'jobs.innerContent.*.apply.dept',
+    job_apply_to_name: 'jobs.innerContent.*.apply.name',
+    job_apply_to_address: 'jobs.innerContent.*.apply.address.address',
+    job_apply_to_city: 'jobs.innerContent.*.apply.address.city',
+    job_apply_to_state: 'jobs.innerContent.*.apply.address.state',
+    job_apply_to_zip: 'jobs.innerContent.*.apply.address.zip',
+    show_job_questions: 'jobs.innerContent.*.questions.show',
+    job_questions_name: 'jobs.innerContent.*.questions.name',
+    job_questions_email: 'jobs.innerContent.*.questions.email',
+    job_questions_phone: 'jobs.innerContent.*.questions.phone'
   },
-  valueExpansionFunctionMap: {}
+  valueExpansionFunctionMap: {
+    profile_image_align: "CAWeb\\Modules\\Utils\\ValueExpansion::replacePostDetailProfileAlignment"
+  }
 };
 
 /***/ },
@@ -6371,15 +6357,15 @@ const conversionOutline = {
   },
   module: {
     title: 'title.innerContent.*',
-    title_size: 'title.advanced.*.size',
+    title_size: 'title.decoration.font.font.*.headingLevel',
     style: 'style.innerContent.*',
-    faq_style: 'style.advanced.*.faq',
+    faq_style: 'style.advanced.faq.*',
     posts_number: 'posts.innerContent.*',
     view_featured_image: 'image.innerContent.*',
     include_categories: 'categories.innerContent.*',
-    all_categories_button: 'categories.advanced.*.all',
+    all_categories_button: 'categories.advanced.all.*',
     include_tags: 'tags.innerContent.*',
-    all_tags_button: 'tags.advanced.*.all',
+    all_tags_button: 'tags.advanced.all.*',
     orderby: 'orderby.innerContent.*',
     display_excerpt: 'excerpt.innerContent.*'
   },
@@ -9467,7 +9453,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/panel","d4Shortcode":"e
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"layout":{"innerContent":{"desktop":{"value":"general"}}},"image":{"innerContent":{"desktop":{"value":"on"}},"advanced":{"desktop":{"value":{"align":"off"}}}},"content":{"innerContent":{"desktop":{"value":""}}},"tags":{"innerContent":{"desktop":{"value":"on"}}},"categories":{"innerContent":{"desktop":{"value":"on"}}},"course":{"innerContent":{"desktop":{"value":{"presenter_name":"","presenter_image":"","presenter_bio":"","start_date":"","start_date_custom_format":"D, n/j/Y g:i a","end_date":"","end_date_custom_format":"D, n/j/Y g:i a","address":"","city":"","state":"","zip":"","registration_type":"","cost":""}}},"advanced":{"desktop":{"value":{"show_presenter":"off","start_date_custom_format":"off","end_date_custom_format":"off","show_address":"off","show_map":"off"}}}},"event":{"innerContent":{"desktop":{"value":{"organizer":"","presenter_name":"","presenter_image":"","presenter_bio":"","start_date":"","start_date_custom_format":"D, n/j/Y g:i a","end_date":"","end_date_custom_format":"D, n/j/Y g:i a","address":"","city":"","state":"","zip":"","registration_type":"","cost":""}}},"advanced":{"desktop":{"value":{"show_presenter":"off","start_date_custom_format":"off","end_date_custom_format":"off","show_address":"off"}}}},"news":{"innerContent":{"desktop":{"value":{"author":"","publish_date":"","publish_date_custom_format":"D, n/j/Y g:i a","location":""}}},"advanced":{"desktop":{"value":{"custom_format":"off"}}}},"exam":{"innerContent":{"desktop":{"value":{"id":"","class":"","status":"open","published_date":"","published_date_custom_format":"D, n/j/Y g:i a","final_filing_date":"","final_filing_date_picker":"","final_filing_date_custom_format":"D, n/j/Y g:i a","type":"web","url":"","address":"","city":"","state":"","zip":""}}},"advanced":{"desktop":{"value":{"published_date_custom_format":"off","date_chooser":"off","final_filing_date_custom_format":"off"}}}},"profile":{"innerContent":{"desktop":{"value":{"prefix":"","name":"","career_title":"","career_position":"","career_line_1":"","career_line_2":"","career_line_3":""}}},"advanced":{"desktop":{"value":{"career":"off","additional_fields":"off"}}}},"jobs":{"innerContent":{"desktop":{"value":{"agency_name":"","agency_address":"","agency_city":"","agency_state":"","agency_zip":"","agency_about":"","hours":"","salary_min":"","salary_max":"","posted_date":"","posted_date_custom_format":"M d, Y","position_number":"","rpa_number":"","ds_url":"","final_filing_date":"Until Filled","final_filing_date_picker":"","final_filing_date_custom_format":"D, n/j/Y g:i a","apply_to_dept":"","apply_to_name":"","apply_to_address":"","apply_to_city":"","apply_to_state":"","apply_to_zip":"","questions_name":"","questions_email":"","questions_phone":""}}},"advanced":{"desktop":{"value":{"show_about_agency":"off","show_salary":"off","posted_date_custom_format":"off","final_filing_date_chooser":"on","final_filing_date_custom_format":"off","show_apply_to":"off","show_questions":"off"}}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"layout":{"innerContent":{"desktop":{"value":"general"}}},"image":{"advanced":{"show":{"desktop":{"value":"on"}},"alignment":{"desktop":{"value":"float-start me-3"}}}},"content":{"innerContent":{"desktop":{"value":""}}},"tags":{"innerContent":{"desktop":{"value":"on"}}},"categories":{"innerContent":{"desktop":{"value":"on"}}},"course":{"innerContent":{"desktop":{"value":{"presenter":{"show":"off","name":"","image":"","bio":""},"start":{"date":"","custom":"off","pattern":"D, n/j/Y g:i a"},"end":{"date":"","custom":"off","pattern":"D, n/j/Y g:i a"},"address":{"show":"off","address":"","city":"","state":"","zip":""},"show_map":"off","registration_type":"","cost":""}}}},"event":{"innerContent":{"desktop":{"value":{"organizer":"","presenter":{"show":"off","name":"","image":{"src":""},"bio":""},"start":{"date":"","custom":"off","pattern":"D, n/j/Y g:i a"},"end":{"date":"","custom":"off","pattern":"D, n/j/Y g:i a"},"address":{"show":"off","address":"","city":"","state":"","zip":""},"registration_type":"","cost":""}}}},"news":{"innerContent":{"desktop":{"value":{"author":"","published":{"date":"","custom":"off","pattern":"D, n/j/Y g:i a"},"location":""}}}},"exam":{"innerContent":{"desktop":{"value":{"id":"","class":"","status":"open","published":{"date":"","custom":"off","pattern":"D, n/j/Y g:i a"},"filing":{"date":"","custom":"off","pattern":"D, n/j/Y g:i a","chooser":"off","picker":""},"type":"web","url":"","address":{"address":"","city":"","state":"","zip":""}}}}},"profile":{"innerContent":{"desktop":{"value":{"prefix":"","name":"","career":{"show":"off","title":"","position":""},"fields":{"show":"off","line1":"","line2":"","line3":""}}}}},"jobs":{"innerContent":{"desktop":{"value":{"agency":{"show":"off","name":"","about":"","address":{"address":"","city":"","state":"","zip":""}},"hours":"","salary":{"show":"off","min":"","max":""},"posted":{"date":"","custom":"off","pattern":"M d, Y"},"position_number":"","rpa_number":"","ds_url":"","filing":{"date":"Until Filled","custom":"off","pattern":"D, n/j/Y g:i a","chooser":"on","picker":""},"apply":{"show":"off","dept":"","name":"","address":{"address":"","city":"","state":"","zip":""}},"questions":{"show":"off","name":"","email":"","phone":""}}}}}}');
 
 /***/ },
 
@@ -9475,7 +9461,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"layout":{"innerContent":{"desktop":{
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/post-detail","d4Shortcode":"et_pb_ca_post_handler","title":"Post Detail","titles":"Post Details","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_post_handler","moduleOrderClassName":"et_pb_ca_post_handler","category":"module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"layout":{"type":"object","inlineEditor":"plainText","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"style","render":true,"attrName":"layout.innerContent","label":"Content Type","description":"This is the layout style.","features":{"responsive":false,"dynamicContent":false},"component":{"name":"divi/select","type":"field","props":{"options":{"course":{"label":"Courses","value":"course"},"event":{"label":"Events","value":"event"},"exam":{"label":"Exams","value":"exam"},"faqs":{"label":"FAQs","value":"faqs"},"general":{"label":"General","value":"general"},"jobs":{"label":"Jobs","value":"jobs"},"news":{"label":"News","value":"news"},"profile":{"label":"Profile","value":"profile"}}}}}}}},"image":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"into-multiple-groups","groups":{"profile":{"groupType":"group-item","item":{"groupSlug":"style","render":true,"attrName":"image.innerContent","label":"Display Featured Image","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}},"profileDesign":{"groupType":"group-item","item":{"groupSlug":"profileDesign","render":true,"attrName":"image.advanced","subName":"align","label":"Image Alignment","description":"Alignment for the featured profile image.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}}}}},"content":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","allowHtml":true,"settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"content.innerContent","label":"Content","description":"Enter additional content for this item.","features":{"responsive":false},"component":{"name":"divi/richtext","type":"field"}}}}},"tags":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"style","render":true,"attrName":"tags.innerContent","label":"Tags","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}}},"categories":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"style","render":true,"attrName":"categories.innerContent","label":"Categories","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}}},"course":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"showPresenter":{"groupSlug":"course","render":true,"attrName":"course.advanced","subName":"show_presenter","label":"Presenter","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"name":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"presenter_name","label":"Name","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"image":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"presenter_image","label":"Image","features":{"responsive":false},"component":{"name":"divi/upload","type":"field"}},"bio":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"presenter_bio","label":"Short Bio","features":{"responsive":false},"component":{"name":"divi/textarea","type":"field"}},"startDate":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"start_date","label":"Start Date","description":"Enter start date for this course item.","features":{"responsive":false},"component":{"name":"divi/timepicker","type":"field"}},"customStartDate":{"groupSlug":"course","render":true,"attrName":"course.advanced","subName":"start_date_custom_format","label":"Custom Date Format","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"customStartDateCustomFormat":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"start_date_custom_format","label":"Pattern","description":"Coming Soon","features":{"responsive":false},"component":{"name":"divi/text","type":"field","props":{"defaultValue":"D, n/j/Y g:i a"}}},"endDate":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"end_date","label":"End Date","description":"Enter end date for this course item.","features":{"responsive":false},"component":{"name":"divi/timepicker","type":"field"}},"customEndDate":{"groupSlug":"course","render":true,"attrName":"course.advanced","subName":"end_date_custom_format","label":"Custom Date Format","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"customEndDateCustomFormat":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"end_date_custom_format","label":"Pattern","description":"Coming Soon","features":{"responsive":false},"component":{"name":"divi/text","type":"field","props":{"defaultValue":"D, n/j/Y g:i a"}}},"showAddress":{"groupSlug":"course","render":true,"attrName":"course.advanced","subName":"show_address","label":"Course Location","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"address":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"address","label":"Address","description":"Enter Course address for this course item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"city":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"city","label":"City","description":"Enter Course city for this course item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"state":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"state","label":"State","description":"Enter Course state for this course item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"zip":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"zip","label":"Zip","description":"Enter Course zip for this course item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"registration":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"registration_type","label":"Registration Type","description":"Enter a registration type for this course item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"cost":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"cost","label":"Cost","description":"Enter Course Cost for this course item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"showMap":{"groupSlug":"course","render":true,"attrName":"course.advanced","subName":"show_map","label":"Course Map","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}}}},"event":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"organizer":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"organizer","label":"Organizer","description":"Enter the name of the organizer.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"showPresenter":{"groupSlug":"event","render":true,"attrName":"event.advanced","subName":"show_presenter","label":"Presenter","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"name":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"presenter_name","label":"Name","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"image":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"presenter_image","label":"Image","features":{"responsive":false},"component":{"name":"divi/upload","type":"field"}},"bio":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"presenter_bio","label":"Short Bio","features":{"responsive":false},"component":{"name":"divi/textarea","type":"field"}},"startDate":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"start_date","label":"Start Date","description":"Enter start date for this event item.","features":{"responsive":false},"component":{"name":"divi/timepicker","type":"field"}},"customStartDate":{"groupSlug":"event","render":true,"attrName":"event.advanced","subName":"start_date_custom_format","label":"Custom Date Format","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"customStartDateCustomFormat":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"start_date_custom_format","label":"Pattern","description":"Coming Soon","features":{"responsive":false},"component":{"name":"divi/text","type":"field","props":{"defaultValue":"D, n/j/Y g:i a"}}},"endDate":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"end_date","label":"End Date","description":"Enter end date for this event item.","features":{"responsive":false},"component":{"name":"divi/timepicker","type":"field"}},"customEndDate":{"groupSlug":"event","render":true,"attrName":"event.advanced","subName":"end_date_custom_format","label":"Custom Date Format","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"customEndDateCustomFormat":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"end_date_custom_format","label":"Pattern","description":"Coming Soon","features":{"responsive":false},"component":{"name":"divi/text","type":"field","props":{"defaultValue":"D, n/j/Y g:i a"}}},"showAddress":{"groupSlug":"event","render":true,"attrName":"event.advanced","subName":"show_address","label":"Event Location","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"address":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"address","label":"Address","description":"Enter Event address for this event item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"city":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"city","label":"City","description":"Enter Event city for this event item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"state":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"state","label":"State","description":"Enter Event state for this event item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"zip":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"zip","label":"Zip","description":"Enter Event zip for this event item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"registration":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"registration_type","label":"Registration Type","description":"Enter a registration type for this event item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"cost":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"cost","label":"Cost","description":"Enter Event Cost for this event item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"exam":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"id":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"id","label":"Exam Code","description":"Enter an Exam Code for this exam item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"class":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"class","label":"Class Code","description":"Enter a Class Code for this exam item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"status":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"status","label":"Status","description":"Select the status for this exam item.","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"options":{"open":{"label":"Open","value":"open"},"closed":{"label":"Closed","value":"closed"}}}}},"publishedDate":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"published_date","label":"Published Date","description":"Enter the published date for this exam item.","features":{"responsive":false},"component":{"name":"divi/timepicker","type":"field"}},"enableCustomPublishedDate":{"groupSlug":"exam","render":true,"attrName":"exam.advanced","subName":"published_date_custom_format","label":"Custom Date Format","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"customPublishedDateFormat":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"published_date_custom_format","label":"Pattern","description":"Coming Soon","features":{"responsive":false},"component":{"name":"divi/text","type":"field","props":{"defaultValue":"D, n/j/Y g:i a"}}},"dateChooser":{"groupSlug":"exam","render":true,"attrName":"exam.advanced","subName":"date_chooser","label":"Use Date Picker for Final Filing Date","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"finalFilingDate":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"final_filing_date","label":"Final Filing Date","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"datePicker":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"final_filing_date_picker","label":"Final Filing Date","description":"Enter final filing date for this exam item.","features":{"responsive":false},"component":{"name":"divi/timepicker","type":"field"}},"customFilingDate":{"groupSlug":"exam","render":true,"attrName":"exam.advanced","subName":"final_filing_date_custom_format","label":"Custom Date Format","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"customFilingDateCustomFormat":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"final_filing_date_custom_format","label":"Pattern","description":"Coming Soon","features":{"responsive":false},"component":{"name":"divi/text","type":"field","props":{"defaultValue":"D, n/j/Y g:i a"}}},"type":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"type","label":"Exam Type","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"options":{"web":{"label":"Web","value":"web"},"location":{"label":"Location","value":"location"}}}}},"url":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"url","label":"URL","description":"Enter the URL for this exam item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"address":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"address","label":"Address","description":"Enter Event address for this event item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"city":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"city","label":"City","description":"Enter Event city for this event item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"state":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"state","label":"State","description":"Enter Event state for this event item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"zip":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"zip","label":"Zip","description":"Enter Event zip for this event item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"jobs":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"showAgency":{"groupSlug":"jobs","render":true,"attrName":"jobs.advanced","subName":"show_about_agency","label":"Agency","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"name":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"agency_name","label":"Agency Name","description":"Enter the name of the agency for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"address":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"agency_address","label":"Address","description":"Enter the address of the agency for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"city":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"city","label":"City","description":"Enter the city of the agency for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"state":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"state","label":"State","description":"Enter the state of the agency for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"zip":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"zip","label":"Zip","description":"Enter the zip code of the agency for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"about":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"agency_about","label":"About Agency","description":"Enter information about the Agency for this job item.","features":{"responsive":false},"component":{"name":"divi/textarea","type":"field"}},"hours":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"hours","label":"Job Hours","description":"Enter the hours for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"showSalary":{"groupSlug":"jobs","render":true,"attrName":"jobs.advanced","subName":"show_salary","label":"Salary","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"minSalary":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"salary_min","label":"Minimum Salary","description":"Enter the minimum salary for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"maxSalary":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"salary_max","label":"Maximum Salary","description":"Enter the maximum salary for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"postedDate":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"posted_date","label":"Date Posted","description":"Enter the posted date for this job item.","features":{"responsive":false},"component":{"name":"divi/timepicker","type":"field"}},"customPostedDate":{"groupSlug":"jobs","render":true,"attrName":"jobs.advanced","subName":"posted_date_custom_format","label":"Custom Date Format","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"customPostedDateCustomFormat":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"posted_date_custom_format","label":"Pattern","description":"Coming Soon","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"position":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"position_number","label":"Position Number","description":"Enter the position number for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"rpa":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"rpa_number","label":"RPA Number","description":"Enter the RPA number for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"ds":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"ds_url","label":"Duty Statement (URL)","description":"Enter the URL for the duty statement for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"dateChooser":{"groupSlug":"jobs","render":true,"attrName":"jobs.advanced","subName":"final_filing_date_chooser","label":"Use Date Picker for Final Filing Date","description":"Toggle to use a date picker for the final filing date for this job item.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"finalFilingDate":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"final_filing_date","label":"Final Filing Date","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"finalFilingDatePicker":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"final_filing_date_picker","label":"Final Filing Date","features":{"responsive":false},"component":{"name":"divi/timepicker","type":"field"}},"customFinalFilingDate":{"groupSlug":"jobs","render":true,"attrName":"jobs.advanced","subName":"final_filing_date_custom_format","label":"Custom Date Format","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"customFinalFilingDateCustomFormat":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"final_filing_date_custom_format","label":"Pattern","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"showApply":{"groupSlug":"jobs","render":true,"attrName":"jobs.advanced","subName":"show_apply_to","label":"Apply to","description":"Toggle to show the apply section for this job item.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"applyToDept":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"apply_to_dept","label":"Department","description":"Enter the department for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"applyToName":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"apply_to_name","label":"Contact Name","description":"Enter the contact name for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"applyToAddr":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"apply_to_address","label":"Address","description":"Enter the address for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"applyToCity":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"apply_to_city","label":"City","description":"Enter the city for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"applyToState":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"apply_to_state","label":"State","description":"Enter the state for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"applyToZip":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"apply_to_zip","label":"Zip","description":"Enter the zip code for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"showQuestions":{"groupSlug":"jobs","render":true,"attrName":"jobs.advanced","subName":"show_questions","label":"Questions","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"questionName":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"questions_name","label":"Name","description":"Enter the name for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"phone":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"questions_phone","label":"Phone Number","description":"Enter the phone number for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"email":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"questions_email","label":"Email","description":"Enter the email for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"news":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"author":{"groupSlug":"news","render":true,"attrName":"news.innerContent","subName":"author","label":"Author","description":"Enter an Author for this news item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"publishDate":{"groupSlug":"news","render":true,"attrName":"news.innerContent","subName":"publish_date","label":"Publish Date","description":"Enter the publish date for this news item.","features":{"responsive":false},"component":{"name":"divi/timepicker","type":"field"}},"customFormat":{"groupSlug":"news","render":true,"attrName":"news.advanced","subName":"custom_format","label":"Custom Date Format","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"customPublishDateCustomFormat":{"groupSlug":"news","render":true,"attrName":"news.innerContent","subName":"publish_date_custom_format","label":"Pattern","description":"Coming Soon","features":{"responsive":false},"component":{"name":"divi/text","type":"field","props":{"defaultValue":"D, n/j/Y g:i a"}}},"location":{"groupSlug":"news","render":true,"attrName":"news.innerContent","subName":"location","label":"Location","description":"Enter location for this news item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"profile":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"prefix":{"groupSlug":"profile","render":true,"attrName":"profile.innerContent","subName":"prefix","label":"Name Prefix","description":"Enter a prefix for this profile item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"name":{"groupSlug":"profile","render":true,"attrName":"profile.innerContent","subName":"name","label":"Name","description":"Enter the name for this profile item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"career":{"groupSlug":"profile","render":true,"attrName":"profile.advanced","subName":"career","label":"Career","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"title":{"groupSlug":"profile","render":true,"attrName":"profile.innerContent","subName":"career_title","label":"Title","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"position":{"groupSlug":"profile","render":true,"attrName":"profile.innerContent","subName":"career_position","label":"Position","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"addtlFields":{"groupSlug":"profile","render":true,"attrName":"profile.advanced","subName":"additional_fields","label":"Additional List Fields","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"line1":{"groupSlug":"profile","render":true,"attrName":"profile.innerContent","subName":"career_line_1","label":"Line 1","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"line2":{"groupSlug":"profile","render":true,"attrName":"profile.innerContent","subName":"career_line_2","label":"Line 2","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"line3":{"groupSlug":"profile","render":true,"attrName":"profile.innerContent","subName":"career_line_3","label":"Line 3","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}}},"settings":{"advanced":"auto","groups":{"style":{"panel":"content","priority":1,"groupName":"style","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Style"}}},"body":{"panel":"content","priority":2,"groupName":"body","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Body"}}},"course":{"panel":"content","priority":3,"groupName":"course","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Course"}}},"event":{"panel":"content","priority":4,"groupName":"event","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Event"}}},"exam":{"panel":"content","priority":5,"groupName":"exam","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Exam"}}},"jobs":{"panel":"content","priority":6,"groupName":"jobs","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Jobs"}}},"news":{"panel":"content","priority":7,"groupName":"news","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"News"}}},"profile":{"panel":"content","priority":8,"groupName":"profile","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Profile"}}},"profileDesign":{"panel":"design","priority":1,"groupName":"profile","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Profile"}}}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/post-detail","d4Shortcode":"et_pb_ca_post_handler","title":"Post Detail","titles":"Post Details","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_post_handler","moduleOrderClassName":"et_pb_ca_post_handler","category":"module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"layout":{"type":"object","inlineEditor":"plainText","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"style","render":true,"attrName":"layout.innerContent","label":"Content Type","description":"This is the layout style.","features":{"responsive":false,"dynamicContent":false},"component":{"name":"divi/select","type":"field","props":{"options":{"course":{"label":"Courses","value":"course"},"event":{"label":"Events","value":"event"},"exam":{"label":"Exams","value":"exam"},"faqs":{"label":"FAQs","value":"faqs"},"general":{"label":"General","value":"general"},"jobs":{"label":"Jobs","value":"jobs"},"news":{"label":"News","value":"news"},"profile":{"label":"Profile","value":"profile"}}}}}}}},"image":{"type":"object","elementType":"image","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"style","render":true,"attrName":"image.advanced.show","label":"Display Featured Image","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}},"alignment":{"groupType":"group-item","item":{"groupSlug":"profileDesign","render":true,"attrName":"image.advanced.alignment","label":"Image Alignment","description":"Alignment for the featured profile image.","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"options":{"float-start me-3":{"label":"Left","value":"left"},"float-end ms-3":{"label":"Right","value":"right"}}}}}}}}},"content":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","allowHtml":true,"settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"content.innerContent","label":"Content","description":"Enter additional content for this item.","features":{"responsive":false},"component":{"name":"divi/richtext","type":"field"}}}}},"tags":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"tags.innerContent","label":"Tags","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}}},"categories":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"categories.innerContent","label":"Categories","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}}},"course":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"presenter.show":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"presenter.show","label":"Presenter","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"presenter.name":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"presenter.name","label":"Name","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"presenter.image":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"presenter.image","label":"Image","features":{"responsive":false},"component":{"name":"divi/upload","type":"field"}},"presenter.bio":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"presenter.bio","label":"Short Bio","features":{"responsive":false},"component":{"name":"divi/textarea","type":"field"}},"start.date":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"start.date","label":"Start Date","description":"Enter start date for this course item.","features":{"responsive":false},"component":{"name":"divi/timepicker","type":"field"}},"start.custom":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"start.custom","label":"Custom Date Format","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"start.pattern":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"start.pattern","label":"Pattern","description":"Coming Soon","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"end.date":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"end.date","label":"End Date","description":"Enter end date for this course item.","features":{"responsive":false},"component":{"name":"divi/timepicker","type":"field"}},"end.custom":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"end.custom","label":"Custom Date Format","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"end.pattern":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"end.pattern","label":"Pattern","description":"Coming Soon","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"address.show":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"address.show","label":"Location","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"address.address":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"address.address","label":"Address","description":"Enter Course address for this course item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"address.city":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"address.city","label":"City","description":"Enter Course city for this course item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"address.state":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"address.state","label":"State","description":"Enter Course state for this course item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"address.zip":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"address.zip","label":"Zip","description":"Enter Course zip for this course item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"registration":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"registration_type","label":"Registration Type","description":"Enter a registration type for this course item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"cost":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"cost","label":"Cost","description":"Enter Course Cost for this course item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"showMap":{"groupSlug":"course","render":true,"attrName":"course.innerContent","subName":"show_map","label":"Show Map","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}}}},"event":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"organizer":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"organizer","label":"Organizer","description":"Enter the name of the organizer.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"presenter.show":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"presenter.show","label":"Presenter","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"presenter.name":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"presenter.name","label":"Name","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"presenter.image":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"presenter.image","label":"Image","features":{"responsive":false},"component":{"name":"divi/upload","type":"field"}},"presenter.bio":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"presenter.bio","label":"Short Bio","features":{"responsive":false},"component":{"name":"divi/textarea","type":"field"}},"start.date":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"start.date","label":"Start Date","description":"Enter start date for this event item.","features":{"responsive":false},"component":{"name":"divi/timepicker","type":"field"}},"start.custom":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"start.custom","label":"Custom Date Format","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"start.pattern":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"start.pattern","label":"Pattern","description":"Coming Soon","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"end.date":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"end.date","label":"End Date","description":"Enter end date for this event item.","features":{"responsive":false},"component":{"name":"divi/timepicker","type":"field"}},"end.custom":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"end.custom","label":"Custom Date Format","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"end.pattern":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"end.pattern","label":"Pattern","description":"Coming Soon","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"address.show":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"address.show","label":"Location","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"address.address":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"address.address","label":"Address","description":"Enter Event address for this event item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"address.city":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"city","label":"City","description":"Enter Event city for this event item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"address.state":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"address.state","label":"State","description":"Enter Event state for this event item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"address.zip":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"address.zip","label":"Zip","description":"Enter Event zip for this event item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"registration":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"registration_type","label":"Registration Type","description":"Enter a registration type for this event item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"cost":{"groupSlug":"event","render":true,"attrName":"event.innerContent","subName":"cost","label":"Cost","description":"Enter Event Cost for this event item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"exam":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"id":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"id","label":"Exam Code","description":"Enter an Exam Code for this exam item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"class":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"class","label":"Class Code","description":"Enter a Class Code for this exam item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"status":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"status","label":"Status","description":"Select the status for this exam item.","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"options":{"open":{"label":"Open","value":"open"},"closed":{"label":"Closed","value":"closed"}}}}},"published.date":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"published.date","label":"Published Date","description":"Enter the published date for this exam item.","features":{"responsive":false},"component":{"name":"divi/timepicker","type":"field"}},"published.custom":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"published.custom","label":"Custom Date Format","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"published.pattern":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"published.pattern","label":"Pattern","description":"Coming Soon","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"filing.chooser":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"filing.chooser","label":"Use Date Picker for Final Filing Date","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"filing.date":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"filing.date","label":"Final Filing Date","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"filing.picker":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"filing.picker","label":"Final Filing Date","description":"Enter final filing date for this exam item.","features":{"responsive":false},"component":{"name":"divi/timepicker","type":"field"}},"filing.custom":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"filing.custom","label":"Custom Date Format","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"filing.pattern":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"filing.pattern","label":"Pattern","description":"Coming Soon","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"type":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"type","label":"Exam Type","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"options":{"web":{"label":"Web","value":"web"},"location":{"label":"Location","value":"location"}}}}},"url":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"url","label":"URL","description":"Enter the URL for this exam item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"address.address":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"address.address","label":"Address","description":"Enter Exam address for this exam item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"address.city":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"address.city","label":"City","description":"Enter Exam city for this exam item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"address.state":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"address.state","label":"State","description":"Enter Exam state for this exam item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"address.zip":{"groupSlug":"exam","render":true,"attrName":"exam.innerContent","subName":"address.zip","label":"Zip","description":"Enter Exam zip for this exam item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"jobs":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"agency.show":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"agency.show","label":"Agency","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"agency.name":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"agency.name","label":"Name","description":"Enter the name of the agency for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"agency.address":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"agency.address.address","label":"Address","description":"Enter the address of the agency for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"agency.city":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"agency.address.city","label":"City","description":"Enter the city of the agency for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"agency.state":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"agency.address.state","label":"State","description":"Enter the state of the agency for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"agency.zip":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"agency.address.zip","label":"Zip","description":"Enter the zip code of the agency for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"agency.about":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"agency.about","label":"Agency","description":"Enter information about the Agency for this job item.","features":{"responsive":false},"component":{"name":"divi/textarea","type":"field"}},"hours":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"hours","label":"Job Hours","description":"Enter the hours for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"salary.show":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"salary.show","label":"Salary","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"salary.min":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"salary.min","label":"Minimum","description":"Enter the minimum salary for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"salary.max":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"salary.max","label":"Maximum","description":"Enter the maximum salary for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"posted.date":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"posted.date","label":"Date Posted","description":"Enter the posted date for this job item.","features":{"responsive":false},"component":{"name":"divi/timepicker","type":"field"}},"posted.custom":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"posted.custom","label":"Custom Date Format","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"posted.pattern":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"posted.pattern","label":"Pattern","description":"Coming Soon","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"position":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"position_number","label":"Position Number","description":"Enter the position number for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"rpa":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"rpa_number","label":"RPA Number","description":"Enter the RPA number for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"ds":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"ds_url","label":"Duty Statement (URL)","description":"Enter the URL for the duty statement for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"filing.chooser":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"filing.chooser","label":"Use Date Picker for Final Filing Date","description":"Toggle to use a date picker for the final filing date for this job item.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"filing.date":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"filing.date","label":"Final Filing Date","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"filing.picker":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"filing.picker","label":"Final Filing Date","features":{"responsive":false},"component":{"name":"divi/timepicker","type":"field"}},"filing.custom":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"filing.custom","label":"Custom Date Format","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"filing.pattern":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"filing.pattern","label":"Pattern","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"apply.show":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"apply.show","label":"Apply to","description":"Toggle to show the apply section for this job item.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"apply.dept":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"apply.dept","label":"Department","description":"Enter the department for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"apply.name":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"apply.name","label":"Contact Name","description":"Enter the contact name for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"apply.address":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"apply.address.address","label":"Address","description":"Enter the address for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"apply.city":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"apply.address.city","label":"City","description":"Enter the city for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"apply.state":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"apply.address.state","label":"State","description":"Enter the state for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"apply.zip":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"apply.address.zip","label":"Zip","description":"Enter the zip code for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"questions.show":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"questions.show","label":"Questions","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"questions.name":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"questions.name","label":"Name","description":"Enter the name for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"questions.phone":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"questions.phone","label":"Phone Number","description":"Enter the phone number for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"questions.email":{"groupSlug":"jobs","render":true,"attrName":"jobs.innerContent","subName":"questions.email","label":"Email","description":"Enter the email for this job item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"news":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"author":{"groupSlug":"news","render":true,"priority":1,"attrName":"news.innerContent","subName":"author","label":"Author","description":"Enter an Author for this news item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"published.date":{"groupSlug":"news","render":true,"priority":2,"attrName":"news.innerContent","subName":"published.date","label":"Publish Date","description":"Enter the publish date for this news item.","features":{"responsive":false},"component":{"name":"divi/timepicker","type":"field"}},"published.custom":{"groupSlug":"news","render":true,"priority":3,"attrName":"news.innerContent","subName":"published.custom","label":"Custom Date Format","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"published.pattern":{"groupSlug":"news","render":true,"priority":4,"attrName":"news.innerContent","subName":"published.pattern","label":"Pattern","description":"Coming Soon","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"location":{"groupSlug":"news","render":true,"priority":5,"attrName":"news.innerContent","subName":"location","label":"Location","description":"Enter location for this news item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"profile":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"prefix":{"groupSlug":"profile","render":true,"priority":1,"attrName":"profile.innerContent","subName":"prefix","label":"Name Prefix","description":"Enter a prefix for this profile item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"name":{"groupSlug":"profile","render":true,"priority":2,"attrName":"profile.innerContent","subName":"name","label":"Name","description":"Enter the name for this profile item.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"career.show":{"groupSlug":"profile","render":true,"priority":3,"attrName":"profile.innerContent","subName":"career.show","label":"Career","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"career.title":{"groupSlug":"profile","render":true,"priority":4,"attrName":"profile.innerContent","subName":"career.itle","label":"Title","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"career.position":{"groupSlug":"profile","render":true,"priority":5,"attrName":"profile.innerContent","subName":"career.position","label":"Position","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"fields.show":{"groupSlug":"profile","render":true,"priority":6,"attrName":"profile.innerContent","subName":"fields.show","label":"Additional List Fields","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"fields.line1":{"groupSlug":"profile","render":true,"priority":7,"attrName":"profile.innerContent","subName":"fields.line1","label":"Line 1","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"fields.line2":{"groupSlug":"profile","render":true,"priority":8,"attrName":"profile.innerContent","subName":"fields.line2","label":"Line 2","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"fields.line3":{"groupSlug":"profile","render":true,"priority":9,"attrName":"profile.innerContent","subName":"fields.line3","label":"Line 3","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}}},"settings":{"advanced":"auto","groups":{"style":{"panel":"content","priority":1,"groupName":"style","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Style"}}},"body":{"panel":"content","priority":2,"groupName":"body","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Body"}}},"course":{"panel":"content","priority":3,"groupName":"course","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Course"}}},"event":{"panel":"content","priority":4,"groupName":"event","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Event"}}},"exam":{"panel":"content","priority":5,"groupName":"exam","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Exam"}}},"jobs":{"panel":"content","priority":6,"groupName":"jobs","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Jobs"}}},"news":{"panel":"content","priority":7,"groupName":"news","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"News"}}},"profile":{"panel":"content","priority":8,"groupName":"profile","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Profile"}}},"profileDesign":{"panel":"design","priority":1,"groupName":"profile","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Profile"}}}}}}');
 
 /***/ },
 
@@ -9483,7 +9469,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/post-detail","d4Shortco
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"title":{"innerContent":{"desktop":{"value":""}},"advanced":{"desktop":{"value":{"size":"h1"}}}},"style":{"innerContent":{"desktop":{"value":"courses-list"}},"advanced":{"desktop":{"value":{"faq":"accordion"}}}},"posts":{"innerContent":{"desktop":{"value":"-1"}}},"image":{"innerContent":{"desktop":{"value":"on"}}},"categories":{"innerContent":{"desktop":{"value":""}},"advanced":{"desktop":{"value":{"all":"on"}}}},"tags":{"innerContent":{"desktop":{"value":""}},"advanced":{"desktop":{"value":{"all":"on"}}}},"orderby":{"innerContent":{"desktop":{"value":"date_desc"}}},"excerpt":{"innerContent":{"desktop":{"value":"on"}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"title":{"innerContent":{"desktop":{"value":""}},"decoration":{"font":{"font":{"desktop":{"value":{"headingLevel":"h1"}}}}}},"style":{"innerContent":{"desktop":{"value":"courses-list"}},"advanced":{"faq":{"desktop":{"value":"accordion"}}}},"posts":{"innerContent":{"desktop":{"value":"100"}}},"image":{"innerContent":{"desktop":{"value":"on"}}},"categories":{"innerContent":{"desktop":{"value":""}},"advanced":{"all":{"desktop":{"value":"on"}}}},"tags":{"innerContent":{"desktop":{"value":""}},"advanced":{"all":{"desktop":{"value":"on"}}}},"orderby":{"innerContent":{"desktop":{"value":"date_desc"}}},"excerpt":{"innerContent":{"desktop":{"value":"on"}}}}');
 
 /***/ },
 
@@ -9491,7 +9477,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"title":{"innerContent":{"desktop":{"
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/post-list","d4Shortcode":"et_pb_ca_post_list","title":"Post List","titles":"Post Lists","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_post_list","moduleOrderClassName":"et_pb_ca_post_list","category":"module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"title":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"into-multiple-groups","groups":{"header":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"title.innerContent","label":"Title","description":"Enter a title for the Post List.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}},"designHeader":{"groupType":"group-item","item":{"groupSlug":"designHeader","render":true,"attrName":"title.advanced","subName":"size","label":"Title Size","description":"Select the size for the title of this module.","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"defaultValue":"h1","options":{"h1":{"label":"H1","value":"h1"},"h2":{"label":"H2","value":"h2"},"h3":{"label":"H3","value":"h3"},"h4":{"label":"H4","value":"h4"},"h5":{"label":"H5","value":"h5"}}}}}}}}}},"style":{"type":"object","inlineEditor":"plainText","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"style":{"priority":1,"groupSlug":"style","render":true,"attrName":"style.innerContent","label":"Content Type","description":"Here you can select the various list styles.","features":{"responsive":false,"dynamicContent":false},"component":{"name":"divi/select","type":"field","props":{"options":{"courses-list":{"label":"Course List","value":"courses-list"},"events-list":{"label":"Events List","value":"events-list"},"exams-list":{"label":"Exams List","value":"exams-list"},"faqs-list":{"label":"FAQs List","value":"faqs-list"},"general-list":{"label":"General List","value":"general-list"},"jobs-list":{"label":"Jobs List","value":"jobs-list"},"news-list":{"label":"News List","value":"news-list"},"profiles-list":{"label":"Profile List","value":"profiles-list"}}}}},"faq":{"priority":2,"groupSlug":"style","render":true,"attrName":"style.advanced","subName":"faq","label":"Accordion Style","description":"Here you can define a custom panel color.","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"options":{"accordion":{"label":"Accordion","value":"accordion"},"toggle":{"label":"Toggle","value":"toggle"}}}}}}}}},"posts":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"priority":3,"groupSlug":"style","render":true,"attrName":"posts.innerContent","label":"Posts Number","description":"Choose how many posts you would like to display in the list. Default is all (-1).","features":{"responsive":false},"component":{"name":"divi/text","type":"field","props":{"defaultValue":"-1"}}}}}},"orderby":{"type":"object","inlineEditor":"plainText","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"priority":4,"groupSlug":"style","render":true,"attrName":"orderby.innerContent","label":"Order By","description":"Here you can adjust the order in which posts are displayed.","features":{"responsive":false,"dynamicContent":false},"component":{"name":"divi/select","type":"field","props":{"options":{"date_desc":{"label":"Date: new to old","value":"date_desc"},"date_asc":{"label":"Date: old to new","value":"date_asc"},"title_asc":{"label":"Title: A to Z","value":"title_asc"},"title_desc":{"label":"Title: Z to A","value":"title_desc"},"rand":{"label":"Random","value":"rand"}}}}}}}},"image":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"priority":5,"groupSlug":"style","render":true,"attrName":"image.innerContent","label":"Featured Image","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"on"}}}}}},"categories":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"allCats":{"priority":6,"groupSlug":"style","render":true,"attrName":"categories.advanced","subName":"all","label":"Include All Categories","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"on"}}},"cats":{"priority":7,"groupSlug":"style","render":true,"attrName":"categories.innerContent","label":"Select Categories","features":{"responsive":false},"component":{"name":"divi/checkboxes","type":"field","props":{"options":[]}}}}}}},"tags":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"allTags":{"priority":8,"groupSlug":"style","render":true,"attrName":"tags.advanced","subName":"all","label":"Include All Tags","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"on"}}},"tags":{"priority":9,"groupSlug":"style","render":true,"attrName":"tags.innerContent","label":"Select Tags","features":{"responsive":false},"component":{"name":"divi/checkboxes","type":"field","props":{"options":[]}}}}}}},"excerpt":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"priority":10,"groupSlug":"style","render":true,"attrName":"excerpt.innerContent","label":"Display Excerpt","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"on"}}}}}}},"settings":{"advanced":"auto","design":"auto","groups":{"header":{"panel":"content","priority":1,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"style":{"panel":"content","priority":2,"groupName":"style","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Style"}}},"designHeader":{"panel":"design","priority":1,"groupName":"designHeader","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/post-list","d4Shortcode":"et_pb_ca_post_list","title":"Post List","titles":"Post Lists","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_post_list","moduleOrderClassName":"et_pb_ca_post_list","category":"module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"title":{"type":"object","inlineEditor":"plainText","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"title.innerContent","label":"Title","description":"Enter a title for the Post List.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}},"decoration":{"font":{"component":{"props":{"groupLabel":"Header","fields":{"headingLevel":{"label":"Heading Level","options":{"h1":{"icon":"divi/h1","label":"H1"},"h2":{"icon":"divi/h2","label":"H2"},"h3":{"icon":"divi/h3","label":"H3"},"h4":{"icon":"divi/h4","label":"H4"},"h5":{"icon":"divi/h5","label":"H5"}}},"family":{"render":false},"weight":{"render":false},"weightFineTune":{"render":false},"variationSettings":{"render":false},"style":{"render":false},"capitalization":{"render":false},"textWrap":{"render":false},"writingMode":{"render":false},"hyphens":{"render":false},"columnCount":{"render":false},"size":{"render":false},"lineHeight":{"render":false},"letterSpacing":{"render":false},"color":{"render":false},"textAlign":{"render":false},"textShadowGroup":{"component":{"props":{"fields":{"style":{"render":false}}}}},"textEffectsGroup":{"component":{"props":{"fields":{"fillType":{"render":false},"strokeWidth":{"render":false}}}}}}}}}}}},"style":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"faq":{"groupType":"group-item","item":{"priority":2,"groupSlug":"style","render":true,"attrName":"style.advanced.faq","label":"Accordion Style","description":"Here you can define a custom panel color.","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"options":{"accordion":{"label":"Accordion","value":"accordion"},"toggle":{"label":"Toggle","value":"toggle"}}}}}}},"innerContent":{"groupType":"group-item","item":{"priority":1,"groupSlug":"style","render":true,"attrName":"style.innerContent","label":"Content Type","description":"Here you can select the various list styles.","features":{"responsive":false,"dynamicContent":false},"component":{"name":"divi/select","type":"field","props":{"options":{"courses-list":{"label":"Course List","value":"courses-list"},"events-list":{"label":"Events List","value":"events-list"},"exams-list":{"label":"Exams List","value":"exams-list"},"faqs-list":{"label":"FAQs List","value":"faqs-list"},"general-list":{"label":"General List","value":"general-list"},"jobs-list":{"label":"Jobs List","value":"jobs-list"},"news-list":{"label":"News List","value":"news-list"},"profiles-list":{"label":"Profile List","value":"profiles-list"}}}}}}}},"posts":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"priority":3,"groupSlug":"style","render":true,"attrName":"posts.innerContent","label":"Posts Number","description":"Choose how many posts you would like to display in the list. Must be between 1 (inclusive) and 100 (inclusive)","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}},"orderby":{"type":"object","inlineEditor":"plainText","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"priority":4,"groupSlug":"style","render":true,"attrName":"orderby.innerContent","label":"Order By","description":"Here you can adjust the order in which posts are displayed.","features":{"responsive":false,"dynamicContent":false},"component":{"name":"divi/select","type":"field","props":{"options":{"date_desc":{"label":"Date: new to old","value":"date_desc"},"date_asc":{"label":"Date: old to new","value":"date_asc"},"title_asc":{"label":"Title: A to Z","value":"title_asc"},"title_desc":{"label":"Title: Z to A","value":"title_desc"},"rand":{"label":"Random","value":"rand"}}}}}}}},"image":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"priority":5,"groupSlug":"style","render":true,"attrName":"image.innerContent","label":"Featured Image","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}}},"categories":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"all":{"groupType":"group-item","item":{"priority":6,"groupSlug":"style","render":true,"attrName":"categories.advanced.all","label":"Include All Categories","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-item","item":{"priority":7,"groupSlug":"style","attrName":"categories.innerContent","render":true,"label":"Select Categories","features":{"responsive":false},"component":{"name":"divi/checkboxes","type":"field","props":{"options":[]}}}}}},"tags":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"all":{"groupType":"group-item","item":{"priority":8,"groupSlug":"style","render":true,"attrName":"tags.advanced.all","label":"Include All Tags","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-item","item":{"priority":9,"groupSlug":"style","render":true,"attrName":"tags.innerContent","label":"Select Tags","features":{"responsive":false},"component":{"name":"divi/checkboxes","type":"field","props":{"options":[]}}}}}},"excerpt":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"priority":10,"groupSlug":"style","render":true,"attrName":"excerpt.innerContent","label":"Display Excerpt","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}}}},"settings":{"advanced":"auto","design":"auto","groups":{"header":{"panel":"content","priority":1,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"style":{"panel":"content","priority":2,"groupName":"style","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Style"}}}}}}');
 
 /***/ },
 
