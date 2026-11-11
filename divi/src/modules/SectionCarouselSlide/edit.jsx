@@ -3,18 +3,29 @@ import React, { ReactElement } from 'react';
 
 // Divi Dependencies.
 import {
-  ModuleContainer,
+  ModuleContainer
 } from '@divi/module';
 
 import {
   getAttrByMode,
+  getCurrentModuleId
 } from '@divi/module-utils';
 
 // Local Dependencies.
 import { SectionCarouselSlideModuleEditProps } from './types.ts';
 import { ModuleStyles } from './styles.jsx';
-import { moduleClassnames } from './module-classnames.js';
 import { ModuleScriptData } from './module-script-data.jsx';
+import { useSelect } from '@divi/data';
+
+let activeSlide = null;
+
+const setActiveSlide = (id) => {
+  activeSlide = id;
+};
+
+const getActiveSlide = () => {
+  return activeSlide;
+};
 
 /**
  * Divi 5 Module edit component of visual builder.
@@ -25,27 +36,33 @@ import { ModuleScriptData } from './module-script-data.jsx';
  *
  * @returns {ReactElement}
  */
-const ModuleEdit = (props) => {
-  const {
+const ModuleEdit = ({
     attrs,
     id,
     name,
     elements,
     parentAttrs,
     isFirst,
-  } = props;
+    isLooped,
+  }) => {
 
   let title = getAttrByMode(attrs?.title?.innerContent);
 
-  let {
-    size
-  } = getAttrByMode(attrs?.title?.advanced);
-
-  let {
-    show
-  } = getAttrByMode(attrs?.button?.advanced);
+  let show = getAttrByMode(attrs?.button?.advanced?.show);
 
   let { linkUrl } = getAttrByMode(attrs?.button?.innerContent);
+
+  // Check if the module is hovered
+  const isHovered = useSelect((select) => {
+    // Accessing Divi events store selectors
+    return select('divi/events').isHovered(id);
+  }, [id]);
+
+  // if the module is hovered, set the current id as the active slide
+  if( isHovered ) {
+    // we do this cause Divi does a re-render on hover, and we want to keep track of the active slide
+    setActiveSlide(id);
+  }
 
   return (
     <ModuleContainer
@@ -55,9 +72,25 @@ const ModuleEdit = (props) => {
       id={id}
       name={name}
       stylesComponent={ModuleStyles}
-      classnamesFunction={moduleClassnames}
+      classnamesFunction={({id, classnamesInstance}) => {
+        let active = getActiveSlide();
+
+        classnamesInstance.add('carousel-item');
+
+        // if the module is the first and no active slide is set, or if the module is the active slide, mark it as active
+        if( (isFirst && null === active) || id === active || id === getCurrentModuleId() ) {
+          classnamesInstance.add('active');
+
+          // if the module is active but not hovered, reset the active slide to false
+          // if we dont reset then an overlap may occur where multiple slides appear active
+          if( ! isHovered ){
+            // setActiveSlide(false);
+          }
+        }
+      }}
       scriptDataComponent={ModuleScriptData}
       isFirst={isFirst}
+      isLooped={isLooped}
     >
       {
         elements.styleComponents({
@@ -75,8 +108,7 @@ const ModuleEdit = (props) => {
       <div className="carousel-caption d-block">
         {
           elements.render({
-            attrName: 'title',
-            tagName: size
+            attrName: 'title'
           })
         }
         {

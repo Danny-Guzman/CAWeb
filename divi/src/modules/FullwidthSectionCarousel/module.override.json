@@ -1,0 +1,14 @@
+{
+  "active": false,
+  "name": "caweb/fullwidth-section-carousel",
+  "d4Shortcode": "et_pb_ca_fullwidth_section_carousel",
+  "title": "Fullwidth Section Carousel",
+  "titles": "Fullwidth Section Carousels",
+  "moduleClassName": "et_pb_ca_fullwidth_section_carousel",
+  "moduleOrderClassName": "et_pb_ca_fullwidth_section_carousel",
+  "childModuleName": "caweb/fullwidth-section-carousel-slide",
+  "childModuleTitle": "Fullwidth Section Carousel Slide",
+  "childrenName": [
+    "caweb/fullwidth-section-carousel-slide"
+  ]
+}

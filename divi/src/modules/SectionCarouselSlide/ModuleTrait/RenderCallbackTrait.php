@@ -38,29 +38,27 @@ trait RenderCallbackTrait {
 	 * @return string HTML rendered of SectionCarouselSlide module.
 	 */
 	public static function render_callback( $attrs, $content, $block, $elements ) {
+		
+		$parent       = BlockParserStore::get_parent( $block->parsed_block['id'], $block->parsed_block['storeInstance'] );
+		$parent_attrs = $parent->attrs ?? [];
+		
 		$title = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['title']['innerContent'] ?? $attrs,
+			'attr' => $attrs['title']['innerContent'],
 			'breakpoint' => 'desktop',
 			'state' => 'value',
 		));
-
-		$title_size = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['title']['advanced'] ?? $attrs,
-			'breakpoint' => 'desktop',
-			'state' => 'value',
-		))['size'] ?? '';	
 	
 		$linkUrl = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['button']['innerContent'] ?? $attrs,
+			'attr' => $attrs['button']['innerContent'],
 			'breakpoint' => 'desktop',
 			'state' => 'value',
 		))['linkUrl'];
 		
 		$show = ModuleUtils::get_attr_value(array(
-			'attr' => $attrs['button']['advanced'] ?? $attrs,
+			'attr' => $attrs['button']['advanced']['show'],
 			'breakpoint' => 'desktop',
 			'state' => 'value',
-		))['show'];
+		));
 
 		// Use the BlockParserStore to determine if this is the first slide.
 		$isFirst = BlockParserStore::is_first($block->parsed_block['id']);
@@ -80,8 +78,7 @@ trait RenderCallbackTrait {
 				'childrenSanitizer' => [self::class, 'sanitize_html'],
 				'children' => array(
 					$elements->render(array(
-						'attrName' => 'title',
-						'tagName' => $title_size,
+						'attrName' => 'title'
 					)),
 					$elements->render(array(
 						'attrName' => 'desc',
@@ -110,10 +107,11 @@ trait RenderCallbackTrait {
 				'scriptDataComponent' => [ self::class, 'module_script_data' ],
 
 				'isFirst' => $isFirst,
+
 				// parent attrs
-				// 'parentAttrs'         => $parent_attrs,
-				// 'parentId'            => $parent->id ?? '',
-				// 'parentName'          => $parent->blockName ?? '',
+				'parentAttrs'         => $parent_attrs,
+				'parentId'            => $parent->id ?? '',
+				'parentName'          => $parent->blockName ?? '',
 		));
 		
 	}

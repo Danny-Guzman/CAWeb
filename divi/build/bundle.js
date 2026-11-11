@@ -331,7 +331,7 @@ const ModuleStyles = ({
 
 /***/ },
 
-/***/ "./src/modules/FullwidthServiceTiles/Settings/content.jsx"
+/***/ "./src/modules/Github/Settings/content.jsx"
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -339,23 +339,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   SettingsContent: () => (/* binding */ SettingsContent)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lodash");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("@divi/module-utils");
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/FullwidthServiceTiles/types.ts");
-/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_types__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__);
 // External dependencies.
-
-
-
-// WordPress dependencies
 
 
 // Divi dependencies.
@@ -369,549 +359,27 @@ const SettingsContent = ({
   defaultSettingsAttrs,
   groupConfiguration
 }) => {
+  let attributes = (0,lodash__WEBPACK_IMPORTED_MODULE_0__.merge)({}, defaultSettingsAttrs, attrs);
   let {
-    button
-  } = attrs || {};
+    request
+  } = attributes;
   let {
-    show
-  } = button && (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(button?.advanced) || (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(defaultSettingsAttrs?.button?.advanced);
+    repo_type,
+    rate_limit
+  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(request?.innerContent);
 
-  // Toggle Link URL, Text fields visibility based on if show more button is on
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'url', 'render'], 'off' !== show);
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'text', 'render'], 'off' !== show);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
+  // Toggle Personal Access Token, Code Request Email and Request Email Body field visibility based on repository type
+  (0,lodash__WEBPACK_IMPORTED_MODULE_0__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'pat', 'visible'], 'public' !== repo_type);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_0__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'email', 'visible'], 'public' !== repo_type);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_0__.set)(groupConfiguration, ['style', 'component', 'props', 'fields', 'emailBody', 'visible'], 'public' !== repo_type);
+
+  // Toggle Rate Limit fields visibility based on if rate limit is on
+  (0,lodash__WEBPACK_IMPORTED_MODULE_0__.set)(groupConfiguration, ['organization', 'component', 'props', 'fields', 'client_id', 'visible'], 'on' === rate_limit);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_0__.set)(groupConfiguration, ['organization', 'component', 'props', 'fields', 'client_secret', 'visible'], 'on' === rate_limit);
+  return /*#__PURE__*/React.createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ModuleGroups, {
     groups: groupConfiguration
   });
 };
-
-/***/ },
-
-/***/ "./src/modules/FullwidthServiceTiles/edit.jsx"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ModuleEdit: () => (/* binding */ ModuleEdit)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/module-utils");
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/FullwidthServiceTiles/types.ts");
-/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_types_ts__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _styles_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/FullwidthServiceTiles/styles.jsx");
-/* harmony import */ var _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/FullwidthServiceTiles/module-classnames.js");
-/* harmony import */ var _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/FullwidthServiceTiles/module-script-data.jsx");
-// External Dependencies.
-
-
-// Divi Dependencies.
-
-
-
-// Local Dependencies.
-
-
-
-
-
-/**
- * Divi 5 Module edit component of visual builder.
- *
- * @since ??
- *
- * @param {FullwidthServiceTilesModuleEditProps} props React component props.
- *
- * @returns {ReactElement}
- */
-const ModuleEdit = props => {
-  const {
-    attrs,
-    id,
-    name,
-    elements,
-    childrenIds,
-    isLooped,
-    loopIndex,
-    canvasId
-  } = props;
-  let indicators = [];
-  for (let i = 0; i < childrenIds.length; i++) {
-    indicators.push(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-      key: i,
-      type: "button",
-      "data-bs-target": `#${id}`,
-      "data-bs-slide-to": i,
-      className: i === 0 ? 'active' : ''
-    }));
-  }
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ModuleContainer, {
-    attrs: attrs,
-    elements: elements,
-    id: id,
-    name: name,
-    stylesComponent: _styles_jsx__WEBPACK_IMPORTED_MODULE_4__.ModuleStyles,
-    classnamesFunction: _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__.moduleClassnames,
-    scriptDataComponent: _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__.ModuleScriptData
-  }, elements.styleComponents({
-    attrName: 'module'
-  }), childrenIds && childrenIds.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "row clearfix"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ChildModulesContainer, {
-    ids: childrenIds,
-    isLooped: isLooped,
-    loopIndex: loopIndex,
-    canvasId: canvasId
-  })));
-};
-
-
-/***/ },
-
-/***/ "./src/modules/FullwidthServiceTiles/module-script-data.jsx"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ModuleScriptData: () => (/* binding */ ModuleScriptData)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/FullwidthServiceTiles/types.ts");
-/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_types__WEBPACK_IMPORTED_MODULE_2__);
-
-
-
-
-/**
- * Divi 5 module's script data component.
- *
- * @since ??
- *
- * @param {ModuleScriptDataProps<ModuleAttrs>} props React component props.
- *
- * @returns {ReactElement}
- */
-const ModuleScriptData = ({
-  elements
-}) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, elements.scriptData({
-  attrName: 'module'
-}));
-
-/***/ },
-
-/***/ "./src/modules/FullwidthServiceTiles/styles.jsx"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ModuleStyles: () => (/* binding */ ModuleStyles)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _custom_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/FullwidthServiceTiles/custom-css.js");
-// External dependencies.
-
-
-// Divi dependencies.
-
-
-// Local dependencies.
-
-
-/**
- * Module's style components.
- *
- * @since ??
- */
-const ModuleStyles = ({
-  attrs,
-  settings,
-  orderClass,
-  mode,
-  state,
-  noStyleTag,
-  elements
-}) => {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.StyleContainer, {
-    mode: mode,
-    state: state,
-    noStyleTag: noStyleTag
-  }, elements.style({
-    attrName: 'module',
-    styleProps: {
-      disabledOn: {
-        disabledModuleVisibility: settings?.disabledModuleVisibility
-      }
-    }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.CssStyle, {
-    selector: orderClass,
-    attr: attrs?.css,
-    cssFields: _custom_css__WEBPACK_IMPORTED_MODULE_2__.cssFields
-  }));
-};
-
-
-/***/ },
-
-/***/ "./src/modules/FullwidthServiceTilesItem/Settings/content.jsx"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   SettingsContent: () => (/* binding */ SettingsContent)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lodash");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("@divi/module-utils");
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/FullwidthServiceTilesItem/types.ts");
-/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_types__WEBPACK_IMPORTED_MODULE_5__);
-// External dependencies.
-
-
-
-// WordPress dependencies
-
-
-// Divi dependencies.
-
-
-
-// Local dependencies.
-
-const SettingsContent = ({
-  attrs,
-  defaultSettingsAttrs,
-  groupConfiguration
-}) => {
-  let {
-    button
-  } = attrs || {};
-  let {
-    show
-  } = button && (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(button?.advanced) || (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(defaultSettingsAttrs?.button?.advanced);
-
-  // Toggle Button URL field visibility based on if show more button is on
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'url', 'render'], 'on' === show);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
-    groups: groupConfiguration
-  });
-};
-
-/***/ },
-
-/***/ "./src/modules/FullwidthServiceTilesItem/Settings/design.jsx"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   SettingsDesign: () => (/* binding */ SettingsDesign)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lodash");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("@divi/module-utils");
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/FullwidthServiceTilesItem/types.ts");
-/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_types__WEBPACK_IMPORTED_MODULE_5__);
-// External dependencies.
-
-
-
-// WordPress dependencies
-
-
-// Divi dependencies.
-
-
-
-// Local dependencies.
-
-const SettingsDesign = ({
-  attrs,
-  defaultSettingsAttrs,
-  groupConfiguration
-}) => {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
-    groups: groupConfiguration
-  });
-};
-
-/***/ },
-
-/***/ "./src/modules/FullwidthServiceTilesItem/edit.jsx"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ModuleEdit: () => (/* binding */ ModuleEdit)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/module-utils");
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/FullwidthServiceTilesItem/types.ts");
-/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_types_ts__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _styles_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/FullwidthServiceTilesItem/styles.jsx");
-/* harmony import */ var _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/FullwidthServiceTilesItem/module-classnames.js");
-/* harmony import */ var _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/FullwidthServiceTilesItem/module-script-data.jsx");
-// External Dependencies.
-
-
-// Divi Dependencies.
-
-
-
-// Local Dependencies.
-
-
-
-
-let width = 0;
-let tile_contents = [];
-
-/**
- * Divi 5 Module edit component of visual builder.
- *
- * @since ??
- *
- * @param {FullwidthServiceTilesItemModuleEditProps} props React component props.
- *
- * @returns {ReactElement}
- */
-const ModuleEdit = props => {
-  const {
-    attrs,
-    id,
-    name,
-    elements,
-    parentAttrs,
-    isFirst,
-    isLooped,
-    loopIndex
-  } = props;
-  let title = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.title?.innerContent);
-  let {
-    size
-  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.title?.advanced);
-  let {
-    show
-  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.button?.advanced);
-  let {
-    linkUrl
-  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.button?.innerContent);
-  let content = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.content?.innerContent);
-  switch (size.toLowerCase()) {
-    case 'half':
-      size = 'w-50';
-      width += 50;
-      break;
-    case 'full':
-      size = 'w-100';
-      width += 100;
-      break;
-    default:
-      size = 'w-25';
-      width += 25;
-  }
-
-  // reset everytime the width exceeds 100%
-  if (100 < width) {
-    width -= 100;
-    tile_contents = [];
-  }
-
-  // if width hasn't exceeded 100% and not showing as a link,
-  // create the tile contents
-  if (100 >= width && 'off' === show) {
-    tile_contents.push(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-      className: "card card-default py-4 mb-0"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-      className: "container pt-0"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-      className: "card card-block p-3 mb-0 bg-white"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-      type: "button",
-      "data-bs-toggle": "collapse",
-      "data-bs-target": "#%3$s #card-%2$s",
-      className: "btn btn-sm btn-secondary ca-gov-icon-close-mark float-end",
-      "aria-expanded": "false"
-    }), elements.render({
-      attrName: 'content'
-    }))))));
-  }
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ModuleContainer, {
-    attrs: attrs,
-    parentAttrs: parentAttrs,
-    elements: elements,
-    id: id,
-    name: name,
-    stylesComponent: _styles_jsx__WEBPACK_IMPORTED_MODULE_4__.ModuleStyles,
-    classnamesFunction: _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__.moduleClassnames,
-    scriptDataComponent: _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__.ModuleScriptData,
-    isFirst: isFirst,
-    isLooped: isLooped,
-    loopIndex: loopIndex,
-    htmlAttrs: {
-      tabIndex: 0,
-      className: `service-tile ${size}`
-    }
-  }, elements.styleComponents({
-    attrName: 'module'
-  }), 'on' === show ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, elements.render({
-    attrName: 'image',
-    htmlAttributes: {
-      style: {
-        backgroundSize: 'cover',
-        height: '320px'
-      }
-    }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "teaser bg-black text-white py-1 text-center"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: linkUrl,
-    className: "title h4 text-decoration-none text-white lh-base"
-  }, title, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
-    className: "ca-gov-icon-link d-block"
-  })))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, elements.render({
-    attrName: 'image',
-    htmlAttributes: {
-      style: {
-        backgroundSize: 'cover',
-        height: '320px'
-      }
-    }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "teaser bg-black text-white py-1 text-center"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: linkUrl,
-    className: "title h4 text-decoration-none text-white lh-base",
-    "data-bs-toggle": "collapse",
-    "data-bs-target": `#${id}`,
-    "aria-expanded": "false"
-  }, title, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
-    className: "ca-gov-icon-plus-fill d-block"
-  }))))), 100 === width && tile_contents);
-};
-
-
-/***/ },
-
-/***/ "./src/modules/FullwidthServiceTilesItem/module-script-data.jsx"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ModuleScriptData: () => (/* binding */ ModuleScriptData)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/FullwidthServiceTilesItem/types.ts");
-/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_types__WEBPACK_IMPORTED_MODULE_2__);
-
-
-
-
-/**
- * Divi 5 module's script data component.
- *
- * @since ??
- *
- * @param {ModuleScriptDataProps<ModuleAttrs>} props React component props.
- *
- * @returns {ReactElement}
- */
-const ModuleScriptData = ({
-  elements
-}) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, elements.scriptData({
-  attrName: 'module'
-}));
-
-/***/ },
-
-/***/ "./src/modules/FullwidthServiceTilesItem/styles.jsx"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ModuleStyles: () => (/* binding */ ModuleStyles)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _custom_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/FullwidthServiceTilesItem/custom-css.js");
-// External dependencies.
-
-
-// Divi dependencies.
-
-
-// Local dependencies.
-
-
-/**
- * Module's style components.
- *
- * @since ??
- */
-const ModuleStyles = ({
-  attrs,
-  settings,
-  orderClass,
-  mode,
-  state,
-  noStyleTag,
-  elements
-}) => {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.StyleContainer, {
-    mode: mode,
-    state: state,
-    noStyleTag: noStyleTag
-  }, elements.style({
-    attrName: 'module',
-    styleProps: {
-      disabledOn: {
-        disabledModuleVisibility: settings?.disabledModuleVisibility
-      }
-    }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.CssStyle, {
-    selector: orderClass,
-    attr: attrs?.css,
-    cssFields: _custom_css__WEBPACK_IMPORTED_MODULE_2__.cssFields
-  }));
-};
-
 
 /***/ },
 
@@ -925,19 +393,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/module-utils");
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/Github/types.ts");
-/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_types_ts__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _styles_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/Github/styles.jsx");
-/* harmony import */ var _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/Github/module-classnames.js");
-/* harmony import */ var _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/Github/module-script-data.jsx");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _divi_rest__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/rest");
+/* harmony import */ var _divi_rest__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_rest__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/Github/types.ts");
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_types_ts__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _styles_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/Github/styles.jsx");
+/* harmony import */ var _module_classnames_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./src/modules/Github/module-classnames.js");
+/* harmony import */ var _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./src/modules/Github/module-script-data.jsx");
+/* harmony import */ var _wordpress_url__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./node_modules/@wordpress/url/build-module/add-query-args.mjs");
 // External Dependencies.
 
 
+
 // Divi Dependencies.
+
 
 
 
@@ -946,6 +421,52 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+let etag = '';
+
+/**
+ * Create the request URL for fetching GitHub repositories.
+ *
+ * @param {Object} params The parameters for the request.
+ * @param {string} params.organization The GitHub organization.
+ * @param {string} params.repo_type The type of repositories to fetch.
+ * @param {number} params.per_page The number of repositories per page.
+ * @param {string} params.rate_limit The rate limit setting.
+ * @param {string} params.client_id The GitHub client ID.
+ * @param {string} params.client_secret The GitHub client secret.
+ *
+ * @returns {string} The constructed request URL.
+ */
+const create_request_url = ({
+  organization,
+  repo_type,
+  per_page,
+  rate_limit,
+  client_id,
+  client_secret
+}) => {
+  // if organization is provided, construct the request URL
+  if (organization) {
+    let args = {
+      type: repo_type,
+      per_page
+    };
+
+    // if rate limit is on, append client ID and secret if available
+    if ('on' === rate_limit) {
+      // append client ID and secret if available
+      if (client_id) {
+        args.client_id = client_id;
+      }
+
+      // append client secret if available
+      if (client_secret) {
+        args.client_secret = client_secret;
+      }
+    }
+    return (0,_wordpress_url__WEBPACK_IMPORTED_MODULE_9__.addQueryArgs)(`https://api.github.com/orgs/${organization}/repos`, args);
+  }
+};
 
 /**
  * Divi 5 Module edit component of visual builder.
@@ -956,27 +477,177 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @returns {ReactElement}
  */
-const ModuleEdit = props => {
-  const {
-    attrs,
-    id,
-    name,
-    elements
-  } = props;
-  let title = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.title?.innerContent);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ModuleContainer, {
+const ModuleEdit = ({
+  attrs,
+  id,
+  name,
+  elements
+}) => {
+  let request = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(attrs?.request?.innerContent);
+  let request_url = create_request_url(request);
+  const fetchAbortRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(new AbortController());
+  const [response, setResponse] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+  const [pagination, setPagination] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+  const [isLoading, setLoading] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (fetchAbortRef.current) {
+      fetchAbortRef.current.abort();
+    }
+    fetchAbortRef.current = new AbortController();
+    if (!request_url) {
+      return;
+    }
+    setLoading(true);
+    let args = {
+      method: 'GET',
+      signal: fetchAbortRef.current.signal,
+      headers: {
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    };
+
+    // add authorization header if access token is provided
+    if (request?.access_token) {
+      args.headers['Authorization'] = `Bearer ${request.access_token}`;
+    }
+
+    // add etag header if available
+    if (etag) {
+      args.headers['If-None-Match'] = etag;
+    }
+
+    // fetch the repository data from GitHub API
+    window.fetch(request_url, args).then(response => {
+      etag = response.headers.get('etag');
+
+      // 200 is returned with the repository data in JSON format
+      if (200 === response.status) {
+        // split the first time at the comma to separate each link
+        let parts = response.headers.get('link') ? response.headers.get('link').split(',').map(part => part.split(';')) // split the link at the semi colon for each part
+        .map(part => part.map(subPart => subPart.trim())) // trim whitespace from each part
+        // extract the URL and relationship from each part
+        .map(part => ({
+          // 0 element has the url, 1 has the relationship.
+          url: part[0].replace(/[<>]/g, ''),
+          rel: part[1].replace(/rel="(.*)"/, '$1')
+        })) : [];
+        setPagination(parts);
+        return response.json();
+      }
+      return response;
+    }).then(data => {
+      if (Array.isArray(data)) {
+        // set the response state with the fetched repository data
+        setResponse(data);
+
+        // 304 is returned when the data has not changed since the last request
+      } else if (304 === response.status) {
+        // set the response state with the previously fetched data if available
+        setResponse(response);
+      }
+      return data;
+    }).finally(() => {
+      setLoading(false);
+    });
+    return () => {
+      if (fetchAbortRef.current) {
+        fetchAbortRef.current.abort();
+      }
+    };
+  }, [request_url, request?.access_token]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_2__.ModuleContainer, {
     attrs: attrs,
     elements: elements,
     id: id,
     name: name,
-    stylesComponent: _styles_jsx__WEBPACK_IMPORTED_MODULE_4__.ModuleStyles,
-    classnamesFunction: _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__.moduleClassnames,
-    scriptDataComponent: _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__.ModuleScriptData
+    stylesComponent: _styles_jsx__WEBPACK_IMPORTED_MODULE_6__.ModuleStyles,
+    classnamesFunction: _module_classnames_js__WEBPACK_IMPORTED_MODULE_7__.moduleClassnames,
+    scriptDataComponent: _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_8__.ModuleScriptData
   }, elements.styleComponents({
     attrName: 'module'
   }), elements.render({
     attrName: 'title'
-  }));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", {
+    className: "list-group list-group-flush ps-0"
+  }, false === isLoading && response && (0,lodash__WEBPACK_IMPORTED_MODULE_1__.map)(response, repo => {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
+      className: "list-group-item ps-0",
+      key: repo.id
+    },
+    // Render the repository name with a link if it's not private and the 'link' definition is included
+    request?.definitions?.includes('name') && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, !repo?.private && request?.definitions?.includes('link') ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+      href: repo.html_url,
+      target: "_blank"
+    }, repo.name) : repo.name),
+    // render the repository description if the 'description' definition is included
+    request?.definitions?.includes('description') && repo.description && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, "Project Description: "), repo.description),
+    // render the repository fork status if the 'fork' definition is included
+    request?.definitions?.includes('fork') && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, "Project forked by another organization: "), String(repo.fork).charAt(0).toUpperCase() + String(repo.fork).slice(1)),
+    // render the repository creation date if the 'created_at' definition is included
+    request?.definitions?.includes('created_at') && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, "Created on: "), new Date(repo.created_at).toLocaleDateString('en-US', {
+      month: 'numeric',
+      day: 'numeric',
+      year: 'numeric'
+    })),
+    // render the repository updated date if the 'updated_at' definition is included
+    request?.definitions?.includes('updated_at') && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, "Updated on: "), new Date(repo.updated_at).toLocaleDateString('en-US', {
+      month: 'numeric',
+      day: 'numeric',
+      year: 'numeric'
+    })),
+    // render the repository language if the 'language' definition is included
+    request?.definitions?.includes('language') && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, "Language: "), repo.language),
+    // render request email information
+    request?.email && repo.private && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "* This is a Private Repository ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+      className: "btn btn-main ms-2",
+      href: `mailto:${request?.email}?subject=${repo.name} Repository Access Request&body=${request?.email_body || ''}`
+    }, "Request Access")));
+  }), isLoading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "caweb-github-spinner text-center my-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "spinner-border text-primary",
+    role: "status"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "visually-hidden"
+  }, "Loading...")))),
+  // render pagination if available
+  pagination && pagination.length ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "caweb-pagination row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", {
+    className: "text-center"
+  }, "Page ", new URLSearchParams(request_url).get('page') || 1, " of ", pagination?.filter(link => link.rel === 'last').map(link => new URLSearchParams(link.url).get('page')) || 1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "col"
+  },
+  // render first pagination if available
+  pagination?.filter(link => link.rel === 'first').map(link => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    key: link.rel,
+    "data-url": link.url,
+    rel: link.rel,
+    className: "cursor-pointer fs-4 me-3"
+  }, "First")),
+  // render previous pagination if available
+  pagination?.filter(link => link.rel === 'prev').map(link => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    key: link.rel,
+    "data-url": link.url,
+    rel: link.rel,
+    className: "cursor-pointer fs-4 me-3"
+  }, "Prev"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "col text-end"
+  },
+  // render next pagination if available
+  pagination?.filter(link => link.rel === 'next').map(link => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    key: link.rel,
+    "data-url": link.url,
+    rel: link.rel,
+    className: "cursor-pointer fs-4 me-3"
+  }, "Next")),
+  // render last pagination if available
+  pagination?.filter(link => link.rel === 'last').map(link => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    key: link.rel,
+    "data-url": link.url,
+    rel: link.rel,
+    className: "cursor-pointer fs-4 me-3"
+  }, "Last")))) : null);
 };
 
 
@@ -4037,62 +3708,6 @@ const ModuleStyles = ({
 
 /***/ },
 
-/***/ "./src/modules/SectionCarousel/Settings/content.jsx"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   SettingsContent: () => (/* binding */ SettingsContent)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lodash");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("@divi/module-utils");
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/SectionCarousel/types.ts");
-/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_types__WEBPACK_IMPORTED_MODULE_5__);
-// External dependencies.
-
-
-
-// WordPress dependencies
-
-
-// Divi dependencies.
-
-
-
-// Local dependencies.
-
-const SettingsContent = ({
-  attrs,
-  defaultSettingsAttrs,
-  groupConfiguration
-}) => {
-  // let image = getAttrByMode(attrs?.image?.innerContent);
-  // let link = getAttrByMode(attrs?.link?.innerContent);
-
-  // Toggle Featured Image Image Position, Fade From Left and Src field visibility based on if show image is on
-  // set(groupConfiguration, ['body', 'component', 'props', 'fields', 'position', 'render'], 'off' !== image?.show );
-  // set(groupConfiguration, ['body', 'component', 'props', 'fields', 'fade', 'render'], 'off' !== image?.show );
-  // set(groupConfiguration, ['body', 'component', 'props', 'fields', 'src', 'render'], 'off' !== image?.show );
-
-  // Toggle Link URL field visibility based on if show more button is on
-  // set(groupConfiguration, ['body', 'component', 'props', 'fields', 'url', 'render'], 'off' !== link?.show );
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
-    groups: groupConfiguration
-  });
-};
-
-/***/ },
-
 /***/ "./src/modules/SectionCarousel/edit.jsx"
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -4103,16 +3718,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/module-utils");
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/SectionCarousel/types.ts");
-/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_types_ts__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _styles_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/SectionCarousel/styles.jsx");
-/* harmony import */ var _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/SectionCarousel/module-classnames.js");
-/* harmony import */ var _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/SectionCarousel/module-script-data.jsx");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/SectionCarousel/types.ts");
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_types_ts__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _styles_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/SectionCarousel/styles.jsx");
+/* harmony import */ var _module_classnames_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/SectionCarousel/module-classnames.js");
+/* harmony import */ var _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./src/modules/SectionCarousel/module-script-data.jsx");
 // External Dependencies.
+
 
 
 // Divi Dependencies.
@@ -4134,35 +3752,37 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @returns {ReactElement}
  */
-const ModuleEdit = props => {
-  const {
-    attrs,
-    id,
-    name,
-    elements,
-    childrenIds,
-    isLooped,
-    loopIndex,
-    canvasId
-  } = props;
+const ModuleEdit = ({
+  attrs,
+  id,
+  name,
+  elements,
+  childrenIds,
+  canvasId
+}) => {
   let indicators = [];
+  let htmlAttrs = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_3__.getAttrByMode)(attrs?.module?.advanced?.htmlAttributes);
+  let module_id = htmlAttrs?.id || (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_3__.getModuleOrderClassName)(id);
+
+  // Ensure the module always has an ID attribute for the carousel functionality.
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(attrs, ['module', 'advanced', 'htmlAttributes', 'desktop', 'value', 'id'], module_id);
   for (let i = 0; i < childrenIds.length; i++) {
     indicators.push(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
       key: i,
       type: "button",
-      "data-bs-target": `#${id}`,
+      "data-bs-target": `#${module_id}`,
       "data-bs-slide-to": i,
       className: i === 0 ? 'active' : ''
     }));
   }
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ModuleContainer, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_2__.ModuleContainer, {
     attrs: attrs,
     elements: elements,
     id: id,
     name: name,
-    stylesComponent: _styles_jsx__WEBPACK_IMPORTED_MODULE_4__.ModuleStyles,
-    classnamesFunction: _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__.moduleClassnames,
-    scriptDataComponent: _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__.ModuleScriptData,
+    stylesComponent: _styles_jsx__WEBPACK_IMPORTED_MODULE_5__.ModuleStyles,
+    classnamesFunction: _module_classnames_js__WEBPACK_IMPORTED_MODULE_6__.moduleClassnames,
+    scriptDataComponent: _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_7__.ModuleScriptData,
     htmlAttrs: {
       'data-bs-ride': 'carousel'
     }
@@ -4170,17 +3790,16 @@ const ModuleEdit = props => {
     attrName: 'module'
   }), indicators.length ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "carousel-indicators"
-  }, indicators) : '', childrenIds && childrenIds.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, indicators) : '', childrenIds && childrenIds.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "carousel-inner"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ChildModulesContainer, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_2__.ChildModulesContainer, {
     ids: childrenIds,
-    isLooped: isLooped,
-    loopIndex: loopIndex,
+    isLooped: true,
     canvasId: canvasId
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     className: "carousel-control-prev",
     type: "button",
-    "data-bs-target": `#${id}`,
+    "data-bs-target": `#${module_id}`,
     "data-bs-slide": "prev"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
     className: "carousel-control-prev-icon",
@@ -4190,14 +3809,14 @@ const ModuleEdit = props => {
   }, "Previous")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     className: "carousel-control-next",
     type: "button",
-    "data-bs-target": `#${id}`,
+    "data-bs-target": `#${module_id}`,
     "data-bs-slide": "next"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
     className: "carousel-control-next-icon",
     "aria-hidden": "true"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
     className: "visually-hidden"
-  }, "Next")));
+  }, "Next"))));
 };
 
 
@@ -4333,60 +3952,14 @@ const SettingsContent = ({
   defaultSettingsAttrs,
   groupConfiguration
 }) => {
+  let attributes = (0,lodash__WEBPACK_IMPORTED_MODULE_1__.merge)({}, defaultSettingsAttrs, attrs);
   let {
     button
-  } = attrs || {};
-  let {
-    show
-  } = button && (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(button?.advanced) || (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(defaultSettingsAttrs?.button?.advanced);
+  } = attributes;
+  let show = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(button?.advanced?.show);
 
   // Toggle Button URL field visibility based on if show more button is on
-  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'url', 'render'], 'on' === show);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
-    groups: groupConfiguration
-  });
-};
-
-/***/ },
-
-/***/ "./src/modules/SectionCarouselSlide/Settings/design.jsx"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   SettingsDesign: () => (/* binding */ SettingsDesign)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lodash");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/module");
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("@divi/module-utils");
-/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/SectionCarouselSlide/types.ts");
-/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_types__WEBPACK_IMPORTED_MODULE_5__);
-// External dependencies.
-
-
-
-// WordPress dependencies
-
-
-// Divi dependencies.
-
-
-
-// Local dependencies.
-
-const SettingsDesign = ({
-  attrs,
-  defaultSettingsAttrs,
-  groupConfiguration
-}) => {
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'buttonInnercontent', 'visible'], 'on' === show);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
     groups: groupConfiguration
   });
@@ -4411,8 +3984,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/SectionCarouselSlide/types.ts");
 /* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_types_ts__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _styles_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/SectionCarouselSlide/styles.jsx");
-/* harmony import */ var _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/SectionCarouselSlide/module-classnames.js");
-/* harmony import */ var _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/SectionCarouselSlide/module-script-data.jsx");
+/* harmony import */ var _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/SectionCarouselSlide/module-script-data.jsx");
+/* harmony import */ var _divi_data__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("@divi/data");
+/* harmony import */ var _divi_data__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_divi_data__WEBPACK_IMPORTED_MODULE_6__);
 // External Dependencies.
 
 
@@ -4425,6 +3999,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+let activeSlide = null;
+const setActiveSlide = id => {
+  activeSlide = id;
+};
+const getActiveSlide = () => {
+  return activeSlide;
+};
 
 /**
  * Divi 5 Module edit component of visual builder.
@@ -4435,25 +4016,32 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @returns {ReactElement}
  */
-const ModuleEdit = props => {
-  const {
-    attrs,
-    id,
-    name,
-    elements,
-    parentAttrs,
-    isFirst
-  } = props;
+const ModuleEdit = ({
+  attrs,
+  id,
+  name,
+  elements,
+  parentAttrs,
+  isFirst,
+  isLooped
+}) => {
   let title = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.title?.innerContent);
-  let {
-    size
-  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.title?.advanced);
-  let {
-    show
-  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.button?.advanced);
+  let show = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.button?.advanced?.show);
   let {
     linkUrl
   } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.button?.innerContent);
+
+  // Check if the module is hovered
+  const isHovered = (0,_divi_data__WEBPACK_IMPORTED_MODULE_6__.useSelect)(select => {
+    // Accessing Divi events store selectors
+    return select('divi/events').isHovered(id);
+  }, [id]);
+
+  // if the module is hovered, set the current id as the active slide
+  if (isHovered) {
+    // we do this cause Divi does a re-render on hover, and we want to keep track of the active slide
+    setActiveSlide(id);
+  }
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ModuleContainer, {
     attrs: attrs,
     parentAttrs: parentAttrs,
@@ -4461,9 +4049,27 @@ const ModuleEdit = props => {
     id: id,
     name: name,
     stylesComponent: _styles_jsx__WEBPACK_IMPORTED_MODULE_4__.ModuleStyles,
-    classnamesFunction: _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__.moduleClassnames,
-    scriptDataComponent: _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__.ModuleScriptData,
-    isFirst: isFirst
+    classnamesFunction: ({
+      id,
+      classnamesInstance
+    }) => {
+      let active = getActiveSlide();
+      classnamesInstance.add('carousel-item');
+
+      // if the module is the first and no active slide is set, or if the module is the active slide, mark it as active
+      if (isFirst && null === active || id === active || id === (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getCurrentModuleId)()) {
+        classnamesInstance.add('active');
+
+        // if the module is active but not hovered, reset the active slide to false
+        // if we dont reset then an overlap may occur where multiple slides appear active
+        if (!isHovered) {
+          // setActiveSlide(false);
+        }
+      }
+    },
+    scriptDataComponent: _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_5__.ModuleScriptData,
+    isFirst: isFirst,
+    isLooped: isLooped
   }, elements.styleComponents({
     attrName: 'module'
   }), elements.render({
@@ -4474,8 +4080,7 @@ const ModuleEdit = props => {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "carousel-caption d-block"
   }, elements.render({
-    attrName: 'title',
-    tagName: size
+    attrName: 'title'
   }), elements.render({
     attrName: 'desc'
   }), 'on' === show && linkUrl.length && title.length && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
@@ -5417,6 +5022,531 @@ const ModuleStyles = ({
 
 /***/ },
 
+/***/ "./src/modules/ServiceTiles/Settings/content.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SettingsContent: () => (/* binding */ SettingsContent)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/ServiceTiles/types.ts");
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_types_ts__WEBPACK_IMPORTED_MODULE_5__);
+// External dependencies.
+
+
+
+// WordPress dependencies
+
+
+// Divi dependencies.
+
+
+
+// Local dependencies.
+
+const SettingsContent = ({
+  attrs,
+  defaultSettingsAttrs,
+  groupConfiguration
+}) => {
+  let attributes = (0,lodash__WEBPACK_IMPORTED_MODULE_1__.merge)({}, defaultSettingsAttrs, attrs);
+  let {
+    button
+  } = attributes;
+  let show = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(button?.advanced?.show);
+
+  // Toggle Link URL, Text fields visibility based on if show more button is on
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'url', 'render'], 'off' !== show);
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['body', 'component', 'props', 'fields', 'text', 'render'], 'off' !== show);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
+    groups: groupConfiguration
+  });
+};
+
+/***/ },
+
+/***/ "./src/modules/ServiceTiles/edit.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleEdit: () => (/* binding */ ModuleEdit)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/ServiceTiles/types.ts");
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_types_ts__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _styles_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/ServiceTiles/styles.jsx");
+/* harmony import */ var _module_classnames_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/ServiceTiles/module-classnames.js");
+/* harmony import */ var _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./src/modules/ServiceTiles/module-script-data.jsx");
+// External Dependencies.
+
+
+
+// Divi Dependencies.
+
+
+
+// Local Dependencies.
+
+
+
+
+
+/**
+ * Divi 5 Module edit component of visual builder.
+ *
+ * @since ??
+ *
+ * @param {ServiceTilesModuleEditProps} props React component props.
+ *
+ * @returns {ReactElement}
+ */
+const ModuleEdit = props => {
+  const {
+    attrs,
+    id,
+    name,
+    elements,
+    childrenIds,
+    isLooped,
+    loopIndex,
+    canvasId
+  } = props;
+  let indicators = [];
+  for (let i = 0; i < childrenIds.length; i++) {
+    indicators.push(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+      key: i,
+      type: "button",
+      "data-bs-target": `#${id}`,
+      "data-bs-slide-to": i,
+      className: i === 0 ? 'active' : ''
+    }));
+  }
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_2__.ModuleContainer, {
+    attrs: attrs,
+    elements: elements,
+    id: id,
+    name: name,
+    stylesComponent: _styles_jsx__WEBPACK_IMPORTED_MODULE_5__.ModuleStyles,
+    classnamesFunction: _module_classnames_js__WEBPACK_IMPORTED_MODULE_6__.moduleClassnames,
+    scriptDataComponent: _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_7__.ModuleScriptData
+  }, elements.styleComponents({
+    attrName: 'module'
+  }), childrenIds && childrenIds.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "row clearfix"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_2__.ChildModulesContainer, {
+    ids: childrenIds,
+    isLooped: isLooped,
+    loopIndex: loopIndex,
+    canvasId: canvasId
+  })));
+};
+
+
+/***/ },
+
+/***/ "./src/modules/ServiceTiles/module-script-data.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleScriptData: () => (/* binding */ ModuleScriptData)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/ServiceTiles/types.ts");
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_types_ts__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+
+/**
+ * Divi 5 module's script data component.
+ *
+ * @since ??
+ *
+ * @param {ModuleScriptDataProps<ModuleAttrs>} props React component props.
+ *
+ * @returns {ReactElement}
+ */
+const ModuleScriptData = ({
+  elements
+}) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, elements.scriptData({
+  attrName: 'module'
+}));
+
+/***/ },
+
+/***/ "./src/modules/ServiceTiles/styles.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleStyles: () => (/* binding */ ModuleStyles)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _custom_css_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/ServiceTiles/custom-css.js");
+// External dependencies.
+
+
+// Divi dependencies.
+
+
+// Local dependencies.
+
+
+/**
+ * Module's style components.
+ *
+ * @since ??
+ */
+const ModuleStyles = ({
+  attrs,
+  settings,
+  orderClass,
+  mode,
+  state,
+  noStyleTag,
+  elements
+}) => {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.StyleContainer, {
+    mode: mode,
+    state: state,
+    noStyleTag: noStyleTag
+  }, elements.style({
+    attrName: 'module',
+    styleProps: {
+      disabledOn: {
+        disabledModuleVisibility: settings?.disabledModuleVisibility
+      }
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.CssStyle, {
+    selector: orderClass,
+    attr: attrs?.css,
+    cssFields: _custom_css_js__WEBPACK_IMPORTED_MODULE_2__.cssFields
+  }));
+};
+
+
+/***/ },
+
+/***/ "./src/modules/ServiceTilesItem/Settings/content.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SettingsContent: () => (/* binding */ SettingsContent)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/ServiceTilesItem/types.ts");
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_types_ts__WEBPACK_IMPORTED_MODULE_5__);
+// External dependencies.
+
+
+
+// WordPress dependencies
+
+
+// Divi dependencies.
+
+
+
+// Local dependencies.
+
+const SettingsContent = ({
+  attrs,
+  defaultSettingsAttrs,
+  groupConfiguration
+}) => {
+  let attributes = (0,lodash__WEBPACK_IMPORTED_MODULE_1__.merge)({}, defaultSettingsAttrs, attrs);
+  let {
+    button
+  } = attributes;
+  let show = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getAttrByMode)(button?.advanced?.show);
+
+  // Toggle Button URL field visibility based on if show more button is on
+  (0,lodash__WEBPACK_IMPORTED_MODULE_1__.set)(groupConfiguration, ['tile', 'component', 'props', 'fields', 'url', 'render'], 'on' === show);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_3__.ModuleGroups, {
+    groups: groupConfiguration
+  });
+};
+
+/***/ },
+
+/***/ "./src/modules/ServiceTilesItem/edit.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleEdit: () => (/* binding */ ModuleEdit)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/ServiceTilesItem/types.ts");
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_types_ts__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _styles_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/ServiceTilesItem/styles.jsx");
+/* harmony import */ var _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/ServiceTilesItem/module-classnames.js");
+/* harmony import */ var _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/ServiceTilesItem/module-script-data.jsx");
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+// External Dependencies.
+;
+
+// Divi Dependencies.
+
+
+
+// Local Dependencies.
+
+
+
+
+
+// used to track the cumulative width of tiles and their contents
+let width = 0;
+let tile_contents = [];
+
+/**
+ * Divi 5 Module edit component of visual builder.
+ *
+ * @since ??
+ *
+ * @param {ServiceTilesItemModuleEditProps} props React component props.
+ *
+ * @returns {ReactElement}
+ */
+const ModuleEdit = props => {
+  let {
+    attrs,
+    id,
+    name,
+    elements,
+    parentAttrs,
+    parentId,
+    isLooped,
+    isLast,
+    loopIndex
+  } = props;
+  let {
+    size,
+    show,
+    url
+  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getAttrByMode)(attrs?.tile?.innerContent);
+
+  // increment the cumulative width by the current tile's size
+  width += parseInt(size.replace('w-', ''));
+
+  // reset everytime the width exceeds 100%
+  if (100 < width) {
+    // if( 100 < width || isLast ){
+    width -= 100;
+    tile_contents = [];
+  }
+  if ('off' === show) {
+    tile_contents[`${id}`] = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      id: id,
+      className: "collapse",
+      "data-bs-parent": `.${(0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_2__.getModuleOrderClassName)(parentId)}`
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      className: "card card-default py-4 mb-0"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      className: "container pt-0"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      className: "card card-block p-3 mb-0 bg-white"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+      type: "button",
+      "data-bs-toggle": "collapse",
+      "data-bs-target": `#${id}`,
+      className: "btn btn-sm btn-secondary ca-gov-icon-close-mark float-end",
+      "aria-expanded": "false"
+    }), elements.render({
+      attrName: 'content'
+    })))));
+    // });
+  }
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.ModuleContainer, {
+    attrs: attrs,
+    parentAttrs: parentAttrs,
+    elements: elements,
+    id: id,
+    name: name,
+    stylesComponent: _styles_jsx__WEBPACK_IMPORTED_MODULE_4__.ModuleStyles,
+    classnamesFunction: _module_classnames_js__WEBPACK_IMPORTED_MODULE_5__.moduleClassnames,
+    scriptDataComponent: _module_script_data_jsx__WEBPACK_IMPORTED_MODULE_6__.ModuleScriptData,
+    isLooped: isLooped,
+    loopIndex: loopIndex,
+    htmlAttrs: {
+      tabIndex: 0
+    }
+  }, elements.styleComponents({
+    attrName: 'module'
+  }), elements.render({
+    attrName: 'image',
+    htmlAttributes: {
+      style: {
+        backgroundSize: 'cover',
+        height: '320px'
+      }
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "teaser bg-black text-white py-1 text-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", _extends({
+    href: url,
+    className: "title h4 text-decoration-none text-white lh-base"
+  }, 'off' === show ? {
+    'aria-expanded': 'false',
+    'data-bs-toggle': 'collapse',
+    'data-bs-target': `#${id}`
+  } : {}), elements.render({
+    attrName: 'title'
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: `d-block ca-gov-icon-` + ('off' === show ? 'plus-fill' : 'link')
+  })))), (100 === width || isLast) && Object.values(tile_contents));
+};
+
+
+/***/ },
+
+/***/ "./src/modules/ServiceTilesItem/module-script-data.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleScriptData: () => (/* binding */ ModuleScriptData)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/ServiceTilesItem/types.ts");
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_types_ts__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+
+/**
+ * Divi 5 module's script data component.
+ *
+ * @since ??
+ *
+ * @param {ModuleScriptDataProps<ModuleAttrs>} props React component props.
+ *
+ * @returns {ReactElement}
+ */
+const ModuleScriptData = ({
+  elements
+}) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, elements.scriptData({
+  attrName: 'module'
+}));
+
+/***/ },
+
+/***/ "./src/modules/ServiceTilesItem/styles.jsx"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModuleStyles: () => (/* binding */ ModuleStyles)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _custom_css_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/ServiceTilesItem/custom-css.js");
+// External dependencies.
+
+
+// Divi dependencies.
+
+
+// Local dependencies.
+
+
+/**
+ * Module's style components.
+ *
+ * @since ??
+ */
+const ModuleStyles = ({
+  attrs,
+  settings,
+  orderClass,
+  mode,
+  state,
+  noStyleTag,
+  elements
+}) => {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.StyleContainer, {
+    mode: mode,
+    state: state,
+    noStyleTag: noStyleTag
+  }, elements.style({
+    attrName: 'module',
+    styleProps: {
+      disabledOn: {
+        disabledModuleVisibility: settings?.disabledModuleVisibility
+      }
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_divi_module__WEBPACK_IMPORTED_MODULE_1__.CssStyle, {
+    selector: orderClass,
+    attr: attrs?.css,
+    cssFields: _custom_css_js__WEBPACK_IMPORTED_MODULE_2__.cssFields
+  }));
+};
+
+
+/***/ },
+
 /***/ "./src/modules/Utils/Module.jsx"
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -5706,165 +5836,6 @@ const conversionOutline = {
 
 /***/ },
 
-/***/ "./src/modules/FullwidthServiceTiles/conversion-outline.ts"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   conversionOutline: () => (/* binding */ conversionOutline)
-/* harmony export */ });
-// Compare this to wp.data.select('divi/settings').getSetting('shortcodeModuleDefinitions').et_pb_blurb.fields
-const conversionOutline = {
-  advanced: {
-    admin_label: 'module.meta.adminLabel',
-    animation: 'module.decoration.animation',
-    background: 'module.decoration.background',
-    borders: {
-      default: 'module.decoration.border'
-    },
-    box_shadow: {
-      default: 'module.decoration.boxShadow'
-    },
-    disabled_on: 'module.decoration.disabledOn',
-    filters: {
-      default: 'module.decoration.filters'
-    },
-    fonts: {
-      body: 'content.decoration.bodyFont.body',
-      body_link: 'content.decoration.bodyFont.link',
-      body_ol: 'content.decoration.bodyFont.ol',
-      body_quote: 'content.decoration.bodyFont.quote',
-      body_ul: 'content.decoration.bodyFont.ul',
-      header: 'title.decoration.font'
-    },
-    height: 'module.decoration.sizing',
-    link_options: 'module.advanced.link',
-    margin_padding: 'module.decoration.spacing',
-    max_width: 'module.decoration.sizing',
-    module: 'module.advanced.htmlAttributes',
-    overflow: 'module.decoration.overflow',
-    position_fields: 'module.decoration.position',
-    scroll: 'module.decoration.scroll',
-    sticky: 'module.decoration.sticky',
-    text: 'module.advanced.text',
-    text_shadow: {
-      default: 'module.advanced.text.textShadow'
-    },
-    transform: 'module.decoration.transform',
-    transition: 'module.decoration.transition',
-    z_index: 'module.decoration.zIndex'
-  },
-  css: {
-    after: 'css.*.after',
-    before: 'css.*.before',
-    main_element: 'css.*.mainElement',
-    content: 'css.*.content',
-    title: 'css.*.title'
-  },
-  module: {
-    view_more_on_off: 'button.advanced.*.show',
-    view_more_url: 'button.innerContent.*.linkUrl',
-    view_more_text: 'button.innerContent.*.text',
-    module_text_shadow_style: 'module.advanced.text.textShadow.*.style',
-    module_text_shadow_horizontal_length: 'module.advanced.text.textShadow.*.horizontal',
-    module_text_shadow_vertical_length: 'module.advanced.text.textShadow.*.vertical',
-    module_text_shadow_blur_strength: 'module.advanced.text.textShadow.*.blur',
-    module_text_color: 'module.advanced.text.text.*.color'
-  },
-  deprecatedMap: ['module_text_color']
-};
-
-/***/ },
-
-/***/ "./src/modules/FullwidthServiceTiles/types.ts"
-() {
-
-
-
-/***/ },
-
-/***/ "./src/modules/FullwidthServiceTilesItem/conversion-outline.ts"
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   conversionOutline: () => (/* binding */ conversionOutline)
-/* harmony export */ });
-// Compare this to wp.data.select('divi/settings').getSetting('shortcodeModuleDefinitions').et_pb_blurb.fields
-const conversionOutline = {
-  advanced: {
-    admin_label: 'module.meta.adminLabel',
-    animation: 'module.decoration.animation',
-    background: 'module.decoration.background',
-    borders: {
-      default: 'module.decoration.border'
-    },
-    box_shadow: {
-      default: 'module.decoration.boxShadow'
-    },
-    disabled_on: 'module.decoration.disabledOn',
-    filters: {
-      default: 'module.decoration.filters'
-    },
-    fonts: {
-      body: 'content.decoration.bodyFont.body',
-      body_link: 'content.decoration.bodyFont.link',
-      body_ol: 'content.decoration.bodyFont.ol',
-      body_quote: 'content.decoration.bodyFont.quote',
-      body_ul: 'content.decoration.bodyFont.ul',
-      header: 'title.decoration.font'
-    },
-    height: 'module.decoration.sizing',
-    link_options: 'module.advanced.link',
-    margin_padding: 'module.decoration.spacing',
-    max_width: 'module.decoration.sizing',
-    module: 'module.advanced.htmlAttributes',
-    overflow: 'module.decoration.overflow',
-    position_fields: 'module.decoration.position',
-    scroll: 'module.decoration.scroll',
-    sticky: 'module.decoration.sticky',
-    text: 'module.advanced.text',
-    text_shadow: {
-      default: 'module.advanced.text.textShadow'
-    },
-    transform: 'module.decoration.transform',
-    transition: 'module.decoration.transition',
-    z_index: 'module.decoration.zIndex'
-  },
-  css: {
-    after: 'css.*.after',
-    before: 'css.*.before',
-    main_element: 'css.*.mainElement',
-    content: 'css.*.content',
-    title: 'css.*.title'
-  },
-  module: {
-    item_title: 'title.innerContent.*',
-    tile_size: 'title.advanced.*.size',
-    item_image: 'image.innerContent.*.src',
-    tile_link: 'button.advanced.*.show',
-    tile_url: 'button.innerContent.*.linkUrl',
-    content: 'content.innerContent.*',
-    module_text_color: 'module.advanced.text.text.color',
-    module_text_shadow_style: 'module.advanced.text.textShadow.*.style',
-    module_text_shadow_horizontal_length: 'module.advanced.text.textShadow.*.horizontal',
-    module_text_shadow_vertical_length: 'module.advanced.text.textShadow.*.vertical',
-    module_text_shadow_blur_strength: 'module.advanced.text.textShadow.*.blur'
-  },
-  deprecatedMap: []
-};
-
-/***/ },
-
-/***/ "./src/modules/FullwidthServiceTilesItem/types.ts"
-() {
-
-
-
-/***/ },
-
 /***/ "./src/modules/Github/conversion-outline.ts"
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -5922,22 +5893,21 @@ const conversionOutline = {
     title: 'css.*.title'
   },
   module: {
-    title: 'title.innerContent.*.text',
-    title_size: 'title.innerContent.*.level',
+    title: 'title.innerContent.*',
+    title_size: 'title.decoration.font.font.*.headingLevel',
     per_page: 'request.innerContent.*.per_page',
     repo_type: 'request.innerContent.*.repo_type',
     access_token: 'request.innerContent.*.access_token',
-    username: 'request.innerContent.*.username',
+    username: 'request.innerContent.*.organization',
     increase_rate_limit: 'request.innerContent.*.rate_limit',
     client_id: 'request.innerContent.*.client_id',
     client_secret: 'request.innerContent.*.client_secret',
     request_email: 'request.innerContent.*.email',
     email_body: 'request.innerContent.*.email_body',
-    definitions: 'definition.innerContent.*',
-    module_text_shadow_style: 'module.advanced.text.textShadow.*.style',
-    module_text_shadow_horizontal_length: 'module.advanced.text.textShadow.*.horizontal',
-    module_text_shadow_vertical_length: 'module.advanced.text.textShadow.*.vertical',
-    module_text_shadow_blur_strength: 'module.advanced.text.textShadow.*.blur'
+    definitions: 'request.innerContent.*.definitions'
+  },
+  valueExpansionFunctionMap: {
+    definitions: "CAWeb\\Modules\\Utils\\ValueExpansion::replaceGithubDefinitions"
   }
 };
 
@@ -6519,12 +6489,7 @@ const conversionOutline = {
     title: 'css.*.title'
   },
   module: {
-    section_background_color: 'section.advanced.*.color',
-    content: 'content.innerContent.*',
-    module_text_shadow_style: 'module.advanced.text.textShadow.*.style',
-    module_text_shadow_horizontal_length: 'module.advanced.text.textShadow.*.horizontal',
-    module_text_shadow_vertical_length: 'module.advanced.text.textShadow.*.vertical',
-    module_text_shadow_blur_strength: 'module.advanced.text.textShadow.*.blur'
+    section_background_color: 'module.decoration.background.*.color'
   },
   deprecatedMap: ['module_text_color']
 };
@@ -6596,18 +6561,13 @@ const conversionOutline = {
   },
   module: {
     slide_title: 'title.innerContent.*',
-    slide_title_size: 'title.advanced.*.size',
+    slide_title_size: 'title.decoration.font.font.*.headingLevel',
     slide_image: 'image.innerContent.*.src',
     slide_alt_text: 'image.innerContent.*.alt',
-    slide_show_more_button: 'button.advanced.*.show',
+    slide_show_more_button: 'button.advanced.show.*',
     slide_url: 'button.innerContent.*.linkUrl',
-    slide_desc: 'desc.innerContent.*',
-    module_text_shadow_style: 'module.advanced.text.textShadow.*.style',
-    module_text_shadow_horizontal_length: 'module.advanced.text.textShadow.*.horizontal',
-    module_text_shadow_vertical_length: 'module.advanced.text.textShadow.*.vertical',
-    module_text_shadow_blur_strength: 'module.advanced.text.textShadow.*.blur'
-  },
-  deprecatedMap: []
+    slide_desc: 'desc.innerContent.*'
+  }
 };
 
 /***/ },
@@ -6880,6 +6840,156 @@ const conversionOutline = {
 /***/ },
 
 /***/ "./src/modules/SectionPrimary/types.ts"
+() {
+
+
+
+/***/ },
+
+/***/ "./src/modules/ServiceTiles/conversion-outline.ts"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   conversionOutline: () => (/* binding */ conversionOutline)
+/* harmony export */ });
+// Compare this to wp.data.select('divi/settings').getSetting('shortcodeModuleDefinitions').et_pb_blurb.fields
+const conversionOutline = {
+  advanced: {
+    admin_label: 'module.meta.adminLabel',
+    animation: 'module.decoration.animation',
+    background: 'module.decoration.background',
+    borders: {
+      default: 'module.decoration.border'
+    },
+    box_shadow: {
+      default: 'module.decoration.boxShadow'
+    },
+    disabled_on: 'module.decoration.disabledOn',
+    filters: {
+      default: 'module.decoration.filters'
+    },
+    fonts: {
+      body: 'content.decoration.bodyFont.body',
+      body_link: 'content.decoration.bodyFont.link',
+      body_ol: 'content.decoration.bodyFont.ol',
+      body_quote: 'content.decoration.bodyFont.quote',
+      body_ul: 'content.decoration.bodyFont.ul',
+      header: 'title.decoration.font'
+    },
+    height: 'module.decoration.sizing',
+    link_options: 'module.advanced.link',
+    margin_padding: 'module.decoration.spacing',
+    max_width: 'module.decoration.sizing',
+    module: 'module.advanced.htmlAttributes',
+    overflow: 'module.decoration.overflow',
+    position_fields: 'module.decoration.position',
+    scroll: 'module.decoration.scroll',
+    sticky: 'module.decoration.sticky',
+    text: 'module.advanced.text',
+    text_shadow: {
+      default: 'module.advanced.text.textShadow'
+    },
+    transform: 'module.decoration.transform',
+    transition: 'module.decoration.transition',
+    z_index: 'module.decoration.zIndex'
+  },
+  css: {
+    after: 'css.*.after',
+    before: 'css.*.before',
+    main_element: 'css.*.mainElement',
+    content: 'css.*.content',
+    title: 'css.*.title'
+  },
+  module: {
+    view_more_on_off: 'button.advanced.show.*',
+    view_more_url: 'button.innerContent.*.linkUrl',
+    view_more_text: 'button.innerContent.*.text'
+  }
+};
+
+/***/ },
+
+/***/ "./src/modules/ServiceTiles/types.ts"
+() {
+
+
+
+/***/ },
+
+/***/ "./src/modules/ServiceTilesItem/conversion-outline.ts"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   conversionOutline: () => (/* binding */ conversionOutline)
+/* harmony export */ });
+// Compare this to wp.data.select('divi/settings').getSetting('shortcodeModuleDefinitions').et_pb_blurb.fields
+const conversionOutline = {
+  advanced: {
+    admin_label: 'module.meta.adminLabel',
+    animation: 'module.decoration.animation',
+    background: 'module.decoration.background',
+    borders: {
+      default: 'module.decoration.border'
+    },
+    box_shadow: {
+      default: 'module.decoration.boxShadow'
+    },
+    disabled_on: 'module.decoration.disabledOn',
+    filters: {
+      default: 'module.decoration.filters'
+    },
+    fonts: {
+      body: 'content.decoration.bodyFont.body',
+      body_link: 'content.decoration.bodyFont.link',
+      body_ol: 'content.decoration.bodyFont.ol',
+      body_quote: 'content.decoration.bodyFont.quote',
+      body_ul: 'content.decoration.bodyFont.ul',
+      header: 'title.decoration.font'
+    },
+    height: 'module.decoration.sizing',
+    link_options: 'module.advanced.link',
+    margin_padding: 'module.decoration.spacing',
+    max_width: 'module.decoration.sizing',
+    module: 'module.advanced.htmlAttributes',
+    overflow: 'module.decoration.overflow',
+    position_fields: 'module.decoration.position',
+    scroll: 'module.decoration.scroll',
+    sticky: 'module.decoration.sticky',
+    text: 'module.advanced.text',
+    text_shadow: {
+      default: 'module.advanced.text.textShadow'
+    },
+    transform: 'module.decoration.transform',
+    transition: 'module.decoration.transition',
+    z_index: 'module.decoration.zIndex'
+  },
+  css: {
+    after: 'css.*.after',
+    before: 'css.*.before',
+    main_element: 'css.*.mainElement',
+    content: 'css.*.content',
+    title: 'css.*.title'
+  },
+  module: {
+    item_title: 'title.innerContent.*',
+    item_image: 'image.innerContent.*.src',
+    tile_size: 'tile.innerContent.*.size',
+    tile_link: 'tile.innerContent.*.show',
+    tile_url: 'tile.innerContent.*.url',
+    content: 'content.innerContent.*'
+  },
+  valueExpansionFunctionMap: {
+    tile_size: "CAWeb\\Modules\\Utils\\ValueExpansion::replaceServiceTileSize"
+  }
+};
+
+/***/ },
+
+/***/ "./src/modules/ServiceTilesItem/types.ts"
 () {
 
 
@@ -7610,10 +7720,7 @@ __webpack_require__.r(__webpack_exports__);
 // Local dependencies.
 
 
-const CAWebModuleFullwidthSectionCarouselMetadata = {
-  ..._SectionCarousel_index_js__WEBPACK_IMPORTED_MODULE_0__.CAWebModuleSectionCarouselMetadata,
-  ..._module_json__WEBPACK_IMPORTED_MODULE_1__
-};
+const CAWebModuleFullwidthSectionCarouselMetadata = _module_json__WEBPACK_IMPORTED_MODULE_1__;
 const CAWebModuleFullwidthSectionCarousel = _SectionCarousel_index_js__WEBPACK_IMPORTED_MODULE_0__.CAWebModuleSectionCarousel;
 
 /***/ },
@@ -7632,10 +7739,7 @@ __webpack_require__.r(__webpack_exports__);
 // Local dependencies.
 
 
-const CAWebModuleFullwidthSectionCarouselSlideMetadata = {
-  ..._SectionCarouselSlide_index_js__WEBPACK_IMPORTED_MODULE_0__.CAWebModuleSectionCarouselSlideMetadata,
-  ..._module_json__WEBPACK_IMPORTED_MODULE_1__
-};
+const CAWebModuleFullwidthSectionCarouselSlideMetadata = _module_json__WEBPACK_IMPORTED_MODULE_1__;
 const CAWebModuleFullwidthSectionCarouselSlide = _SectionCarouselSlide_index_js__WEBPACK_IMPORTED_MODULE_0__.CAWebModuleSectionCarouselSlide;
 
 /***/ },
@@ -7700,216 +7804,6 @@ const CAWebModuleFullwidthSectionPrimary = _SectionPrimary_index_js__WEBPACK_IMP
 
 /***/ },
 
-/***/ "./src/modules/FullwidthServiceTiles/custom-css.js"
-(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   cssFields: () => (/* binding */ cssFields)
-/* harmony export */ });
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@wordpress/i18n");
-/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/FullwidthServiceTiles/module.json");
-// WordPress dependencies.
-
-
-
-// const customCssFields = metadata.customCssFields as Record<'name', { subName: string, selectorSuffix: string, label: string }>;
-
-// customCssFields.name.label            = __('Name', 'd5-extension-example-modules');
-
-const cssFields = {};
-// export const cssFields = { ...customCssFields };
-
-/***/ },
-
-/***/ "./src/modules/FullwidthServiceTiles/index.js"
-(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   CAWebModuleFullwidthServiceTiles: () => (/* binding */ CAWebModuleFullwidthServiceTiles),
-/* harmony export */   CAWebModuleFullwidthServiceTilesMetadata: () => (/* binding */ CAWebModuleFullwidthServiceTilesMetadata)
-/* harmony export */ });
-/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/modules/FullwidthServiceTiles/module.json");
-/* harmony import */ var _edit_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/FullwidthServiceTiles/edit.jsx");
-/* harmony import */ var _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/FullwidthServiceTiles/placeholder-content.js");
-/* harmony import */ var _module_default_render_attributes_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/FullwidthServiceTiles/module-default-render-attributes.json");
-/* harmony import */ var _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/FullwidthServiceTiles/conversion-outline.ts");
-/* harmony import */ var _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/FullwidthServiceTiles/Settings/content.jsx");
-// Local dependencies.
-
-
-
-
-
-
-const CAWebModuleFullwidthServiceTilesMetadata = _module_json__WEBPACK_IMPORTED_MODULE_0__;
-const CAWebModuleFullwidthServiceTiles = {
-  placeholderContent: _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__.placeholderContent,
-  conversionOutline: _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_4__.conversionOutline,
-  defaultAttrs: _module_default_render_attributes_json__WEBPACK_IMPORTED_MODULE_3__,
-  renderers: {
-    edit: _edit_jsx__WEBPACK_IMPORTED_MODULE_1__.ModuleEdit
-  },
-  settings: {
-    content: _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_5__.SettingsContent
-  }
-};
-
-/***/ },
-
-/***/ "./src/modules/FullwidthServiceTiles/module-classnames.js"
-(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   moduleClassnames: () => (/* binding */ moduleClassnames)
-/* harmony export */ });
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@divi/module");
-/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/FullwidthServiceTiles/types.ts");
-
-
-
-/**
- * Module classnames function for Service Tiles Module.
- *
- * @since ??
- *
- * @param {ModuleClassnamesParams<ModuleAttrs>} param0 Function parameters.
- */
-const moduleClassnames = ({
-  classnamesInstance,
-  attrs
-}) => {
-  classnamesInstance.add('service-tiles');
-
-  // Text Options.
-  classnamesInstance.add((0,_divi_module__WEBPACK_IMPORTED_MODULE_0__.textOptionsClassnames)(attrs?.module?.advanced?.text));
-};
-
-/***/ },
-
-/***/ "./src/modules/FullwidthServiceTiles/placeholder-content.js"
-(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   placeholderContent: () => (/* binding */ placeholderContent)
-/* harmony export */ });
-const placeholderContent = {};
-
-/***/ },
-
-/***/ "./src/modules/FullwidthServiceTilesItem/custom-css.js"
-(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   cssFields: () => (/* binding */ cssFields)
-/* harmony export */ });
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@wordpress/i18n");
-/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/FullwidthServiceTilesItem/module.json");
-// WordPress dependencies.
-
-
-
-// const customCssFields = metadata.customCssFields as Record<'name', { subName: string, selectorSuffix: string, label: string }>;
-
-// customCssFields.name.label            = __('Name', 'd5-extension-example-modules');
-
-const cssFields = {};
-// export const cssFields = { ...customCssFields };
-
-/***/ },
-
-/***/ "./src/modules/FullwidthServiceTilesItem/index.js"
-(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   CAWebModuleFullwidthServiceTilesItem: () => (/* binding */ CAWebModuleFullwidthServiceTilesItem),
-/* harmony export */   CAWebModuleFullwidthServiceTilesItemMetadata: () => (/* binding */ CAWebModuleFullwidthServiceTilesItemMetadata)
-/* harmony export */ });
-/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/modules/FullwidthServiceTilesItem/module.json");
-/* harmony import */ var _edit_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/FullwidthServiceTilesItem/edit.jsx");
-/* harmony import */ var _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/FullwidthServiceTilesItem/placeholder-content.js");
-/* harmony import */ var _module_default_render_attributes_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/FullwidthServiceTilesItem/module-default-render-attributes.json");
-/* harmony import */ var _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/FullwidthServiceTilesItem/conversion-outline.ts");
-/* harmony import */ var _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/FullwidthServiceTilesItem/Settings/content.jsx");
-/* harmony import */ var _Settings_design_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/FullwidthServiceTilesItem/Settings/design.jsx");
-// Local dependencies.
-
-
-
-
-
-
-
-const CAWebModuleFullwidthServiceTilesItemMetadata = _module_json__WEBPACK_IMPORTED_MODULE_0__;
-const CAWebModuleFullwidthServiceTilesItem = {
-  placeholderContent: _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__.placeholderContent,
-  conversionOutline: _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_4__.conversionOutline,
-  defaultAttrs: _module_default_render_attributes_json__WEBPACK_IMPORTED_MODULE_3__,
-  renderers: {
-    edit: _edit_jsx__WEBPACK_IMPORTED_MODULE_1__.ModuleEdit
-  },
-  settings: {
-    content: _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_5__.SettingsContent,
-    design: _Settings_design_jsx__WEBPACK_IMPORTED_MODULE_6__.SettingsDesign
-  }
-};
-
-/***/ },
-
-/***/ "./src/modules/FullwidthServiceTilesItem/module-classnames.js"
-(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   moduleClassnames: () => (/* binding */ moduleClassnames)
-/* harmony export */ });
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@divi/module");
-/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/FullwidthServiceTilesItem/types.ts");
-
-
-
-/**
- * Module classnames function for Dynamic Module.
- *
- * @since ??
- *
- * @param {ModuleClassnamesParams<ModuleAttrs>} param0 Function parameters.
- */
-const moduleClassnames = ({
-  classnamesInstance,
-  attrs,
-  isFirst
-}) => {
-  // Text Options.
-  classnamesInstance.add((0,_divi_module__WEBPACK_IMPORTED_MODULE_0__.textOptionsClassnames)(attrs?.module?.advanced?.text));
-};
-
-/***/ },
-
-/***/ "./src/modules/FullwidthServiceTilesItem/placeholder-content.js"
-(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   placeholderContent: () => (/* binding */ placeholderContent)
-/* harmony export */ });
-const placeholderContent = {};
-
-/***/ },
-
 /***/ "./src/modules/Github/custom-css.js"
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
@@ -7946,6 +7840,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _edit_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/Github/edit.jsx");
 /* harmony import */ var _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/Github/placeholder-content.js");
 /* harmony import */ var _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/Github/conversion-outline.ts");
+/* harmony import */ var _module_default_render_attributes_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/Github/module-default-render-attributes.json");
+/* harmony import */ var _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/Github/Settings/content.jsx");
 // WordPress dependencies.
 // import { __ } from '@wordpress/i18n';
 
@@ -7954,12 +7850,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 const CAWebModuleGithubMetadata = _module_json__WEBPACK_IMPORTED_MODULE_0__;
 const CAWebModuleGithub = {
   placeholderContent: _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__.placeholderContent,
   conversionOutline: _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_3__.conversionOutline,
+  defaultAttrs: _module_default_render_attributes_json__WEBPACK_IMPORTED_MODULE_4__,
   renderers: {
     edit: _edit_jsx__WEBPACK_IMPORTED_MODULE_1__.ModuleEdit
+  },
+  settings: {
+    content: _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_5__.SettingsContent
   }
 };
 
@@ -8635,9 +8537,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/SectionCarousel/placeholder-content.js");
 /* harmony import */ var _module_default_render_attributes_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/SectionCarousel/module-default-render-attributes.json");
 /* harmony import */ var _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/SectionCarousel/conversion-outline.ts");
-/* harmony import */ var _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/SectionCarousel/Settings/content.jsx");
 // Local dependencies.
-
 
 
 
@@ -8738,9 +8638,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _module_default_render_attributes_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/SectionCarouselSlide/module-default-render-attributes.json");
 /* harmony import */ var _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/SectionCarouselSlide/conversion-outline.ts");
 /* harmony import */ var _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/SectionCarouselSlide/Settings/content.jsx");
-/* harmony import */ var _Settings_design_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/SectionCarouselSlide/Settings/design.jsx");
 // Local dependencies.
-
 
 
 
@@ -8756,45 +8654,8 @@ const CAWebModuleSectionCarouselSlide = {
     edit: _edit_jsx__WEBPACK_IMPORTED_MODULE_1__.ModuleEdit
   },
   settings: {
-    content: _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_5__.SettingsContent,
-    design: _Settings_design_jsx__WEBPACK_IMPORTED_MODULE_6__.SettingsDesign
+    content: _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_5__.SettingsContent
   }
-};
-
-/***/ },
-
-/***/ "./src/modules/SectionCarouselSlide/module-classnames.js"
-(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   moduleClassnames: () => (/* binding */ moduleClassnames)
-/* harmony export */ });
-/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@divi/module");
-/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/SectionCarouselSlide/types.ts");
-
-
-
-/**
- * Module classnames function for Dynamic Module.
- *
- * @since ??
- *
- * @param {ModuleClassnamesParams<ModuleAttrs>} param0 Function parameters.
- */
-const moduleClassnames = ({
-  classnamesInstance,
-  attrs,
-  isFirst
-}) => {
-  classnamesInstance.add('carousel-item');
-  if (isFirst) {
-    classnamesInstance.add('active');
-  }
-
-  // Text Options.
-  classnamesInstance.add((0,_divi_module__WEBPACK_IMPORTED_MODULE_0__.textOptionsClassnames)(attrs?.module?.advanced?.text));
 };
 
 /***/ },
@@ -9125,6 +8986,222 @@ const placeholderContent = {};
 
 /***/ },
 
+/***/ "./src/modules/ServiceTiles/custom-css.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   cssFields: () => (/* binding */ cssFields)
+/* harmony export */ });
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/ServiceTiles/module.json");
+// WordPress dependencies.
+
+
+
+// const customCssFields = metadata.customCssFields as Record<'name', { subName: string, selectorSuffix: string, label: string }>;
+
+// customCssFields.name.label            = __('Name', 'd5-extension-example-modules');
+
+const cssFields = {};
+// export const cssFields = { ...customCssFields };
+
+/***/ },
+
+/***/ "./src/modules/ServiceTiles/index.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   CAWebModuleServiceTiles: () => (/* binding */ CAWebModuleServiceTiles),
+/* harmony export */   CAWebModuleServiceTilesMetadata: () => (/* binding */ CAWebModuleServiceTilesMetadata)
+/* harmony export */ });
+/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/modules/ServiceTiles/module.json");
+/* harmony import */ var _edit_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/ServiceTiles/edit.jsx");
+/* harmony import */ var _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/ServiceTiles/placeholder-content.js");
+/* harmony import */ var _module_default_render_attributes_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/ServiceTiles/module-default-render-attributes.json");
+/* harmony import */ var _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/ServiceTiles/conversion-outline.ts");
+/* harmony import */ var _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/ServiceTiles/Settings/content.jsx");
+// Local dependencies.
+
+
+
+
+
+
+const CAWebModuleServiceTilesMetadata = _module_json__WEBPACK_IMPORTED_MODULE_0__;
+const CAWebModuleServiceTiles = {
+  placeholderContent: _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__.placeholderContent,
+  conversionOutline: _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_4__.conversionOutline,
+  defaultAttrs: _module_default_render_attributes_json__WEBPACK_IMPORTED_MODULE_3__,
+  renderers: {
+    edit: _edit_jsx__WEBPACK_IMPORTED_MODULE_1__.ModuleEdit
+  },
+  settings: {
+    content: _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_5__.SettingsContent
+  }
+};
+
+/***/ },
+
+/***/ "./src/modules/ServiceTiles/module-classnames.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   moduleClassnames: () => (/* binding */ moduleClassnames)
+/* harmony export */ });
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@divi/module");
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/ServiceTiles/types.ts");
+
+
+
+/**
+ * Module classnames function for Service Tiles Module.
+ *
+ * @since ??
+ *
+ * @param {ModuleClassnamesParams<ModuleAttrs>} param0 Function parameters.
+ */
+const moduleClassnames = ({
+  classnamesInstance,
+  attrs
+}) => {
+  classnamesInstance.add('service-tiles');
+
+  // Text Options.
+  classnamesInstance.add((0,_divi_module__WEBPACK_IMPORTED_MODULE_0__.textOptionsClassnames)(attrs?.module?.advanced?.text));
+};
+
+/***/ },
+
+/***/ "./src/modules/ServiceTiles/placeholder-content.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   placeholderContent: () => (/* binding */ placeholderContent)
+/* harmony export */ });
+const placeholderContent = {};
+
+/***/ },
+
+/***/ "./src/modules/ServiceTilesItem/custom-css.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   cssFields: () => (/* binding */ cssFields)
+/* harmony export */ });
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@wordpress/i18n");
+/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/ServiceTilesItem/module.json");
+// WordPress dependencies.
+
+
+
+// const customCssFields = metadata.customCssFields as Record<'name', { subName: string, selectorSuffix: string, label: string }>;
+
+// customCssFields.name.label            = __('Name', 'd5-extension-example-modules');
+
+const cssFields = {};
+// export const cssFields = { ...customCssFields };
+
+/***/ },
+
+/***/ "./src/modules/ServiceTilesItem/index.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   CAWebModuleServiceTilesItem: () => (/* binding */ CAWebModuleServiceTilesItem),
+/* harmony export */   CAWebModuleServiceTilesItemMetadata: () => (/* binding */ CAWebModuleServiceTilesItemMetadata)
+/* harmony export */ });
+/* harmony import */ var _module_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/modules/ServiceTilesItem/module.json");
+/* harmony import */ var _edit_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/modules/ServiceTilesItem/edit.jsx");
+/* harmony import */ var _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/ServiceTilesItem/placeholder-content.js");
+/* harmony import */ var _module_default_render_attributes_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/ServiceTilesItem/module-default-render-attributes.json");
+/* harmony import */ var _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/ServiceTilesItem/conversion-outline.ts");
+/* harmony import */ var _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/ServiceTilesItem/Settings/content.jsx");
+// Local dependencies.
+
+
+
+
+
+
+const CAWebModuleServiceTilesItemMetadata = _module_json__WEBPACK_IMPORTED_MODULE_0__;
+const CAWebModuleServiceTilesItem = {
+  placeholderContent: _placeholder_content_js__WEBPACK_IMPORTED_MODULE_2__.placeholderContent,
+  conversionOutline: _conversion_outline_ts__WEBPACK_IMPORTED_MODULE_4__.conversionOutline,
+  defaultAttrs: _module_default_render_attributes_json__WEBPACK_IMPORTED_MODULE_3__,
+  renderers: {
+    edit: _edit_jsx__WEBPACK_IMPORTED_MODULE_1__.ModuleEdit
+  },
+  settings: {
+    content: _Settings_content_jsx__WEBPACK_IMPORTED_MODULE_5__.SettingsContent
+  }
+};
+
+/***/ },
+
+/***/ "./src/modules/ServiceTilesItem/module-classnames.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   moduleClassnames: () => (/* binding */ moduleClassnames)
+/* harmony export */ });
+/* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@divi/module");
+/* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module-utils");
+/* harmony import */ var _types_ts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/ServiceTilesItem/types.ts");
+// Divi Dependencies.
+
+
+
+
+/**
+ * Module classnames function for Dynamic Module.
+ *
+ * @since ??
+ *
+ * @param {ModuleClassnamesParams<ModuleAttrs>} param0 Function parameters.
+ */
+const moduleClassnames = ({
+  classnamesInstance,
+  attrs,
+  isFirst
+}) => {
+  let {
+    size
+  } = (0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_1__.getAttrByMode)(attrs?.tile?.innerContent);
+  classnamesInstance.add('service-tile');
+  classnamesInstance.add(size);
+
+  // Text Options.
+  classnamesInstance.add((0,_divi_module__WEBPACK_IMPORTED_MODULE_0__.textOptionsClassnames)(attrs?.module?.advanced?.text));
+};
+
+/***/ },
+
+/***/ "./src/modules/ServiceTilesItem/placeholder-content.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   placeholderContent: () => (/* binding */ placeholderContent)
+/* harmony export */ });
+const placeholderContent = {};
+
+/***/ },
+
 /***/ "./node_modules/memize/dist/index.js"
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
@@ -9333,7 +9410,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/card","d4Shortcode":"et
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"_comment":"!!! THIS IS AN AUTOMATICALLY GENERATED FILE - DO NOT EDIT !!!","active":false,"name":"caweb/fullwidth-panel","d4Shortcode":"et_pb_ca_fullwidth_panel","title":"Fullwidth Panel","titles":"Fullwidth Panels","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_fullwidth_panel","moduleOrderClassName":"et_pb_ca_fullwidth_panel","category":"module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"layout":{"type":"object","inlineEditor":"plainText","selector":"{{selector}} .card-layout","elementType":"heading","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"into-multiple-groups","groups":{"style":{"groupType":"group-item","item":{"groupSlug":"style","render":true,"attrName":"layout.innerContent","label":"Style","description":"Here you can choose the style in which to display the panel.","features":{"responsive":false,"dynamicContent":false},"component":{"name":"divi/select","type":"field","props":{"options":{"none":{"label":"None","value":"none"},"default":{"label":"Default","value":"default"},"standout":{"label":"Standout","value":"standout"},"standout highlight":{"label":"Standout Highlight","value":"standout highlight"},"overstated":{"label":"Overstated","value":"overstated"},"understated":{"label":"Understated","value":"understated"}}}}}}}}}},"title":{"type":"object","elementType":"heading","selector":"{{selector}} .card-header","attributes":{"class":"card-title"},"childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"title.innerContent","label":"Heading","description":"Here you can enter a header title for the panel.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}},"decoration":{"font":{"priority":3,"component":{"props":{"fieldLabel":"","groupLabel":"Header","fields":{"family":{"render":false},"weight":{"render":false},"weightFineTune":{"render":false},"variationSettings":{"render":false},"style":{"render":false},"capitalization":{"render":false},"textWrap":{"render":false},"writingMode":{"render":false},"hyphens":{"render":false},"columnCount":{"render":false},"size":{"render":false},"lineHeight":{"render":false},"letterSpacing":{"render":false},"color":{"label":"Heading Color"},"textAlign":{"label":"Heading Alignment","options":{"left":{"icon":"divi/text-align-left","label":"Left"},"center":{"icon":"divi/text-align-center","label":"Center"},"right":{"icon":"divi/text-align-right","label":"Right"}}},"textShadowGroup":{"component":{"props":{"fields":{"style":{"render":false}}}}},"textEffectsGroup":{"component":{"props":{"fields":{"fillType":{"render":false},"strokeWidth":{"render":false}}}}}}}}}}}},"icon":{"type":"object","selector":"{{selector}} .card-header .card-title span","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"showIcon":{"groupSlug":"icon","render":true,"attrName":"icon.innerContent","subName":"show","label":"Use Icon","description":"Choose whether to display an icon before the Heading.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"icon":{"groupSlug":"icon","render":true,"attrName":"icon.innerContent","label":"Heading Icon","description":"Here you can select a Heading Icon.","features":{"responsive":false},"component":{"name":"divi/icon-picker","type":"field"}}}}}},"button":{"type":"object","selector":"{{selector}} .card-header .options a","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"button.advanced.show","label":"Read More Button","description":"Toggle to include or exclude a button in the panel.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"text":{"groupSlug":"header","render":true,"attrName":"button.innerContent","subName":"text","label":"Button Text","description":"Here you can enter the text that will be used for the button.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"url":{"groupSlug":"header","render":true,"attrName":"button.innerContent","subName":"linkUrl","label":"Button Link","description":"Here you can enter the URL that the button will link to.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"target":{"groupSlug":"header","render":true,"attrName":"button.innerContent","subName":"target","label":"Open in New Tab","description":"Toggle to open the button link in a new tab.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}}}},"content":{"type":"object","selector":"{{selector}} .card-body","inlineEditor":"richText","elementType":"content","attributes":{"class":"card-body"},"childrenSanitizer":"et_core_esc_previously","allowHtml":true,"settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"content.innerContent","label":"Content","description":"Here you can create the content that will be used within the panel.","features":{"responsive":false},"component":{"name":"divi/richtext","type":"field"}}}}}},"settings":{"advanced":"auto","groups":{"style":{"panel":"content","priority":1,"groupName":"style","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Style"}}},"header":{"panel":"content","priority":2,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"body":{"panel":"content","priority":3,"groupName":"body","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Body"}}},"icon":{"panel":"design","priority":2,"groupName":"icon","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Icon"}}}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"_comment":"!!! THIS IS AN AUTOMATICALLY GENERATED FILE - DO NOT EDIT !!!","active":false,"name":"caweb/fullwidth-panel","d4Shortcode":"et_pb_ca_fullwidth_panel","title":"Fullwidth Panel","titles":"Fullwidth Panels","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_fullwidth_panel","moduleOrderClassName":"et_pb_ca_fullwidth_panel","category":"module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"layout":{"type":"object","inlineEditor":"plainText","selector":"{{selector}} .card-layout","elementType":"heading","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"into-multiple-groups","groups":{"style":{"groupType":"group-item","item":{"groupSlug":"style","render":true,"attrName":"layout.innerContent","label":"Style","description":"Here you can choose the style in which to display the panel.","features":{"responsive":false,"dynamicContent":false},"component":{"name":"divi/select","type":"field","props":{"options":{"none":{"label":"None","value":"none"},"default":{"label":"Default","value":"default"},"standout":{"label":"Standout","value":"standout"},"standout highlight":{"label":"Standout Highlight","value":"standout highlight"},"overstated":{"label":"Overstated","value":"overstated"},"understated":{"label":"Understated","value":"understated"}}}}}}}}}},"title":{"type":"object","elementType":"heading","selector":"{{selector}} .card-header","attributes":{"class":"card-title"},"childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"title.innerContent","label":"Heading","description":"Here you can enter a header title for the panel.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}},"decoration":{"font":{"priority":3,"component":{"props":{"fieldLabel":"","groupLabel":"Header","fields":{"headingLevel":{"render":false},"family":{"render":false},"weight":{"render":false},"weightFineTune":{"render":false},"variationSettings":{"render":false},"style":{"render":false},"capitalization":{"render":false},"textWrap":{"render":false},"writingMode":{"render":false},"hyphens":{"render":false},"columnCount":{"render":false},"size":{"render":false},"lineHeight":{"render":false},"letterSpacing":{"render":false},"color":{"label":"Heading Color"},"textAlign":{"label":"Heading Alignment","options":{"left":{"icon":"divi/text-align-left","label":"Left"},"center":{"icon":"divi/text-align-center","label":"Center"},"right":{"icon":"divi/text-align-right","label":"Right"}}},"textShadowGroup":{"component":{"props":{"fields":{"style":{"render":false}}}}},"textEffectsGroup":{"component":{"props":{"fields":{"fillType":{"render":false},"strokeWidth":{"render":false}}}}}}}}}}}},"icon":{"type":"object","selector":"{{selector}} .card-header .card-title span","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"showIcon":{"groupSlug":"icon","render":true,"attrName":"icon.innerContent","subName":"show","label":"Use Icon","description":"Choose whether to display an icon before the Heading.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"icon":{"groupSlug":"icon","render":true,"attrName":"icon.innerContent","label":"Heading Icon","description":"Here you can select a Heading Icon.","features":{"responsive":false},"component":{"name":"divi/icon-picker","type":"field"}}}}}},"button":{"type":"object","selector":"{{selector}} .card-header .options a","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"button.advanced.show","label":"Read More Button","description":"Toggle to include or exclude a button in the panel.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"text":{"groupSlug":"header","render":true,"attrName":"button.innerContent","subName":"text","label":"Button Text","description":"Here you can enter the text that will be used for the button.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"url":{"groupSlug":"header","render":true,"attrName":"button.innerContent","subName":"linkUrl","label":"Button Link","description":"Here you can enter the URL that the button will link to.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"target":{"groupSlug":"header","render":true,"attrName":"button.innerContent","subName":"target","label":"Open in New Tab","description":"Toggle to open the button link in a new tab.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}}}},"content":{"type":"object","selector":"{{selector}} .card-body","inlineEditor":"richText","elementType":"content","attributes":{"class":"card-body"},"childrenSanitizer":"et_core_esc_previously","allowHtml":true,"settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"content.innerContent","label":"Content","description":"Here you can create the content that will be used within the panel.","features":{"responsive":false},"component":{"name":"divi/richtext","type":"field"}}}}}},"settings":{"advanced":"auto","groups":{"style":{"panel":"content","priority":1,"groupName":"style","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Style"}}},"header":{"panel":"content","priority":2,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"body":{"panel":"content","priority":3,"groupName":"body","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Body"}}},"icon":{"panel":"design","priority":2,"groupName":"icon","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Icon"}}}}}}');
 
 /***/ },
 
@@ -9341,7 +9418,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"_comment":"!!! THIS IS AN AUTOMATICA
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/fullwidth-section-carousel","d4Shortcode":"et_pb_ca_fullwidth_section_carousel","title":"Fullwidth Section - Carousel","titles":"Fullwidth Section - Carousels","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_fullwidth_section_carousel","moduleOrderClassName":"et_pb_ca_fullwidth_section_carousel","category":"module","childModuleName":"caweb/fullwidth-section-carousel-slide","childModuleTitle":"Fullwidth Section Carousel Slide","childrenName":["caweb/fullwidth-section-carousel-slide"],"attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"section":{"type":"object","selector":"{{selector}}","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"designStyle","render":true,"attrName":"section.advanced","subName":"color","label":"Background Color","description":"Here you can define a custom background color for the section.","features":{"responsive":false},"component":{"type":"field","name":"divi/color-picker"}}}}},"content":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","allowHtml":true,"settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"content.innerContent","label":"Content","description":"Here you can create the content that will be used within the panel.","features":{"responsive":false},"component":{"name":"divi/richtext","type":"field"}}}}}},"settings":{"content":"auto","design":"auto","advanced":"auto","groups":{"designStyle":{"panel":"design","priority":1,"groupName":"designStyle","component":{"name":"divi/composite","props":{"groupLabel":"Style"}}}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"_comment":"!!! THIS IS AN AUTOMATICALLY GENERATED FILE - DO NOT EDIT !!!","active":false,"name":"caweb/fullwidth-section-carousel","d4Shortcode":"et_pb_ca_fullwidth_section_carousel","title":"Fullwidth Section Carousel","titles":"Fullwidth Section Carousels","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_fullwidth_section_carousel","moduleOrderClassName":"et_pb_ca_fullwidth_section_carousel","category":"module","childModuleName":"caweb/fullwidth-section-carousel-slide","childModuleTitle":"Fullwidth Section Carousel Slide","childrenName":["caweb/fullwidth-section-carousel-slide"],"attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}}},"settings":{"content":"auto","design":"auto","advanced":"auto"}}');
 
 /***/ },
 
@@ -9349,7 +9426,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/fullwidth-section-carou
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/fullwidth-section-carousel-slide","d4Shortcode":"et_pb_ca_fullwidth_section_carousel_slide","title":"Fullwidth Carousel Slide","titles":"Fullwidth Carousel Slides","moduleClassName":"et_pb_ca_fullwidth_section_carousel_slide","moduleOrderClassName":"et_pb_ca_fullwidth_section_carousel_slide"}');
+module.exports = /*#__PURE__*/JSON.parse('{"_comment":"!!! THIS IS AN AUTOMATICALLY GENERATED FILE - DO NOT EDIT !!!","active":false,"name":"caweb/fullwidth-section-carousel-slide","d4Shortcode":"et_pb_ca_fullwidth_section_carousel_slide","title":"Fullwidth Carousel Slide","titles":"Fullwidth Carousel Slides","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_fullwidth_section_carousel_slide","moduleOrderClassName":"et_pb_ca_fullwidth_section_carousel_slide","category":"child-module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"title":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"attrName":"title.innerContent","groupSlug":"header","render":true,"label":"Title","description":"Define the title for the group section.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}},"decoration":{"font":{"component":{"props":{"fieldLabel":"","groupLabel":"Header","fields":{"headingLevel":{"label":"Title Heading Level","options":{"h1":{"icon":"divi/h1","label":"H1"},"h2":{"icon":"divi/h2","label":"H2"},"h3":{"icon":"divi/h3","label":"H3"},"h4":{"icon":"divi/h4","label":"H4"},"h5":{"icon":"divi/h5","label":"H5"}}},"family":{"render":false},"weight":{"render":false},"weightFineTune":{"render":false},"variationSettings":{"render":false},"style":{"render":false},"capitalization":{"render":false},"textWrap":{"render":false},"writingMode":{"render":false},"hyphens":{"render":false},"columnCount":{"render":false},"size":{"render":false},"lineHeight":{"render":false},"letterSpacing":{"render":false},"color":{"render":false},"textAlign":{"render":false},"textShadowGroup":{"component":{"props":{"fields":{"style":{"render":false}}}}},"textEffectsGroup":{"component":{"props":{"fields":{"fillType":{"render":false},"strokeWidth":{"render":false}}}}}}}}}}}},"image":{"type":"object","elementType":"image","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"src":{"groupSlug":"body","render":true,"priority":1,"attrName":"image.innerContent","subName":"src","label":"Image","description":"If defined, this image will be used as the background for this slide. To remove a background image, simply delete the URL from the settings field.","features":{"responsive":false},"component":{"name":"divi/upload","type":"field","props":{"syncImageData":{"src":true,"id":true,"alt":true,"titleText":false}}}},"alt":{"groupSlug":"body","render":true,"priority":1,"attrName":"image.innerContent","subName":"alt","label":"Image Alt Text","description":"Override the existing alternate text for the slide image.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"button":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"priority":1,"label":"Add More Link","attrName":"button.advanced.show","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"button.innerContent","subName":"linkUrl","label":"Link URL","description":"Define the URL for the link.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}},"desc":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"desc.innerContent","label":"Description","description":"Define the text for the slide content.","features":{"responsive":false},"component":{"name":"divi/textarea","type":"field"}}}}}},"settings":{"design":"auto","advanced":"auto","groups":{"header":{"panel":"content","priority":1,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"body":{"panel":"content","priority":1,"groupName":"body","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Body"}}}}}}');
 
 /***/ },
 
@@ -9357,7 +9434,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/fullwidth-section-carou
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"_comment":"!!! THIS IS AN AUTOMATICALLY GENERATED FILE - DO NOT EDIT !!!","active":false,"name":"caweb/fullwidth-section-footer","d4Shortcode":"et_pb_ca_fullwidth_section_footer","title":"Fullwidth Section - Footer","titles":"Fullwidth Section - Footers","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_fullwidth_section_footer","moduleOrderClassName":"et_pb_ca_fullwidth_section_footer","category":"module","childModuleName":"caweb/fullwidth-section-footer-group","childModuleTitle":"Fullwidth Section Footer Group","childrenName":["caweb/fullwidth-section-footer-group"],"attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{"panel":"design"},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"content":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","allowHtml":true,"settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"content.innerContent","label":"Content","description":"Here you can create the content that will be used within the panel.","features":{"responsive":false},"component":{"name":"divi/richtext","type":"field"}}}}}},"settings":{"content":"auto","design":"auto","advanced":"auto"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"_comment":"!!! THIS IS AN AUTOMATICALLY GENERATED FILE - DO NOT EDIT !!!","active":false,"name":"caweb/fullwidth-section-footer","d4Shortcode":"et_pb_ca_fullwidth_section_footer","title":"Fullwidth Section Footer","titles":"Fullwidth Section Footers","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_fullwidth_section_footer","moduleOrderClassName":"et_pb_ca_fullwidth_section_footer","category":"module","childModuleName":"caweb/fullwidth-section-footer-group","childModuleTitle":"Fullwidth Footer Group","childrenName":["caweb/fullwidth-section-footer-group"],"attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"content":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","allowHtml":true,"settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"content.innerContent","label":"Content","description":"Here you can create the content that will be used within the panel.","features":{"responsive":false},"component":{"name":"divi/richtext","type":"field"}}}}}},"settings":{"content":"auto","design":"auto","advanced":"auto"}}');
 
 /***/ },
 
@@ -9373,39 +9450,15 @@ module.exports = /*#__PURE__*/JSON.parse('{"_comment":"!!! THIS IS AN AUTOMATICA
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"_comment":"!!! THIS IS AN AUTOMATICALLY GENERATED FILE - DO NOT EDIT !!!","active":false,"name":"caweb/fullwidth-section-primary","d4Shortcode":"et_pb_ca_fullwidth_section_primary","title":"Fullwidth Section Primary","titles":"Fullwidth Section Primaries","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_fullwidth_section_primary","moduleOrderClassName":"et_pb_ca_fullwidth_section_primary","category":"module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{"panel":"design"},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"title":{"type":"object","inlineEditor":"plainText","elementType":"heading","selector":"{{selector}} .title","attributes":{"class":"title"},"childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"title.innerContent","label":"Title","description":"Define the title for the section.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}},"decoration":{"font":{"component":{"props":{"fieldLabel":"","groupLabel":"Header","fields":{"headingLevel":{"label":"Heading Level","options":{"h1":{"icon":"divi/h1","label":"H1"},"h2":{"icon":"divi/h2","label":"H2"},"h3":{"icon":"divi/h3","label":"H3"},"h4":{"icon":"divi/h4","label":"H4"},"h5":{"icon":"divi/h5","label":"H5"}}},"family":{"render":false},"weight":{"render":false},"weightFineTune":{"render":false},"variationSettings":{"render":false},"style":{"render":false},"capitalization":{"render":false},"textWrap":{"render":false},"writingMode":{"render":false},"hyphens":{"render":false},"columnCount":{"render":false},"size":{"render":false},"lineHeight":{"render":false},"letterSpacing":{"render":false},"color":{"label":"Heading Color"},"textAlign":{"label":"Heading Alignment","options":{"left":{"icon":"divi/text-align-left","label":"Left"},"center":{"icon":"divi/text-align-center","label":"Center"},"right":{"icon":"divi/text-align-right","label":"Right"}}},"textShadowGroup":{"component":{"props":{"fields":{"style":{"render":false}}}}},"textEffectsGroup":{"component":{"props":{"fields":{"fillType":{"render":false},"strokeWidth":{"render":false}}}}}}}}}}}},"image":{"type":"object","elementType":"image","tagName":"img","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"position":{"groupType":"group-item","item":{"groupSlug":"image","render":true,"label":"Position","attrName":"image.advanced.alignment","features":{"responsive":false},"component":{"name":"divi/button-options","type":"field","props":{"options":{"pe-3 float-start":{"icon":"divi/text-align-left","label":"Left"},"ps-3 float-end":{"icon":"divi/text-align-right","label":"Right"}}}}}},"fade":{"groupType":"group-item","item":{"groupSlug":"image","render":true,"label":"Animation","attrName":"image.advanced.fade","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"options":{"none":{"label":"None"},"fadeInLeft":{"label":"Fade In Left"},"fadeInRight":{"label":"Fade In Right"}}}}}},"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"priority":1,"label":"Featured Image","attrName":"image.advanced.show","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"on"}}}}},"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"priority":2,"attrName":"image.innerContent","subName":"src","label":"Image","description":"If defined, this image will be used as the background for this module.","features":{"responsive":false},"component":{"name":"divi/upload","type":"field","props":{"syncImageData":{"src":true,"id":true,"alt":true,"titleText":false}}}}}}},"link":{"type":"object","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","attrName":"link.advanced.show","render":true,"priority":3,"label":"More Information Button","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"priority":4,"label":"Link URL","description":"URL destination for the button","attrName":"link.innerContent","subName":"linkUrl","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}},"content":{"type":"object","elementType":"content","inlineEditor":"richtext","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","attrName":"content.innerContent","label":"Content","priority":5,"description":"Here you can create the content that will be used within the module.","render":true,"features":{"responsive":false},"component":{"type":"field","name":"divi/richtext"}}}}}},"settings":{"advanced":"auto","groups":{"header":{"panel":"content","priority":2,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"body":{"panel":"content","priority":2,"groupName":"body","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Body"}}},"headerDesign":{"panel":"design","priority":2,"groupName":"headerDesign","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"image":{"panel":"design","priority":2,"groupName":"image","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Image"}}}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"_comment":"!!! THIS IS AN AUTOMATICALLY GENERATED FILE - DO NOT EDIT !!!","active":false,"name":"caweb/fullwidth-section-primary","d4Shortcode":"et_pb_ca_fullwidth_section_primary","title":"Fullwidth Section Primary","titles":"Fullwidth Section Primaries","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_fullwidth_section_primary","moduleOrderClassName":"et_pb_ca_fullwidth_section_primary","category":"module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"title":{"type":"object","inlineEditor":"plainText","elementType":"heading","selector":"{{selector}} .title","attributes":{"class":"title"},"childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"title.innerContent","label":"Title","description":"Define the title for the section.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}},"decoration":{"font":{"component":{"props":{"fieldLabel":"","groupLabel":"Header","fields":{"headingLevel":{"label":"Heading Level","options":{"h1":{"icon":"divi/h1","label":"H1"},"h2":{"icon":"divi/h2","label":"H2"},"h3":{"icon":"divi/h3","label":"H3"},"h4":{"icon":"divi/h4","label":"H4"},"h5":{"icon":"divi/h5","label":"H5"}}},"family":{"render":false},"weight":{"render":false},"weightFineTune":{"render":false},"variationSettings":{"render":false},"style":{"render":false},"capitalization":{"render":false},"textWrap":{"render":false},"writingMode":{"render":false},"hyphens":{"render":false},"columnCount":{"render":false},"size":{"render":false},"lineHeight":{"render":false},"letterSpacing":{"render":false},"color":{"label":"Heading Color"},"textAlign":{"label":"Heading Alignment","options":{"left":{"icon":"divi/text-align-left","label":"Left"},"center":{"icon":"divi/text-align-center","label":"Center"},"right":{"icon":"divi/text-align-right","label":"Right"}}},"textShadowGroup":{"component":{"props":{"fields":{"style":{"render":false}}}}},"textEffectsGroup":{"component":{"props":{"fields":{"fillType":{"render":false},"strokeWidth":{"render":false}}}}}}}}}}}},"image":{"type":"object","elementType":"image","tagName":"img","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"position":{"groupType":"group-item","item":{"groupSlug":"image","render":true,"label":"Position","attrName":"image.advanced.alignment","features":{"responsive":false},"component":{"name":"divi/button-options","type":"field","props":{"options":{"pe-3 float-start":{"icon":"divi/text-align-left","label":"Left"},"ps-3 float-end":{"icon":"divi/text-align-right","label":"Right"}}}}}},"fade":{"groupType":"group-item","item":{"groupSlug":"image","render":true,"label":"Animation","attrName":"image.advanced.fade","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"options":{"none":{"label":"None"},"fadeInLeft":{"label":"Fade In Left"},"fadeInRight":{"label":"Fade In Right"}}}}}},"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"priority":1,"label":"Featured Image","attrName":"image.advanced.show","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"on"}}}}},"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"priority":2,"attrName":"image.innerContent","subName":"src","label":"Image","description":"If defined, this image will be used as the background for this module.","features":{"responsive":false},"component":{"name":"divi/upload","type":"field","props":{"syncImageData":{"src":true,"id":true,"alt":true,"titleText":false}}}}}}},"link":{"type":"object","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","attrName":"link.advanced.show","render":true,"priority":3,"label":"More Information Button","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"priority":4,"label":"Link URL","description":"URL destination for the button","attrName":"link.innerContent","subName":"linkUrl","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}},"content":{"type":"object","elementType":"content","inlineEditor":"richText","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","attrName":"content.innerContent","label":"Content","priority":5,"description":"Here you can create the content that will be used within the module.","render":true,"features":{"responsive":false},"component":{"type":"field","name":"divi/richtext"}}}}}},"settings":{"advanced":"auto","groups":{"header":{"panel":"content","priority":2,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"body":{"panel":"content","priority":2,"groupName":"body","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Body"}}},"headerDesign":{"panel":"design","priority":2,"groupName":"headerDesign","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"image":{"panel":"design","priority":2,"groupName":"image","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Image"}}}}}}');
 
 /***/ },
 
-/***/ "./src/modules/FullwidthServiceTiles/module-default-render-attributes.json"
+/***/ "./src/modules/Github/module-default-render-attributes.json"
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"button":{"innerContent":{"desktop":{"value":{"text":"","linkUrl":""}}},"advanced":{"desktop":{"value":{"show":"off"}}}}}');
-
-/***/ },
-
-/***/ "./src/modules/FullwidthServiceTiles/module.json"
-(module) {
-
-"use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/fullwidth-service-tiles","d4Shortcode":"et_pb_ca_fullwidth_service_tiles","title":"Fullwidth Service Tiles","titles":"Fullwidth Service Tiles","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_fullwidth_service_tiles","moduleOrderClassName":"et_pb_ca_fullwidth_service_tiles","category":"module","childModuleName":"caweb/fullwidth-service-tiles-item","childModuleTitle":"Fullwidth Service Tiles Item","childrenName":["caweb/fullwidth-service-tiles-item"],"attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"button":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"showButton":{"groupSlug":"body","render":true,"attrName":"button.advanced","subName":"show","label":"View More","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"off"}}},"url":{"groupSlug":"body","render":true,"attrName":"button.innerContent","subName":"linkUrl","label":"Link URL","description":"Define the URL for the link.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"text":{"groupSlug":"body","render":true,"attrName":"button.innerContent","subName":"linkText","label":"Link Text","description":"Define the text for the link.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}}},"settings":{"design":"auto","advanced":"auto","groups":{"body":{"panel":"content","priority":1,"groupName":"body","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Body"}}}}}}');
-
-/***/ },
-
-/***/ "./src/modules/FullwidthServiceTilesItem/module-default-render-attributes.json"
-(module) {
-
-"use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"title":{"innerContent":{"desktop":{"value":"Item Title"}},"advanced":{"desktop":{"value":{"size":"h2"}}}},"desc":{"innerContent":{"desktop":{"value":"Item Description"}}},"button":{"innerContent":{"desktop":{"value":{"text":"","linkUrl":""}}},"advanced":{"desktop":{"value":{"show":"off"}}}},"image":{"innerContent":{"desktop":{"value":{"src":"","alt":""}}}}}');
-
-/***/ },
-
-/***/ "./src/modules/FullwidthServiceTilesItem/module.json"
-(module) {
-
-"use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/fullwidth-service-tiles-item","d4Shortcode":"et_pb_ca_fullwidth_service_tiles_item","title":"Fullwidth Service Tiles Item","titles":"Fullwidth Service Tiles Items","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_fullwidth_service_tiles_item","moduleOrderClassName":"et_pb_ca_fullwidth_service_tiles_item","category":"child-module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"title":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"into-multiple-groups","groups":{"header":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"title.innerContent","label":"Title","description":"Define the title for the tile.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}},"style":{"groupType":"group-item","item":{"groupSlug":"style","render":true,"attrName":"title.advanced","subName":"size","label":"Size","description":"Here you can choose the size of the title.","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"defaultValue":"quarter","options":{"quarter":{"label":"Quarter","value":"quarter"},"half":{"label":"Half","value":"half"},"full":{"label":"Full","value":"full"}}}}}}}}}},"image":{"type":"object","elementType":"image","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","attributes":{"class":"w-100"},"settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"priority":1,"attrName":"image.innerContent","subName":"src","label":"Image","description":"If defined, this image will be used as the background for this tile. To remove a background image, simply delete the URL from the settings field.","features":{"responsive":false},"component":{"name":"divi/upload","type":"field"}}}}},"button":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"showButton":{"groupSlug":"body","render":true,"attrName":"button.advanced","subName":"show","label":"Link to URL","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"off"}}},"url":{"groupSlug":"body","render":true,"attrName":"button.innerContent","subName":"linkUrl","label":"URL","description":"Define the URL for the tile.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"content":{"type":"object","selector":"{{selector}}","attributes":{"class":"group"},"allowHtml":true,"childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"content.innerContent","label":"Tile Content","description":"Define the text for the tile content.","features":{"responsive":false},"component":{"name":"divi/richtext","type":"field"}}}}}},"settings":{"design":"auto","advanced":"auto","groups":{"header":{"panel":"content","priority":1,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"style":{"panel":"content","priority":1,"groupName":"style","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Style"}}},"body":{"panel":"content","priority":1,"groupName":"body","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Body"}}}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"title":{"innerContent":{"desktop":{"value":""}},"decoration":{"font":{"font":{"desktop":{"value":{"headingLevel":"h2"}}}}}},"request":{"innerContent":{"desktop":{"value":{"per_page":"30","repo_type":"all","access_token":"","username":"","organization":"","rate_limit":"off","client_id":"","client_secret":"","email":"","email_body":"","definitions":["name","link","description"]}}}}}');
 
 /***/ },
 
@@ -9413,7 +9466,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/fullwidth-service-tiles
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/github","d4Shortcode":"et_pb_ca_github","title":"Github","titles":"Githubs","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_github","moduleOrderClassName":"et_pb_ca_github","category":"module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}},"innerContent":{"groupType":"group-item","item":{"groupSlug":"style","render":true,"attrName":"module.decoration.background","subName":"color","label":"Background Color","description":"Here you can define a custom background color for the section.","features":{"responsive":false},"component":{"type":"field","name":"divi/color-picker"}}}}},"title":{"type":"object","inlineEditor":"plainText","elementType":"heading","selector":"{{selector}} .title","childrenSanitizer":"et_core_esc_previously","default":{"innerContent":{"desktop":{"value":{"text":"","level":"h2"}}}},"settings":{"innerContent":{"groupType":"group-items","items":{"text":{"groupSlug":"header","render":true,"attrName":"title.innerContent","subName":"text","label":"Title","description":"Enter a title for the list.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"level":{"groupSlug":"headerDesign","render":true,"attrName":"title.innerContent","subName":"level","label":"Size","description":"Here you can choose the size for the panel header.","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"options":{"h1":{"label":"H1","value":"h1"},"h2":{"label":"H2","value":"h2"},"h3":{"label":"H3","value":"h3"},"h4":{"label":"H4","value":"h4"},"h5":{"label":"H5","value":"h5"}}}}}}}}},"request":{"type":"object","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"username":{"groupSlug":"organization","render":true,"attrName":"request.innerContent","subName":"username","label":"Username","description":"Enter GitHub Username.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"results":{"groupSlug":"organization","render":true,"attrName":"request.innerContent","subName":"per_page","label":"Maximum # of results","description":"Enter amount to display per page. Default is 30, Max is 100.","features":{"responsive":false},"component":{"name":"divi/common-numeric-input","type":"field","props":{"defaultValue":100,"min":1,"max":100,"step":1}}},"repo_type":{"groupSlug":"organization","render":true,"attrName":"request.innerContent","subName":"repo_type","label":"Repository Type","description":"Choose repository type you wish to display.","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"defaultValue":"all","options":{"all":{"label":"All","value":"all"},"public":{"label":"Public","value":"public"},"private":{"label":"Private","value":"private"},"forks":{"label":"Forks","value":"forks"}}}}},"pat":{"groupSlug":"organization","render":true,"attrName":"request.innerContent","subName":"access_token","label":"Personal Access Token","description":"This is required for Private Repositories to display.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"rate_limit":{"groupSlug":"organization","render":true,"attrName":"request.innerContent","subName":"increase_rate_limit","label":"Increase Rate Limit","description":"Increase the maximum number of requests users are permitted to make per hour. <a href=\\"https://developer.github.com/v3/#rate-limiting\\" target=\\"_blank\\">Rate Limiting</a>.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"on"}}},"client_id":{"groupSlug":"organization","render":true,"attrName":"request.innerContent","subName":"client_id","label":"Client ID","description":"Enter GitHub Client ID.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"client_secret":{"groupSlug":"organization","render":true,"attrName":"request.innerContent","subName":"client_secret","label":"Client Secret","description":"Enter GitHub Client Secret.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"definitions":{"groupSlug":"organization","render":true,"label":"Select which information for each repository you would like to display.","description":"Definitions","attrName":"definitions","features":{"responsive":false},"component":{"name":"divi/checkboxes","type":"field","props":{"options":[{"label":"Project Title","value":"name"},{"label":"Add Link to repositories (Public Repositories Only)","value":"url"},{"label":"Description","value":"desc"},{"label":"Fork","value":"fork"},{"label":"Creation Date","value":"created_at"},{"label":"Updated Date","value":"updated_at"},{"label":"Language","value":"language"}]}}}}}}}},"settings":{"design":"auto","advanced":"auto","groups":{"header":{"panel":"content","priority":2,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"headerDesign":{"panel":"design","priority":2,"groupName":"headerDesign","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"organization":{"panel":"content","priority":2,"groupName":"organization","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Organization"}}}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/github","d4Shortcode":"et_pb_ca_github","title":"Github","titles":"Githubs","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_github","moduleOrderClassName":"et_pb_ca_github","category":"module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"title":{"type":"object","inlineEditor":"plainText","elementType":"heading","selector":"{{selector}} .title","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"title.innerContent","label":"Title","description":"Enter a title for the list.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}},"decoration":{"font":{"priority":1,"component":{"props":{"fieldLabel":"","groupLabel":"Header","fields":{"headingLevel":{"label":"Title Level","options":{"h1":{"icon":"divi/h1","label":"H1"},"h2":{"icon":"divi/h2","label":"H2"},"h3":{"icon":"divi/h3","label":"H3"},"h4":{"icon":"divi/h4","label":"H4"},"h5":{"icon":"divi/h5","label":"H5"}}},"family":{"render":false},"weight":{"render":false},"weightFineTune":{"render":false},"variationSettings":{"render":false},"style":{"render":false},"capitalization":{"render":false},"textWrap":{"render":false},"writingMode":{"render":false},"hyphens":{"render":false},"columnCount":{"render":false},"size":{"render":false},"lineHeight":{"render":false},"letterSpacing":{"render":false},"color":{"render":false},"textAlign":{"render":false},"textShadowGroup":{"component":{"props":{"fields":{"style":{"render":false}}}}},"textEffectsGroup":{"component":{"props":{"fields":{"fillType":{"render":false},"strokeWidth":{"render":false}}}}}}}}}}}},"request":{"type":"object","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"into-multiple-groups","groups":{"style":{"groupType":"group-items","items":{"per_page":{"render":true,"groupSlug":"style","attrName":"request.innerContent","subName":"per_page","label":"Maximum # of results","description":"Enter amount to display per page. Default is 30, Max is 100.","features":{"responsive":false},"component":{"name":"divi/common-numeric-input","type":"field","props":{"min":1,"max":100,"step":1}}},"repo_type":{"groupSlug":"style","render":true,"attrName":"request.innerContent","subName":"repo_type","label":"Repository Type","description":"Choose repository type you wish to display.","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"options":{"all":{"label":"All","value":"all"},"public":{"label":"Public","value":"public"},"private":{"label":"Private","value":"private"},"forks":{"label":"Forks","value":"forks"}}}}},"pat":{"groupSlug":"style","render":true,"attrName":"request.innerContent","subName":"access_token","label":"Personal Access Token","description":"This is required for Private Repositories to display.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"email":{"groupSlug":"style","render":true,"attrName":"request.innerContent","subName":"email","label":"Code Request Email","description":"This is the administrators email that will receive all emails requesting access to private repositories.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"emailBody":{"groupSlug":"style","render":true,"attrName":"request.innerContent","subName":"email_body","label":"Request Email Body","description":"Coming Soon","features":{"responsive":false},"component":{"name":"divi/richtext","type":"field"}}}},"organization":{"groupType":"group-items","items":{"organization":{"groupSlug":"organization","render":true,"attrName":"request.innerContent","subName":"organization","label":"Organization","description":"Enter GitHub Organization.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"rate_limit":{"groupSlug":"organization","render":true,"attrName":"request.innerContent","subName":"rate_limit","label":"Increase Rate Limit","description":"Increase the maximum number of requests users are permitted to make per hour. <a href=\\"https://developer.github.com/v3/#rate-limiting\\" target=\\"_blank\\">Rate Limiting</a>.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"client_id":{"groupSlug":"organization","render":true,"attrName":"request.innerContent","subName":"client_id","label":"Client ID","description":"Enter GitHub Client ID.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"client_secret":{"groupSlug":"organization","render":true,"attrName":"request.innerContent","subName":"client_secret","label":"Client Secret","description":"Enter GitHub Client Secret.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"definitions":{"groupSlug":"organization","render":true,"label":"Definitions","description":"Select which information for each repository you would like to display.","attrName":"request.innerContent","subName":"definitions","features":{"responsive":false},"component":{"name":"divi/checkboxes","type":"field","props":{"options":[{"label":"Project Title","value":"name"},{"label":"Add Link to repositories (Public Repositories Only)","value":"link"},{"label":"Description","value":"description"},{"label":"Fork","value":"fork"},{"label":"Creation Date","value":"created_at"},{"label":"Updated Date","value":"updated_at"},{"label":"Language","value":"language"}]}}}}}}}}}},"settings":{"design":"auto","advanced":"auto","groups":{"header":{"panel":"content","priority":2,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"style":{"panel":"content","priority":2,"groupName":"style","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Style"}}},"organization":{"panel":"content","priority":3,"groupName":"organization","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Organization"}}}}}}');
 
 /***/ },
 
@@ -9445,7 +9498,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"layout":{"innerContent":{"desktop":{
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/panel","d4Shortcode":"et_pb_ca_panel","title":"Panel","titles":"Panels","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_panel","moduleOrderClassName":"et_pb_ca_panel","category":"module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"layout":{"type":"object","inlineEditor":"plainText","selector":"{{selector}} .card-layout","elementType":"heading","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"into-multiple-groups","groups":{"style":{"groupType":"group-item","item":{"groupSlug":"style","render":true,"attrName":"layout.innerContent","label":"Style","description":"Here you can choose the style in which to display the panel.","features":{"responsive":false,"dynamicContent":false},"component":{"name":"divi/select","type":"field","props":{"options":{"none":{"label":"None","value":"none"},"default":{"label":"Default","value":"default"},"standout":{"label":"Standout","value":"standout"},"standout highlight":{"label":"Standout Highlight","value":"standout highlight"},"overstated":{"label":"Overstated","value":"overstated"},"understated":{"label":"Understated","value":"understated"}}}}}}}}}},"title":{"type":"object","elementType":"heading","selector":"{{selector}} .card-header","attributes":{"class":"card-title"},"childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"title.innerContent","label":"Heading","description":"Here you can enter a header title for the panel.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}},"decoration":{"font":{"priority":3,"component":{"props":{"fieldLabel":"","groupLabel":"Header","fields":{"family":{"render":false},"weight":{"render":false},"weightFineTune":{"render":false},"variationSettings":{"render":false},"style":{"render":false},"capitalization":{"render":false},"textWrap":{"render":false},"writingMode":{"render":false},"hyphens":{"render":false},"columnCount":{"render":false},"size":{"render":false},"lineHeight":{"render":false},"letterSpacing":{"render":false},"color":{"label":"Heading Color"},"textAlign":{"label":"Heading Alignment","options":{"left":{"icon":"divi/text-align-left","label":"Left"},"center":{"icon":"divi/text-align-center","label":"Center"},"right":{"icon":"divi/text-align-right","label":"Right"}}},"textShadowGroup":{"component":{"props":{"fields":{"style":{"render":false}}}}},"textEffectsGroup":{"component":{"props":{"fields":{"fillType":{"render":false},"strokeWidth":{"render":false}}}}}}}}}}}},"icon":{"type":"object","selector":"{{selector}} .card-header .card-title span","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"showIcon":{"groupSlug":"icon","render":true,"attrName":"icon.innerContent","subName":"show","label":"Use Icon","description":"Choose whether to display an icon before the Heading.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"icon":{"groupSlug":"icon","render":true,"attrName":"icon.innerContent","label":"Heading Icon","description":"Here you can select a Heading Icon.","features":{"responsive":false},"component":{"name":"divi/icon-picker","type":"field"}}}}}},"button":{"type":"object","selector":"{{selector}} .card-header .options a","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"button.advanced.show","label":"Read More Button","description":"Toggle to include or exclude a button in the panel.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"text":{"groupSlug":"header","render":true,"attrName":"button.innerContent","subName":"text","label":"Button Text","description":"Here you can enter the text that will be used for the button.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"url":{"groupSlug":"header","render":true,"attrName":"button.innerContent","subName":"linkUrl","label":"Button Link","description":"Here you can enter the URL that the button will link to.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"target":{"groupSlug":"header","render":true,"attrName":"button.innerContent","subName":"target","label":"Open in New Tab","description":"Toggle to open the button link in a new tab.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}}}},"content":{"type":"object","selector":"{{selector}} .card-body","inlineEditor":"richText","elementType":"content","attributes":{"class":"card-body"},"childrenSanitizer":"et_core_esc_previously","allowHtml":true,"settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"content.innerContent","label":"Content","description":"Here you can create the content that will be used within the panel.","features":{"responsive":false},"component":{"name":"divi/richtext","type":"field"}}}}}},"settings":{"advanced":"auto","groups":{"style":{"panel":"content","priority":1,"groupName":"style","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Style"}}},"header":{"panel":"content","priority":2,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"body":{"panel":"content","priority":3,"groupName":"body","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Body"}}},"icon":{"panel":"design","priority":2,"groupName":"icon","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Icon"}}}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/panel","d4Shortcode":"et_pb_ca_panel","title":"Panel","titles":"Panels","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_panel","moduleOrderClassName":"et_pb_ca_panel","category":"module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"layout":{"type":"object","inlineEditor":"plainText","selector":"{{selector}} .card-layout","elementType":"heading","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"into-multiple-groups","groups":{"style":{"groupType":"group-item","item":{"groupSlug":"style","render":true,"attrName":"layout.innerContent","label":"Style","description":"Here you can choose the style in which to display the panel.","features":{"responsive":false,"dynamicContent":false},"component":{"name":"divi/select","type":"field","props":{"options":{"none":{"label":"None","value":"none"},"default":{"label":"Default","value":"default"},"standout":{"label":"Standout","value":"standout"},"standout highlight":{"label":"Standout Highlight","value":"standout highlight"},"overstated":{"label":"Overstated","value":"overstated"},"understated":{"label":"Understated","value":"understated"}}}}}}}}}},"title":{"type":"object","elementType":"heading","selector":"{{selector}} .card-header","attributes":{"class":"card-title"},"childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"title.innerContent","label":"Heading","description":"Here you can enter a header title for the panel.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}},"decoration":{"font":{"priority":3,"component":{"props":{"fieldLabel":"","groupLabel":"Header","fields":{"headingLevel":{"render":false},"family":{"render":false},"weight":{"render":false},"weightFineTune":{"render":false},"variationSettings":{"render":false},"style":{"render":false},"capitalization":{"render":false},"textWrap":{"render":false},"writingMode":{"render":false},"hyphens":{"render":false},"columnCount":{"render":false},"size":{"render":false},"lineHeight":{"render":false},"letterSpacing":{"render":false},"color":{"label":"Heading Color"},"textAlign":{"label":"Heading Alignment","options":{"left":{"icon":"divi/text-align-left","label":"Left"},"center":{"icon":"divi/text-align-center","label":"Center"},"right":{"icon":"divi/text-align-right","label":"Right"}}},"textShadowGroup":{"component":{"props":{"fields":{"style":{"render":false}}}}},"textEffectsGroup":{"component":{"props":{"fields":{"fillType":{"render":false},"strokeWidth":{"render":false}}}}}}}}}}}},"icon":{"type":"object","selector":"{{selector}} .card-header .card-title span","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"showIcon":{"groupSlug":"icon","render":true,"attrName":"icon.innerContent","subName":"show","label":"Use Icon","description":"Choose whether to display an icon before the Heading.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"icon":{"groupSlug":"icon","render":true,"attrName":"icon.innerContent","label":"Heading Icon","description":"Here you can select a Heading Icon.","features":{"responsive":false},"component":{"name":"divi/icon-picker","type":"field"}}}}}},"button":{"type":"object","selector":"{{selector}} .card-header .options a","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"button.advanced.show","label":"Read More Button","description":"Toggle to include or exclude a button in the panel.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"text":{"groupSlug":"header","render":true,"attrName":"button.innerContent","subName":"text","label":"Button Text","description":"Here you can enter the text that will be used for the button.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"url":{"groupSlug":"header","render":true,"attrName":"button.innerContent","subName":"linkUrl","label":"Button Link","description":"Here you can enter the URL that the button will link to.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"target":{"groupSlug":"header","render":true,"attrName":"button.innerContent","subName":"target","label":"Open in New Tab","description":"Toggle to open the button link in a new tab.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}}}},"content":{"type":"object","selector":"{{selector}} .card-body","inlineEditor":"richText","elementType":"content","attributes":{"class":"card-body"},"childrenSanitizer":"et_core_esc_previously","allowHtml":true,"settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"content.innerContent","label":"Content","description":"Here you can create the content that will be used within the panel.","features":{"responsive":false},"component":{"name":"divi/richtext","type":"field"}}}}}},"settings":{"advanced":"auto","groups":{"style":{"panel":"content","priority":1,"groupName":"style","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Style"}}},"header":{"panel":"content","priority":2,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"body":{"panel":"content","priority":3,"groupName":"body","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Body"}}},"icon":{"panel":"design","priority":2,"groupName":"icon","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Icon"}}}}}}');
 
 /***/ },
 
@@ -9477,7 +9530,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"title":{"innerContent":{"desktop":{"
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/post-list","d4Shortcode":"et_pb_ca_post_list","title":"Post List","titles":"Post Lists","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_post_list","moduleOrderClassName":"et_pb_ca_post_list","category":"module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"title":{"type":"object","inlineEditor":"plainText","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"title.innerContent","label":"Title","description":"Enter a title for the Post List.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}},"decoration":{"font":{"component":{"props":{"groupLabel":"Header","fields":{"headingLevel":{"label":"Heading Level","options":{"h1":{"icon":"divi/h1","label":"H1"},"h2":{"icon":"divi/h2","label":"H2"},"h3":{"icon":"divi/h3","label":"H3"},"h4":{"icon":"divi/h4","label":"H4"},"h5":{"icon":"divi/h5","label":"H5"}}},"family":{"render":false},"weight":{"render":false},"weightFineTune":{"render":false},"variationSettings":{"render":false},"style":{"render":false},"capitalization":{"render":false},"textWrap":{"render":false},"writingMode":{"render":false},"hyphens":{"render":false},"columnCount":{"render":false},"size":{"render":false},"lineHeight":{"render":false},"letterSpacing":{"render":false},"color":{"render":false},"textAlign":{"render":false},"textShadowGroup":{"component":{"props":{"fields":{"style":{"render":false}}}}},"textEffectsGroup":{"component":{"props":{"fields":{"fillType":{"render":false},"strokeWidth":{"render":false}}}}}}}}}}}},"style":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"faq":{"groupType":"group-item","item":{"priority":2,"groupSlug":"style","render":true,"attrName":"style.advanced.faq","label":"Accordion Style","description":"Here you can define a custom panel color.","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"options":{"accordion":{"label":"Accordion","value":"accordion"},"toggle":{"label":"Toggle","value":"toggle"}}}}}}},"innerContent":{"groupType":"group-item","item":{"priority":1,"groupSlug":"style","render":true,"attrName":"style.innerContent","label":"Content Type","description":"Here you can select the various list styles.","features":{"responsive":false,"dynamicContent":false},"component":{"name":"divi/select","type":"field","props":{"options":{"courses-list":{"label":"Course List","value":"courses-list"},"events-list":{"label":"Events List","value":"events-list"},"exams-list":{"label":"Exams List","value":"exams-list"},"faqs-list":{"label":"FAQs List","value":"faqs-list"},"general-list":{"label":"General List","value":"general-list"},"jobs-list":{"label":"Jobs List","value":"jobs-list"},"news-list":{"label":"News List","value":"news-list"},"profiles-list":{"label":"Profile List","value":"profiles-list"}}}}}}}},"posts":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"priority":3,"groupSlug":"style","render":true,"attrName":"posts.innerContent","label":"Posts Number","description":"Choose how many posts you would like to display in the list. Must be between 1 (inclusive) and 100 (inclusive)","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}},"orderby":{"type":"object","inlineEditor":"plainText","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"priority":4,"groupSlug":"style","render":true,"attrName":"orderby.innerContent","label":"Order By","description":"Here you can adjust the order in which posts are displayed.","features":{"responsive":false,"dynamicContent":false},"component":{"name":"divi/select","type":"field","props":{"options":{"date_desc":{"label":"Date: new to old","value":"date_desc"},"date_asc":{"label":"Date: old to new","value":"date_asc"},"title_asc":{"label":"Title: A to Z","value":"title_asc"},"title_desc":{"label":"Title: Z to A","value":"title_desc"},"rand":{"label":"Random","value":"rand"}}}}}}}},"image":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"priority":5,"groupSlug":"style","render":true,"attrName":"image.innerContent","label":"Featured Image","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}}},"categories":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"all":{"groupType":"group-item","item":{"priority":6,"groupSlug":"style","render":true,"attrName":"categories.advanced.all","label":"Include All Categories","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-item","item":{"priority":7,"groupSlug":"style","attrName":"categories.innerContent","render":true,"label":"Select Categories","features":{"responsive":false},"component":{"name":"divi/checkboxes","type":"field","props":{"options":[]}}}}}},"tags":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"all":{"groupType":"group-item","item":{"priority":8,"groupSlug":"style","render":true,"attrName":"tags.advanced.all","label":"Include All Tags","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-item","item":{"priority":9,"groupSlug":"style","render":true,"attrName":"tags.innerContent","label":"Select Tags","features":{"responsive":false},"component":{"name":"divi/checkboxes","type":"field","props":{"options":[]}}}}}},"excerpt":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"priority":10,"groupSlug":"style","render":true,"attrName":"excerpt.innerContent","label":"Display Excerpt","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}}}},"settings":{"advanced":"auto","design":"auto","groups":{"header":{"panel":"content","priority":1,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"style":{"panel":"content","priority":2,"groupName":"style","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Style"}}}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/post-list","d4Shortcode":"et_pb_ca_post_list","title":"Post List","titles":"Post Lists","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_post_list","moduleOrderClassName":"et_pb_ca_post_list","category":"module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"title":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"title.innerContent","label":"Title","description":"Enter a title for the Post List.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}},"decoration":{"font":{"component":{"props":{"groupLabel":"Header","fields":{"headingLevel":{"label":"Heading Level","options":{"h1":{"icon":"divi/h1","label":"H1"},"h2":{"icon":"divi/h2","label":"H2"},"h3":{"icon":"divi/h3","label":"H3"},"h4":{"icon":"divi/h4","label":"H4"},"h5":{"icon":"divi/h5","label":"H5"}}},"family":{"render":false},"weight":{"render":false},"weightFineTune":{"render":false},"variationSettings":{"render":false},"style":{"render":false},"capitalization":{"render":false},"textWrap":{"render":false},"writingMode":{"render":false},"hyphens":{"render":false},"columnCount":{"render":false},"size":{"render":false},"lineHeight":{"render":false},"letterSpacing":{"render":false},"color":{"render":false},"textAlign":{"render":false},"textShadowGroup":{"component":{"props":{"fields":{"style":{"render":false}}}}},"textEffectsGroup":{"component":{"props":{"fields":{"fillType":{"render":false},"strokeWidth":{"render":false}}}}}}}}}}}},"style":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"faq":{"groupType":"group-item","item":{"priority":2,"groupSlug":"style","render":true,"attrName":"style.advanced.faq","label":"Accordion Style","description":"Here you can define a custom panel color.","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"options":{"accordion":{"label":"Accordion","value":"accordion"},"toggle":{"label":"Toggle","value":"toggle"}}}}}}},"innerContent":{"groupType":"group-item","item":{"priority":1,"groupSlug":"style","render":true,"attrName":"style.innerContent","label":"Content Type","description":"Here you can select the various list styles.","features":{"responsive":false,"dynamicContent":false},"component":{"name":"divi/select","type":"field","props":{"options":{"courses-list":{"label":"Course List","value":"courses-list"},"events-list":{"label":"Events List","value":"events-list"},"exams-list":{"label":"Exams List","value":"exams-list"},"faqs-list":{"label":"FAQs List","value":"faqs-list"},"general-list":{"label":"General List","value":"general-list"},"jobs-list":{"label":"Jobs List","value":"jobs-list"},"news-list":{"label":"News List","value":"news-list"},"profiles-list":{"label":"Profile List","value":"profiles-list"}}}}}}}},"posts":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"priority":3,"groupSlug":"style","render":true,"attrName":"posts.innerContent","label":"Posts Number","description":"Choose how many posts you would like to display in the list. Must be between 1 (inclusive) and 100 (inclusive)","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}},"orderby":{"type":"object","inlineEditor":"plainText","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"priority":4,"groupSlug":"style","render":true,"attrName":"orderby.innerContent","label":"Order By","description":"Here you can adjust the order in which posts are displayed.","features":{"responsive":false,"dynamicContent":false},"component":{"name":"divi/select","type":"field","props":{"options":{"date_desc":{"label":"Date: new to old","value":"date_desc"},"date_asc":{"label":"Date: old to new","value":"date_asc"},"title_asc":{"label":"Title: A to Z","value":"title_asc"},"title_desc":{"label":"Title: Z to A","value":"title_desc"},"rand":{"label":"Random","value":"rand"}}}}}}}},"image":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"priority":5,"groupSlug":"style","render":true,"attrName":"image.innerContent","label":"Featured Image","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}}},"categories":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"all":{"groupType":"group-item","item":{"priority":6,"groupSlug":"style","render":true,"attrName":"categories.advanced.all","label":"Include All Categories","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-item","item":{"priority":7,"groupSlug":"style","attrName":"categories.innerContent","render":true,"label":"Select Categories","features":{"responsive":false},"component":{"name":"divi/checkboxes","type":"field","props":{"options":[]}}}}}},"tags":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"all":{"groupType":"group-item","item":{"priority":8,"groupSlug":"style","render":true,"attrName":"tags.advanced.all","label":"Include All Tags","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-item","item":{"priority":9,"groupSlug":"style","render":true,"attrName":"tags.innerContent","label":"Select Tags","features":{"responsive":false},"component":{"name":"divi/checkboxes","type":"field","props":{"options":[]}}}}}},"excerpt":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"priority":10,"groupSlug":"style","render":true,"attrName":"excerpt.innerContent","label":"Display Excerpt","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}}}},"settings":{"advanced":"auto","design":"auto","groups":{"header":{"panel":"content","priority":1,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"style":{"panel":"content","priority":2,"groupName":"style","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Style"}}}}}}');
 
 /***/ },
 
@@ -9509,7 +9562,7 @@ module.exports = {};
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/section-carousel","d4Shortcode":"et_pb_ca_section_carousel","title":"Section - Carousel","titles":"Section - Carousels","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_section_carousel","moduleOrderClassName":"et_pb_ca_section_carousel","category":"module","childModuleName":"caweb/section-carousel-slide","childModuleTitle":"Section Carousel Slide","childrenName":["caweb/section-carousel-slide"],"attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"section":{"type":"object","selector":"{{selector}}","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"designStyle","render":true,"attrName":"section.advanced","subName":"color","label":"Background Color","description":"Here you can define a custom background color for the section.","features":{"responsive":false},"component":{"type":"field","name":"divi/color-picker"}}}}},"content":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","allowHtml":true,"settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"content.innerContent","label":"Content","description":"Here you can create the content that will be used within the panel.","features":{"responsive":false},"component":{"name":"divi/richtext","type":"field"}}}}}},"settings":{"content":"auto","design":"auto","advanced":"auto","groups":{"designStyle":{"panel":"design","priority":1,"groupName":"designStyle","component":{"name":"divi/composite","props":{"groupLabel":"Style"}}}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/section-carousel","d4Shortcode":"et_pb_ca_section_carousel","title":"Section Carousel","titles":"Section Carousels","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_section_carousel","moduleOrderClassName":"et_pb_ca_section_carousel","category":"module","childModuleName":"caweb/section-carousel-slide","childModuleTitle":"Carousel Slide","childrenName":["caweb/section-carousel-slide"],"attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}}},"settings":{"content":"auto","design":"auto","advanced":"auto"}}');
 
 /***/ },
 
@@ -9517,7 +9570,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/section-carousel","d4Sh
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"title":{"innerContent":{"desktop":{"value":"Slide Title"}},"advanced":{"desktop":{"value":{"size":"h2"}}}},"desc":{"innerContent":{"desktop":{"value":"Slide Description"}}},"button":{"innerContent":{"desktop":{"value":{"text":"","linkUrl":""}}},"advanced":{"desktop":{"value":{"show":"off"}}}},"image":{"innerContent":{"desktop":{"value":{"src":"","alt":""}}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"title":{"innerContent":{"desktop":{"value":"Slide Title"}},"decoration":{"font":{"font":{"desktop":{"value":{"headingLevel":"h2"}}}}}},"desc":{"innerContent":{"desktop":{"value":"Slide Description"}}},"button":{"innerContent":{"desktop":{"value":{"text":"","linkUrl":""}}},"advanced":{"show":{"desktop":{"value":"off"}}}},"image":{"innerContent":{"desktop":{"value":{"src":"","alt":""}}}}}');
 
 /***/ },
 
@@ -9525,7 +9578,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"title":{"innerContent":{"desktop":{"
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/section-carousel-slide","d4Shortcode":"et_pb_ca_section_carousel_slide","title":"Carousel Slide","titles":"Carousel Slides","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_section_carousel_slide","moduleOrderClassName":"et_pb_ca_section_carousel_slide","category":"child-module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"title":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"into-multiple-groups","groups":{"header":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"title.innerContent","label":"Title","description":"Define the title for the group section.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}},"designHeader":{"groupType":"group-item","item":{"groupSlug":"designHeader","render":true,"attrName":"title.advanced","subName":"size","label":"Heading Size","description":"Here you can choose the heading size for the header title.","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"defaultValue":"h2","options":{"h1":{"label":"H1","value":"h1"},"h2":{"label":"H2","value":"h2"},"h3":{"label":"H3","value":"h3"},"h4":{"label":"H4","value":"h4"},"h5":{"label":"H5","value":"h5"}}}}}}}}}},"image":{"type":"object","elementType":"image","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"src":{"groupSlug":"body","render":true,"priority":1,"attrName":"image.innerContent","subName":"src","label":"Image","description":"If defined, this image will be used as the background for this slide. To remove a background image, simply delete the URL from the settings field.","features":{"responsive":false},"component":{"name":"divi/upload","type":"field"}},"alt":{"groupSlug":"body","render":true,"priority":1,"attrName":"image.innerContent","subName":"alt","label":"Image Alt Text","description":"Override the existing alternate text for the slide image.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"button":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"showButton":{"groupSlug":"body","render":true,"attrName":"button.advanced","subName":"show","label":"Add More Link","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"off"}}},"url":{"groupSlug":"body","render":true,"attrName":"button.innerContent","subName":"linkUrl","label":"Link URL","description":"Define the URL for the link.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"desc":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"desc.innerContent","label":"Description","description":"Define the text for the slide content.","features":{"responsive":false},"component":{"name":"divi/textarea","type":"field"}}}}}},"settings":{"advanced":"auto","groups":{"header":{"panel":"content","priority":1,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"body":{"panel":"content","priority":1,"groupName":"body","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Body"}}},"designHeader":{"panel":"design","priority":1,"groupName":"designHeader","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/section-carousel-slide","d4Shortcode":"et_pb_ca_section_carousel_slide","title":"Carousel Slide","titles":"Carousel Slides","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_section_carousel_slide","moduleOrderClassName":"et_pb_ca_section_carousel_slide","category":"child-module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"title":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"attrName":"title.innerContent","groupSlug":"header","render":true,"label":"Title","description":"Define the title for the group section.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}},"decoration":{"font":{"component":{"props":{"fieldLabel":"","groupLabel":"Header","fields":{"headingLevel":{"label":"Title Heading Level","options":{"h1":{"icon":"divi/h1","label":"H1"},"h2":{"icon":"divi/h2","label":"H2"},"h3":{"icon":"divi/h3","label":"H3"},"h4":{"icon":"divi/h4","label":"H4"},"h5":{"icon":"divi/h5","label":"H5"}}},"family":{"render":false},"weight":{"render":false},"weightFineTune":{"render":false},"variationSettings":{"render":false},"style":{"render":false},"capitalization":{"render":false},"textWrap":{"render":false},"writingMode":{"render":false},"hyphens":{"render":false},"columnCount":{"render":false},"size":{"render":false},"lineHeight":{"render":false},"letterSpacing":{"render":false},"color":{"render":false},"textAlign":{"render":false},"textShadowGroup":{"component":{"props":{"fields":{"style":{"render":false}}}}},"textEffectsGroup":{"component":{"props":{"fields":{"fillType":{"render":false},"strokeWidth":{"render":false}}}}}}}}}}}},"image":{"type":"object","elementType":"image","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"src":{"groupSlug":"body","render":true,"priority":1,"attrName":"image.innerContent","subName":"src","label":"Image","description":"If defined, this image will be used as the background for this slide. To remove a background image, simply delete the URL from the settings field.","features":{"responsive":false},"component":{"name":"divi/upload","type":"field","props":{"syncImageData":{"src":true,"id":true,"alt":true,"titleText":false}}}},"alt":{"groupSlug":"body","render":true,"priority":1,"attrName":"image.innerContent","subName":"alt","label":"Image Alt Text","description":"Override the existing alternate text for the slide image.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"button":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"priority":1,"label":"Add More Link","attrName":"button.advanced.show","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"button.innerContent","subName":"linkUrl","label":"Link URL","description":"Define the URL for the link.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}},"desc":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"desc.innerContent","label":"Description","description":"Define the text for the slide content.","features":{"responsive":false},"component":{"name":"divi/textarea","type":"field"}}}}}},"settings":{"design":"auto","advanced":"auto","groups":{"header":{"panel":"content","priority":1,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"body":{"panel":"content","priority":1,"groupName":"body","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Body"}}}}}}');
 
 /***/ },
 
@@ -9541,7 +9594,7 @@ module.exports = {};
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/section-footer","d4Shortcode":"et_pb_ca_section_footer","title":"Section - Footer","titles":"Section - Footers","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_section_footer","moduleOrderClassName":"et_pb_ca_section_footer","category":"module","childModuleName":"caweb/section-footer-group","childModuleTitle":"Section Footer Group","childrenName":["caweb/section-footer-group"],"attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{"panel":"design"},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"content":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","allowHtml":true,"settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"content.innerContent","label":"Content","description":"Here you can create the content that will be used within the panel.","features":{"responsive":false},"component":{"name":"divi/richtext","type":"field"}}}}}},"settings":{"content":"auto","design":"auto","advanced":"auto"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/section-footer","d4Shortcode":"et_pb_ca_section_footer","title":"Section Footer","titles":"Section Footers","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_section_footer","moduleOrderClassName":"et_pb_ca_section_footer","category":"module","childModuleName":"caweb/section-footer-group","childModuleTitle":"Footer Group","childrenName":["caweb/section-footer-group"],"attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"content":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","allowHtml":true,"settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"content.innerContent","label":"Content","description":"Here you can create the content that will be used within the panel.","features":{"responsive":false},"component":{"name":"divi/richtext","type":"field"}}}}}},"settings":{"content":"auto","design":"auto","advanced":"auto"}}');
 
 /***/ },
 
@@ -9557,7 +9610,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"title":{"innerContent":{"desktop":{"
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/section-footer-group","d4Shortcode":"et_pb_ca_section_footer_group","title":"Section Footer Group","titles":"Section Footer Groups","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_section_footer_group","moduleOrderClassName":"et_pb_ca_section_footer_group","category":"child-module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"title":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"title.innerContent","label":"Title","description":"Define the title for the group section.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}},"decoration":{"font":{"component":{"props":{"groupLabel":"Header","fields":{"headingLevel":{"label":"Heading Level","options":{"h1":{"icon":"divi/h1","label":"H1"},"h2":{"icon":"divi/h2","label":"H2"},"h3":{"icon":"divi/h3","label":"H3"},"h4":{"icon":"divi/h4","label":"H4"},"h5":{"icon":"divi/h5","label":"H5"}}},"family":{"render":false},"weight":{"render":false},"weightFineTune":{"render":false},"variationSettings":{"render":false},"style":{"render":false},"capitalization":{"render":false},"textWrap":{"render":false},"writingMode":{"render":false},"hyphens":{"render":false},"columnCount":{"render":false},"size":{"render":false},"lineHeight":{"render":false},"letterSpacing":{"render":false},"color":{"label":"Heading Text Color"},"textAlign":{"render":false},"textShadowGroup":{"component":{"props":{"fields":{"style":{"render":false}}}}},"textEffectsGroup":{"component":{"props":{"fields":{"fillType":{"render":false},"strokeWidth":{"render":false}}}}}}}}}}}},"button":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"button.advanced.show","label":"Read More Button","description":"Toggle to include or exclude a button in the group.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"url":{"groupSlug":"body","render":true,"attrName":"button.innerContent","subName":"linkUrl","label":"Read More URL","description":"Define the url for the Read More Button.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"content":{"type":"object","selector":"{{selector}} ul li *","elementType":"wrapper","tagName":"ul","attributes":{"class":["list-unstyled","p-0"]},"childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"displayLink":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"priority":1,"attrName":"content.advanced.displayLink","label":"Links as Button","description":"Whether the links should display as buttons or not.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"decoration":{"font":{"component":{"props":{"groupLabel":"Links","fields":{"headingLevel":{"render":false},"family":{"render":false},"weight":{"render":false},"weightFineTune":{"render":false},"variationSettings":{"render":false},"style":{"render":false},"capitalization":{"render":false},"textWrap":{"render":false},"writingMode":{"render":false},"hyphens":{"render":false},"columnCount":{"render":false},"size":{"render":false},"lineHeight":{"render":false},"letterSpacing":{"render":false},"color":{"label":"Link Text Color"},"textAlign":{"render":false},"textShadowGroup":{"component":{"props":{"fields":{"style":{"render":false}}}}},"textEffectsGroup":{"component":{"props":{"fields":{"fillType":{"render":false},"strokeWidth":{"render":false}}}}}}}}}}}},"icon":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"showIcon":{"groupSlug":"icon","render":true,"attrName":"icon.innerContent","subName":"show","label":"Use Icon","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"icon":{"groupSlug":"icon","render":true,"attrName":"icon.innerContent","label":"Group Icon","description":"Define the icon for the group section.","features":{"responsive":false},"component":{"name":"divi/icon-picker","type":"field"}}}}}},"link1":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"link1.advanced.show","label":"Link 1","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"link1Text":{"groupSlug":"body","render":true,"attrName":"link1.innerContent","subName":"text","label":"Link 1 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link1Url":{"groupSlug":"body","render":true,"attrName":"link1.innerContent","subName":"linkUrl","label":"Link 1 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link2":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"link2.advanced.show","label":"Link 2","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"link2Text":{"groupSlug":"body","render":true,"attrName":"link2.innerContent","subName":"text","label":"Link 2 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link2Url":{"groupSlug":"body","render":true,"attrName":"link2.innerContent","subName":"linkUrl","label":"Link 2 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link3":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"link3.advanced.show","label":"Link 3","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"link3Text":{"groupSlug":"body","render":true,"attrName":"link3.innerContent","subName":"text","label":"Link 3 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link3Url":{"groupSlug":"body","render":true,"attrName":"link3.innerContent","subName":"linkUrl","label":"Link 3 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link4":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"link4.advanced.show","label":"Link 4","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"link4Text":{"groupSlug":"body","render":true,"attrName":"link4.innerContent","subName":"text","label":"Link 4 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link4Url":{"groupSlug":"body","render":true,"attrName":"link4.innerContent","subName":"linkUrl","label":"Link 4 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link5":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"link5.advanced.show","label":"Link 5","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"link5Text":{"groupSlug":"body","render":true,"attrName":"link5.innerContent","subName":"text","label":"Link 5 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link5Url":{"groupSlug":"body","render":true,"attrName":"link5.innerContent","subName":"linkUrl","label":"Link 5 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link6":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"link6.advanced.show","label":"Link 6","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"link6Text":{"groupSlug":"body","render":true,"attrName":"link6.innerContent","subName":"text","label":"Link 6 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link6Url":{"groupSlug":"body","render":true,"attrName":"link6.innerContent","subName":"linkUrl","label":"Link 6 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link7":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"link7.advanced.show","label":"Link 7","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"link7Text":{"groupSlug":"body","render":true,"attrName":"link7.innerContent","subName":"text","label":"Link 7 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link7Url":{"groupSlug":"body","render":true,"attrName":"link7.innerContent","subName":"linkUrl","label":"Link 7 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link8":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"link8.advanced.show","label":"Link 8","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"link8Text":{"groupSlug":"body","render":true,"attrName":"link8.innerContent","subName":"text","label":"Link 8 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link8Url":{"groupSlug":"body","render":true,"attrName":"link8.innerContent","subName":"linkUrl","label":"Link 8 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link9":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"link9.advanced.show","label":"Link 9","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"link9Text":{"groupSlug":"body","render":true,"attrName":"link9.innerContent","subName":"text","label":"Link 9 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link9Url":{"groupSlug":"body","render":true,"attrName":"link9.innerContent","subName":"linkUrl","label":"Link 9 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link10":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"link10.advanced.show","label":"Link 10","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"link10Text":{"groupSlug":"body","render":true,"attrName":"link10.innerContent","subName":"text","label":"Link 10 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link10Url":{"groupSlug":"body","render":true,"attrName":"link10.innerContent","subName":"linkUrl","label":"Link 10 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}}},"settings":{"advanced":"auto","groups":{"header":{"panel":"content","priority":1,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"body":{"panel":"content","priority":1,"groupName":"body","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Body"}}},"icon":{"panel":"design","priority":1,"groupName":"icon","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Icon"}}}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/section-footer-group","d4Shortcode":"et_pb_ca_section_footer_group","title":"Footer Group","titles":"Footer Groups","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_section_footer_group","moduleOrderClassName":"et_pb_ca_section_footer_group","category":"child-module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"title":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"title.innerContent","label":"Title","description":"Define the title for the group section.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}},"decoration":{"font":{"component":{"props":{"groupLabel":"Header","fields":{"headingLevel":{"label":"Heading Level","options":{"h1":{"icon":"divi/h1","label":"H1"},"h2":{"icon":"divi/h2","label":"H2"},"h3":{"icon":"divi/h3","label":"H3"},"h4":{"icon":"divi/h4","label":"H4"},"h5":{"icon":"divi/h5","label":"H5"}}},"family":{"render":false},"weight":{"render":false},"weightFineTune":{"render":false},"variationSettings":{"render":false},"style":{"render":false},"capitalization":{"render":false},"textWrap":{"render":false},"writingMode":{"render":false},"hyphens":{"render":false},"columnCount":{"render":false},"size":{"render":false},"lineHeight":{"render":false},"letterSpacing":{"render":false},"color":{"label":"Heading Text Color"},"textAlign":{"render":false},"textShadowGroup":{"component":{"props":{"fields":{"style":{"render":false}}}}},"textEffectsGroup":{"component":{"props":{"fields":{"fillType":{"render":false},"strokeWidth":{"render":false}}}}}}}}}}}},"button":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"button.advanced.show","label":"Read More Button","description":"Toggle to include or exclude a button in the group.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"url":{"groupSlug":"body","render":true,"attrName":"button.innerContent","subName":"linkUrl","label":"Read More URL","description":"Define the url for the Read More Button.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"content":{"type":"object","selector":"{{selector}} ul li *","elementType":"wrapper","tagName":"ul","attributes":{"class":["list-unstyled","p-0"]},"childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"displayLink":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"priority":1,"attrName":"content.advanced.displayLink","label":"Links as Button","description":"Whether the links should display as buttons or not.","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"decoration":{"font":{"component":{"props":{"groupLabel":"Links","fields":{"headingLevel":{"render":false},"family":{"render":false},"weight":{"render":false},"weightFineTune":{"render":false},"variationSettings":{"render":false},"style":{"render":false},"capitalization":{"render":false},"textWrap":{"render":false},"writingMode":{"render":false},"hyphens":{"render":false},"columnCount":{"render":false},"size":{"render":false},"lineHeight":{"render":false},"letterSpacing":{"render":false},"color":{"label":"Link Text Color"},"textAlign":{"render":false},"textShadowGroup":{"component":{"props":{"fields":{"style":{"render":false}}}}},"textEffectsGroup":{"component":{"props":{"fields":{"fillType":{"render":false},"strokeWidth":{"render":false}}}}}}}}}}}},"icon":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"showIcon":{"groupSlug":"icon","render":true,"attrName":"icon.innerContent","subName":"show","label":"Use Icon","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"icon":{"groupSlug":"icon","render":true,"attrName":"icon.innerContent","label":"Group Icon","description":"Define the icon for the group section.","features":{"responsive":false},"component":{"name":"divi/icon-picker","type":"field"}}}}}},"link1":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"link1.advanced.show","label":"Link 1","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"link1Text":{"groupSlug":"body","render":true,"attrName":"link1.innerContent","subName":"text","label":"Link 1 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link1Url":{"groupSlug":"body","render":true,"attrName":"link1.innerContent","subName":"linkUrl","label":"Link 1 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link2":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"link2.advanced.show","label":"Link 2","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"link2Text":{"groupSlug":"body","render":true,"attrName":"link2.innerContent","subName":"text","label":"Link 2 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link2Url":{"groupSlug":"body","render":true,"attrName":"link2.innerContent","subName":"linkUrl","label":"Link 2 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link3":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"link3.advanced.show","label":"Link 3","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"link3Text":{"groupSlug":"body","render":true,"attrName":"link3.innerContent","subName":"text","label":"Link 3 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link3Url":{"groupSlug":"body","render":true,"attrName":"link3.innerContent","subName":"linkUrl","label":"Link 3 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link4":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"link4.advanced.show","label":"Link 4","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"link4Text":{"groupSlug":"body","render":true,"attrName":"link4.innerContent","subName":"text","label":"Link 4 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link4Url":{"groupSlug":"body","render":true,"attrName":"link4.innerContent","subName":"linkUrl","label":"Link 4 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link5":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"link5.advanced.show","label":"Link 5","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"link5Text":{"groupSlug":"body","render":true,"attrName":"link5.innerContent","subName":"text","label":"Link 5 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link5Url":{"groupSlug":"body","render":true,"attrName":"link5.innerContent","subName":"linkUrl","label":"Link 5 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link6":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"link6.advanced.show","label":"Link 6","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"link6Text":{"groupSlug":"body","render":true,"attrName":"link6.innerContent","subName":"text","label":"Link 6 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link6Url":{"groupSlug":"body","render":true,"attrName":"link6.innerContent","subName":"linkUrl","label":"Link 6 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link7":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"link7.advanced.show","label":"Link 7","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"link7Text":{"groupSlug":"body","render":true,"attrName":"link7.innerContent","subName":"text","label":"Link 7 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link7Url":{"groupSlug":"body","render":true,"attrName":"link7.innerContent","subName":"linkUrl","label":"Link 7 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link8":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"link8.advanced.show","label":"Link 8","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"link8Text":{"groupSlug":"body","render":true,"attrName":"link8.innerContent","subName":"text","label":"Link 8 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link8Url":{"groupSlug":"body","render":true,"attrName":"link8.innerContent","subName":"linkUrl","label":"Link 8 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link9":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"link9.advanced.show","label":"Link 9","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"link9Text":{"groupSlug":"body","render":true,"attrName":"link9.innerContent","subName":"text","label":"Link 9 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link9Url":{"groupSlug":"body","render":true,"attrName":"link9.innerContent","subName":"linkUrl","label":"Link 9 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"link10":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"link10.advanced.show","label":"Link 10","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"link10Text":{"groupSlug":"body","render":true,"attrName":"link10.innerContent","subName":"text","label":"Link 10 Text","description":"Here you can enter the text for the link","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"link10Url":{"groupSlug":"body","render":true,"attrName":"link10.innerContent","subName":"linkUrl","label":"Link 10 URL","description":"Here you can enter the URL.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}}},"settings":{"advanced":"auto","groups":{"header":{"panel":"content","priority":1,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"body":{"panel":"content","priority":1,"groupName":"body","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Body"}}},"icon":{"panel":"design","priority":1,"groupName":"icon","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Icon"}}}}}}');
 
 /***/ },
 
@@ -9573,7 +9626,39 @@ module.exports = /*#__PURE__*/JSON.parse('{"title":{"innerContent":{"desktop":{"
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/section-primary","d4Shortcode":"et_pb_ca_section_primary","title":"Section Primary","titles":"Section Primaries","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_section_primary","moduleOrderClassName":"et_pb_ca_section_primary","category":"module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{"panel":"design"},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"title":{"type":"object","inlineEditor":"plainText","elementType":"heading","selector":"{{selector}} .title","attributes":{"class":"title"},"childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"title.innerContent","label":"Title","description":"Define the title for the section.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}},"decoration":{"font":{"component":{"props":{"fieldLabel":"","groupLabel":"Header","fields":{"headingLevel":{"label":"Heading Level","options":{"h1":{"icon":"divi/h1","label":"H1"},"h2":{"icon":"divi/h2","label":"H2"},"h3":{"icon":"divi/h3","label":"H3"},"h4":{"icon":"divi/h4","label":"H4"},"h5":{"icon":"divi/h5","label":"H5"}}},"family":{"render":false},"weight":{"render":false},"weightFineTune":{"render":false},"variationSettings":{"render":false},"style":{"render":false},"capitalization":{"render":false},"textWrap":{"render":false},"writingMode":{"render":false},"hyphens":{"render":false},"columnCount":{"render":false},"size":{"render":false},"lineHeight":{"render":false},"letterSpacing":{"render":false},"color":{"label":"Heading Color"},"textAlign":{"label":"Heading Alignment","options":{"left":{"icon":"divi/text-align-left","label":"Left"},"center":{"icon":"divi/text-align-center","label":"Center"},"right":{"icon":"divi/text-align-right","label":"Right"}}},"textShadowGroup":{"component":{"props":{"fields":{"style":{"render":false}}}}},"textEffectsGroup":{"component":{"props":{"fields":{"fillType":{"render":false},"strokeWidth":{"render":false}}}}}}}}}}}},"image":{"type":"object","elementType":"image","tagName":"img","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"position":{"groupType":"group-item","item":{"groupSlug":"image","render":true,"label":"Position","attrName":"image.advanced.alignment","features":{"responsive":false},"component":{"name":"divi/button-options","type":"field","props":{"options":{"pe-3 float-start":{"icon":"divi/text-align-left","label":"Left"},"ps-3 float-end":{"icon":"divi/text-align-right","label":"Right"}}}}}},"fade":{"groupType":"group-item","item":{"groupSlug":"image","render":true,"label":"Animation","attrName":"image.advanced.fade","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"options":{"none":{"label":"None"},"fadeInLeft":{"label":"Fade In Left"},"fadeInRight":{"label":"Fade In Right"}}}}}},"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"priority":1,"label":"Featured Image","attrName":"image.advanced.show","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"on"}}}}},"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"priority":2,"attrName":"image.innerContent","subName":"src","label":"Image","description":"If defined, this image will be used as the background for this module.","features":{"responsive":false},"component":{"name":"divi/upload","type":"field","props":{"syncImageData":{"src":true,"id":true,"alt":true,"titleText":false}}}}}}},"link":{"type":"object","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","attrName":"link.advanced.show","render":true,"priority":3,"label":"More Information Button","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"priority":4,"label":"Link URL","description":"URL destination for the button","attrName":"link.innerContent","subName":"linkUrl","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}},"content":{"type":"object","elementType":"content","inlineEditor":"richtext","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","attrName":"content.innerContent","label":"Content","priority":5,"description":"Here you can create the content that will be used within the module.","render":true,"features":{"responsive":false},"component":{"type":"field","name":"divi/richtext"}}}}}},"settings":{"advanced":"auto","groups":{"header":{"panel":"content","priority":2,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"body":{"panel":"content","priority":2,"groupName":"body","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Body"}}},"headerDesign":{"panel":"design","priority":2,"groupName":"headerDesign","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"image":{"panel":"design","priority":2,"groupName":"image","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Image"}}}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/section-primary","d4Shortcode":"et_pb_ca_section_primary","title":"Section Primary","titles":"Section Primaries","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_section_primary","moduleOrderClassName":"et_pb_ca_section_primary","category":"module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"title":{"type":"object","inlineEditor":"plainText","elementType":"heading","selector":"{{selector}} .title","attributes":{"class":"title"},"childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"header","render":true,"attrName":"title.innerContent","label":"Title","description":"Define the title for the section.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}},"decoration":{"font":{"component":{"props":{"fieldLabel":"","groupLabel":"Header","fields":{"headingLevel":{"label":"Heading Level","options":{"h1":{"icon":"divi/h1","label":"H1"},"h2":{"icon":"divi/h2","label":"H2"},"h3":{"icon":"divi/h3","label":"H3"},"h4":{"icon":"divi/h4","label":"H4"},"h5":{"icon":"divi/h5","label":"H5"}}},"family":{"render":false},"weight":{"render":false},"weightFineTune":{"render":false},"variationSettings":{"render":false},"style":{"render":false},"capitalization":{"render":false},"textWrap":{"render":false},"writingMode":{"render":false},"hyphens":{"render":false},"columnCount":{"render":false},"size":{"render":false},"lineHeight":{"render":false},"letterSpacing":{"render":false},"color":{"label":"Heading Color"},"textAlign":{"label":"Heading Alignment","options":{"left":{"icon":"divi/text-align-left","label":"Left"},"center":{"icon":"divi/text-align-center","label":"Center"},"right":{"icon":"divi/text-align-right","label":"Right"}}},"textShadowGroup":{"component":{"props":{"fields":{"style":{"render":false}}}}},"textEffectsGroup":{"component":{"props":{"fields":{"fillType":{"render":false},"strokeWidth":{"render":false}}}}}}}}}}}},"image":{"type":"object","elementType":"image","tagName":"img","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"position":{"groupType":"group-item","item":{"groupSlug":"image","render":true,"label":"Position","attrName":"image.advanced.alignment","features":{"responsive":false},"component":{"name":"divi/button-options","type":"field","props":{"options":{"pe-3 float-start":{"icon":"divi/text-align-left","label":"Left"},"ps-3 float-end":{"icon":"divi/text-align-right","label":"Right"}}}}}},"fade":{"groupType":"group-item","item":{"groupSlug":"image","render":true,"label":"Animation","attrName":"image.advanced.fade","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"options":{"none":{"label":"None"},"fadeInLeft":{"label":"Fade In Left"},"fadeInRight":{"label":"Fade In Right"}}}}}},"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"priority":1,"label":"Featured Image","attrName":"image.advanced.show","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field","props":{"defaultValue":"on"}}}}},"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"priority":2,"attrName":"image.innerContent","subName":"src","label":"Image","description":"If defined, this image will be used as the background for this module.","features":{"responsive":false},"component":{"name":"divi/upload","type":"field","props":{"syncImageData":{"src":true,"id":true,"alt":true,"titleText":false}}}}}}},"link":{"type":"object","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","attrName":"link.advanced.show","render":true,"priority":3,"label":"More Information Button","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"priority":4,"label":"Link URL","description":"URL destination for the button","attrName":"link.innerContent","subName":"linkUrl","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}},"content":{"type":"object","elementType":"content","inlineEditor":"richText","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"body","attrName":"content.innerContent","label":"Content","priority":5,"description":"Here you can create the content that will be used within the module.","render":true,"features":{"responsive":false},"component":{"type":"field","name":"divi/richtext"}}}}}},"settings":{"advanced":"auto","groups":{"header":{"panel":"content","priority":2,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"body":{"panel":"content","priority":2,"groupName":"body","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Body"}}},"headerDesign":{"panel":"design","priority":2,"groupName":"headerDesign","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"image":{"panel":"design","priority":2,"groupName":"image","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Image"}}}}}}');
+
+/***/ },
+
+/***/ "./src/modules/ServiceTiles/module-default-render-attributes.json"
+(module) {
+
+"use strict";
+module.exports = /*#__PURE__*/JSON.parse('{"button":{"innerContent":{"desktop":{"value":{"text":"","linkUrl":""}}},"advanced":{"show":{"desktop":{"value":"off"}}}}}');
+
+/***/ },
+
+/***/ "./src/modules/ServiceTiles/module.json"
+(module) {
+
+"use strict";
+module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/service-tiles","d4Shortcode":"et_pb_ca_fullwidth_service_tiles","title":"Service Tiles","titles":"Service Tiles","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_service_tiles","moduleOrderClassName":"et_pb_ca_service_tiles","category":"module","childModuleName":"caweb/service-tiles-item","childModuleTitle":"Service Tiles Item","childrenName":["caweb/service-tiles-item"],"attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"button":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"advanced":{"show":{"groupType":"group-item","item":{"groupSlug":"body","render":true,"attrName":"button.advanced.show","label":"View More","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}}}},"innerContent":{"groupType":"group-items","items":{"url":{"groupSlug":"body","render":true,"attrName":"button.innerContent","subName":"linkUrl","label":"Link URL","description":"Define the URL for the link.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}},"text":{"groupSlug":"body","render":true,"attrName":"button.innerContent","subName":"linkText","label":"Link Text","description":"Define the text for the link.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}}},"settings":{"content":"auto","design":"auto","advanced":"auto","groups":{"body":{"panel":"content","priority":1,"groupName":"body","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Body"}}}}}}');
+
+/***/ },
+
+/***/ "./src/modules/ServiceTilesItem/module-default-render-attributes.json"
+(module) {
+
+"use strict";
+module.exports = /*#__PURE__*/JSON.parse('{"title":{"innerContent":{"desktop":{"value":""}}},"tile":{"innerContent":{"desktop":{"value":{"size":"w-25","show":"off","url":"","content":""}}}}}');
+
+/***/ },
+
+/***/ "./src/modules/ServiceTilesItem/module.json"
+(module) {
+
+"use strict";
+module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/service-tiles-item","d4Shortcode":"et_pb_ca_fullwidth_service_tiles_item","title":"Service Tiles Item","titles":"Service Tiles Items","moduleIcon":"caweb/module-logo","moduleClassName":"et_pb_ca_service_tiles_item","moduleOrderClassName":"et_pb_ca_service_tiles_item","category":"child-module","attributes":{"module":{"type":"object","selector":"{{selector}}","settings":{"meta":{"adminLabel":{}},"advanced":{"link":{},"text":{},"htmlAttributes":{}},"decoration":{"background":{},"bodyFont":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}},"title":{"type":"object","elementType":"heading","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"render":true,"attrName":"title.innerContent","label":"Title","description":"Define the title for the tile.","groupSlug":"header","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}},"tile":{"type":"object","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-items","items":{"size":{"groupSlug":"tile","render":true,"priority":1,"attrName":"tile.innerContent","subName":"size","label":"Size","description":"Here you can choose the size of the tile.","features":{"responsive":false},"component":{"name":"divi/select","type":"field","props":{"options":{"w-25":{"label":"Quarter","value":"w-25"},"w-50":{"label":"Half","value":"w-50"},"w-100":{"label":"Full","value":"w-100"}}}}},"show":{"groupSlug":"tile","render":true,"attrName":"tile.innerContent","subName":"show","label":"Link to URL","features":{"responsive":false},"component":{"name":"divi/toggle","type":"field"}},"url":{"groupSlug":"tile","render":true,"attrName":"tile.innerContent","subName":"url","label":"URL","description":"Define the URL for the tile.","features":{"responsive":false},"component":{"name":"divi/text","type":"field"}}}}}},"image":{"type":"object","elementType":"image","selector":"{{selector}}","childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"render":true,"label":"Image","attrName":"image.innerContent","description":"Define the image for the tile.","groupSlug":"tile","features":{"responsive":false},"component":{"name":"divi/upload","type":"field"}}}}},"content":{"type":"object","inlineEditor":"richText","selector":"{{selector}}","attributes":{"class":"group"},"allowHtml":true,"childrenSanitizer":"et_core_esc_previously","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"tile","render":true,"attrName":"content.innerContent","label":"Tile Content","description":"Define the text for the tile content.","features":{"responsive":false},"component":{"name":"divi/richtext","type":"field"}}}}}},"settings":{"design":"auto","advanced":"auto","groups":{"header":{"panel":"content","priority":1,"groupName":"header","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Header"}}},"tile":{"panel":"content","priority":2,"groupName":"tile","multiElements":true,"component":{"name":"divi/composite","props":{"groupLabel":"Tile"}}}}}}');
 
 /***/ }
 
@@ -9668,8 +9753,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_FullwidthSectionFooterGroup_index_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__("./src/modules/FullwidthSectionFooterGroup/index.js");
 /* harmony import */ var _modules_FullwidthSectionCarousel_index_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__("./src/modules/FullwidthSectionCarousel/index.js");
 /* harmony import */ var _modules_FullwidthSectionCarouselSlide_index_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__("./src/modules/FullwidthSectionCarouselSlide/index.js");
-/* harmony import */ var _modules_FullwidthServiceTiles_index_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__("./src/modules/FullwidthServiceTiles/index.js");
-/* harmony import */ var _modules_FullwidthServiceTilesItem_index_js__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__("./src/modules/FullwidthServiceTilesItem/index.js");
+/* harmony import */ var _modules_ServiceTiles_index_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__("./src/modules/ServiceTiles/index.js");
+/* harmony import */ var _modules_ServiceTilesItem_index_js__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__("./src/modules/ServiceTilesItem/index.js");
 /* harmony import */ var _icons_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__("./src/icons.js");
 
 
@@ -9705,7 +9790,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-//
 // import icon-library integration
 
 
@@ -9732,8 +9816,8 @@ __webpack_require__.r(__webpack_exports__);
   (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_FullwidthSectionFooterGroup_index_js__WEBPACK_IMPORTED_MODULE_19__.CAWebModuleFullwidthSectionFooterGroupMetadata, _modules_FullwidthSectionFooterGroup_index_js__WEBPACK_IMPORTED_MODULE_19__.CAWebModuleFullwidthSectionFooterGroup);
   (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_FullwidthSectionCarousel_index_js__WEBPACK_IMPORTED_MODULE_20__.CAWebModuleFullwidthSectionCarouselMetadata, _modules_FullwidthSectionCarousel_index_js__WEBPACK_IMPORTED_MODULE_20__.CAWebModuleFullwidthSectionCarousel);
   (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_FullwidthSectionCarouselSlide_index_js__WEBPACK_IMPORTED_MODULE_21__.CAWebModuleFullwidthSectionCarouselSlideMetadata, _modules_FullwidthSectionCarouselSlide_index_js__WEBPACK_IMPORTED_MODULE_21__.CAWebModuleFullwidthSectionCarouselSlide);
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_FullwidthServiceTiles_index_js__WEBPACK_IMPORTED_MODULE_22__.CAWebModuleFullwidthServiceTilesMetadata, _modules_FullwidthServiceTiles_index_js__WEBPACK_IMPORTED_MODULE_22__.CAWebModuleFullwidthServiceTiles);
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_FullwidthServiceTilesItem_index_js__WEBPACK_IMPORTED_MODULE_23__.CAWebModuleFullwidthServiceTilesItemMetadata, _modules_FullwidthServiceTilesItem_index_js__WEBPACK_IMPORTED_MODULE_23__.CAWebModuleFullwidthServiceTilesItem);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_ServiceTiles_index_js__WEBPACK_IMPORTED_MODULE_22__.CAWebModuleServiceTilesMetadata, _modules_ServiceTiles_index_js__WEBPACK_IMPORTED_MODULE_22__.CAWebModuleServiceTiles);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_ServiceTilesItem_index_js__WEBPACK_IMPORTED_MODULE_23__.CAWebModuleServiceTilesItemMetadata, _modules_ServiceTilesItem_index_js__WEBPACK_IMPORTED_MODULE_23__.CAWebModuleServiceTilesItem);
 });
 
 // Post Only Module

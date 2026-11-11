@@ -1,8 +1,8 @@
 {
   "name": "caweb/section-footer-group",
   "d4Shortcode": "et_pb_ca_section_footer_group",
-  "title": "Section Footer Group",
-  "titles": "Section Footer Groups",
+  "title": "Footer Group",
+  "titles": "Footer Groups",
   "moduleIcon": "caweb/module-logo",
   "moduleClassName": "et_pb_ca_section_footer_group",
   "moduleOrderClassName": "et_pb_ca_section_footer_group",

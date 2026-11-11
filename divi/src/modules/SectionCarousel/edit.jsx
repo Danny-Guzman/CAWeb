@@ -1,5 +1,6 @@
 // External Dependencies.
 import React, { ReactElement } from 'react';
+import { set } from 'lodash';
 
 // Divi Dependencies.
 import {
@@ -9,6 +10,7 @@ import {
 
 import {
   getAttrByMode,
+  getModuleOrderClassName
 } from '@divi/module-utils';
 
 // Local Dependencies.
@@ -26,22 +28,25 @@ import { ModuleScriptData } from './module-script-data.jsx';
  *
  * @returns {ReactElement}
  */
-const ModuleEdit = (props) => {
-  const {
+const ModuleEdit = ({
     attrs,
     id,
     name,
     elements,
     childrenIds,
-    isLooped,
-    loopIndex,
-    canvasId,
-  } = props;
+    canvasId
+  }) => {
 
   let indicators = [];
+  let htmlAttrs = getAttrByMode(attrs?.module?.advanced?.htmlAttributes);
+
+  let module_id = htmlAttrs?.id || getModuleOrderClassName(id);
+
+  // Ensure the module always has an ID attribute for the carousel functionality.
+  set( attrs, ['module', 'advanced', 'htmlAttributes', 'desktop', 'value', 'id'], module_id);
 
   for( let i = 0; i < childrenIds.length; i++ ) {
-    indicators.push(<button key={i} type="button" data-bs-target={`#${id}`} data-bs-slide-to={i} className={i === 0 ? 'active' : ''}></button>);
+    indicators.push(<button key={i} type="button" data-bs-target={`#${module_id}`} data-bs-slide-to={i} className={i === 0 ? 'active' : ''}></button>);
   }
 
   return (
@@ -65,23 +70,27 @@ const ModuleEdit = (props) => {
       { 
         indicators.length ? <div className="carousel-indicators">{indicators}</div> : ''
       }
-      {childrenIds && childrenIds.length > 0 && (
-        <div className="carousel-inner">
-          <ChildModulesContainer 
-            ids={childrenIds} 
-            isLooped={isLooped} 
-            loopIndex={loopIndex} 
-            canvasId={canvasId} />
-        </div>
-      )}
-      <button className="carousel-control-prev" type="button" data-bs-target={`#${id}`} data-bs-slide="prev">
-			  <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-			  <span className="visually-hidden">Previous</span>
-      </button>
-      <button className="carousel-control-next" type="button" data-bs-target={`#${id}`} data-bs-slide="next">
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Next</span>
-      </button>
+      {
+      childrenIds && childrenIds.length > 0 && (
+          <>
+          <div className="carousel-inner">
+            <ChildModulesContainer 
+              ids={childrenIds} 
+              isLooped={true} 
+              canvasId={canvasId} 
+              />
+          </div>
+          <button className="carousel-control-prev" type="button" data-bs-target={`#${module_id}`} data-bs-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button className="carousel-control-next" type="button" data-bs-target={`#${module_id}`} data-bs-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Next</span>
+          </button>
+          </>
+        )
+      }
     </ModuleContainer>
   );
 }

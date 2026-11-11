@@ -1,0 +1,43 @@
+{
+    "title": {
+        "innerContent": {
+            "desktop": {
+                "value": ""
+            }
+        },
+        "decoration": {
+            "font": {
+                "font": {
+                    "desktop": {
+                        "value": {
+                            "headingLevel": "h2"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "request": {
+        "innerContent": {
+            "desktop": {
+                "value": {
+                    "per_page": "30",
+                    "repo_type": "all",
+                    "access_token": "",
+                    "username": "",
+                    "organization": "",
+                    "rate_limit": "off",
+                    "client_id": "",
+                    "client_secret": "",
+                    "email": "",
+                    "email_body": "",
+                    "definitions": [
+                        "name",
+                        "link",
+                        "description"
+                    ]
+                }
+            }
+        }
+    }
+}

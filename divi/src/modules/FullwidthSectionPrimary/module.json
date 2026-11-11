@@ -23,9 +23,7 @@
           "htmlAttributes": {}
         },
         "decoration": {
-          "background": {
-            "panel": "design"
-          },
+          "background": {},
           "bodyFont": {},
           "sizing": {},
           "spacing": {},
@@ -355,7 +353,7 @@
     "content": {
       "type": "object",
       "elementType": "content",
-      "inlineEditor": "richtext",
+      "inlineEditor": "richText",
       "settings": {
         "innerContent": {
           "groupType": "group-item",

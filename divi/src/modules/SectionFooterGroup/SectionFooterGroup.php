@@ -35,7 +35,7 @@ class SectionFooterGroup extends CAWebModule {
 	 * @return void
 	 */
 	public function load() {
-		$module_json_folder_path = CAWEB_DIVI_EXT_MODULES_JSON_PATH . 'SectionFooterGroup/';
+		$module_json_folder_path = CAWEB_DIVI_EXT_MODULES_PATH . 'SectionFooterGroup/';
 
 		add_action(
 			'init',

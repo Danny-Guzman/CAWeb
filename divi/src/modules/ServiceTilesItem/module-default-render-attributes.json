@@ -1,0 +1,21 @@
+{
+    "title": {
+        "innerContent": {
+            "desktop": {
+                "value": ""
+            }
+        }
+    },
+    "tile": {
+        "innerContent": {
+            "desktop": {
+                "value": {
+                    "size": "w-25",
+                    "show": "off",
+                    "url": "",
+                    "content": ""
+                }
+            }
+        }
+    }
+}

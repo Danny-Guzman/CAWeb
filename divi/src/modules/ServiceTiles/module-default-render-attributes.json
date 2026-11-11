@@ -1,0 +1,19 @@
+{
+    "button": {
+        "innerContent": {
+            "desktop": {
+                "value": {
+                    "text": "",
+                    "linkUrl": ""
+                }
+            }
+        },
+        "advanced": {
+            "show": {
+                "desktop": {
+                    "value": "off"
+                }
+            }
+        }
+    }
+}

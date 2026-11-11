@@ -34,7 +34,7 @@ class Panel extends CAWebModule {
 	 * @return void
 	 */
 	public function load() {
-		$module_json_folder_path = CAWEB_DIVI_EXT_MODULES_JSON_PATH . 'Panel/';
+		$module_json_folder_path = CAWEB_DIVI_EXT_MODULES_PATH . 'Panel/';
 
 		add_action(
 			'init',

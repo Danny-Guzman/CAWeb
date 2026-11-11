@@ -5,7 +5,6 @@ import { ModuleEdit } from './edit.jsx';
 import { placeholderContent } from './placeholder-content.js';
 import defaultAttrs from './module-default-render-attributes.json';
 import { conversionOutline } from './conversion-outline.ts';
-import { SettingsContent } from './Settings/content.jsx';
 
 export const CAWebModuleSectionCarouselMetadata = metadata;
 

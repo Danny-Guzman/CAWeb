@@ -48,67 +48,126 @@
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
         "innerContent": {
-          "groupType": "into-multiple-groups",
-          "groups": {
-            "header": {
-              "groupType": "group-item",
-              "item": {
-                  "groupSlug": "header",
-                  "render": true,
-                  "attrName": "title.innerContent",
-                  "label": "Title",
-                  "description": "Define the title for the group section.",
-                  "features": {
-                    "responsive": false
-                  },
-                  "component": {
-                    "name": "divi/text",
-                    "type": "field"
-                  }
-                }
+          "groupType": "group-item",
+          "item": {
+            "attrName": "title.innerContent",
+            "groupSlug": "header",
+            "render": true,
+            "label": "Title",
+            "description": "Define the title for the group section.",
+            "features": {
+              "responsive": false
             },
-            "designHeader": {
-              "groupType": "group-item",
-              "item": {
-                  "groupSlug": "designHeader",
-                  "render": true,
-                  "attrName": "title.advanced",
-                  "subName": "size",
-                  "label": "Heading Size",
-                  "description": "Here you can choose the heading size for the header title.",
-                  "features": {
-                    "responsive": false
+            "component": {
+              "name": "divi/text",
+              "type": "field"
+            }
+          }
+        },
+        "decoration": {
+          "font": {
+            "component": {
+              "props": {
+                "fieldLabel": "",
+                "groupLabel": "Header",
+                "fields": {
+                  "headingLevel": {
+                    "label": "Title Heading Level",
+                    "options": {
+                      "h1": {
+                        "icon": "divi/h1",
+                        "label": "H1"
+                      },
+                      "h2": {
+                        "icon": "divi/h2",
+                        "label": "H2"
+                      },
+                      "h3": {
+                        "icon": "divi/h3",
+                        "label": "H3"
+                      },
+                      "h4": {
+                        "icon": "divi/h4",
+                        "label": "H4"
+                      },
+                      "h5": {
+                        "icon": "divi/h5",
+                        "label": "H5"
+                      }
+                    }
                   },
-                  "component": {
-                    "name": "divi/select",
-                    "type": "field",
-                    "props": {
-                      "defaultValue": "h2",
-                      "options": {
-                        "h1": {
-                          "label": "H1",
-                          "value": "h1"
-                        },
-                        "h2": {
-                          "label": "H2",
-                          "value": "h2"
-                        },
-                        "h3": {
-                          "label": "H3",
-                          "value": "h3"
-                        },
-                        "h4": {
-                          "label": "H4",
-                          "value": "h4"
-                        },
-                        "h5": {
-                          "label": "H5",
-                          "value": "h5"
+                  "family": {
+                    "render": false
+                  },
+                  "weight": {
+                    "render": false
+                  },
+                  "weightFineTune": {
+                    "render": false
+                  },
+                  "variationSettings": {
+                    "render": false
+                  },
+                  "style": {
+                    "render": false
+                  },
+                  "capitalization": {
+                    "render": false
+                  },
+                  "textWrap": {
+                    "render": false
+                  },
+                  "writingMode": {
+                    "render": false
+                  },
+                  "hyphens": {
+                    "render": false
+                  },
+                  "columnCount": {
+                    "render": false
+                  },
+                  "size": {
+                    "render": false
+                  },
+                  "lineHeight": {
+                    "render": false
+                  },
+                  "letterSpacing": {
+                    "render": false
+                  },
+                  "color": {
+                    "render": false
+                  },
+                  "textAlign": {
+                    "render": false
+                  },
+                  "textShadowGroup": {
+                    "component": {
+                      "props": {
+                        "fields": {
+                          "style": {
+                            "render": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "textEffectsGroup": {
+                    "component": {
+                      "props": {
+                        "fields": {
+                          "fillType": {
+                            "render": false
+                          },
+                          "strokeWidth": {
+                            "render": false
+                          }
                         }
                       }
                     }
                   }
                 }
+              }
             }
           }
         }
@@ -137,7 +196,15 @@
               },
               "component": {
                 "name": "divi/upload",
-                "type": "field"
+                "type": "field",
+                "props": {
+                  "syncImageData": {
+                    "src": true,
+                    "id": true,
+                    "alt": true,
+                    "titleText": false
+                  }
+                }
               }
             },
             "alt": {
@@ -166,40 +233,40 @@
       "selector": "{{selector}}",
       "childrenSanitizer": "et_core_esc_previously",
       "settings": {
-        "innerContent": {
-          "groupType": "group-items",
-          "items": {
-            "showButton": {
+        "advanced": {
+          "show": {
+            "groupType": "group-item",
+            "item": {
               "groupSlug": "body",
               "render": true,
-              "attrName": "button.advanced",
-              "subName": "show",
+              "priority": 1,
               "label": "Add More Link",
+              "attrName": "button.advanced.show",
               "features": {
                 "responsive": false
               },
               "component": {
                 "name": "divi/toggle",
-                "type": "field",
-                "props": {
-                  "defaultValue": "off"
-                }
-              }
-            },
-            "url": {
-              "groupSlug": "body",
-              "render": true,
-              "attrName": "button.innerContent",
-              "subName": "linkUrl",
-              "label": "Link URL",
-              "description": "Define the URL for the link.",
-              "features": {
-                "responsive": false
-              },
-              "component": {
-                "name": "divi/text",
                 "type": "field"
               }
+            }
+          }
+        },
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+            "groupSlug": "body",
+            "render": true,
+            "attrName": "button.innerContent",
+            "subName": "linkUrl",
+            "label": "Link URL",
+            "description": "Define the URL for the link.",
+            "features": {
+              "responsive": false
+            },
+            "component": {
+              "name": "divi/text",
+              "type": "field"
             }
           }
         }
@@ -233,6 +300,7 @@
 
   },
   "settings": {
+    "design": "auto",
     "advanced": "auto",
     "groups":{
       "header": {
@@ -256,18 +324,6 @@
             "name": "divi/composite",
             "props": {
               "groupLabel": "Body"
-            }
-          }
-      },
-      "designHeader": {
-        "panel": "design",
-        "priority": 1,
-        "groupName": "designHeader",
-        "multiElements": true,
-        "component": {
-            "name": "divi/composite",
-            "props": {
-              "groupLabel": "Header"
             }
           }
       }

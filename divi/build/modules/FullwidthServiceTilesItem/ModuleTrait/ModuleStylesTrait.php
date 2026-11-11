@@ -1,12 +1,12 @@
 <?php
 /**
- * FullwidthServiceTilesItem::module_styles().
+ * ServiceTilesItem::module_styles().
  *
- * @package CAWeb\Modules\FullwidthServiceTilesItem
+ * @package CAWeb\Modules\ServiceTilesItem
  * @since ??
  */
 
-namespace CAWeb\Modules\FullwidthServiceTilesItem\ModuleTrait;
+namespace CAWeb\Modules\ServiceTilesItem\ModuleTrait;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	die( 'Direct access forbidden.' );
@@ -22,10 +22,10 @@ trait ModuleStylesTrait {
 	use CustomCssTrait;
 
 	/**
-	 * FullwidthServiceTilesItem module's style components.
+	 * ServiceTilesItem module's style components.
 	 *
 	 * This function is equivalent of JS function ModuleStyles located in
-	 * src/components/FullwidthServiceTilesItem/styles.tsx.
+	 * src/components/ServiceTilesItem/styles.tsx.
 	 *
 	 * @since ??
 	 *

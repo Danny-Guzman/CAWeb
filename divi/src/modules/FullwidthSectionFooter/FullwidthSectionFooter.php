@@ -37,7 +37,7 @@ class FullwidthSectionFooter extends CAWebModule {
 	 * @return void
 	 */
 	public function load() {
-		$module_json_folder_path = CAWEB_DIVI_EXT_MODULES_JSON_PATH . 'FullwidthSectionFooter/';
+		$module_json_folder_path = CAWEB_DIVI_EXT_MODULES_PATH . 'FullwidthSectionFooter/';
 
 		add_action(
 			'init',

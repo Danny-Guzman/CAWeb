@@ -35,7 +35,7 @@ class SectionCarousel extends CAWebModule {
 	 * @return void
 	 */
 	public function load() {
-		$module_json_folder_path = CAWEB_DIVI_EXT_MODULES_JSON_PATH . 'SectionCarousel/';
+		$module_json_folder_path = CAWEB_DIVI_EXT_MODULES_PATH . 'SectionCarousel/';
 
 		add_action(
 			'init',

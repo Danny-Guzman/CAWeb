@@ -6,7 +6,6 @@ import { placeholderContent } from './placeholder-content.js';
 import defaultAttrs from './module-default-render-attributes.json';
 import { conversionOutline } from './conversion-outline.ts';
 import { SettingsContent } from './Settings/content.jsx';
-import { SettingsDesign } from './Settings/design.jsx';
 
 export const CAWebModuleSectionCarouselSlideMetadata = metadata;
 
@@ -18,8 +17,7 @@ export const CAWebModuleSectionCarouselSlide = {
     edit: ModuleEdit,
   },
   settings: {
-    content: SettingsContent,
-    design: SettingsDesign,
+    content: SettingsContent
   }
 
 };

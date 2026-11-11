@@ -1,11 +1,8 @@
 // Local dependencies.
-import { CAWebModuleSectionCarouselSlide, CAWebModuleSectionCarouselSlideMetadata } from '../SectionCarouselSlide/index.js';
+import { CAWebModuleSectionCarouselSlide } from '../SectionCarouselSlide/index.js';
 
 import metadata from './module.json';
 
-export const CAWebModuleFullwidthSectionCarouselSlideMetadata = {
-  ...CAWebModuleSectionCarouselSlideMetadata,
-  ...metadata,
-};
+export const CAWebModuleFullwidthSectionCarouselSlideMetadata = metadata;
 
 export const CAWebModuleFullwidthSectionCarouselSlide = CAWebModuleSectionCarouselSlide;

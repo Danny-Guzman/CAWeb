@@ -36,7 +36,7 @@ class FullwidthPanel extends CAWebModule {
 	 * @return void
 	 */
 	public function load() {
-		$module_json_folder_path = CAWEB_DIVI_EXT_MODULES_JSON_PATH . 'FullwidthPanel/';
+		$module_json_folder_path = CAWEB_DIVI_EXT_MODULES_PATH . 'FullwidthPanel/';
 
 		add_action(
 			'init',

@@ -1,41 +1,41 @@
 <?php
 /**
- * Module: FullwidthServiceTilesItem Module class.
+ * Module: ServiceTilesItem Module class.
  *
- * @package CAWeb\Modules\FullwidthServiceTilesItem
+ * @package CAWeb\Modules\ServiceTilesItem
  * @since ??
  */
 
-namespace CAWeb\Modules\FullwidthServiceTilesItem;
+namespace CAWeb\Modules\ServiceTilesItem;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	die( 'Direct access forbidden.' );
 }
 
 use CAWeb\Modules\Utils\Module as CAWebModule;
-use CAWeb\Modules\FullwidthServiceTilesItem\ModuleTrait;
+use CAWeb\Modules\ServiceTilesItem\ModuleTrait;
 
 use ET\Builder\Packages\ModuleLibrary\ModuleRegistration;
 
 /**
- * `FullwidthServiceTilesItem` is consisted of functions used for Divi 5 Module such as Front-End rendering, REST API Endpoints etc.
+ * `ServiceTilesItem` is consisted of functions used for Divi 5 Module such as Front-End rendering, REST API Endpoints etc.
  *
  * This is a dependency class and can be used as a dependency for `DependencyTree`.
  *
  * @since ??
  */
-class FullwidthServiceTilesItem extends CAWebModule {
+class ServiceTilesItem extends CAWebModule {
 	use ModuleTrait\RenderCallbackTrait;
 
 	/**
-	 * Loads `FullwidthServiceTilesItem` and registers Front-End render callback and REST API Endpoints.
+	 * Loads `ServiceTilesItem` and registers Front-End render callback and REST API Endpoints.
 	 *
 	 * @since ??
 	 *
 	 * @return void
 	 */
 	public function load() {
-		$module_json_folder_path = CAWEB_DIVI_EXT_MODULES_JSON_PATH . 'FullwidthServiceTilesItem/';
+		$module_json_folder_path = CAWEB_DIVI_EXT_MODULES_PATH . 'ServiceTilesItem/';
 
 		add_action(
 			'init',
@@ -43,7 +43,7 @@ class FullwidthServiceTilesItem extends CAWebModule {
 				ModuleRegistration::register_module(
 					$module_json_folder_path,
 					[
-						'render_callback' => [ FullwidthServiceTilesItem::class, 'render_callback' ],
+						'render_callback' => [ ServiceTilesItem::class, 'render_callback' ],
 					]
 				);
 			}

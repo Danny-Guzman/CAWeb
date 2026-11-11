@@ -27,7 +27,7 @@
     "@babel/core": "^7.29.7",
     "@babel/preset-env": "^7.29.7",
     "@babel/preset-react": "^7.29.7",
-    "@caweb/cli": "^1.18.3",
+    "@caweb/cli": "^1.18.5",
     "@divi/conversion": "^1.0.4",
     "@divi/data": "^1.0.2",
     "@divi/icon-library": "^1.0.2",
@@ -40,7 +40,7 @@
     "@types/enzyme": "^3.10.19",
     "@types/jest": "^29.5.12",
     "@types/jquery": "^3.5.30",
-    "@types/lodash": "^4.17.26",
+    "@types/lodash": "^4.17.27",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.1",
     "@types/seamless-immutable": "^7.1.19",
@@ -67,14 +67,14 @@
     "win-node-env": "^0.6.1"
   },
   "allowScripts": {
-    "@caweb/css-audit-webpack-plugin@2.1.6": true,
+    "@caweb/css-audit-webpack-plugin@2.1.7": true,
     "@parcel/watcher@2.6.0": true,
     "accessibility-checker@4.0.34": true,
-    "chromedriver@155.0.0": true,
-    "core-js@3.50.0": true,
+    "chromedriver@157.0.0": true,
+    "core-js@3.51.0": true,
     "esbuild@0.28.2": true,
-    "fs-ext-extra-prebuilt@2.2.7": true,
+    "fs-ext-extra-prebuilt@2.2.17": true,
     "fsevents@2.3.3": true,
-    "puppeteer@25.13.0": true
+    "puppeteer@25.16.0": true
   }
 }

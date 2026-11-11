@@ -45,10 +45,8 @@ export interface ModuleAttrs extends InternalAttrs {
 
   // Fields
   title?: {
-    innerContent?: FormatBreakpointStateAttr<{
-      text?: string;
-      level?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
-    }>;
+    innerContent?: FormatBreakpointStateAttr<string>;
+    decoration?: Element.Decoration.PickedAttributes<'font'>
   };
   
   
@@ -58,16 +56,14 @@ export interface ModuleAttrs extends InternalAttrs {
       repo_type?:string;
       access_token?:string;
       username?:string;
-      increase_rate_limit?: OnOff;
+      organization?:string;
+      rate_limit?: OnOff;
       client_id?:string;
       client_secret?:string;
-      request_email?:string;
+      email?:string;
       email_body?:string;
+      definitions?:string[];
     }>;
-  };
-
-  definitions?: {
-    innerContent?: FormatBreakpointStateAttr<string>;
   };
 
 }

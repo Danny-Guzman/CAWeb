@@ -5,10 +5,14 @@
                 "value": "Slide Title"
             }
         },
-        "advanced": {
-            "desktop": {
-                "value": {
-                    "size": "h2"
+        "decoration": {
+            "font": {
+                "font": {
+                    "desktop": {
+                        "value": {
+                            "headingLevel": "h2"
+                        }
+                    }
                 }
             }
         }
@@ -30,9 +34,9 @@
             }
         },
         "advanced": {
-            "desktop": {
-                "value": {
-                    "show": "off"
+            "show": {
+                "desktop": {
+                    "value": "off"
                 }
             }
         }

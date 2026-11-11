@@ -52,20 +52,14 @@ export const conversionOutline: ModuleConversionOutline = {
   },
   module: {
     slide_title: 'title.innerContent.*',
-    slide_title_size: 'title.advanced.*.size',
+    slide_title_size: 'title.decoration.font.font.*.headingLevel',
     
     slide_image: 'image.innerContent.*.src',
     slide_alt_text: 'image.innerContent.*.alt',
 
-    slide_show_more_button: 'button.advanced.*.show',
+    slide_show_more_button: 'button.advanced.show.*',
     slide_url: 'button.innerContent.*.linkUrl',
 
-    slide_desc: 'desc.innerContent.*',
-
-    module_text_shadow_style: 'module.advanced.text.textShadow.*.style',
-    module_text_shadow_horizontal_length: 'module.advanced.text.textShadow.*.horizontal',
-    module_text_shadow_vertical_length: 'module.advanced.text.textShadow.*.vertical',
-    module_text_shadow_blur_strength: 'module.advanced.text.textShadow.*.blur'
-  },
-  deprecatedMap: []
+    slide_desc: 'desc.innerContent.*'
+  }
 };

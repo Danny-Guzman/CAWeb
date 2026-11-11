@@ -37,7 +37,7 @@ class FullwidthSectionPrimary extends CAWebModule {
 	 * @return void
 	 */
 	public function load() {
-		$module_json_folder_path = CAWEB_DIVI_EXT_MODULES_JSON_PATH . 'FullwidthSectionPrimary/';
+		$module_json_folder_path = CAWEB_DIVI_EXT_MODULES_PATH . 'FullwidthSectionPrimary/';
 
 		add_action(
 			'init',

@@ -1,14 +1,14 @@
 {
   "name": "caweb/section-carousel",
   "d4Shortcode": "et_pb_ca_section_carousel",
-  "title": "Section - Carousel",
-  "titles": "Section - Carousels",
+  "title": "Section Carousel",
+  "titles": "Section Carousels",
   "moduleIcon": "caweb/module-logo",
   "moduleClassName": "et_pb_ca_section_carousel",
   "moduleOrderClassName": "et_pb_ca_section_carousel",
   "category": "module",
   "childModuleName": "caweb/section-carousel-slide",
-  "childModuleTitle": "Section Carousel Slide",
+  "childModuleTitle": "Carousel Slide",
   "childrenName": [
     "caweb/section-carousel-slide"
   ],
@@ -44,74 +44,11 @@
           "sticky": {}
         }
       }
-    },
-    "section": {
-      "type": "object",
-      "selector": "{{selector}}",
-      "settings": {
-        "innerContent": {
-          "groupType": "group-item",
-          "item": {
-              "groupSlug": "designStyle",
-              "render": true,
-              "attrName": "section.advanced",
-              "subName": "color",
-              "label": "Background Color",
-              "description": "Here you can define a custom background color for the section.",
-              "features": {
-                "responsive": false
-              },
-              "component": {
-                "type": "field",
-                "name": "divi/color-picker"
-              }
-            }
-        }
-      }
-    },
-
-    "content": {
-      "type": "object",
-      "selector": "{{selector}}",
-      "childrenSanitizer": "et_core_esc_previously",
-      "allowHtml": true,
-      "settings": {
-        "innerContent": {
-          "groupType": "group-item",
-          "item": {
-            "groupSlug": "body",
-            "render": true,
-            "attrName": "content.innerContent",
-            "label": "Content",
-            "description": "Here you can create the content that will be used within the panel.",
-            "features": {
-              "responsive": false
-            },
-            "component": {
-              "name": "divi/richtext",
-              "type": "field"
-            }
-          }
-        }
-      }
     }
   },
   "settings": {
     "content": "auto",
     "design": "auto",
-    "advanced": "auto",
-    "groups":{
-      "designStyle": {
-        "panel": "design",
-        "priority": 1,
-        "groupName": "designStyle",
-        "component": {
-            "name": "divi/composite",
-            "props": {
-              "groupLabel": "Style"
-            }
-          }
-      }
-    }
+    "advanced": "auto"
   }
 }

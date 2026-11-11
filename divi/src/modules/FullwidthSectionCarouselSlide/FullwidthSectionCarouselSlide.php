@@ -13,7 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use CAWeb\Modules\Utils\Module as CAWebModule;
-use CAWeb\Modules\FullwidthSectionCarouselSlide\ModuleTrait;
+
+// we use the standard modules traits
+use CAWeb\Modules\SectionCarouselSlide\ModuleTrait;
 
 use ET\Builder\Packages\ModuleLibrary\ModuleRegistration;
 
@@ -35,7 +37,7 @@ class FullwidthSectionCarouselSlide extends CAWebModule {
 	 * @return void
 	 */
 	public function load() {
-		$module_json_folder_path = CAWEB_DIVI_EXT_MODULES_JSON_PATH . 'FullwidthSectionCarouselSlide/';
+		$module_json_folder_path = CAWEB_DIVI_EXT_MODULES_PATH . 'FullwidthSectionCarouselSlide/';
 
 		add_action(
 			'init',

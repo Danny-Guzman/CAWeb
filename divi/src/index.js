@@ -31,10 +31,9 @@ import { CAWebModuleFullwidthSectionFooter, CAWebModuleFullwidthSectionFooterMet
 import { CAWebModuleFullwidthSectionFooterGroup, CAWebModuleFullwidthSectionFooterGroupMetadata } from './modules/FullwidthSectionFooterGroup/index.js';
 import { CAWebModuleFullwidthSectionCarousel, CAWebModuleFullwidthSectionCarouselMetadata } from './modules/FullwidthSectionCarousel/index.js';
 import { CAWebModuleFullwidthSectionCarouselSlide, CAWebModuleFullwidthSectionCarouselSlideMetadata } from './modules/FullwidthSectionCarouselSlide/index.js';
-import { CAWebModuleFullwidthServiceTiles, CAWebModuleFullwidthServiceTilesMetadata } from './modules/FullwidthServiceTiles/index.js';
-import { CAWebModuleFullwidthServiceTilesItem, CAWebModuleFullwidthServiceTilesItemMetadata } from './modules/FullwidthServiceTilesItem/index.js';
+import { CAWebModuleServiceTiles, CAWebModuleServiceTilesMetadata } from './modules/ServiceTiles/index.js';
+import { CAWebModuleServiceTilesItem, CAWebModuleServiceTilesItemMetadata } from './modules/ServiceTilesItem/index.js';
 
-//
 // import icon-library integration
 import './icons.js';
 
@@ -61,8 +60,8 @@ addAction('divi.moduleLibrary.registerModuleLibraryStore.after', 'cawebDiviExten
   registerModule(CAWebModuleFullwidthSectionFooterGroupMetadata, CAWebModuleFullwidthSectionFooterGroup);
   registerModule(CAWebModuleFullwidthSectionCarouselMetadata, CAWebModuleFullwidthSectionCarousel);
   registerModule(CAWebModuleFullwidthSectionCarouselSlideMetadata, CAWebModuleFullwidthSectionCarouselSlide);
-  registerModule(CAWebModuleFullwidthServiceTilesMetadata, CAWebModuleFullwidthServiceTiles);
-  registerModule(CAWebModuleFullwidthServiceTilesItemMetadata, CAWebModuleFullwidthServiceTilesItem);
+  registerModule(CAWebModuleServiceTilesMetadata, CAWebModuleServiceTiles);
+  registerModule(CAWebModuleServiceTilesItemMetadata, CAWebModuleServiceTilesItem);
 });
 
 

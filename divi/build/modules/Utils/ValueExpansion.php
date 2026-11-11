@@ -881,4 +881,75 @@ class ValueExpansion {
         return 'off' === $value ? 'float-start me-3' : 'float-end ms-3';
     }
 
+	/**
+	 * Replace the Github definitions value with the corresponding expanded value.
+	 *
+	 * @param mixed $value
+	 * @return mixed
+	 */
+	public static function replaceGithubDefinitions( $value ){
+		$definitions = array();
+
+		// explode the value by the '|' character 
+		foreach( explode('|', $value) as $i => $s ){
+			// if the value is on
+			if( 'on' === $s ) {
+				/**
+				 * definition position
+				 * Based on the definitions Module Field Setting
+				 * 
+				 * 0 - Project Title
+				 * 1 - Add Link to repositories (Public Repositories Only)
+				 * 2 - Description
+				 * 3 - Fork
+				 * 4 - Creation Date
+				 * 5 - Updated Date
+				 * 6 - Language
+				*/
+				switch($i){
+					case 0:
+						$definitions[] = 'name';
+						break;
+					case 1:
+						$definitions[] = 'link';
+						break;
+					case 2:
+						$definitions[] = 'description';
+						break;
+					case 3:
+						$definitions[] = 'fork';
+						break;
+					case 4:
+						$definitions[] = 'created_at';
+						break;
+					case 5:
+						$definitions[] = 'updated_at';
+						break;
+					case 6:
+						$definitions[] = 'language';
+						break;
+				}
+			}
+		}
+
+		return $definitions;
+	}
+
+	/**
+	 * Replace the Service Tile size value with the corresponding CSS class.
+	 *
+	 * @param string $value The size value for the service tile (e.g., 'quarter', 'half', 'full').
+	 * @return string
+	 */
+	public static function replaceServiceTileSize( $value ) {
+        switch( $value ) {
+            case 'half':
+                return 'w-50';
+            case 'full':
+                return 'w-100';
+            case 'quarter':
+            default:
+                return 'w-25';
+        }
+    }
 }

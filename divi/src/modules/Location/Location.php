@@ -35,7 +35,7 @@ class Location extends CAWebModule {
 	 * @return void
 	 */
 	public function load() {
-		$module_json_folder_path = CAWEB_DIVI_EXT_MODULES_JSON_PATH . 'Location/';
+		$module_json_folder_path = CAWEB_DIVI_EXT_MODULES_PATH . 'Location/';
 
 		add_action(
 			'init',

@@ -51,23 +51,22 @@ export const conversionOutline: ModuleConversionOutline = {
     title:         'css.*.title',
   },
   module: {
-    title:         'title.innerContent.*.text',
-    title_size: 'title.innerContent.*.level',
+    title:         'title.innerContent.*',
+    title_size: 'title.decoration.font.font.*.headingLevel',
 
     per_page: 'request.innerContent.*.per_page',
     repo_type: 'request.innerContent.*.repo_type',
     access_token:  'request.innerContent.*.access_token',
-    username: 'request.innerContent.*.username',
+    username: 'request.innerContent.*.organization',
     increase_rate_limit: 'request.innerContent.*.rate_limit',
     client_id:  'request.innerContent.*.client_id',
     client_secret:  'request.innerContent.*.client_secret',
     request_email: 'request.innerContent.*.email',
     email_body:    'request.innerContent.*.email_body',
-    definitions:          'definition.innerContent.*',
-
-    module_text_shadow_style: 'module.advanced.text.textShadow.*.style',
-    module_text_shadow_horizontal_length: 'module.advanced.text.textShadow.*.horizontal',
-    module_text_shadow_vertical_length: 'module.advanced.text.textShadow.*.vertical',
-    module_text_shadow_blur_strength: 'module.advanced.text.textShadow.*.blur'
+    definitions:    'request.innerContent.*.definitions',
+    
+  },
+  valueExpansionFunctionMap: {
+    definitions: "CAWeb\\Modules\\Utils\\ValueExpansion::replaceGithubDefinitions"
   }
 };

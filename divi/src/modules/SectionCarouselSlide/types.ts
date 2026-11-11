@@ -46,16 +46,14 @@ export interface ModuleAttrs extends InternalAttrs {
   // Fields
   title?: {
     innerContent?: FormatBreakpointStateAttr<string>;
-    advanced?: FormatBreakpointStateAttr<{
-      size?: string;
-    }>;
+    decoration?: Element.Decoration.PickedAttributes<'font'>;
   };
 
   button?: {
     innerContent?: Element.Types.Button.Attributes;
-    advanced?: FormatBreakpointStateAttr<{
-      show?: OnOff;
-    }>;
+    advanced?: {
+      show?: FormatBreakpointStateAttr<OnOff>;
+    };
   };
   
   image?: {

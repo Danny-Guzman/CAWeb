@@ -1,12 +1,12 @@
 <?php
 /**
- * FullwidthServiceTilesItem::module_script_data()
+ * ServiceTilesItem::module_script_data()
  *
- * @package CAWeb\Modules\FullwidthServiceTilesItem
+ * @package CAWeb\Modules\ServiceTilesItem
  * @since ??
  */
 
-namespace CAWeb\Modules\FullwidthServiceTilesItem\ModuleTrait;
+namespace CAWeb\Modules\ServiceTilesItem\ModuleTrait;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	die( 'Direct access forbidden.' );

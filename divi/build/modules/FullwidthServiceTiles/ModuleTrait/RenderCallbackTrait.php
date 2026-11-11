@@ -1,12 +1,12 @@
 <?php
 /**
- * FullwidthServiceTiles::render_callback()
+ * ServiceTiles::render_callback()
  *
- * @package CAWeb\Modules\FullwidthServiceTiles
+ * @package CAWeb\Modules\ServiceTiles
  * @since ??
  */
 
-namespace CAWeb\Modules\FullwidthServiceTiles\ModuleTrait;
+namespace CAWeb\Modules\ServiceTiles\ModuleTrait;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	die( 'Direct access forbidden.' );
@@ -35,7 +35,7 @@ trait RenderCallbackTrait {
 	 * @param \WP_Block      $block            Parsed block object that being rendered.
 	 * @param ModuleElements $elements ModuleElements instance.
 	 *
-	 * @return string HTML rendered of FullwidthServiceTiles module.
+	 * @return string HTML rendered of ServiceTiles module.
 	 */
 	public static function render_callback( $attrs, $content, $block, $elements ) {
 		$children_ids = $block->parsed_block['innerBlocks'] ? array_map(

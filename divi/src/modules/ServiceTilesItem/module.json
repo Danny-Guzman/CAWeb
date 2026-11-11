@@ -1,0 +1,232 @@
+{
+  "name": "caweb/service-tiles-item",
+  "d4Shortcode": "et_pb_ca_fullwidth_service_tiles_item",
+  "title": "Service Tiles Item",
+  "titles": "Service Tiles Items",
+  "moduleIcon": "caweb/module-logo",
+  "moduleClassName": "et_pb_ca_service_tiles_item",
+  "moduleOrderClassName": "et_pb_ca_service_tiles_item",
+  "category": "child-module",
+  "attributes": {
+    "module": {
+      "type": "object",
+      "selector": "{{selector}}",
+      "settings": {
+        "meta": {
+          "adminLabel": {}
+        },
+        "advanced": {
+          "link": {},
+          "text": {},
+          "htmlAttributes": {}
+        },
+        "decoration": {
+          "background": {},
+          "bodyFont": {},
+          "sizing": {},
+          "spacing": {},
+          "border": {},
+          "boxShadow": {},
+          "filters": {},
+          "transform": {},
+          "animation": {},
+          "overflow": {},
+          "disabledOn": {},
+          "transition": {},
+          "position": {},
+          "zIndex": {},
+          "scroll": {},
+          "sticky": {}
+        }
+      }
+    },
+ 
+    "title": {
+      "type": "object",
+      "elementType": "heading",
+      "selector": "{{selector}}",
+      "childrenSanitizer": "et_core_esc_previously",
+      "settings": {
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+            "render": true,
+            "attrName": "title.innerContent",
+            "label": "Title",
+            "description": "Define the title for the tile.",
+            "groupSlug": "header",
+            "features": {
+              "responsive": false
+            },
+            "component": {
+              "name": "divi/text",
+              "type": "field"
+            }
+          }
+        }
+      }
+    },
+
+    "tile": {
+      "type": "object",
+      "selector": "{{selector}}",
+      "childrenSanitizer": "et_core_esc_previously",
+      "settings": {
+        "innerContent": {
+          "groupType": "group-items",
+          "items": {
+            "size": {
+              "groupSlug": "tile",
+              "render": true,
+              "priority": 1,
+              "attrName": "tile.innerContent",
+              "subName": "size",
+              "label": "Size",
+              "description": "Here you can choose the size of the tile.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/select",
+                "type": "field",
+                "props": {
+                  "options": {
+                    "w-25": {
+                      "label": "Quarter",
+                      "value": "w-25"
+                    },
+                    "w-50": {
+                      "label": "Half",
+                      "value": "w-50"
+                    },
+                    "w-100": {
+                      "label": "Full",
+                      "value": "w-100"
+                    }
+                  }
+                }
+              }
+            },
+            "show": {
+              "groupSlug": "tile",
+              "render": true,
+              "attrName": "tile.innerContent",
+              "subName": "show",
+              "label": "Link to URL",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/toggle",
+                "type": "field"
+              }
+            },
+            "url": {
+              "groupSlug": "tile",
+              "render": true,
+              "attrName": "tile.innerContent",
+              "subName": "url",
+              "label": "URL",
+              "description": "Define the URL for the tile.",
+              "features": {
+                "responsive": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "image": {
+      "type": "object",
+      "elementType": "image",
+      "selector": "{{selector}}",
+      "childrenSanitizer": "et_core_esc_previously",
+      "settings": {
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+            "render": true,
+            "label": "Image",
+            "attrName": "image.innerContent",
+            "description": "Define the image for the tile.",
+            "groupSlug": "tile",
+            "features": {
+              "responsive": false
+            },
+            "component": {
+              "name": "divi/upload",
+              "type": "field"
+            }
+          }
+        }
+      }
+    },
+
+    "content": {
+      "type": "object",
+      "inlineEditor": "richText",
+      "selector": "{{selector}}",
+      "attributes": {
+        "class": "group"
+      },
+      "allowHtml": true,
+      "childrenSanitizer": "et_core_esc_previously",
+      "settings": {
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+            "groupSlug": "tile",
+            "render": true,
+            "attrName": "content.innerContent",
+            "label": "Tile Content",
+            "description": "Define the text for the tile content.",
+            "features": {
+              "responsive": false
+            },
+            "component": {
+              "name": "divi/richtext",
+              "type": "field"
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "settings": {
+    "design": "auto",
+    "advanced": "auto",
+    "groups":{
+      "header": {
+        "panel": "content",
+        "priority": 1,
+        "groupName": "header",
+        "multiElements": true,
+        "component": {
+            "name": "divi/composite",
+            "props": {
+              "groupLabel": "Header"
+            }
+          }
+      },
+
+      "tile": {
+        "panel": "content",
+        "priority": 2,
+        "groupName": "tile",
+        "multiElements": true,
+        "component": {
+            "name": "divi/composite",
+            "props": {
+              "groupLabel": "Tile"
+            }
+          }
+      }
+    }
+  }
+}

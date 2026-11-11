@@ -35,7 +35,7 @@ class Card extends CAWebModule {
 	 * @return void
 	 */
 	public function load() {
-		$module_json_folder_path = CAWEB_DIVI_EXT_MODULES_JSON_PATH . 'Card/';
+		$module_json_folder_path = CAWEB_DIVI_EXT_MODULES_PATH . 'Card/';
 
 		add_action(
 			'init',

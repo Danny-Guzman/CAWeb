@@ -43,7 +43,6 @@
 
     "title": {
       "type": "object",
-      "inlineEditor": "plainText",
       "elementType": "heading",
       "selector": "{{selector}}",
       "childrenSanitizer": "et_core_esc_previously",

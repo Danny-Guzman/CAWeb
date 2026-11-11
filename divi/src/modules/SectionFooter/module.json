@@ -1,14 +1,14 @@
 {
   "name": "caweb/section-footer",
   "d4Shortcode": "et_pb_ca_section_footer",
-  "title": "Section - Footer",
-  "titles": "Section - Footers",
+  "title": "Section Footer",
+  "titles": "Section Footers",
   "moduleIcon": "caweb/module-logo",
   "moduleClassName": "et_pb_ca_section_footer",
   "moduleOrderClassName": "et_pb_ca_section_footer",
   "category": "module",
   "childModuleName": "caweb/section-footer-group",
-  "childModuleTitle": "Section Footer Group",
+  "childModuleTitle": "Footer Group",
   "childrenName": [
     "caweb/section-footer-group"
   ],
@@ -26,9 +26,7 @@
           "htmlAttributes": {}
         },
         "decoration": {
-          "background": {
-            "panel": "design"
-          },
+          "background": {},
           "bodyFont": {},
           "sizing": {},
           "spacing": {},

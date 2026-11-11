@@ -35,7 +35,7 @@ class ProfileBanner extends CAWebModule {
 	 * @return void
 	 */
 	public function load() {
-		$module_json_folder_path = CAWEB_DIVI_EXT_MODULES_JSON_PATH . 'ProfileBanner/';
+		$module_json_folder_path = CAWEB_DIVI_EXT_MODULES_PATH . 'ProfileBanner/';
 
 		add_action(
 			'init',

@@ -35,8 +35,9 @@ class Github extends CAWebModule {
 	 * @return void
 	 */
 	public function load() {
-		$module_json_folder_path = CAWEB_DIVI_EXT_MODULES_JSON_PATH . 'Github/';
+		$module_json_folder_path = CAWEB_DIVI_EXT_MODULES_PATH . 'Github/';
 
+		// Register the module with Divi
 		add_action(
 			'init',
 			function() use ( $module_json_folder_path ) {
@@ -48,5 +49,25 @@ class Github extends CAWebModule {
 				);
 			}
 		);
+
+		// Add action to enqueue the GitHub module script
+		add_action(
+			'wp_enqueue_scripts',
+			function() {
+				wp_register_script( 'caweb-github-module', CAWEB_DIVI_EXT_MODULES_URL . 'Github/github.js' );
+
+				wp_localize_script(
+					'caweb-github-module',
+					'caweb_github_module_params',
+					array(
+						'ajax_url' => admin_url( 'admin-ajax.php' ),
+						'nonce'    => wp_create_nonce( 'caweb_github_module_repo_request' )
+					)
+				);
+
+				wp_enqueue_script( 'caweb-github-module' );
+			}
+		);
+
 	}
 }

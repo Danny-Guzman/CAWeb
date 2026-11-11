@@ -32,8 +32,6 @@ trait ModuleClassnamesTrait {
 		$classnames_instance = $args['classnamesInstance'];
 		$attrs               = $args['attrs'];
 
-		$classnames_instance->add( 'section', true );
-
 		$text_options_classnames = TextClassnames::text_options_classnames( $attrs['module']['advanced']['text'] ?? [] );
 
 		if ( $text_options_classnames ) {

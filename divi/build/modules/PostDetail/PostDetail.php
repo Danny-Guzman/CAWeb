@@ -34,7 +34,7 @@ class PostDetail extends CAWebModule {
 	 * @return void
 	 */
 	public function load() {
-		$module_json_folder_path = CAWEB_DIVI_EXT_MODULES_JSON_PATH . 'PostDetail/';
+		$module_json_folder_path = CAWEB_DIVI_EXT_MODULES_PATH . 'PostDetail/';
 
 		add_action(
 			'init',

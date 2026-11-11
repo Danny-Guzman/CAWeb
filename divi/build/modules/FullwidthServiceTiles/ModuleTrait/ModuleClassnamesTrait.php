@@ -1,12 +1,12 @@
 <?php
 /**
- * FullwidthServiceTiles::module_classnames().
+ * ServiceTiles::module_classnames().
  *
- * @package CAWeb\Modules\FullwidthServiceTiles
+ * @package CAWeb\Modules\ServiceTiles
  * @since ??
  */
 
-namespace CAWeb\Modules\FullwidthServiceTiles\ModuleTrait;
+namespace CAWeb\Modules\ServiceTiles\ModuleTrait;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	die( 'Direct access forbidden.' );
@@ -17,7 +17,7 @@ use ET\Builder\Packages\Module\Options\Text\TextClassnames;
 trait ModuleClassnamesTrait {
 
 	/**
-	 * Module classnames function for FullwidthServiceTiles module.
+	 * Module classnames function for ServiceTiles module.
 	 *
 	 * @since ??
 	 *

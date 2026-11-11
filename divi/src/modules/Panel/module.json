@@ -136,6 +136,9 @@
                 "fieldLabel": "",
                 "groupLabel": "Header",
                 "fields": {
+                  "headingLevel": {
+                    "render": false
+                  },
                   "family": {
                     "render": false
                   },

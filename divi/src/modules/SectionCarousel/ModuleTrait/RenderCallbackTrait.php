@@ -45,18 +45,24 @@ trait RenderCallbackTrait {
 			$block->parsed_block['innerBlocks']
 		) : [];
 
-		$parent       = BlockParserStore::get_parent( $block->parsed_block['id'], $block->parsed_block['storeInstance'] );
-		$parent_attrs = $parent->attrs ?? [];
+		$htmlAttrs = ModuleUtils::get_attr_value( array(
+			'attr' => $attrs['module']['advanced']['htmlAttributes'],
+			'breakpoint' => 'desktop',
+			'state' => 'value'
+		))['id'];
+
+		$module_id = isset( $htmlAttrs['id'] ) && ! empty( $htmlAttrs['id'] ) ? $htmlAttrs['id'] : ModuleUtils::get_module_order_class_name($block->parsed_block['id']); 
 
 		$indicators = array();
-
+		
 		foreach( $children_ids as $index => $child_id ) {
+			
 			$indicators[] = HTMLUtility::render(array(
 				'tag' => 'button',
 				'attributes' => array(
 					'type' => 'button',
-					'data-bs-target' => "#$child_id",
-					'data-bs-slide-to' => $child_id,
+					'data-bs-target' => "#{$module_id}",
+					'data-bs-slide-to' => $index,
 					'aria-label' => "Slide $index",
 					'class' => ! $index ? 'active' : '',
 					'aria-current' => ! $index ? 'true' : '',
@@ -98,7 +104,7 @@ trait RenderCallbackTrait {
 			'attributes' => array(
 				'class' => 'carousel-control-prev',
 				'type' => 'button',
-				'data-bs-target' => "#{$block->parsed_block['id']}",
+				'data-bs-target' => "#{$module_id}",
 				'data-bs-slide' => 'prev',
 			),
 			'childrenSanitizer' => [self::class, 'sanitize_html'],
@@ -123,7 +129,7 @@ trait RenderCallbackTrait {
 			'attributes' => array(
 				'class' => 'carousel-control-next',
 				'type' => 'button',
-				'data-bs-target' => "#{$block->parsed_block['id']}",
+				'data-bs-target' => "#{$module_id}",
 				'data-bs-slide' => 'next',
 			),
 			'childrenSanitizer' => [self::class, 'sanitize_html'],
@@ -155,6 +161,7 @@ trait RenderCallbackTrait {
 				'attrs'               => $attrs,
 				'elements'            => $elements,
 				'htmlAttrs'           => array(
+					'id' => $module_id,
 					'data-bs-ride' => 'carousel',
 				),
 				'classnamesFunction'  => [ self::class, 'module_classnames' ],
@@ -162,9 +169,9 @@ trait RenderCallbackTrait {
 				'scriptDataComponent' => [ self::class, 'module_script_data' ],
 
 				// parent attrs
-				'parentAttrs'         => $parent_attrs,
-				'parentId'            => $parent->id ?? '',
-				'parentName'          => $parent->blockName ?? '',
+				// 'parentAttrs'         => $parent_attrs,
+				// 'parentId'            => $parent->id ?? '',
+				// 'parentName'          => $parent->blockName ?? '',
 
 				'children'            => $inner_content,
 				'childrenIds'         => $children_ids,
