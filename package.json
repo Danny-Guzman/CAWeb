@@ -9,11 +9,11 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@caweb/cli": "^1.18.2",
-    "@caweb/icon-library": "^1.2.0",
+    "@caweb/cli": "^1.18.5",
+    "@caweb/icon-library": "^1.2.1",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.8",
-    "bootstrap-icons": "^1.13.1"
+    "bootstrap-icons": "^1.13.2"
   },
   "scripts": {
     "caweb": "caweb",
@@ -29,13 +29,13 @@
     "build:divi:dev": "cd divi && npm run build:dev"
   },
   "allowScripts": {
-    "@caweb/css-audit-webpack-plugin@2.1.6": true,
+    "@caweb/css-audit-webpack-plugin@2.1.7": true,
     "@parcel/watcher@2.6.0": true,
     "accessibility-checker@4.0.34": true,
-    "chromedriver@154.0.1": true,
-    "core-js@3.50.0": true,
-    "fs-ext-extra-prebuilt@2.2.7": true,
-    "puppeteer@25.12.0": true,
+    "chromedriver@157.0.1": true,
+    "core-js@3.51.0": true,
+    "fs-ext-extra-prebuilt@2.2.17": true,
+    "puppeteer@25.17.0": true,
     "fsevents@2.3.3": true
   }
 }
