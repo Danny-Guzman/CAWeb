@@ -23,6 +23,8 @@ use CAWeb\Modules\SectionFooter\SectionFooter;
 use CAWeb\Modules\SectionFooterGroup\SectionFooterGroup;
 use CAWeb\Modules\SectionCarousel\SectionCarousel;
 use CAWeb\Modules\SectionCarouselSlide\SectionCarouselSlide;
+use CAWeb\Modules\ServiceTiles\ServiceTiles;
+use CAWeb\Modules\ServiceTilesItem\ServiceTilesItem;
 use CAWeb\Modules\PostList\PostList;
 use CAWeb\Modules\PostDetail\PostDetail;
 
@@ -33,8 +35,6 @@ use CAWeb\Modules\FullwidthSectionFooter\FullwidthSectionFooter;
 use CAWeb\Modules\FullwidthSectionFooterGroup\FullwidthSectionFooterGroup;
 use CAWeb\Modules\FullwidthSectionCarousel\FullwidthSectionCarousel;
 use CAWeb\Modules\FullwidthSectionCarouselSlide\FullwidthSectionCarouselSlide;
-use CAWeb\Modules\FullwidthServiceTiles\FullwidthServiceTiles;
-use CAWeb\Modules\FullwidthServiceTilesItem\FullwidthServiceTilesItem;
 
 add_action(
 	'divi_module_library_modules_dependency_tree',
@@ -51,6 +51,8 @@ add_action(
 		$dependency_tree->add_dependency( new SectionFooterGroup() );
 		$dependency_tree->add_dependency( new SectionCarousel() );
 		$dependency_tree->add_dependency( new SectionCarouselSlide() );
+		$dependency_tree->add_dependency( new ServiceTiles() );
+		$dependency_tree->add_dependency( new ServiceTilesItem() );
 		$dependency_tree->add_dependency( new PostList() );
 		$dependency_tree->add_dependency( new PostDetail() );
 
@@ -61,7 +63,5 @@ add_action(
 		$dependency_tree->add_dependency( new FullwidthSectionFooterGroup() );
 		$dependency_tree->add_dependency( new FullwidthSectionCarousel() );
 		$dependency_tree->add_dependency( new FullwidthSectionCarouselSlide() );
-		$dependency_tree->add_dependency( new FullwidthServiceTiles() );
-		$dependency_tree->add_dependency( new FullwidthServiceTilesItem() );
 	}
 );

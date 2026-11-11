@@ -7322,26 +7322,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _get_query_args_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/@wordpress/url/build-module/get-query-args.mjs");
 /* harmony import */ var _build_query_string_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/@wordpress/url/build-module/build-query-string.mjs");
 /* harmony import */ var _get_fragment_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./node_modules/@wordpress/url/build-module/get-fragment.mjs");
+
+
+
 // packages/url/src/add-query-args.ts
-
-
-
+/**
+* Appends arguments as querystring to the provided URL. If the URL already
+* includes query arguments, the arguments are merged with (and take precedent
+* over) the existing set.
+*
+* @param url  URL to which arguments should be appended. If omitted,
+*             only the resulting querystring is returned.
+* @param args Query arguments to apply to URL.
+*
+* @example
+* ```js
+* const newURL = addQueryArgs( 'https://google.com', { q: 'test' } ); // https://google.com/?q=test
+* ```
+*
+* @return URL with arguments applied.
+*/
 function addQueryArgs(url = "", args) {
-  if (!args || !Object.keys(args).length) {
-    return url;
-  }
-  const fragment = (0,_get_fragment_mjs__WEBPACK_IMPORTED_MODULE_2__.getFragment)(url) || "";
-  let baseUrl = url.replace(fragment, "");
-  const queryStringIndex = url.indexOf("?");
-  if (queryStringIndex !== -1) {
-    args = Object.assign((0,_get_query_args_mjs__WEBPACK_IMPORTED_MODULE_0__.getQueryArgs)(url), args);
-    baseUrl = baseUrl.substr(0, queryStringIndex);
-  }
-  return baseUrl + "?" + (0,_build_query_string_mjs__WEBPACK_IMPORTED_MODULE_1__.buildQueryString)(args) + fragment;
+	if (!args || !Object.keys(args).length) return url;
+	const fragment = (0,_get_fragment_mjs__WEBPACK_IMPORTED_MODULE_2__.getFragment)(url) || "";
+	let baseUrl = url.replace(fragment, "");
+	const queryStringIndex = url.indexOf("?");
+	if (queryStringIndex !== -1) {
+		args = Object.assign((0,_get_query_args_mjs__WEBPACK_IMPORTED_MODULE_0__.getQueryArgs)(url), args);
+		baseUrl = baseUrl.substr(0, queryStringIndex);
+	}
+	return baseUrl + "?" + (0,_build_query_string_mjs__WEBPACK_IMPORTED_MODULE_1__.buildQueryString)(args) + fragment;
 }
 
-//# sourceMappingURL=add-query-args.mjs.map
 
+//# sourceMappingURL=add-query-args.mjs.map
 
 /***/ },
 
@@ -7354,30 +7368,49 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   buildQueryString: () => (/* binding */ buildQueryString)
 /* harmony export */ });
 // packages/url/src/build-query-string.ts
+/**
+* Generates URL-encoded query string using input query data.
+*
+* It is intended to behave equivalent as PHP's `http_build_query`, configured
+* with encoding type PHP_QUERY_RFC3986 (spaces as `%20`).
+*
+* @example
+* ```js
+* const queryString = buildQueryString( {
+*    simple: 'is ok',
+*    arrays: [ 'are', 'fine', 'too' ],
+*    objects: {
+*       evenNested: {
+*          ok: 'yes',
+*       },
+*    },
+* } );
+* // "simple=is%20ok&arrays%5B0%5D=are&arrays%5B1%5D=fine&arrays%5B2%5D=too&objects%5BevenNested%5D%5Bok%5D=yes"
+* ```
+*
+* @param data Data to encode.
+*
+* @return Query string.
+*/
 function buildQueryString(data) {
-  let string = "";
-  const stack = Object.entries(data);
-  let pair;
-  while (pair = stack.shift()) {
-    let [key, value] = pair;
-    const hasNestedData = Array.isArray(value) || value && value.constructor === Object;
-    if (hasNestedData) {
-      const valuePairs = Object.entries(value).reverse();
-      for (const [member, memberValue] of valuePairs) {
-        stack.unshift([`${key}[${member}]`, memberValue]);
-      }
-    } else if (value !== void 0) {
-      if (value === null) {
-        value = "";
-      }
-      string += "&" + [key, String(value)].map(encodeURIComponent).join("=");
-    }
-  }
-  return string.substr(1);
+	let string = "";
+	const stack = Object.entries(data);
+	let pair;
+	while (pair = stack.shift()) {
+		let [key, value] = pair;
+		if (Array.isArray(value) || value && value.constructor === Object) {
+			const valuePairs = Object.entries(value).reverse();
+			for (const [member, memberValue] of valuePairs) stack.unshift([`${key}[${member}]`, memberValue]);
+		} else if (value !== void 0) {
+			if (value === null) value = "";
+			string += "&" + [key, String(value)].map(encodeURIComponent).join("=");
+		}
+	}
+	return string.substr(1);
 }
 
-//# sourceMappingURL=build-query-string.mjs.map
 
+//# sourceMappingURL=build-query-string.mjs.map
 
 /***/ },
 
@@ -7390,15 +7423,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   getFragment: () => (/* binding */ getFragment)
 /* harmony export */ });
 // packages/url/src/get-fragment.ts
+/**
+* Returns the fragment part of the URL.
+*
+* @param url The full URL
+*
+* @example
+* ```js
+* const fragment1 = getFragment( 'http://localhost:8080/this/is/a/test?query=true#fragment' ); // '#fragment'
+* const fragment2 = getFragment( 'https://wordpress.org#another-fragment?query=true' ); // '#another-fragment'
+* ```
+*
+* @return The fragment part of the URL.
+*/
 function getFragment(url) {
-  const matches = /^\S+?(#[^\s\?]*)/.exec(url);
-  if (matches) {
-    return matches[1];
-  }
+	const matches = /^\S+?(#[^\s\?]*)/.exec(url);
+	if (matches) return matches[1];
 }
 
-//# sourceMappingURL=get-fragment.mjs.map
 
+//# sourceMappingURL=get-fragment.mjs.map
 
 /***/ },
 
@@ -7412,53 +7456,63 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _safe_decode_uri_component_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/@wordpress/url/build-module/safe-decode-uri-component.mjs");
 /* harmony import */ var _get_query_string_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/@wordpress/url/build-module/get-query-string.mjs");
+
+
 // packages/url/src/get-query-args.ts
-
-
+/**
+* Sets a value in object deeply by a given array of path segments. Mutates the
+* object reference.
+*
+* @param object Object in which to assign.
+* @param path   Path segment at which to set value.
+* @param value  Value to set.
+*/
 function setPath(object, path, value) {
-  const length = path.length;
-  const lastIndex = length - 1;
-  for (let i = 0; i < length; i++) {
-    let key = path[i];
-    if (!key && Array.isArray(object)) {
-      key = object.length.toString();
-    }
-    key = ["__proto__", "constructor", "prototype"].includes(key) ? key.toUpperCase() : key;
-    const isNextKeyArrayIndex = !isNaN(Number(path[i + 1]));
-    object[key] = i === lastIndex ? (
-      // If at end of path, assign the intended value.
-      value
-    ) : (
-      // Otherwise, advance to the next object in the path, creating
-      // it if it does not yet exist.
-      object[key] || (isNextKeyArrayIndex ? [] : {})
-    );
-    if (Array.isArray(object[key]) && !isNextKeyArrayIndex) {
-      object[key] = { ...object[key] };
-    }
-    object = object[key];
-  }
+	const length = path.length;
+	const lastIndex = length - 1;
+	for (let i = 0; i < length; i++) {
+		let key = path[i];
+		if (!key && Array.isArray(object)) key = object.length.toString();
+		key = [
+			"__proto__",
+			"constructor",
+			"prototype"
+		].includes(key) ? key.toUpperCase() : key;
+		const isNextKeyArrayIndex = !isNaN(Number(path[i + 1]));
+		object[key] = i === lastIndex ? value : object[key] || (isNextKeyArrayIndex ? [] : {});
+		if (Array.isArray(object[key]) && !isNextKeyArrayIndex) object[key] = { ...object[key] };
+		object = object[key];
+	}
 }
+/**
+* Returns an object of query arguments of the given URL. If the given URL is
+* invalid or has no querystring, an empty object is returned.
+*
+* @param url URL.
+*
+* @example
+* ```js
+* const foo = getQueryArgs( 'https://wordpress.org?foo=bar&bar=baz' );
+* // { "foo": "bar", "bar": "baz" }
+* ```
+*
+* @return Query args object.
+*/
 function getQueryArgs(url) {
-  return ((0,_get_query_string_mjs__WEBPACK_IMPORTED_MODULE_1__.getQueryString)(url) || "").replace(/\+/g, "%20").split("&").reduce((accumulator, keyValue) => {
-    const separatorIndex = keyValue.indexOf("=");
-    const hasValue = separatorIndex !== -1;
-    const key = (0,_safe_decode_uri_component_mjs__WEBPACK_IMPORTED_MODULE_0__.safeDecodeURIComponent)(
-      hasValue ? keyValue.slice(0, separatorIndex) : keyValue
-    );
-    if (key) {
-      const value = hasValue ? (0,_safe_decode_uri_component_mjs__WEBPACK_IMPORTED_MODULE_0__.safeDecodeURIComponent)(
-        keyValue.slice(separatorIndex + 1)
-      ) : "";
-      const segments = key.replace(/\]/g, "").split("[");
-      setPath(accumulator, segments, value);
-    }
-    return accumulator;
-  }, /* @__PURE__ */ Object.create(null));
+	return ((0,_get_query_string_mjs__WEBPACK_IMPORTED_MODULE_1__.getQueryString)(url) || "").replace(/\+/g, "%20").split("&").reduce((accumulator, keyValue) => {
+		const separatorIndex = keyValue.indexOf("=");
+		const hasValue = separatorIndex !== -1;
+		const key = (0,_safe_decode_uri_component_mjs__WEBPACK_IMPORTED_MODULE_0__.safeDecodeURIComponent)(hasValue ? keyValue.slice(0, separatorIndex) : keyValue);
+		if (key) {
+			const value = hasValue ? (0,_safe_decode_uri_component_mjs__WEBPACK_IMPORTED_MODULE_0__.safeDecodeURIComponent)(keyValue.slice(separatorIndex + 1)) : "";
+			setPath(accumulator, key.replace(/\]/g, "").split("["), value);
+		}
+		return accumulator;
+	}, Object.create(null));
 }
+
 
 //# sourceMappingURL=get-query-args.mjs.map
-
 
 /***/ },
 
@@ -7471,19 +7525,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   getQueryString: () => (/* binding */ getQueryString)
 /* harmony export */ });
 // packages/url/src/get-query-string.ts
+/**
+* Returns the query string part of the URL.
+*
+* @param url The full URL.
+*
+* @example
+* ```js
+* const queryString = getQueryString( 'http://localhost:8080/this/is/a/test?query=true#fragment' ); // 'query=true'
+* ```
+*
+* @return The query string part of the URL.
+*/
 function getQueryString(url) {
-  let query;
-  try {
-    query = new URL(url, "http://example.com").search.substring(1);
-  } catch {
-  }
-  if (query) {
-    return query;
-  }
+	let query;
+	try {
+		query = new URL(url, "http://example.com").search.substring(1);
+	} catch {}
+	if (query) return query;
 }
 
-//# sourceMappingURL=get-query-string.mjs.map
 
+//# sourceMappingURL=get-query-string.mjs.map
 
 /***/ },
 
@@ -7496,16 +7559,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   safeDecodeURIComponent: () => (/* binding */ safeDecodeURIComponent)
 /* harmony export */ });
 // packages/url/src/safe-decode-uri-component.ts
+/**
+* Safely decodes a URI component with `decodeURIComponent`. Returns the URI component unmodified if
+* `decodeURIComponent` throws an error.
+*
+* @param uriComponent URI component to decode.
+*
+* @return Decoded URI component if possible.
+*/
 function safeDecodeURIComponent(uriComponent) {
-  try {
-    return decodeURIComponent(uriComponent);
-  } catch {
-    return uriComponent;
-  }
+	try {
+		return decodeURIComponent(uriComponent);
+	} catch {
+		return uriComponent;
+	}
 }
 
-//# sourceMappingURL=safe-decode-uri-component.mjs.map
 
+//# sourceMappingURL=safe-decode-uri-component.mjs.map
 
 /***/ },
 
