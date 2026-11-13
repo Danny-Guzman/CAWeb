@@ -5,9 +5,8 @@ export default {
     // Webpack starts bundling the assets from the following file.
     // @see https://webpack.js.org/concepts/#entry
     entry: {
-        bundle4: './divi-4/src/index.js',
-        bundle: './src/index.js',
-        // admin: './src/styles/_icons.scss',
+        modules4: './divi-4/src/index.js',
+        builder: './src/backend.js',
     },
     
     externals: {

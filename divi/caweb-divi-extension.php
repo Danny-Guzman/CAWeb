@@ -35,9 +35,22 @@ define( 'CAWEB_DIVI_EXT_URL', site_url( preg_replace( '/(.*)\/wp-content/', '/wp
 define( 'CAWEB_DIVI_EXT_MODULES_PATH', CAWEB_DIVI_EXT_DIR . 'src/modules/' );
 define( 'CAWEB_DIVI_EXT_MODULES_URL', CAWEB_DIVI_EXT_URL . 'src/modules/' );
 
+/**
+ * Requires Autoloader.
+ */
+require CAWEB_DIVI_EXT_DIR . 'vendor/autoload.php';
+require CAWEB_DIVI_EXT_DIR . 'build/icons/icons.php';
+require CAWEB_DIVI_EXT_DIR . 'build/modules/modules.php';
+
+// Load Divi 4 modules.
+require_once CAWEB_DIVI_EXT_DIR . 'divi-4/divi-4.php';
+
 /** Divi 5 Actions */
 add_action( 'divi_visual_builder_assets_before_enqueue_scripts', 'caweb_divi_extension_module_enqueue_vb_scripts' );
 add_filter('divi.conversion.moduleLibrary.conversionMap', 'changeValueExpansionFunctionMap', 20);
+
+// CAWeb Overrides
+
 
 function changeValueExpansionFunctionMap($map) {
 	// iterate all modules and their value expansion function maps
@@ -55,13 +68,6 @@ function changeValueExpansionFunctionMap($map) {
 }
 
 /**
- * Requires Autoloader.
- */
-require CAWEB_DIVI_EXT_DIR . 'vendor/autoload.php';
-require CAWEB_DIVI_EXT_DIR . 'build/icons/icons.php';
-require CAWEB_DIVI_EXT_DIR . 'build/modules/modules.php';
-
-/**
  * Enqueue style and scripts of Module Extension Example for Visual Builder.
  *
  * @since ??
@@ -71,10 +77,10 @@ function caweb_divi_extension_module_enqueue_vb_scripts() {
 
 		\ET\Builder\VisualBuilder\Assets\PackageBuildManager::register_package_build(
 			[
-				'name'   => 'caweb-divi-extension-modules-builder-bundle-script',
+				'name'   => 'caweb-divi-extension-modules-builder',
 				'version' => '1.0.0',
 				'script' => [
-					'src' => CAWEB_DIVI_EXT_URL . "build/bundle.js",
+					'src' => CAWEB_DIVI_EXT_URL . "build/builder.js",
 					'deps'               => [
 						// 'lodash', 'react', 'wp-api-fetch', 'wp-hooks', 'wp-i18n', 'wp-url',
 						// 'wp-hooks',
@@ -113,18 +119,28 @@ function caweb_divi_extension_module_enqueue_vb_scripts() {
 
 		\ET\Builder\VisualBuilder\Assets\PackageBuildManager::register_package_build(
 			[
-				'name'   => 'caweb-divi-extension-modules-builder-vb-bundle-style',
+				'name'   => 'caweb-divi-extension-modules-builder-vb',
 				'version' => '1.0.0',
 				'style' => [
-					'src' => CAWEB_DIVI_EXT_URL . "build/bundle.css",
+					'src' => CAWEB_DIVI_EXT_URL . "build/builder.css",
 					'deps'               => [],
 					'enqueue_top_window' => false,
 					'enqueue_app_window' => true,
 				],
 			]
 		);
+
+		\ET\Builder\VisualBuilder\Assets\PackageBuildManager::register_package_build(
+			[
+				'name'   => 'caweb-divi-extension-modules-builder',
+				'version' => '1.0.0',
+				'style' => [
+					'src' => CAWEB_DIVI_EXT_URL . "build/style-builder.css",
+					'deps'               => [],
+					'enqueue_top_window' => true,
+					'enqueue_app_window' => false,
+				],
+			]
+		);
 	}
 }
-
-// Load Divi 4 modules.
-require_once CAWEB_DIVI_EXT_DIR . 'divi-4/divi-4.php';

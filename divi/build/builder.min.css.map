@@ -1,0 +1,1 @@
+{"version":3,"file":"builder.min.css","mappings":"AACA,cAEI","sources":["webpack://caweb-divi-extension/./src/styles/builder.scss"],"sourcesContent":["// we remove the header/footer from rendering in the builder\nheader,\nfooter {\n    display: none;\n}"],"names":[],"sourceRoot":""}

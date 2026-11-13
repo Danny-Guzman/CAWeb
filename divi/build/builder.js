@@ -6996,7 +6996,17 @@ const conversionOutline = {
 
 /***/ },
 
-/***/ "./src/styles/_builder.scss"
+/***/ "./src/styles/builder.scss"
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ },
+
+/***/ "./src/styles/style.scss"
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7577,6 +7587,27 @@ function safeDecodeURIComponent(uriComponent) {
 
 
 //# sourceMappingURL=safe-decode-uri-component.mjs.map
+
+/***/ },
+
+/***/ "./src/backend.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _styles_builder_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/styles/builder.scss");
+/* harmony import */ var _styles_style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/styles/style.scss");
+/* harmony import */ var _modules_modules_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/modules/modules.js");
+/* harmony import */ var _icons_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/icons.js");
+// Styles
+
+
+
+// import modules integration
+
+
+// import icon-library integration
+
 
 /***/ },
 
@@ -9273,6 +9304,103 @@ const placeholderContent = {};
 
 /***/ },
 
+/***/ "./src/modules/modules.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@wordpress/hooks");
+/* harmony import */ var _divi_module_library__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module-library");
+/* harmony import */ var _divi_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/data");
+/* harmony import */ var _Github_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/modules/Github/index.js");
+/* harmony import */ var _Location_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/Location/index.js");
+/* harmony import */ var _ProfileBanner_index_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/ProfileBanner/index.js");
+/* harmony import */ var _SectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/SectionPrimary/index.js");
+/* harmony import */ var _Card_index_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./src/modules/Card/index.js");
+/* harmony import */ var _Panel_index_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./src/modules/Panel/index.js");
+/* harmony import */ var _SectionFooter_index_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./src/modules/SectionFooter/index.js");
+/* harmony import */ var _SectionFooterGroup_index_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./src/modules/SectionFooterGroup/index.js");
+/* harmony import */ var _SectionCarousel_index_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("./src/modules/SectionCarousel/index.js");
+/* harmony import */ var _SectionCarouselSlide_index_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__("./src/modules/SectionCarouselSlide/index.js");
+/* harmony import */ var _PostList_index_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__("./src/modules/PostList/index.js");
+/* harmony import */ var _PostDetail_index_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__("./src/modules/PostDetail/index.js");
+/* harmony import */ var _FullwidthSectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__("./src/modules/FullwidthSectionPrimary/index.js");
+/* harmony import */ var _FullwidthPanel_index_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__("./src/modules/FullwidthPanel/index.js");
+/* harmony import */ var _FullwidthSectionFooter_index_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__("./src/modules/FullwidthSectionFooter/index.js");
+/* harmony import */ var _FullwidthSectionFooterGroup_index_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__("./src/modules/FullwidthSectionFooterGroup/index.js");
+/* harmony import */ var _FullwidthSectionCarousel_index_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__("./src/modules/FullwidthSectionCarousel/index.js");
+/* harmony import */ var _FullwidthSectionCarouselSlide_index_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__("./src/modules/FullwidthSectionCarouselSlide/index.js");
+/* harmony import */ var _ServiceTiles_index_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__("./src/modules/ServiceTiles/index.js");
+/* harmony import */ var _ServiceTilesItem_index_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__("./src/modules/ServiceTilesItem/index.js");
+// WordPress dependencies
+
+
+// Divi dependencies
+
+
+
+// standard modules
+
+
+
+
+
+
+
+
+
+
+
+
+
+//fullwidth modules
+
+
+
+
+
+
+
+
+
+// Register modules.
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__.addAction)('divi.moduleLibrary.registerModuleLibraryStore.after', 'cawebDiviExtension', () => {
+  // Standard modules
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_Github_index_js__WEBPACK_IMPORTED_MODULE_3__.CAWebModuleGithubMetadata, _Github_index_js__WEBPACK_IMPORTED_MODULE_3__.CAWebModuleGithub);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_Location_index_js__WEBPACK_IMPORTED_MODULE_4__.CAWebModuleLocationMetadata, _Location_index_js__WEBPACK_IMPORTED_MODULE_4__.CAWebModuleLocation);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_ProfileBanner_index_js__WEBPACK_IMPORTED_MODULE_5__.CAWebModuleProfileBannerMetadata, _ProfileBanner_index_js__WEBPACK_IMPORTED_MODULE_5__.CAWebModuleProfileBanner);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_SectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_6__.CAWebModuleSectionPrimaryMetadata, _SectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_6__.CAWebModuleSectionPrimary);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_Card_index_js__WEBPACK_IMPORTED_MODULE_7__.CAWebModuleCardMetadata, _Card_index_js__WEBPACK_IMPORTED_MODULE_7__.CAWebModuleCard);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_Panel_index_js__WEBPACK_IMPORTED_MODULE_8__.CAWebModulePanelMetadata, _Panel_index_js__WEBPACK_IMPORTED_MODULE_8__.CAWebModulePanel);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_SectionFooter_index_js__WEBPACK_IMPORTED_MODULE_9__.CAWebModuleSectionFooterMetadata, _SectionFooter_index_js__WEBPACK_IMPORTED_MODULE_9__.CAWebModuleSectionFooter);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_SectionFooterGroup_index_js__WEBPACK_IMPORTED_MODULE_10__.CAWebModuleSectionFooterGroupMetadata, _SectionFooterGroup_index_js__WEBPACK_IMPORTED_MODULE_10__.CAWebModuleSectionFooterGroup);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_SectionCarousel_index_js__WEBPACK_IMPORTED_MODULE_11__.CAWebModuleSectionCarouselMetadata, _SectionCarousel_index_js__WEBPACK_IMPORTED_MODULE_11__.CAWebModuleSectionCarousel);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_SectionCarouselSlide_index_js__WEBPACK_IMPORTED_MODULE_12__.CAWebModuleSectionCarouselSlideMetadata, _SectionCarouselSlide_index_js__WEBPACK_IMPORTED_MODULE_12__.CAWebModuleSectionCarouselSlide);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_PostList_index_js__WEBPACK_IMPORTED_MODULE_13__.CAWebModulePostListMetadata, _PostList_index_js__WEBPACK_IMPORTED_MODULE_13__.CAWebModulePostList);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_PostDetail_index_js__WEBPACK_IMPORTED_MODULE_14__.CAWebModulePostDetailMetadata, _PostDetail_index_js__WEBPACK_IMPORTED_MODULE_14__.CAWebModulePostDetail);
+
+  // Fullwidth modules
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_FullwidthSectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_15__.CAWebModuleFullwidthSectionPrimaryMetadata, _FullwidthSectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_15__.CAWebModuleFullwidthSectionPrimary);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_FullwidthPanel_index_js__WEBPACK_IMPORTED_MODULE_16__.CAWebModuleFullwidthPanelMetadata, _FullwidthPanel_index_js__WEBPACK_IMPORTED_MODULE_16__.CAWebModuleFullwidthPanel);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_FullwidthSectionFooter_index_js__WEBPACK_IMPORTED_MODULE_17__.CAWebModuleFullwidthSectionFooterMetadata, _FullwidthSectionFooter_index_js__WEBPACK_IMPORTED_MODULE_17__.CAWebModuleFullwidthSectionFooter);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_FullwidthSectionFooterGroup_index_js__WEBPACK_IMPORTED_MODULE_18__.CAWebModuleFullwidthSectionFooterGroupMetadata, _FullwidthSectionFooterGroup_index_js__WEBPACK_IMPORTED_MODULE_18__.CAWebModuleFullwidthSectionFooterGroup);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_FullwidthSectionCarousel_index_js__WEBPACK_IMPORTED_MODULE_19__.CAWebModuleFullwidthSectionCarouselMetadata, _FullwidthSectionCarousel_index_js__WEBPACK_IMPORTED_MODULE_19__.CAWebModuleFullwidthSectionCarousel);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_FullwidthSectionCarouselSlide_index_js__WEBPACK_IMPORTED_MODULE_20__.CAWebModuleFullwidthSectionCarouselSlideMetadata, _FullwidthSectionCarouselSlide_index_js__WEBPACK_IMPORTED_MODULE_20__.CAWebModuleFullwidthSectionCarouselSlide);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_ServiceTiles_index_js__WEBPACK_IMPORTED_MODULE_21__.CAWebModuleServiceTilesMetadata, _ServiceTiles_index_js__WEBPACK_IMPORTED_MODULE_21__.CAWebModuleServiceTiles);
+  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_ServiceTilesItem_index_js__WEBPACK_IMPORTED_MODULE_22__.CAWebModuleServiceTilesItemMetadata, _ServiceTilesItem_index_js__WEBPACK_IMPORTED_MODULE_22__.CAWebModuleServiceTilesItem);
+});
+
+// Post Only Module
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__.addFilter)('divi.modalLibrary.addModule.moduleList', 'cawebDiviExtension', moduleList => {
+  const postType = (0,_divi_data__WEBPACK_IMPORTED_MODULE_2__.select)('divi/settings').getSetting(['post', 'type']);
+  if ('post' !== postType) {
+    delete moduleList['caweb/post-detail'];
+  }
+  return moduleList;
+});
+
+/***/ },
+
 /***/ "./node_modules/memize/dist/index.js"
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
@@ -9765,7 +9893,38 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/service-tiles-item","d4
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		const deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn) => {
+/******/ 			if(chunkIds) {
+/******/ 				deferred.push([chunkIds, fn]);
+/******/ 				return;
+/******/ 			}
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				let [chunkIds, fn] = deferred[i];
+/******/ 				let fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if (__webpack_require__.O.j(chunkIds[j])) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					const r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
 /******/ 	__webpack_require__.n = (module) => {
@@ -9796,111 +9955,68 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/service-tiles-item","d4
 /******/ 		Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 	};
 /******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		const installedChunks = {
+/******/ 			"builder": 0,
+/******/ 			"./style-builder": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		const webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			let [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		const chunkLoadingGlobal = globalThis["webpackChunkcaweb_divi_extension"] ||= [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
 /************************************************************************/
-let __webpack_exports__ = {};
-// This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
-(() => {
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("@wordpress/hooks");
-/* harmony import */ var _divi_module_library__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("@divi/module-library");
-/* harmony import */ var _divi_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/data");
-/* harmony import */ var _styles_builder_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/styles/_builder.scss");
-/* harmony import */ var _modules_Github_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/modules/Github/index.js");
-/* harmony import */ var _modules_Location_index_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/modules/Location/index.js");
-/* harmony import */ var _modules_ProfileBanner_index_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/modules/ProfileBanner/index.js");
-/* harmony import */ var _modules_SectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./src/modules/SectionPrimary/index.js");
-/* harmony import */ var _modules_Card_index_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./src/modules/Card/index.js");
-/* harmony import */ var _modules_Panel_index_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./src/modules/Panel/index.js");
-/* harmony import */ var _modules_SectionFooter_index_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./src/modules/SectionFooter/index.js");
-/* harmony import */ var _modules_SectionFooterGroup_index_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("./src/modules/SectionFooterGroup/index.js");
-/* harmony import */ var _modules_SectionCarousel_index_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__("./src/modules/SectionCarousel/index.js");
-/* harmony import */ var _modules_SectionCarouselSlide_index_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__("./src/modules/SectionCarouselSlide/index.js");
-/* harmony import */ var _modules_PostList_index_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__("./src/modules/PostList/index.js");
-/* harmony import */ var _modules_PostDetail_index_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__("./src/modules/PostDetail/index.js");
-/* harmony import */ var _modules_FullwidthSectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__("./src/modules/FullwidthSectionPrimary/index.js");
-/* harmony import */ var _modules_FullwidthPanel_index_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__("./src/modules/FullwidthPanel/index.js");
-/* harmony import */ var _modules_FullwidthSectionFooter_index_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__("./src/modules/FullwidthSectionFooter/index.js");
-/* harmony import */ var _modules_FullwidthSectionFooterGroup_index_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__("./src/modules/FullwidthSectionFooterGroup/index.js");
-/* harmony import */ var _modules_FullwidthSectionCarousel_index_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__("./src/modules/FullwidthSectionCarousel/index.js");
-/* harmony import */ var _modules_FullwidthSectionCarouselSlide_index_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__("./src/modules/FullwidthSectionCarouselSlide/index.js");
-/* harmony import */ var _modules_ServiceTiles_index_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__("./src/modules/ServiceTiles/index.js");
-/* harmony import */ var _modules_ServiceTilesItem_index_js__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__("./src/modules/ServiceTilesItem/index.js");
-/* harmony import */ var _icons_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__("./src/icons.js");
-
-
-
-
-/**
- * Internal dependencies
- */
-// Styles
-
-
-// standard modules
-
-
-
-
-
-
-
-
-
-
-
-
-
-//fullwidth modules
-
-
-
-
-
-
-
-
-
-// import icon-library integration
-
-
-// Register modules.
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__.addAction)('divi.moduleLibrary.registerModuleLibraryStore.after', 'cawebDiviExtension', () => {
-  // Standard modules
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_Github_index_js__WEBPACK_IMPORTED_MODULE_4__.CAWebModuleGithubMetadata, _modules_Github_index_js__WEBPACK_IMPORTED_MODULE_4__.CAWebModuleGithub);
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_Location_index_js__WEBPACK_IMPORTED_MODULE_5__.CAWebModuleLocationMetadata, _modules_Location_index_js__WEBPACK_IMPORTED_MODULE_5__.CAWebModuleLocation);
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_ProfileBanner_index_js__WEBPACK_IMPORTED_MODULE_6__.CAWebModuleProfileBannerMetadata, _modules_ProfileBanner_index_js__WEBPACK_IMPORTED_MODULE_6__.CAWebModuleProfileBanner);
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_SectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_7__.CAWebModuleSectionPrimaryMetadata, _modules_SectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_7__.CAWebModuleSectionPrimary);
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_Card_index_js__WEBPACK_IMPORTED_MODULE_8__.CAWebModuleCardMetadata, _modules_Card_index_js__WEBPACK_IMPORTED_MODULE_8__.CAWebModuleCard);
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_Panel_index_js__WEBPACK_IMPORTED_MODULE_9__.CAWebModulePanelMetadata, _modules_Panel_index_js__WEBPACK_IMPORTED_MODULE_9__.CAWebModulePanel);
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_SectionFooter_index_js__WEBPACK_IMPORTED_MODULE_10__.CAWebModuleSectionFooterMetadata, _modules_SectionFooter_index_js__WEBPACK_IMPORTED_MODULE_10__.CAWebModuleSectionFooter);
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_SectionFooterGroup_index_js__WEBPACK_IMPORTED_MODULE_11__.CAWebModuleSectionFooterGroupMetadata, _modules_SectionFooterGroup_index_js__WEBPACK_IMPORTED_MODULE_11__.CAWebModuleSectionFooterGroup);
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_SectionCarousel_index_js__WEBPACK_IMPORTED_MODULE_12__.CAWebModuleSectionCarouselMetadata, _modules_SectionCarousel_index_js__WEBPACK_IMPORTED_MODULE_12__.CAWebModuleSectionCarousel);
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_SectionCarouselSlide_index_js__WEBPACK_IMPORTED_MODULE_13__.CAWebModuleSectionCarouselSlideMetadata, _modules_SectionCarouselSlide_index_js__WEBPACK_IMPORTED_MODULE_13__.CAWebModuleSectionCarouselSlide);
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_PostList_index_js__WEBPACK_IMPORTED_MODULE_14__.CAWebModulePostListMetadata, _modules_PostList_index_js__WEBPACK_IMPORTED_MODULE_14__.CAWebModulePostList);
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_PostDetail_index_js__WEBPACK_IMPORTED_MODULE_15__.CAWebModulePostDetailMetadata, _modules_PostDetail_index_js__WEBPACK_IMPORTED_MODULE_15__.CAWebModulePostDetail);
-
-  // Fullwidth modules
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_FullwidthSectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_16__.CAWebModuleFullwidthSectionPrimaryMetadata, _modules_FullwidthSectionPrimary_index_js__WEBPACK_IMPORTED_MODULE_16__.CAWebModuleFullwidthSectionPrimary);
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_FullwidthPanel_index_js__WEBPACK_IMPORTED_MODULE_17__.CAWebModuleFullwidthPanelMetadata, _modules_FullwidthPanel_index_js__WEBPACK_IMPORTED_MODULE_17__.CAWebModuleFullwidthPanel);
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_FullwidthSectionFooter_index_js__WEBPACK_IMPORTED_MODULE_18__.CAWebModuleFullwidthSectionFooterMetadata, _modules_FullwidthSectionFooter_index_js__WEBPACK_IMPORTED_MODULE_18__.CAWebModuleFullwidthSectionFooter);
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_FullwidthSectionFooterGroup_index_js__WEBPACK_IMPORTED_MODULE_19__.CAWebModuleFullwidthSectionFooterGroupMetadata, _modules_FullwidthSectionFooterGroup_index_js__WEBPACK_IMPORTED_MODULE_19__.CAWebModuleFullwidthSectionFooterGroup);
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_FullwidthSectionCarousel_index_js__WEBPACK_IMPORTED_MODULE_20__.CAWebModuleFullwidthSectionCarouselMetadata, _modules_FullwidthSectionCarousel_index_js__WEBPACK_IMPORTED_MODULE_20__.CAWebModuleFullwidthSectionCarousel);
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_FullwidthSectionCarouselSlide_index_js__WEBPACK_IMPORTED_MODULE_21__.CAWebModuleFullwidthSectionCarouselSlideMetadata, _modules_FullwidthSectionCarouselSlide_index_js__WEBPACK_IMPORTED_MODULE_21__.CAWebModuleFullwidthSectionCarouselSlide);
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_ServiceTiles_index_js__WEBPACK_IMPORTED_MODULE_22__.CAWebModuleServiceTilesMetadata, _modules_ServiceTiles_index_js__WEBPACK_IMPORTED_MODULE_22__.CAWebModuleServiceTiles);
-  (0,_divi_module_library__WEBPACK_IMPORTED_MODULE_1__.registerModule)(_modules_ServiceTilesItem_index_js__WEBPACK_IMPORTED_MODULE_23__.CAWebModuleServiceTilesItemMetadata, _modules_ServiceTilesItem_index_js__WEBPACK_IMPORTED_MODULE_23__.CAWebModuleServiceTilesItem);
-});
-
-// Post Only Module
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__.addFilter)('divi.modalLibrary.addModule.moduleList', 'cawebDiviExtension', moduleList => {
-  const postType = (0,_divi_data__WEBPACK_IMPORTED_MODULE_2__.select)('divi/settings').getSetting(['post', 'type']);
-  if ('post' !== postType) {
-    delete moduleList['caweb/post-detail'];
-  }
-  return moduleList;
-});
-})();
-
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	let __webpack_exports__ = __webpack_require__.O(undefined, ["./style-builder"], () => (__webpack_require__("./src/backend.js")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=bundle.js.map
+//# sourceMappingURL=builder.js.map

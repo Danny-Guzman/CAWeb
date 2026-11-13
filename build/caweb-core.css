@@ -440,7 +440,7 @@ body.admin-bar header.global-header .mobile-controlled.overlay {
   margin-top: var(--wp-admin--admin-bar--height, 32px);
 }
 body.admin-bar #page-container {
-  padding-top: var(--wp-admin--admin-bar--height, 32px) !important;
+  margin-top: var(--wp-admin--admin-bar--height, 32px) !important;
 }
 
 body.classic-built:not(.page-template-searchpage) #main-content {

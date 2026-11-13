@@ -1,0 +1,6 @@
+/* we removed the top margin for the page-container when the visual builder is active */
+body.admin-bar.et-vb-root-ancestor #page-container {
+  margin-top: 0 !important;
+}
+
+/*# sourceMappingURL=style-builder.css.map*/

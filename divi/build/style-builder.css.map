@@ -1,0 +1,1 @@
+{"version":3,"file":"./style-builder.css","mappings":"AAAA;AACA;EACI;AACJ,C","sources":["webpack://caweb-divi-extension/./src/styles/style.scss"],"sourcesContent":["/* we removed the top margin for the page-container when the visual builder is active */\nbody.admin-bar.et-vb-root-ancestor #page-container {\n    margin-top: 0 !important;\n}"],"names":[],"sourceRoot":""}

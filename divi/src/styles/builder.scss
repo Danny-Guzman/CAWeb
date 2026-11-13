@@ -1,0 +1,5 @@
+// we remove the header/footer from rendering in the builder
+header,
+footer {
+    display: none;
+}
