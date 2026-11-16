@@ -15,6 +15,7 @@ add_action( 'load-themes.php', 'caweb_load_themes_tools' );
 add_action( 'settings_page_disable_rest_api_settings', 'caweb_load_themes_tools' );
 add_action( 'load-tools.php', 'caweb_load_themes_tools' );
 add_action( 'pre_update_site_option_caweb_password', 'caweb_pre_update_site_option_caweb_password', 10, 3 );
+add_action( 'pre_site_option_caweb_multi_ga', 'caweb_pre_site_option_caweb_multi_ga', 10, 4 );
 
 add_filter( 'custom_menu_order', 'caweb_wpse_custom_menu_order', 10, 1 );
 add_filter( 'menu_order', 'caweb_wpse_custom_menu_order', 10, 1 );
@@ -22,7 +23,7 @@ add_filter( 'menu_order', 'caweb_wpse_custom_menu_order', 10, 1 );
 // Theme Option filters.
 add_filter( 'option_ca_site_color_scheme', 'caweb_ca_site_color_scheme', 10, 2 );
 add_filter( 'option_ca_fav_ico', 'caweb_pre_option_ca_fav_ico', 10, 2 );
-
+add_filter( 'option_ca_google_analytic_id', 'caweb_pre_option_ca_google_analytic_id', 10, 2 );
 /**
  * This filter is used to switch menu order.
  *
@@ -175,9 +176,16 @@ function caweb_uploads_use_yearmonth_folders() {
 function caweb_load_themes_tools() {
 	$plugin_menus = array( '404pagesettings', 'disable_rest_api_settings' );
 	$nonce        = wp_create_nonce( 'caweb_load_themes_tools' );
-	$allowed      = wp_verify_nonce( $nonce, 'caweb_load_themes_tools' ) && isset( $_GET['page'] ) && in_array( $_GET['page'], $plugin_menus, true );
+	// verify the nonce that was just created
+	// if the $_GET['page'] isnt set we are on the main page which isn't allowed
+	// if the $_GET['page'] is set and is one of the plugin menus in the array, then it's not allowed
+	$not_allowed      = wp_verify_nonce( $nonce, 'caweb_load_themes_tools' ) && 
+		( 
+			! isset( $_GET['page'] ) || 
+			( isset( $_GET['page'] ) && in_array( $_GET['page'], $plugin_menus, true ) )
+		);
 
-	if ( $allowed && is_multisite() && ! current_user_can( 'manage_network_options' ) ) {
+	if ( $not_allowed && is_multisite() && ! current_user_can( 'manage_network_options' ) ) {
 		wp_safe_redirect( get_admin_url() );
 		exit;
 	}
@@ -277,7 +285,6 @@ function caweb_multi_ga_menu_option_setup() {
 	// CAWeb Multisite Google Analytics Nonce.
 	$caweb_nonce = wp_create_nonce( 'caweb_theme_multisite_ga_option' );
 	$mulit_ga    = get_site_option( 'caweb_multi_ga', '' );
-	$mulit_ga4   = get_site_option( 'caweb_multi_ga4', '' );
 
 	?>
 	<form id="caweb-multi-ga-options-form" action="<?php print esc_url( admin_url( 'admin.php?page=caweb_multi_ga' ) ); ?>" method="POST">
@@ -287,12 +294,6 @@ function caweb_multi_ga_menu_option_setup() {
 			<div class="mb-3 col-sm-5">
 				<label for="caweb_multi_ga" class="d-block mb-0">Analytics ID</label>
 				<input type="text" name="caweb_multi_ga" class="form-control" size="50" value="<?php print esc_attr( $mulit_ga ); ?>" />
-			</div>
-		</div>
-		<div class="row">
-			<div class="mb-3 col-sm-5">
-				<label for="caweb_multi_ga4" class="d-block mb-0">Analytics 4 ID</label>
-				<input type="text" name="caweb_multi_ga4" class="form-control" size="50" value="<?php print esc_attr( $mulit_ga4 ); ?>" />
 			</div>
 		</div>
 		<input type="submit" name="caweb_multi_ga_options_submit" id="submit" class="button button-primary" value="Save Changes" />
@@ -418,7 +419,6 @@ function caweb_save_options( $values = array(), $files = array() ) {
 						'header_ca_branding_alt_text',
 						'ca_google_search_id',
 						'ca_google_analytic_id',
-						'ca_google_analytic4_id',
 						'ca_google_tag_manager_id',
 						'ca_google_meta_id',
 						'caweb_body_classes',
@@ -439,6 +439,13 @@ function caweb_save_options( $values = array(), $files = array() ) {
 
 		update_option( $opt, $val );
 	}
+
+	/**
+	 * the options have been changed we can remove the analytics4 options since we dont have 2 anymore
+	 * 
+	 * @since 1.14.0 
+	 */
+	delete_option( 'ca_google_analytic4_id' );
 
 	do_action('caweb_save_options');
 	
@@ -470,7 +477,12 @@ function caweb_save_api_options( $values = array() ) {
  */
 function caweb_save_multi_ga_options( $values = array() ) {
 	update_site_option( 'caweb_multi_ga', $values['caweb_multi_ga'] );
-	update_site_option( 'caweb_multi_ga4', $values['caweb_multi_ga4'] );
+
+	/**
+	 * remove the old GA4 option since we no longer use it
+	 * @since 1.14.0
+	 */
+	delete_site_option( 'caweb_multi_ga4' );
 
 	print '<div class="updated notice is-dismissible"><p><strong>Multisite Google Analytics ID</strong> has been updated.</p><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button></div>';
 }
@@ -516,7 +528,6 @@ function caweb_get_site_options( $group = '' ) {
 	$caweb_google_options = array(
 		'ca_google_search_id'             => '',
 		'ca_google_analytic_id'           => '',
-		'ca_google_analytic4_id'          => '',
 		'ca_google_tag_manager_id'        => '',
 		'ca_google_meta_id'               => '',
 		'ca_google_trans_enabled'         => false,
@@ -544,7 +555,6 @@ function caweb_get_site_options( $group = '' ) {
 		'caweb_username'  => 'CAWebPublishing',
 		'caweb_password'  => '',
 		'caweb_multi_ga'  => '',
-		'caweb_multi_ga4' => '',
 	);
 
 	$caweb_alert_options = array(
@@ -741,5 +751,41 @@ function caweb_pre_option_ca_fav_ico( $value, $option ) {
 	$ico = str_ends_with( $value, $old_file_path ) ? str_replace( $old_file_path, $new_file_path, $value ) : $value;
 
 	return $ico;
+}
+
+/**
+ * Whenever the old option is called retrieve the value from the new GA4 option instead.
+ * 
+ * @since 1.14.0 GA ID was dropped in favor of GA4
+ *
+ * @param string $value
+ * @param string $option
+ * @return string
+ */
+function caweb_pre_option_ca_google_analytic_id( $value, $option ) {
+	// get the current GA4 ID
+	$ga4 = get_option( 'ca_google_analytic4_id', null );
+
+	// if the GA4 ID exists, use it instead of the old GA ID
+	return $ga4 ?? $value;
+}
+
+/**
+ * Whenever the old option is called retrieve the value from the new GA4 option instead.
+ * 
+ * @since 1.14.0 GA ID was dropped in favor of GA4
+ *
+ * @param string $value
+ * @param string $option
+ * @param string $option_name
+ * @param string $old_value
+ * @return void
+ */
+function caweb_pre_site_option_caweb_multi_ga( $value, $option, $option_name, $old_value ) {
+	// get the current Multisite GA4 ID
+	$ga4 = get_site_option( 'caweb_multi_ga4', null );
+
+	// if the GA4 ID exists, use it instead of the old GA ID
+	return $ga4 ?? $value;
 }
 

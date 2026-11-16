@@ -413,7 +413,6 @@ function caweb_display_google_options() {
 
 	// Analytics ID.
 	$google_analytic_id  = wp_unslash( get_option( 'ca_google_analytic_id', '' ) );
-	$google_analytic4_id = wp_unslash( get_option( 'ca_google_analytic4_id', '' ) );
 
 	// Tag Manager ID.
 	$google_tag_manager_id = wp_unslash( get_option( 'ca_google_tag_manager_id', '' ) );
@@ -456,15 +455,6 @@ function caweb_display_google_options() {
 				<input type="text" name="ca_google_analytic_id" id="ca_google_analytic_id" class="form-control w-25" value="<?php print esc_attr( $google_analytic_id ); ?>">
 			</div>
 		</div>
-		<!-- Analytics ID Row -->
-		<div class="row">
-			<div class="mb-3 col-sm-12">
-				<label for="ca_google_analytic4_id" class="d-block mb-0"><strong>Analytics 4 ID</strong></label>
-				<small class="mb-2 text-muted d-block">Enter your unique Google Analytics 4 ID, if you don't have one see an administrator.</small>
-				<!-- Analytics ID Field -->
-				<input type="text" name="ca_google_analytic4_id" id="ca_google_analytic4_id" class="form-control w-25" value="<?php print esc_attr( $google_analytic4_id ); ?>">
-			</div>
-		</div>		
 		<!-- Tag Manager ID Row -->
 		<div class="row">
 			<div class="mb-3 col-sm-12">

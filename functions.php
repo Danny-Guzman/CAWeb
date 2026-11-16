@@ -443,11 +443,9 @@ function caweb_wp_enqueue_scripts() {
 function caweb_enqueue_google_scripts( $localized ) {
 	// Multisite Google Options.
 	$multi_ga  = wp_unslash( get_site_option( 'caweb_multi_ga' ) );
-	$multi_ga4 = wp_unslash( get_site_option( 'caweb_multi_ga4' ) );
 
 	// Site Google Options.
 	$ga   = wp_unslash( get_option( 'ca_google_analytic_id', '' ) );
-	$ga4  = wp_unslash( get_option( 'ca_google_analytic4_id', '' ) );
 	$gtag = wp_unslash( get_option( 'ca_google_tag_manager_id', '' ) );
 	$gcse = get_option( 'ca_google_search_id', '' );
 
@@ -462,15 +460,6 @@ function caweb_enqueue_google_scripts( $localized ) {
 		wp_enqueue_script( 'google-analytics-caweb', "https://www.googletagmanager.com/gtag/js?id=$multi_ga", array(), CAWEB_VERSION, true );
 	}
 
-	// Multisite Google Analytics4 ID.
-	if ( ! empty( $multi_ga4 ) ) {
-		// Add to localized arguments.
-		$localized['caweb_multi_ga4'] = $multi_ga4;
-
-		// Enqueue script.
-		wp_enqueue_script( 'google-analytics4-caweb', "https://www.googletagmanager.com/gtag/js?id=$multi_ga4", array(), CAWEB_VERSION, true );
-	}
-
 	// Google Analytic ID.
 	if ( ! empty( $ga ) ) {
 		// Add to localized arguments.
@@ -478,15 +467,6 @@ function caweb_enqueue_google_scripts( $localized ) {
 
 		// Enqueue script.
 		wp_enqueue_script( 'google-analytics-agency', "https://www.googletagmanager.com/gtag/js?id=$ga", array(), CAWEB_VERSION, true );
-	}
-
-	// Google Analytics4 ID.
-	if ( ! empty( $ga4 ) ) {
-		// Add to localized arguments.
-		$localized['ca_google_analytic4_id'] = $ga4;
-
-		// Enqueue script.
-		wp_enqueue_script( 'google-analytics4-agency', "https://www.googletagmanager.com/gtag/js?id=$ga4", array(), CAWEB_VERSION, true );
 	}
 
 	// Google Tag Manager ID.
@@ -504,8 +484,7 @@ function caweb_enqueue_google_scripts( $localized ) {
 	}
 
 	// Statewide Analytics and Google Tag.
-	wp_enqueue_script( 'google-analytics-statewide', 'https://www.googletagmanager.com/gtag/js?id=UA-3419582-2', array(), CAWEB_VERSION, true );
-	wp_enqueue_script( 'google-analytics4-statewide', 'https://www.googletagmanager.com/gtag/js?id=G-69TD0KNT0F', array(), CAWEB_VERSION, true );
+	wp_enqueue_script( 'google-analytics-statewide', 'https://www.googletagmanager.com/gtag/js?id=G-69TD0KNT0F', array(), CAWEB_VERSION, true );
 
 	// Google Translate.
 	if ( 'none' !== get_option( 'ca_google_trans_enabled', 'none' ) ) {
