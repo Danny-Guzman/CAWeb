@@ -77,7 +77,7 @@ function caweb_divi_extension_module_enqueue_vb_scripts() {
 
 		\ET\Builder\VisualBuilder\Assets\PackageBuildManager::register_package_build(
 			[
-				'name'   => 'caweb-divi-extension-modules-builder',
+				'name'   => 'caweb-divi-extension-modules-builder-script',
 				'version' => '1.0.0',
 				'script' => [
 					'src' => CAWEB_DIVI_EXT_URL . "build/builder.js",
