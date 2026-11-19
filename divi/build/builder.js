@@ -2810,8 +2810,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lodash");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _divi_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@divi/data");
-/* harmony import */ var _divi_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_data__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/module");
 /* harmony import */ var _divi_module__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_module__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _divi_module_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("@divi/module-utils");
@@ -2951,9 +2951,11 @@ const ModuleEdit = ({
     }).then(data => {
       // now that we have the category ids, we can fetch the posts
       let postArgs = {
-        per_page: postNumber,
+        // per_page: postNumber,
         orderby: orderBy,
         order,
+        context: 'edit',
+        // we need the edit context in order to get the raw content
         categories: data.map(category => category.id).join(',')
       };
       if (data) {
@@ -2984,12 +2986,13 @@ const ModuleEdit = ({
         fetchAbortRef.current.abort();
       }
     };
-  }, []);
+  }, [selectedStyle, orderBy]);
   let output = [];
   if (!isLoading && response) {
     (0,lodash__WEBPACK_IMPORTED_MODULE_1__.map)(response, (post, i) => {
       let {
         content: {
+          raw: raw_content,
           rendered: post_content
         },
         guid: {
@@ -2998,34 +3001,41 @@ const ModuleEdit = ({
         title: {
           rendered: post_title
         },
-        featured_media
+        featured_media,
+        id
       } = post || {};
       let shortCode = _wordpress_shortcode__WEBPACK_IMPORTED_MODULE_6__["default"].next('et_pb_ca_post_handler', post_content);
+      let detailModule = (0,_Utils_Module_jsx__WEBPACK_IMPORTED_MODULE_13__.findAllModules)((0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__.parse)(raw_content), 'caweb/post-detail');
 
       // Only if a Post Handler shortcode is found, we proceed
-      if (shortCode) {
+      if (detailModule.length) {
+        // grab the post detail module for further processing if needed
+        const postDetailModule = detailModule[0];
         const formatter = new Intl.NumberFormat('en-US', {
           style: 'currency',
           currency: 'USD'
         });
         let {
-          shortcode: sc
-        } = shortCode;
-        let {
-          post_type_layout
-        } = sc?.attrs?.named;
-        let shortcode_content = sc?.content;
+          layout
+        } = postDetailModule?.attributes;
+        let post_type_layout = (0,_Utils_Module_jsx__WEBPACK_IMPORTED_MODULE_13__.getModuleAttr)(layout);
         switch (selectedStyle) {
           case 'courses-list':
             if ('course' === post_type_layout) {
               let {
-                course_start_date,
-                course_end_date,
-                course_address,
-                course_city,
-                course_state,
-                course_zip
-              } = sc?.attrs?.named;
+                start: {
+                  date: course_start_date
+                },
+                end: {
+                  date: course_end_date
+                },
+                address: {
+                  address: course_address,
+                  city: course_city,
+                  state: course_state,
+                  zip: course_zip
+                }
+              } = (0,_Utils_Module_jsx__WEBPACK_IMPORTED_MODULE_13__.getModuleAttr)(postDetailModule?.attributes?.course);
               let address = [course_address, course_city, course_state, course_zip].filter(Boolean);
               let featuredImage = 'on' === displayImage && responseImg && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
                 className: "thumbnail float-start"
@@ -3041,7 +3051,7 @@ const ModuleEdit = ({
               let excerpt = '';
               if ('on' === displayExcerpt) {
                 const parser = new DOMParser();
-                const parsedContent = parser.parseFromString(sc?.content, 'text/html');
+                const parsedContent = parser.parseFromString(post_content, 'text/html');
                 excerpt = parsedContent.body.textContent || '';
 
                 // we only want the first 15 words of the excerpt
@@ -3092,75 +3102,83 @@ const ModuleEdit = ({
             break;
           case 'events-list':
           case 'general-list':
-            if ('event' === post_type_layout || 'general-list' === selectedStyle && ['news', 'profile', 'jobs', 'event', 'course', 'exam', 'general', 'faqs'].includes(post_type_layout)) {
+            let event_start_date = null;
+
+            // if the post type is 'event', get the start date from the event attributes
+            if ('event' === post_type_layout) {
               let {
-                event_start_date
-              } = sc?.attrs?.named;
+                start: event_start
+              } = (0,_Utils_Module_jsx__WEBPACK_IMPORTED_MODULE_13__.getModuleAttr)(postDetailModule?.attributes?.event);
+              event_start_date = event_start?.date || null;
+            }
 
-              // if the post has a featured image 
-              let featuredImage = 'on' === displayImage && responseImg && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-                className: "thumbnail float-start w-auto"
-              }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-                src: responseImg.find(img => img.id === featured_media)?.source_url,
-                style: {
-                  width: '80px',
-                  height: '80px'
-                }
-              }));
+            // if the post has a featured image 
+            let featuredImage = 'on' === displayImage && responseImg && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+              className: "thumbnail float-start w-auto"
+            }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+              src: responseImg.find(img => img.id === featured_media)?.source_url,
+              style: {
+                width: '80px',
+                height: '80px'
+              }
+            }));
 
-              // we generate an excerpt from the shortcode content, if displayExcerpt is on
-              let excerpt = '';
-              if ('on' === displayExcerpt) {
-                const parser = new DOMParser();
-                const parsedContent = parser.parseFromString(sc?.content, 'text/html');
-                excerpt = parsedContent.body.textContent || '';
+            // we generate an excerpt from the shortcode content, if displayExcerpt is on
+            let excerpt = '';
+            if ('on' === displayExcerpt) {
+              const parser = new DOMParser();
+              const parsedContent = parser.parseFromString(post_content, 'text/html');
+              excerpt = parsedContent.body.textContent || '';
 
-                // we only want the first 15 words of the excerpt
-                if (excerpt.length) {
-                  excerpt = excerpt.split(' ');
-                  let ellipsis = excerpt.length > 15;
-                  excerpt = excerpt.slice(0, 15).join(' ');
+              // we only want the first 15 words of the excerpt
+              if (excerpt.length) {
+                excerpt = excerpt.split(' ');
+                let ellipsis = excerpt.length > 15;
+                excerpt = excerpt.slice(0, 15).join(' ');
 
-                  // Add ellipsis if the excerpt was truncated
-                  if (ellipsis) {
-                    excerpt += '...';
-                  }
+                // Add ellipsis if the excerpt was truncated
+                if (ellipsis) {
+                  excerpt += '...';
                 }
               }
-              output.push(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("article", {
-                className: "event-item bg-light p-3 mb-3"
-              }, featuredImage, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-                className: "info" + ('on' === displayImage ? ' ms-5 ps-5 float-none clearfix' : '')
-              }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h5", {
-                className: "pb-0"
-              }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-                href: post_url,
-                className: "text-decoration-dotted",
-                target: "_blank"
-              }, post_title)), excerpt.length && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-                className: "description"
-              }, excerpt), event_start_date && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-                className: "start-date"
-              }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("time", null, new Date(event_start_date).toLocaleDateString('en-US', {
-                weekday: 'short',
-                month: 'numeric',
-                day: 'numeric',
-                year: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
-              }))))));
             }
+            output.push(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("article", {
+              className: "event-item bg-light p-3 mb-3"
+            }, featuredImage, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+              className: "info" + ('on' === displayImage ? ' ms-5 ps-5 float-none clearfix' : '')
+            }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h5", {
+              className: "pb-0"
+            }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+              href: post_url,
+              className: "text-decoration-dotted",
+              target: "_blank"
+            }, post_title)), excerpt.length && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+              className: "description"
+            }, excerpt), event_start_date && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+              className: "start-date"
+            }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("time", null, new Date(event_start_date).toLocaleDateString('en-US', {
+              weekday: 'short',
+              month: 'numeric',
+              day: 'numeric',
+              year: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit'
+            }))))));
             break;
           case 'exams-list':
             if ('exam' === post_type_layout) {
               let {
-                exam_id,
-                exam_status,
-                exam_final_filing_date = 'Until Filled',
-                exam_final_filing_date_chooser = 'on',
-                exam_final_filing_date_picker,
-                exam_published_date
-              } = sc?.attrs?.named;
+                id: exam_id,
+                status: exam_status,
+                filing: {
+                  date: exam_final_filing_date,
+                  chooser: exam_final_filing_date_chooser,
+                  picker: exam_final_filing_date_picker
+                },
+                published: {
+                  date: exam_published_date
+                }
+              } = (0,_Utils_Module_jsx__WEBPACK_IMPORTED_MODULE_13__.getModuleAttr)(postDetailModule?.attributes?.exam);
               let filingDate = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, "Final Filing Date: ", exam_final_filing_date);
               if ('on' === exam_final_filing_date_chooser) {
                 filingDate = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, "Final Filing Date: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("time", null, new Date(exam_final_filing_date_picker).toLocaleDateString('en-US', {
@@ -3213,7 +3231,7 @@ const ModuleEdit = ({
                   className: "collapse",
                   "data-bs-parent": `.${(0,_divi_module_utils__WEBPACK_IMPORTED_MODULE_4__.getModuleOrderClassName)(id)}`
                 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Utils_Module_jsx__WEBPACK_IMPORTED_MODULE_13__.RenderWordPressShortcode, {
-                  shortcodeText: shortcode_content
+                  shortcodeText: post_content
                 }))));
               } else if ('accordion' === faqStyle) {
                 attrs.isAccordion = true;
@@ -3242,20 +3260,28 @@ const ModuleEdit = ({
           case 'jobs-list':
             if ('jobs' === post_type_layout) {
               let {
-                job_final_filing_date,
-                job_final_filing_date_chooser,
-                job_final_filing_date_picker,
-                job_position_number,
-                job_rpa_number,
-                job_hours,
-                show_job_salary,
-                job_salary_min,
-                job_salary_max,
-                job_agency_address,
-                job_agency_city,
-                job_agency_state,
-                job_agency_zip
-              } = sc?.attrs?.named;
+                position_number: job_position_number,
+                rpa_number: job_rpa_number,
+                hours: job_hours,
+                agency: {
+                  address: {
+                    address: job_agency_address,
+                    city: job_agency_city,
+                    state: job_agency_state,
+                    zip: job_agency_zip
+                  }
+                },
+                filing: {
+                  date: job_final_filing_date,
+                  chooser: job_final_filing_date_chooser,
+                  picker: job_final_filing_date_picker
+                },
+                salary: {
+                  show: show_job_salary,
+                  min: job_salary_min,
+                  max: job_salary_max
+                }
+              } = (0,_Utils_Module_jsx__WEBPACK_IMPORTED_MODULE_13__.getModuleAttr)(postDetailModule?.attributes?.jobs);
               let filingDate = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, "Final Filing Date: ", job_final_filing_date, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null));
               if ('on' === job_final_filing_date_chooser) {
                 filingDate = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, "Final Filing Date: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("time", null, new Date(job_final_filing_date_picker).toLocaleDateString('en-US', {
@@ -3298,15 +3324,17 @@ const ModuleEdit = ({
           case 'news-list':
             if ('news' === post_type_layout) {
               let {
-                news_author,
-                news_publish_date
-              } = sc?.attrs?.named;
+                author: news_author,
+                publish: {
+                  date: news_publish_date
+                }
+              } = (0,_Utils_Module_jsx__WEBPACK_IMPORTED_MODULE_13__.getModuleAttr)(postDetailModule?.attributes?.news);
 
               // we generate an excerpt from the shortcode content, if displayExcerpt is on
               let excerpt = '';
               if ('on' === displayExcerpt) {
                 const parser = new DOMParser();
-                const parsedContent = parser.parseFromString(sc?.content, 'text/html');
+                const parsedContent = parser.parseFromString(post_content, 'text/html');
                 excerpt = parsedContent.body.textContent || '';
 
                 // we only want the first 30 words of the excerpt
@@ -3357,14 +3385,18 @@ const ModuleEdit = ({
           case 'profiles-list':
             if ('profile' === post_type_layout) {
               let {
-                profile_name_prefix,
-                profile_name,
-                profile_career_title,
-                profile_career_position,
-                profile_career_line_1,
-                profile_career_line_2,
-                profile_career_line_3
-              } = sc?.attrs?.named;
+                prefix: profile_name_prefix,
+                name: profile_name,
+                career: {
+                  title: profile_career_title,
+                  position: profile_career_position
+                },
+                fields: {
+                  line1: profile_career_line_1,
+                  line2: profile_career_line_2,
+                  line3: profile_career_line_3
+                }
+              } = (0,_Utils_Module_jsx__WEBPACK_IMPORTED_MODULE_13__.getModuleAttr)(postDetailModule?.attributes?.profile);
 
               // if the post has a featured image 
               let featuredImage = 'on' === displayImage && responseImg && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
@@ -5554,6 +5586,8 @@ const ModuleStyles = ({
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   RenderWordPressShortcode: () => (/* binding */ RenderWordPressShortcode),
+/* harmony export */   findAllModules: () => (/* binding */ findAllModules),
+/* harmony export */   getModuleAttr: () => (/* binding */ getModuleAttr),
 /* harmony export */   get_address: () => (/* binding */ get_address),
 /* harmony export */   get_google_map_place_link: () => (/* binding */ get_google_map_place_link),
 /* harmony export */   get_icon_span: () => (/* binding */ get_icon_span),
@@ -5567,11 +5601,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _divi_rest__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_divi_rest__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _divi_icon_library__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("@divi/icon-library");
 /* harmony import */ var _divi_icon_library__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_divi_icon_library__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _divi_data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("@divi/data");
+/* harmony import */ var _divi_data__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_divi_data__WEBPACK_IMPORTED_MODULE_4__);
 // External Dependencies.
 
 
 
 // Divi Dependencies.
+
 
 
 
@@ -5703,7 +5740,7 @@ const RenderWordPressShortcode = ({
     let {
       ajax_url,
       js_shortcode_nonce
-    } = CawebDiviExtensionModulesBuilderBundleScriptData;
+    } = CawebDiviExtensionModulesBuilderScriptData;
     // Build the request payload
     const formData = new FormData();
     formData.append('action', 'render_shortcode_via_js');
@@ -5720,6 +5757,28 @@ const RenderWordPressShortcode = ({
       __html: response.data
     }
   });
+};
+const findAllModules = (blocks, targetModuleName) => {
+  const matches = [];
+  for (const block of blocks) {
+    // Handles both @wordpress/blocks ('name') and default-parser ('blockName')
+    const currentName = block.name || block.blockName;
+    if (currentName === targetModuleName) {
+      matches.push(block);
+    }
+
+    // Recursively search inside sections, rows, columns, and parent modules
+    if (Array.isArray(block.innerBlocks) && block.innerBlocks.length > 0) {
+      matches.push(...findAllModules(block.innerBlocks, targetModuleName));
+    }
+  }
+  return matches;
+};
+
+// this is sort of like Divi's getAttrByMode since we cant use it in loops/switches
+const getModuleAttr = attr => {
+  const currentBreakpoint = (0,_divi_data__WEBPACK_IMPORTED_MODULE_4__.select)('divi/app-ui')?.getBreakpoint() || 'desktop';
+  return attr?.innerContent?.[currentBreakpoint]?.value;
 };
 
 
@@ -7077,6 +7136,14 @@ module.exports = divi.rest;
 
 "use strict";
 module.exports = vendor.React;
+
+/***/ },
+
+/***/ "@wordpress/blocks"
+(module) {
+
+"use strict";
+module.exports = vendor.wp.blocks;
 
 /***/ },
 
@@ -9705,7 +9772,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"caweb/panel","d4Shortcode":"e
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"layout":{"innerContent":{"desktop":{"value":"general"}}},"image":{"advanced":{"show":{"desktop":{"value":"on"}},"alignment":{"desktop":{"value":"float-start me-3"}}}},"content":{"innerContent":{"desktop":{"value":""}}},"tags":{"innerContent":{"desktop":{"value":"on"}}},"categories":{"innerContent":{"desktop":{"value":"on"}}},"course":{"innerContent":{"desktop":{"value":{"presenter":{"show":"off","name":"","image":"","bio":""},"start":{"date":"","custom":"off","pattern":"D, n/j/Y g:i a"},"end":{"date":"","custom":"off","pattern":"D, n/j/Y g:i a"},"address":{"show":"off","address":"","city":"","state":"","zip":""},"show_map":"off","registration_type":"","cost":""}}}},"event":{"innerContent":{"desktop":{"value":{"organizer":"","presenter":{"show":"off","name":"","image":{"src":""},"bio":""},"start":{"date":"","custom":"off","pattern":"D, n/j/Y g:i a"},"end":{"date":"","custom":"off","pattern":"D, n/j/Y g:i a"},"address":{"show":"off","address":"","city":"","state":"","zip":""},"registration_type":"","cost":""}}}},"news":{"innerContent":{"desktop":{"value":{"author":"","published":{"date":"","custom":"off","pattern":"D, n/j/Y g:i a"},"location":""}}}},"exam":{"innerContent":{"desktop":{"value":{"id":"","class":"","status":"open","published":{"date":"","custom":"off","pattern":"D, n/j/Y g:i a"},"filing":{"date":"","custom":"off","pattern":"D, n/j/Y g:i a","chooser":"off","picker":""},"type":"web","url":"","address":{"address":"","city":"","state":"","zip":""}}}}},"profile":{"innerContent":{"desktop":{"value":{"prefix":"","name":"","career":{"show":"off","title":"","position":""},"fields":{"show":"off","line1":"","line2":"","line3":""}}}}},"jobs":{"innerContent":{"desktop":{"value":{"agency":{"show":"off","name":"","about":"","address":{"address":"","city":"","state":"","zip":""}},"hours":"","salary":{"show":"off","min":"","max":""},"posted":{"date":"","custom":"off","pattern":"M d, Y"},"position_number":"","rpa_number":"","ds_url":"","filing":{"date":"Until Filled","custom":"off","pattern":"D, n/j/Y g:i a","chooser":"on","picker":""},"apply":{"show":"off","dept":"","name":"","address":{"address":"","city":"","state":"","zip":""}},"questions":{"show":"off","name":"","email":"","phone":""}}}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"layout":{"innerContent":{"desktop":{"value":"general"}}},"image":{"advanced":{"show":{"desktop":{"value":"on"}},"alignment":{"desktop":{"value":"float-start me-3"}}}},"content":{"innerContent":{"desktop":{"value":""}}},"tags":{"innerContent":{"desktop":{"value":"on"}}},"categories":{"innerContent":{"desktop":{"value":"on"}}},"course":{"innerContent":{"desktop":{"value":{"presenter":{"show":"off","name":"","image":"","bio":""},"start":{"date":"","custom":"off","pattern":"D, n/j/Y g:i a"},"end":{"date":"","custom":"off","pattern":"D, n/j/Y g:i a"},"address":{"show":"off","address":"","city":"","state":"","zip":""},"show_map":"off","registration_type":"","cost":""}}}},"event":{"innerContent":{"desktop":{"value":{"organizer":"","presenter":{"show":"off","name":"","image":{"src":""},"bio":""},"start":{"date":"","custom":"off","pattern":"D, n/j/Y g:i a"},"end":{"date":"","custom":"off","pattern":"D, n/j/Y g:i a"},"address":{"show":"off","address":"","city":"","state":"","zip":""},"registration_type":"","cost":""}}}},"news":{"innerContent":{"desktop":{"value":{"author":"","published":{"date":"","custom":"off","pattern":"D, n/j/Y g:i a"},"location":""}}}},"exam":{"innerContent":{"desktop":{"value":{"id":"","class":"","status":"open","published":{"date":"","custom":"off","pattern":"D, n/j/Y g:i a"},"filing":{"date":"Until Filled","custom":"off","pattern":"D, n/j/Y g:i a","chooser":"off","picker":""},"type":"web","url":"","address":{"address":"","city":"","state":"","zip":""}}}}},"profile":{"innerContent":{"desktop":{"value":{"prefix":"","name":"","career":{"show":"off","title":"","position":""},"fields":{"show":"off","line1":"","line2":"","line3":""}}}}},"jobs":{"innerContent":{"desktop":{"value":{"agency":{"show":"off","name":"","about":"","address":{"address":"","city":"","state":"","zip":""}},"hours":"","salary":{"show":"off","min":"","max":""},"posted":{"date":"","custom":"off","pattern":"M d, Y"},"position_number":"","rpa_number":"","ds_url":"","filing":{"date":"Until Filled","custom":"off","pattern":"D, n/j/Y g:i a","chooser":"on","picker":""},"apply":{"show":"off","dept":"","name":"","address":{"address":"","city":"","state":"","zip":""}},"questions":{"show":"off","name":"","email":"","phone":""}}}}}}');
 
 /***/ },
 

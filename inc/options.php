@@ -11,9 +11,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_menu', 'caweb_admin_menu' );
 add_action( 'admin_menu', 'caweb_remove_admin_menus', 999 );
-add_action( 'load-themes.php', 'caweb_load_themes_tools' );
 add_action( 'settings_page_disable_rest_api_settings', 'caweb_load_themes_tools' );
 add_action( 'load-tools.php', 'caweb_load_themes_tools' );
+add_action( 'load-themes.php', 'caweb_load_themes_tools' );
+add_action( 'load-site-editor.php', 'caweb_load_themes_tools' );
 add_action( 'pre_update_site_option_caweb_password', 'caweb_pre_update_site_option_caweb_password', 10, 3 );
 add_action( 'pre_site_option_caweb_multi_ga', 'caweb_pre_site_option_caweb_multi_ga', 10, 4 );
 
@@ -150,6 +151,8 @@ function caweb_remove_admin_menus() {
 		// Remove Disable Rest API setting.
 		remove_submenu_page( 'options-general.php', 'disable_rest_api_settings' );
 
+		// Remove WordPress Site Editor from the Appearance menu
+		remove_submenu_page( 'themes.php', 'site-editor.php' );
 	}
 }
 

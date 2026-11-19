@@ -139,7 +139,7 @@
                         "pattern": "D, n/j/Y g:i a"
                     },
                     "filing": {
-                        "date": "",
+                        "date": "Until Filled",
                         "custom": "off",
                         "pattern": "D, n/j/Y g:i a",
                         "chooser": "off",

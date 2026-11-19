@@ -1,7 +1,7 @@
 // External Dependencies.
 import React, { ReactElement, useEffect, useRef, Fragment } from 'react';
 import { get, map } from 'lodash';
-import { select } from '@divi/data';
+import { parse } from '@wordpress/blocks';
 
 // Divi Dependencies.
 import {
@@ -25,7 +25,14 @@ import { ModuleStyles } from './styles.jsx';
 import { moduleClassnames } from './module-classnames.js';
 import { ModuleScriptData } from './module-script-data.jsx';
 import { PostListModuleEditProps } from './types.ts';
-import { get_icon_span, get_google_map_place_link, RenderWordPressShortcode } from '../Utils/Module.jsx';
+import { 
+  get_icon_span, 
+  get_google_map_place_link, 
+  RenderWordPressShortcode,
+  findAllModules,
+  getModuleAttr 
+} from '../Utils/Module.jsx';
+
 
 /**
  * Divi 5 Module edit component of visual builder.
@@ -63,6 +70,7 @@ const ModuleEdit = ({
     let displayExcerpt = getAttrByMode(excerpt?.innerContent);
     let displayImage = getAttrByMode(image?.innerContent);
 
+    
     if( 'on' === showAllTags) {
       tagsList = [];
     }
@@ -134,11 +142,11 @@ const ModuleEdit = ({
       .then((data) => {
         // now that we have the category ids, we can fetch the posts
         let postArgs = {
-          per_page: postNumber,
+          // per_page: postNumber,
           orderby: orderBy,
           order,
+          context: 'edit', // we need the edit context in order to get the raw content
           categories: data.map(category => category.id).join(','),
-
         };
 
         if( data ){
@@ -175,43 +183,49 @@ const ModuleEdit = ({
         }
       };
 
-    }, []);
+    }, [selectedStyle, orderBy]);
 
     let output = [];
     
     if( ! isLoading && response ) {
       map(response, (post, i)=> {
         let { 
-          content: { rendered: post_content },
+          content: { raw: raw_content, rendered: post_content },
           guid: { rendered: post_url },
           title: { rendered: post_title },
-          featured_media
+          featured_media,
+          id
         } = post || {};
         
         let shortCode = shortcode.next('et_pb_ca_post_handler', post_content );
-  
+        let detailModule = findAllModules(parse(raw_content), 'caweb/post-detail');
+
         // Only if a Post Handler shortcode is found, we proceed
-        if( shortCode ){
+        if( detailModule.length ){
+          // grab the post detail module for further processing if needed
+          const postDetailModule = detailModule[0];
+
           const formatter = new Intl.NumberFormat('en-US', {
             style: 'currency',
             currency: 'USD'
           });
   
-          let { shortcode: sc } = shortCode;
-          let { post_type_layout } = sc?.attrs?.named;
-          let shortcode_content = sc?.content;
+          let { layout } = postDetailModule?.attributes;
+          let post_type_layout = getModuleAttr(layout);
 
           switch( selectedStyle ){
             case 'courses-list':
               if( 'course' === post_type_layout ){
                 let { 
-                  course_start_date,
-                  course_end_date,
-                  course_address,
-                  course_city,
-                  course_state,
-                  course_zip
-                } = sc?.attrs?.named;
+                  start: { date: course_start_date },
+                  end: { date: course_end_date },
+                  address: { 
+                    address: course_address,
+                    city: course_city,
+                    state: course_state,
+                    zip: course_zip
+                  }
+                } = getModuleAttr(postDetailModule?.attributes?.course);
                 
                 let address = [course_address, course_city, course_state, course_zip].filter(Boolean);
   
@@ -226,7 +240,7 @@ const ModuleEdit = ({
   
                 if( 'on' === displayExcerpt ){
                   const parser = new DOMParser();
-                  const parsedContent = parser.parseFromString(sc?.content, 'text/html');
+                  const parsedContent = parser.parseFromString(post_content, 'text/html');
                   
                   excerpt = parsedContent.body.textContent || '';
                   
@@ -266,68 +280,76 @@ const ModuleEdit = ({
               break;
             case 'events-list':
             case 'general-list':
-              if( 'event' === post_type_layout || ('general-list' === selectedStyle && ['news', 'profile', 'jobs', 'event', 'course', 'exam', 'general', 'faqs'].includes(post_type_layout))){
+              let event_start_date = null;
+
+              // if the post type is 'event', get the start date from the event attributes
+              if( 'event' === post_type_layout ){
                 let { 
-                  event_start_date,
-                } = sc?.attrs?.named;
-
-                // if the post has a featured image 
-                let featuredImage = 'on' === displayImage && responseImg && 
-                  <div className="thumbnail float-start w-auto">
-                    <img src={responseImg.find(img => img.id === featured_media)?.source_url} style={{width: '80px', height: '80px'}} />
-                  </div>;
-
-                // we generate an excerpt from the shortcode content, if displayExcerpt is on
-                let excerpt = '';
-                
-                if( 'on' === displayExcerpt ){
-                  const parser = new DOMParser();
-                  const parsedContent = parser.parseFromString(sc?.content, 'text/html');
-                  
-                  excerpt = parsedContent.body.textContent || '';
-                  
-                  // we only want the first 15 words of the excerpt
-                  if( excerpt.length ) {
-                    excerpt = excerpt.split(' ');
-                    let ellipsis = excerpt.length > 15;
-
-                    excerpt = excerpt.slice(0, 15).join(' ');
-
-                    // Add ellipsis if the excerpt was truncated
-                    if( ellipsis ) {
-                      excerpt += '...';
-                    } 
-                  }
-                }
-
-                output.push(
-                  <article className="event-item bg-light p-3 mb-3">
-                    { featuredImage }
-                    <div className={"info" + ( 'on' === displayImage ? ' ms-5 ps-5 float-none clearfix' : '') }>
-                      <h5 className="pb-0">
-                          <a href={ post_url } className="text-decoration-dotted" target="_blank">{ post_title }</a>
-                      </h5>
-                      {
-                        excerpt.length && <div className="description">{excerpt}</div>
-                      }
-                      {
-                        event_start_date && <div className="start-date"><time>{new Date(event_start_date).toLocaleDateString('en-US', {weekday: 'short', month: 'numeric', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit'})}</time></div>
-                      }
-                    </div>
-                  </article>
-                )
+                  start: event_start,
+                } = getModuleAttr(postDetailModule?.attributes?.event);
+                event_start_date = event_start?.date || null;
               }
+              
+              // if the post has a featured image 
+              let featuredImage = 'on' === displayImage && responseImg && 
+                <div className="thumbnail float-start w-auto">
+                  <img src={responseImg.find(img => img.id === featured_media)?.source_url} style={{width: '80px', height: '80px'}} />
+                </div>;
+
+              // we generate an excerpt from the shortcode content, if displayExcerpt is on
+              let excerpt = '';
+              
+              if( 'on' === displayExcerpt ){
+                const parser = new DOMParser();
+                const parsedContent = parser.parseFromString(post_content, 'text/html');
+                
+                excerpt = parsedContent.body.textContent || '';
+                
+                // we only want the first 15 words of the excerpt
+                if( excerpt.length ) {
+                  excerpt = excerpt.split(' ');
+                  let ellipsis = excerpt.length > 15;
+
+                  excerpt = excerpt.slice(0, 15).join(' ');
+
+                  // Add ellipsis if the excerpt was truncated
+                  if( ellipsis ) {
+                    excerpt += '...';
+                  } 
+                }
+              }
+
+              output.push(
+                <article className="event-item bg-light p-3 mb-3">
+                  { featuredImage }
+                  <div className={"info" + ( 'on' === displayImage ? ' ms-5 ps-5 float-none clearfix' : '') }>
+                    <h5 className="pb-0">
+                        <a href={ post_url } className="text-decoration-dotted" target="_blank">{ post_title }</a>
+                    </h5>
+                    {
+                      excerpt.length && <div className="description">{excerpt}</div>
+                    }
+                    {
+                      event_start_date && <div className="start-date"><time>{new Date(event_start_date).toLocaleDateString('en-US', {weekday: 'short', month: 'numeric', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit'})}</time></div>
+                    }
+                  </div>
+                </article>
+              )
               break;
             case 'exams-list':
               if( 'exam' === post_type_layout ){
                 let { 
-                  exam_id,
-                  exam_status,
-                  exam_final_filing_date = 'Until Filled', 
-                  exam_final_filing_date_chooser = 'on', 
-                  exam_final_filing_date_picker,
-                  exam_published_date,
-                } = sc?.attrs?.named;
+                  id: exam_id,
+                  status:exam_status,
+                  filing: {
+                    date: exam_final_filing_date, 
+                    chooser: exam_final_filing_date_chooser, 
+                    picker: exam_final_filing_date_picker,
+                  },
+                  published: {
+                    date: exam_published_date
+                  },
+                } = getModuleAttr(postDetailModule?.attributes?.exam);
                 
                 let filingDate = <>Final Filing Date: {exam_final_filing_date}</>;
 
@@ -376,7 +398,7 @@ const ModuleEdit = ({
                         className="collapse"
                         data-bs-parent={ `.${getModuleOrderClassName(id)}` }
                       >
-                        <RenderWordPressShortcode shortcodeText={shortcode_content}></RenderWordPressShortcode>
+                        <RenderWordPressShortcode shortcodeText={post_content}></RenderWordPressShortcode>
                       </div>
                     </li>
                   )
@@ -410,20 +432,28 @@ const ModuleEdit = ({
             case 'jobs-list':
               if( 'jobs' === post_type_layout ){ 
                 let { 
-                  job_final_filing_date, 
-                  job_final_filing_date_chooser, 
-                  job_final_filing_date_picker,
-                  job_position_number,
-                  job_rpa_number,
-                  job_hours,
-                  show_job_salary,
-                  job_salary_min,
-                  job_salary_max,
-                  job_agency_address,
-                  job_agency_city,
-                  job_agency_state,
-                  job_agency_zip,
-                } = sc?.attrs?.named;
+                  position_number: job_position_number,
+                  rpa_number: job_rpa_number,
+                  hours: job_hours,
+                  agency: {
+                    address: {
+                      address: job_agency_address,
+                      city: job_agency_city,
+                      state:job_agency_state,
+                      zip:job_agency_zip,
+                    }
+                  },
+                  filing: {
+                    date: job_final_filing_date,
+                    chooser:job_final_filing_date_chooser, 
+                    picker:job_final_filing_date_picker,
+                  },
+                  salary: {
+                    show: show_job_salary,
+                    min: job_salary_min,
+                    max: job_salary_max,
+                  },
+                } = getModuleAttr(postDetailModule?.attributes?.jobs);
 
                 let filingDate = <>Final Filing Date: {job_final_filing_date}<br /></>;
 
@@ -478,14 +508,14 @@ const ModuleEdit = ({
               break;
             case 'news-list':
               if( 'news' === post_type_layout ){
-                let { news_author, news_publish_date } = sc?.attrs?.named;
+                let { author: news_author, publish: { date: news_publish_date } } = getModuleAttr(postDetailModule?.attributes?.news);
                 
                 // we generate an excerpt from the shortcode content, if displayExcerpt is on
                 let excerpt = '';
 
                 if( 'on' === displayExcerpt ){
                   const parser = new DOMParser();
-                  const parsedContent = parser.parseFromString(sc?.content, 'text/html');
+                  const parsedContent = parser.parseFromString(post_content, 'text/html');
                   
                   excerpt = parsedContent.body.textContent || '';
                   
@@ -539,14 +569,15 @@ const ModuleEdit = ({
             case 'profiles-list':
               if( 'profile' === post_type_layout ){
                 let { 
-                  profile_name_prefix, 
-                  profile_name, 
-                  profile_career_title,
-                  profile_career_position,
-                  profile_career_line_1,
-                  profile_career_line_2,
-                  profile_career_line_3
-                } = sc?.attrs?.named;
+                  prefix: profile_name_prefix, 
+                  name: profile_name, 
+                  career: { title: profile_career_title, position: profile_career_position },
+                  fields: {
+                    line1: profile_career_line_1,
+                    line2: profile_career_line_2,
+                    line3: profile_career_line_3
+                  }
+                } = getModuleAttr(postDetailModule?.attributes?.profile);
               
                 // if the post has a featured image 
                 let featuredImage = 'on' === displayImage && responseImg && 

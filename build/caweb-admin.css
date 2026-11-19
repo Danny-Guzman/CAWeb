@@ -9,8 +9,8 @@
  * @see https://github.com/twbs/bootstrap/blob/cb021439c683d9805e2864c58095b92d405e9b11/scss/bootstrap.scss
  */
 /*!
- * Bootstrap CAWeb Theme v5.3.8 (https://getbootstrap.com/)
- * Copyright 2011-2025 The Bootstrap Authors
+ * Bootstrap CAWeb Theme v5.3.9 (https://getbootstrap.com/)
+ * Copyright 2011-2026 The Bootstrap Authors
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 /*
@@ -541,7 +541,7 @@ legend + * {
 
 ::-webkit-datetime-edit-fields-wrapper,
 ::-webkit-datetime-edit-text,
-::-webkit-datetime-edit-minute,
+::-webkit-datetime-edit-minute-field,
 ::-webkit-datetime-edit-hour-field,
 ::-webkit-datetime-edit-day-field,
 ::-webkit-datetime-edit-month-field,
@@ -3288,13 +3288,20 @@ textarea.form-control-lg {
 }
 @media (min-width: 992px) {
   .modal-lg,
-  .modal-xl {
+  .modal-xl,
+  .modal-xxl {
     --bs-modal-width: 800px;
   }
 }
 @media (min-width: 1200px) {
-  .modal-xl {
+  .modal-xl,
+  .modal-xxl {
     --bs-modal-width: 1140px;
+  }
+}
+@media (min-width: 1400px) {
+  .modal-xxl {
+    --bs-modal-width: 1320px;
   }
 }
 .modal-fullscreen {

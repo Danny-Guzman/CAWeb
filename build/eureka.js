@@ -31,8 +31,8 @@ __webpack_require__.r(__webpack_exports__);
 (module) {
 
 /*!
-  * Bootstrap v5.3.9 (https://getbootstrap.com/)
-  * Copyright 2011-2026 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Bootstrap v5.3.8 (https://getbootstrap.com/)
+  * Copyright 2011-2025 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 (function (global, factory) {
@@ -100,11 +100,9 @@ __webpack_require__.r(__webpack_exports__);
   const TRANSITION_END = 'transitionend';
 
   /**
-   * Properly escapes ID selectors to handle special characters in IDs
-   * (e.g. forward slashes, periods) so that they work with `document.querySelector`.
-   *
-   * @param {string} selector the selector to escape
-   * @returns {string} the escaped selector
+   * Properly escape IDs selectors to handle weird IDs
+   * @param {string} selector
+   * @returns {string}
    */
   const parseSelector = selector => {
     if (selector && window.CSS && window.CSS.escape) {
@@ -182,7 +180,7 @@ __webpack_require__.r(__webpack_exports__);
       return false;
     }
     const elementIsVisible = getComputedStyle(element).getPropertyValue('visibility') === 'visible';
-    // Handle `details` element as its content may falsely appear visible when it is closed
+    // Handle `details` element as its content may falsie appear visible when it is closed
     const closedDetails = element.closest('details:not([open])');
     if (!closedDetails) {
       return elementIsVisible;
@@ -233,10 +231,10 @@ __webpack_require__.r(__webpack_exports__);
   const noop = () => {};
 
   /**
-   * Trick to restart an element's animation by forcing a reflow.
+   * Trick to restart an element's animation
    *
-   * @param {HTMLElement} element the element whose animation should be restarted
-   * @returns {void}
+   * @param {HTMLElement} element
+   * @return void
    *
    * @see https://www.harrytheo.com/blog/2021/02/restart-a-css-animation-with-javascript/#restarting-a-css-animation
    */
@@ -314,11 +312,11 @@ __webpack_require__.r(__webpack_exports__);
   /**
    * Return the previous/next element of a list.
    *
-   * @param {Element[]} list the list of elements to traverse
-   * @param {Element} activeElement the currently active element
-   * @param {boolean} shouldGetNext whether to return the next element (`true`) or the previous one (`false`)
-   * @param {boolean} isCycleAllowed whether to cycle back to the opposite end of the list when reaching the boundary
-   * @returns {Element} the appropriate previous/next element from the list
+   * @param {array} list    The list of elements
+   * @param activeElement   The active element
+   * @param shouldGetNext   Choose to get next or previous element
+   * @param isCycleAllowed
+   * @return {Element|elem} The proper element
    */
   const getNextActiveElement = (list, activeElement, shouldGetNext, isCycleAllowed) => {
     const listLength = list.length;
@@ -680,7 +678,7 @@ __webpack_require__.r(__webpack_exports__);
    * Constants
    */
 
-  const VERSION = '5.3.9';
+  const VERSION = '5.3.8';
 
   /**
    * Class definition
@@ -1038,7 +1036,6 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
       this._config = this._getConfig(config);
-      this._startX = 0;
       this._deltaX = 0;
       this._supportPointerEvents = Boolean(window.PointerEvent);
       this._initEvents();
@@ -1062,24 +1059,23 @@ __webpack_require__.r(__webpack_exports__);
 
     // Private
     _start(event) {
-      this._deltaX = 0;
       if (!this._supportPointerEvents) {
-        this._startX = event.touches[0].clientX;
+        this._deltaX = event.touches[0].clientX;
         return;
       }
       if (this._eventIsPointerPenTouch(event)) {
-        this._startX = event.clientX;
+        this._deltaX = event.clientX;
       }
     }
     _end(event) {
       if (this._eventIsPointerPenTouch(event)) {
-        this._deltaX = event.clientX - this._startX;
+        this._deltaX = event.clientX - this._deltaX;
       }
       this._handleSwipe();
       execute(this._config.endCallback);
     }
     _move(event) {
-      this._deltaX = event.touches && event.touches.length > 1 ? 0 : event.touches[0].clientX - this._startX;
+      this._deltaX = event.touches && event.touches.length > 1 ? 0 : event.touches[0].clientX - this._deltaX;
     }
     _handleSwipe() {
       const absDeltaX = Math.abs(this._deltaX);
@@ -1336,10 +1332,8 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
       const activeIndicator = SelectorEngine.findOne(SELECTOR_ACTIVE, this._indicatorsElement);
-      if (activeIndicator) {
-        activeIndicator.classList.remove(CLASS_NAME_ACTIVE$2);
-        activeIndicator.removeAttribute('aria-current');
-      }
+      activeIndicator.classList.remove(CLASS_NAME_ACTIVE$2);
+      activeIndicator.removeAttribute('aria-current');
       const newActiveIndicator = SelectorEngine.findOne(`[data-bs-slide-to="${index}"]`, this._indicatorsElement);
       if (newActiveIndicator) {
         newActiveIndicator.classList.add(CLASS_NAME_ACTIVE$2);
@@ -3506,6 +3500,12 @@ __webpack_require__.r(__webpack_exports__);
       return instance;
     };
   }
+  var createPopper$2 = /*#__PURE__*/popperGenerator(); // eslint-disable-next-line import/no-unused-modules
+
+  var defaultModifiers$1 = [eventListeners, popperOffsets$1, computeStyles$1, applyStyles$1];
+  var createPopper$1 = /*#__PURE__*/popperGenerator({
+    defaultModifiers: defaultModifiers$1
+  }); // eslint-disable-next-line import/no-unused-modules
 
   var defaultModifiers = [eventListeners, popperOffsets$1, computeStyles$1, applyStyles$1, offset$1, flip$1, preventOverflow$1, arrow$1, hide$1];
   var createPopper = /*#__PURE__*/popperGenerator({
@@ -3528,6 +3528,8 @@ __webpack_require__.r(__webpack_exports__);
     clippingParents,
     computeStyles: computeStyles$1,
     createPopper,
+    createPopperBase: createPopper$2,
+    createPopperLite: createPopper$1,
     detectOverflow,
     end,
     eventListeners,
@@ -3730,7 +3732,7 @@ __webpack_require__.r(__webpack_exports__);
     }
     _createPopper() {
       if (typeof Popper === 'undefined') {
-        throw new TypeError('Bootstrap\'s dropdowns require Popper (https://github.com/floating-ui/popper-docs/blob/main/docs/v2/index.md)');
+        throw new TypeError('Bootstrap\'s dropdowns require Popper (https://popper.js.org/docs/v2/)');
       }
       let referenceElement = this._element;
       if (this._config.reference === 'parent') {
@@ -5094,7 +5096,7 @@ __webpack_require__.r(__webpack_exports__);
   class Tooltip extends BaseComponent {
     constructor(element, config) {
       if (typeof Popper === 'undefined') {
-        throw new TypeError('Bootstrap\'s tooltips require Popper (https://github.com/floating-ui/popper-docs/blob/main/docs/v2/index.md)');
+        throw new TypeError('Bootstrap\'s tooltips require Popper (https://popper.js.org/docs/v2/)');
       }
       super(element, config);
 
@@ -5442,16 +5444,6 @@ __webpack_require__.r(__webpack_exports__);
     }
     _getConfig(config) {
       const dataAttributes = Manipulator.getDataAttributes(this._element);
-
-      // Read text attributes without coercing their values.
-      const title = this._element.getAttribute('data-bs-title');
-      const content = this._element.getAttribute('data-bs-content');
-      if (title !== null) {
-        dataAttributes.title = title;
-      }
-      if (content !== null) {
-        dataAttributes.content = content;
-      }
       for (const dataAttribute of Object.keys(dataAttributes)) {
         if (DISALLOWED_ATTRIBUTES.has(dataAttribute)) {
           delete dataAttributes[dataAttribute];
@@ -5727,7 +5719,7 @@ __webpack_require__.r(__webpack_exports__);
       // unregister any previous listeners
       EventHandler.off(this._config.target, EVENT_CLICK);
       EventHandler.on(this._config.target, EVENT_CLICK, SELECTOR_TARGET_LINKS, event => {
-        const observableSection = this._observableSections.get(event.delegateTarget.hash);
+        const observableSection = this._observableSections.get(event.target.hash);
         if (observableSection) {
           event.preventDefault();
           const root = this._rootElement || window;
@@ -6354,10 +6346,10 @@ __webpack_require__.r(__webpack_exports__);
 /***/ },
 
 /***/ "./src/scripts/components/external-link.js"
-(__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_208389__) {
+(__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_207879__) {
 
 "use strict";
-__nested_webpack_require_208389__.r(__nested_webpack_exports__);
+__nested_webpack_require_207879__.r(__nested_webpack_exports__);
 /* EXTERNAL LINK ICON */
 window.addEventListener('load', () => {
   const ext = '<span class="ca-gov-icon-external-link" aria-hidden="true"></span><span class="sr-only">opens in a new window</span>';
@@ -6383,18 +6375,15 @@ window.addEventListener('load', () => {
 /***/ },
 
 /***/ "./src/scripts/components/header.js"
-(__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_209490__) {
+(__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_208980__) {
 
 "use strict";
-__nested_webpack_require_209490__.r(__nested_webpack_exports__);
+__nested_webpack_require_208980__.r(__nested_webpack_exports__);
 window.addEventListener('load', () => {
   let location_hash = window.location.hash.replace(/(\|)/g, "\\$1");
   const header = document.querySelector('header');
   const alerts = header?.querySelector('.alerts');
   const utilityHeader = header?.querySelector('.utility-header');
-
-  // Specific to Divi
-  const pageBar = document.querySelector('.et-vb-page-bar');
 
   // array of elements that are compacted
   const compactedElements = [alerts, utilityHeader].filter(Boolean);
@@ -6420,11 +6409,6 @@ window.addEventListener('load', () => {
         offset += current.clientHeight;
       }
       current = current.previousElementSibling;
-    }
-
-    // if the page bar exists and has a fixed position, add its height to the top offset.
-    if (pageBar instanceof HTMLElement && window.getComputedStyle(pageBar).position === 'fixed') {
-      offset += pageBar.clientHeight;
     }
     return offset;
   };
@@ -6565,10 +6549,10 @@ window.addEventListener('load', () => {
 /***/ },
 
 /***/ "./src/scripts/components/mobile-controls.js"
-(__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_216857__) {
+(__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_216029__) {
 
 "use strict";
-__nested_webpack_require_216857__.r(__nested_webpack_exports__);
+__nested_webpack_require_216029__.r(__nested_webpack_exports__);
 window.addEventListener('load', () => {
   const isDesktopWidth = () => window.innerWidth > 992; //Maximum px for mobile width
 
@@ -6682,10 +6666,10 @@ window.addEventListener('load', () => {
 /***/ },
 
 /***/ "./src/scripts/components/navigation.js"
-(__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_220859__) {
+(__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_220031__) {
 
 "use strict";
-__nested_webpack_require_220859__.r(__nested_webpack_exports__);
+__nested_webpack_require_220031__.r(__nested_webpack_exports__);
 window.addEventListener('load', () => {
   document.querySelectorAll('header .nav.megadropdown .dropdown').forEach((element, i) => {
     element.addEventListener('shown.bs.dropdown', async event => {
@@ -6718,10 +6702,10 @@ window.addEventListener('load', () => {
 /***/ },
 
 /***/ "./src/scripts/components/return-top.js"
-(__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_222016__) {
+(__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_221188__) {
 
 "use strict";
-__nested_webpack_require_222016__.r(__nested_webpack_exports__);
+__nested_webpack_require_221188__.r(__nested_webpack_exports__);
 window.addEventListener('load', () => {
   document.querySelectorAll('.return-top').forEach(returnTop => returnTop.addEventListener('click', () => {
     document.body.scrollTop = 0; // For Safari
@@ -6778,7 +6762,7 @@ window.addEventListener('load', () => {
 /******/ 	const __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
-/******/ 	function __nested_webpack_require_223928__(moduleId) {
+/******/ 	function __nested_webpack_require_223100__(moduleId) {
 /******/ 		// Check if module is in cache
 /******/ 		const cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
@@ -6798,7 +6782,7 @@ window.addEventListener('load', () => {
 /******/ 			e.code = 'MODULE_NOT_FOUND';
 /******/ 			throw e;
 /******/ 		}
-/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_223928__);
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_223100__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -6807,7 +6791,7 @@ window.addEventListener('load', () => {
 /************************************************************************/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	// define __esModule on exports
-/******/ 	__nested_webpack_require_223928__.r = (exports) => {
+/******/ 	__nested_webpack_require_223100__.r = (exports) => {
 /******/ 		Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 		Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 	};
@@ -6818,7 +6802,7 @@ let __nested_webpack_exports__ = {};
 (() => {
 "use strict";
 let __nested_webpack_exports__ = {};
-__nested_webpack_require_223928__.r(__nested_webpack_exports__);
+__nested_webpack_require_223100__.r(__nested_webpack_exports__);
 // extracted by mini-css-extract-plugin
 
 })();
@@ -6826,13 +6810,13 @@ __nested_webpack_require_223928__.r(__nested_webpack_exports__);
 // This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
 (() => {
 "use strict";
-__nested_webpack_require_223928__.r(__nested_webpack_exports__);
-/* harmony import */ var bootstrap_dist_js_bootstrap_bundle_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_223928__("./node_modules/bootstrap/dist/js/bootstrap.bundle.js");
-/* harmony import */ var _components_mobile_controls_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_223928__("./src/scripts/components/mobile-controls.js");
-/* harmony import */ var _components_return_top_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_223928__("./src/scripts/components/return-top.js");
-/* harmony import */ var _components_external_link_js__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_223928__("./src/scripts/components/external-link.js");
-/* harmony import */ var _components_header_js__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_223928__("./src/scripts/components/header.js");
-/* harmony import */ var _components_navigation_js__WEBPACK_IMPORTED_MODULE_5__ = __nested_webpack_require_223928__("./src/scripts/components/navigation.js");
+__nested_webpack_require_223100__.r(__nested_webpack_exports__);
+/* harmony import */ var bootstrap_dist_js_bootstrap_bundle_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_223100__("./node_modules/bootstrap/dist/js/bootstrap.bundle.js");
+/* harmony import */ var _components_mobile_controls_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_223100__("./src/scripts/components/mobile-controls.js");
+/* harmony import */ var _components_return_top_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_223100__("./src/scripts/components/return-top.js");
+/* harmony import */ var _components_external_link_js__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_223100__("./src/scripts/components/external-link.js");
+/* harmony import */ var _components_header_js__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_223100__("./src/scripts/components/header.js");
+/* harmony import */ var _components_navigation_js__WEBPACK_IMPORTED_MODULE_5__ = __nested_webpack_require_223100__("./src/scripts/components/navigation.js");
 
 window.bootstrap = bootstrap_dist_js_bootstrap_bundle_js__WEBPACK_IMPORTED_MODULE_0__;
 

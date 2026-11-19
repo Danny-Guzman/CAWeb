@@ -8,13 +8,15 @@ export default {
         modules4: './divi-4/src/index.js',
         builder: './src/backend.js',
     },
-    
+
     externals: {
         underscore: '_',
         jquery: 'jQuery',
         lodash: 'lodash',
         react: ['vendor', 'React'],
         'react-dom': ['vendor', 'ReactDOM'],
+
+        '@wordpress/blocks': ['vendor', 'wp', 'blocks'],
 
         // Divi Dependencies.
         '@divi/data': ['divi', 'data'],

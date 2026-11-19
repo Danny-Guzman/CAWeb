@@ -5,6 +5,7 @@ import React, { ReactElement, CSSProperties, useEffect } from 'react';
 // Divi Dependencies.
 import { useFetch } from '@divi/rest';
 import { processFontIcon } from '@divi/icon-library';
+import { select } from '@divi/data';
 
 // WordPress Dependencies.
 import { addQueryArgs } from '@wordpress/url';
@@ -130,7 +131,7 @@ const RenderWordPressShortcode = ({shortcodeText}) => {
     } = useFetch([]);
     
     useEffect(() => {
-        let { ajax_url, js_shortcode_nonce } = CawebDiviExtensionModulesBuilderBundleScriptData;
+        let { ajax_url, js_shortcode_nonce } = CawebDiviExtensionModulesBuilderScriptData;
         // Build the request payload
         const formData = new FormData();
         formData.append('action', 'render_shortcode_via_js');
@@ -149,10 +150,38 @@ const RenderWordPressShortcode = ({shortcodeText}) => {
     return isLoading ? <></> : <div dangerouslySetInnerHTML={{__html: response.data}}></div>;
 };
 
+const findAllModules = (blocks, targetModuleName) => {
+  const matches = [];
+
+  for (const block of blocks) {
+    // Handles both @wordpress/blocks ('name') and default-parser ('blockName')
+    const currentName = block.name || block.blockName;
+
+    if (currentName === targetModuleName) {
+      matches.push(block);
+    }
+
+    // Recursively search inside sections, rows, columns, and parent modules
+    if (Array.isArray(block.innerBlocks) && block.innerBlocks.length > 0) {
+      matches.push(...findAllModules(block.innerBlocks, targetModuleName));
+    }
+  }
+
+  return matches;
+};
+
+// this is sort of like Divi's getAttrByMode since we cant use it in loops/switches
+const getModuleAttr = (attr) => {
+    const currentBreakpoint = select('divi/app-ui')?.getBreakpoint() || 'desktop';
+    return attr?.innerContent?.[currentBreakpoint]?.value;
+}
+
 export { 
     get_icon_span, 
     get_address, 
     get_google_map_place_link, 
     processColorPickerValue,
-    RenderWordPressShortcode
+    RenderWordPressShortcode,
+    findAllModules,
+    getModuleAttr
 };

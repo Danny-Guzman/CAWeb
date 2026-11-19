@@ -26,7 +26,6 @@ export const SettingsContent = ({
   let { layout } = attributes;
 
   let selectedLayout = getAttrByMode(layout?.innerContent);
-
   let taxonomy = getAttrByMode(attributes[selectedLayout]?.innerContent);
 
   // toggle group configuration based on selected layout
